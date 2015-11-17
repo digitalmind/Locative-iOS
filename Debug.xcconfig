@@ -9,6 +9,6 @@
 #include "Pods/Target Support Files/Pods-Geofancy/Pods-Geofancy.debug.xcconfig"
 
 BUNDLE_IDENTIFIER = io.kida.Geofancy
-VERSION = 1.8.10
+VERSION = 1.8.11
 BACKEND_PROTOCOL = https
 BACKEND_HOST = my.geofancy.com

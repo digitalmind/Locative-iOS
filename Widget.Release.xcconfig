@@ -9,4 +9,4 @@
 #include "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.release.xcconfig"
 
 BUNDLE_IDENTIFIER = com.marcuskida.Geofancy
-VERSION = 1.8.10
+VERSION = 1.8.11
