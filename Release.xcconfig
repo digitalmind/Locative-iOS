@@ -9,6 +9,6 @@
 #include "Pods/Target Support Files/Pods-Geofancy/Pods-Geofancy.release.xcconfig"
 
 BUNDLE_IDENTIFIER = com.marcuskida.Geofancy
-VERSION = 1.8.11
+VERSION = 1.8.12
 BACKEND_PROTOCOL = https
 BACKEND_HOST = my.geofancy.com

@@ -9,4 +9,4 @@
 #include "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.debug.xcconfig"
 
 BUNDLE_IDENTIFIER = io.kida.Geofancy
-VERSION = 1.8.11
+VERSION = 1.8.12
