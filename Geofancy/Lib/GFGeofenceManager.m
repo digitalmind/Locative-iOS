@@ -150,7 +150,7 @@
         }
         
         NSString *relevantUrl = ([trigger isEqualToString:GFEnter])?[event enterUrl]:[event exitUrl];
-        NSString *url = ([relevantUrl length] > 0)?relevantUrl:[[[GFSettings sharedSettings] globalUrl] absoluteString];
+        NSString *url = ([relevantUrl length] > 0)?relevantUrl:[[self.appDelegate.settings globalUrl] absoluteString];
         BOOL useGlobalUrl = ([relevantUrl length] == 0);
         NSString *eventId = ([[event customId] length] > 0)?[event customId]:[event uuid];
         NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
@@ -175,10 +175,10 @@
                 httpRequest.uuid = [[NSUUID UUID] UUIDString];
                 
                 if (useGlobalUrl) {
-                    if ([[GFSettings sharedSettings] httpBasicAuthEnabled]) {
+                    if ([self.appDelegate.settings httpBasicAuthEnabled]) {
                         httpRequest.httpAuth = [NSNumber numberWithBool:YES];
-                        httpRequest.httpAuthUsername = [[GFSettings sharedSettings] httpBasicAuthUsername];
-                        httpRequest.httpAuthPassword = [[GFSettings sharedSettings] httpBasicAuthPassword];
+                        httpRequest.httpAuthUsername = [self.appDelegate.settings httpBasicAuthUsername];
+                        httpRequest.httpAuthPassword = [self.appDelegate.settings httpBasicAuthPassword];
                     }
                 } else {
                     if ([event.httpAuth boolValue]) {

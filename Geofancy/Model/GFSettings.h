@@ -20,11 +20,9 @@
 @property (strong) NSString *httpBasicAuthUsername;
 @property (strong) NSString *httpBasicAuthPassword;
 
-+ (id) sharedSettings;
-- (void) persist;
-
 - (void) setApiToken:(NSString *)apiToken;
 - (void) removeApiToken;
 - (NSString *) apiToken;
+- (void) persist;
 
 @end

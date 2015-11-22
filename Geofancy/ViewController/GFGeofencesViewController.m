@@ -175,7 +175,7 @@
         return;
     }
     
-    if ([[GFSettings sharedSettings] apiToken].length > 0) {
+    if ([self.appDelegate.settings apiToken].length > 0) {
         // User is logged in, ask wether to import Geofence
         PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Would you like to add a new Geofence locally or import it from my.geofancy.com?", nil)
                                                                               message:nil

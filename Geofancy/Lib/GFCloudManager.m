@@ -14,12 +14,19 @@
 #define kMyGeofancyBackend      [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"BackendProtocol"] stringByAppendingFormat:@"://%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"BackendHost"]]
 #define kOriginFallbackString   @"iOS App"
 
+@interface GFCloudManager ()
+
+@property (nonatomic, strong) GFSettings *settings;
+
+@end
+
 @implementation GFCloudManager
 
-- (instancetype)init {
+- (instancetype)initWithSettings:(GFSettings *)settings {
     self = [super init];
     if (self) {
         NSLog(@"My Geofancy Backend: %@", kMyGeofancyBackend);
+        _settings = settings;
     }
     return self;
 }
@@ -113,7 +120,7 @@
                              @"fenceType": StringOrEmpty(fencelog.fenceType),
                              @"origin": [self originString]
                              };
-    [manager POST:[NSString stringWithFormat:@"%@/api/fencelogs/%@", kMyGeofancyBackend, [[GFSettings sharedSettings] apiToken]] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:[NSString stringWithFormat:@"%@/api/fencelogs/%@", kMyGeofancyBackend, [self.settings apiToken]] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // Request succeeded
         if (finish) {
             finish(nil);
@@ -129,9 +136,9 @@
 
 - (void) validateSessionWithCallback:(void(^)(BOOL valid))cb
 {
-    [self checkSessionWithSessionId:[[GFSettings sharedSettings] apiToken] onFinish:^(NSError *error) {
+    [self checkSessionWithSessionId:[self.settings apiToken] onFinish:^(NSError *error) {
         if (error) {
-            [[GFSettings sharedSettings] removeApiToken];
+            [self.settings removeApiToken];
         }
         if (cb) {
             cb(error?NO:YES);
@@ -148,7 +155,7 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setSecurityPolicy:[self commonPolicy]];
-    NSString *sessionId = [[GFSettings sharedSettings] apiToken];
+    NSString *sessionId = [self.settings apiToken];
     if (sessionId.length == 0) {
         return completion([NSError errorWithDomain:NSStringFromClass(self.class) code:401 userInfo:@{NSLocalizedDescriptionKey: @"Invalid session"}], nil);
     }
@@ -167,7 +174,7 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setSecurityPolicy:[self commonPolicy]];
-    NSString *sessionId = [[GFSettings sharedSettings] apiToken];
+    NSString *sessionId = [self.settings apiToken];
     if (sessionId.length == 0) {
         return finish([NSError errorWithDomain:NSStringFromClass(self.class) code:401 userInfo:@{NSLocalizedDescriptionKey: @"Invalid session"}]);
     }

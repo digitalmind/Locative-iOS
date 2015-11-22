@@ -14,21 +14,15 @@
 
 @implementation GFSettings
 
-+ (id) sharedSettings
-{
-    static GFSettings *settings = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if ([[NSFileManager defaultManager] fileExistsAtPath:kOldSettingsFilePath]) {
-            [[NSFileManager defaultManager] moveItemAtPath:kOldSettingsFilePath toPath:kNewSettingsFilePath error:nil];
-        }
-        settings = [NSKeyedUnarchiver unarchiveObjectWithFile:kNewSettingsFilePath];
-        if(!settings)
-        {
-            settings = [[GFSettings alloc] init];
-        }
-    });
-    return settings;
+- (instancetype)init {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:kOldSettingsFilePath]) {
+        [[NSFileManager defaultManager] moveItemAtPath:kOldSettingsFilePath toPath:kNewSettingsFilePath error:nil];
+    }
+    self = [NSKeyedUnarchiver unarchiveObjectWithFile:kNewSettingsFilePath];
+    if(!self) {
+        self = [super init];
+    }
+    return self;
 }
 
 - (void) persist

@@ -54,7 +54,7 @@
 	// Do any additional setup after loading the view.
     
     _appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
-    _settings = [GFSettings sharedSettings];
+    _settings = _appDelegate.settings;
     
     /*
      Drawer Menu Shadow
@@ -114,13 +114,13 @@
 {
     if (indexPath.section == 2) {
         if (indexPath.row >= 0 && indexPath.row < 5) {
-            if ([[[GFSettings sharedSettings] apiToken] length] == 0) {
+            if ([[_appDelegate.settings apiToken] length] == 0) {
                 return [super tableView:tableView heightForRowAtIndexPath:indexPath];
             } else {
                 return 0.0f;
             }
         } else if (indexPath.row >= 5) {
-            if ([[[GFSettings sharedSettings] apiToken] length] == 0) {
+            if ([[_appDelegate.settings apiToken] length] == 0) {
                 return 0.0f;
             } else {
                 return [super tableView:tableView heightForRowAtIndexPath:indexPath];
@@ -251,8 +251,8 @@
         _myGfLoginButton.hidden = !error;
         
         if (!error) {
-            [[GFSettings sharedSettings] setApiToken:sessionId];
-            [[GFSettings sharedSettings] persist];
+            [_appDelegate.settings setApiToken:sessionId];
+            [_appDelegate.settings persist];
             [[self tableView] reloadData];
         }
         
@@ -278,7 +278,7 @@
 
 - (IBAction) logout:(id)sender
 {
-    [[GFSettings sharedSettings] removeApiToken];
+    [_appDelegate.settings removeApiToken];
     
     _myGfCreateAccountButton.hidden = NO;
     _myGfLostPwButton.hidden = NO;

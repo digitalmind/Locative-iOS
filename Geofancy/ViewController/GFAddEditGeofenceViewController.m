@@ -158,8 +158,8 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         {
             [self setTitle:NSLocalizedString(@"New Fence", @"Title for new Geofence Screen.")];
             
-            [_enterMethod setTitle:([[[GFSettings sharedSettings] globalHttpMethod] intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
-            [_exitMethod setTitle:([[[GFSettings sharedSettings] globalHttpMethod] intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
+            [_enterMethod setTitle:([[_appDelegate.settings globalHttpMethod] intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
+            [_exitMethod setTitle:([[_appDelegate.settings globalHttpMethod] intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
             
             _iBeaconUuidTextField.text = [[NSUUID UUID] UUIDString];
             _typeSegmentedControl.hidden = NO;
@@ -167,9 +167,9 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         
         if([[_enterUrlTextField text] length] == 0)
         {
-            if([[[[GFSettings sharedSettings] globalUrl] absoluteString] length] > 0)
+            if([[[_appDelegate.settings globalUrl] absoluteString] length] > 0)
             {
-                _enterUrlTextField.placeholder = [[GFSettings sharedSettings] globalUrl].absoluteString;
+                _enterUrlTextField.placeholder = [_appDelegate.settings globalUrl].absoluteString;
             }
             else
             {
@@ -179,9 +179,9 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         
         if([[_exitUrlTextField text] length] == 0)
         {
-            if([[[[GFSettings sharedSettings] globalUrl] absoluteString] length] > 0)
+            if([[[_appDelegate.settings globalUrl] absoluteString] length] > 0)
             {
-                _exitUrlTextField.placeholder = [[GFSettings sharedSettings] globalUrl].absoluteString;
+                _exitUrlTextField.placeholder = [_appDelegate.settings globalUrl].absoluteString;
             }
             else
             {
@@ -273,7 +273,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         if (_geofenceType == GFGeofenceTypeIbeacon) {
             return 0.0f;
         }
-        if ([[GFSettings sharedSettings] apiToken].length == 0) {
+        if ([_appDelegate.settings apiToken].length == 0) {
             return 0.0f;
         }
     }

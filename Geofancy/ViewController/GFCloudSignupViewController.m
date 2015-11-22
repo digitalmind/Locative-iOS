@@ -9,13 +9,13 @@
 #import "GFCloudSignupViewController.h"
 #import <PSTAlertController/PSTAlertController.h>
 
-@interface GFCloudSignupViewController () {
-    IBOutlet UITextField *_usernameTextField;
-    IBOutlet UITextField *_emailTextField;
-    IBOutlet UITextField *_passwordTextField;
-    
-    GFAppDelegate *_appDelegate;
-}
+@interface GFCloudSignupViewController ()
+
+@property (nonatomic, weak) IBOutlet UITextField *usernameTextField;
+@property (nonatomic, weak) IBOutlet UITextField *emailTextField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
+
+@property (nonatomic, weak) GFAppDelegate *appDelegate;
 @end
 
 @implementation GFCloudSignupViewController
@@ -37,7 +37,7 @@
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [_usernameTextField becomeFirstResponder];
+    [self.usernameTextField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,23 +47,23 @@
 
 #pragma mark - IBActions
 - (IBAction) signupAccount:(id)sender {
-    if ([[_usernameTextField text] length] > 4 ||
-        [[_emailTextField text] length] > 4 ||
-        [[_passwordTextField text] length] > 4) {
+    if ([[self.usernameTextField text] length] > 4 ||
+        [[self.emailTextField text] length] > 4 ||
+        [[self.passwordTextField text] length] > 4) {
         
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 
-        [[_appDelegate cloudManager] signupAccountWithUsername:[_usernameTextField text] andEmail:[_emailTextField text] andPassword:[_passwordTextField text] onFinish:^(NSError *error, GFCloudManagerSignupError gfcError) {
+        [[_appDelegate cloudManager] signupAccountWithUsername:[self.usernameTextField text] andEmail:[self.emailTextField text] andPassword:[self.passwordTextField text] onFinish:^(NSError *error, GFCloudManagerSignupError gfcError) {
             
             [SVProgressHUD dismiss];
             
             if (!error) {
                 // Account created successfully!
                 
-                [[_appDelegate cloudManager] loginToAccountWithUsername:[_usernameTextField text] andPassword:[_passwordTextField text] onFinish:^(NSError *error, NSString *sessionId) {
+                [[_appDelegate cloudManager] loginToAccountWithUsername:[self.usernameTextField text] andPassword:[self.passwordTextField text] onFinish:^(NSError *error, NSString *sessionId) {
                     if (!error) {
-                        [[GFSettings sharedSettings] setApiToken:sessionId];
-                        [[GFSettings sharedSettings] persist];
+                        [self.appDelegate.settings setApiToken:sessionId];
+                        [self.appDelegate.settings persist];
                         PSTAlertController *alertController = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                                                    message:NSLocalizedString(@"Your account has been created successfully! You have been logged in automatically.", nil)
                                                                                             preferredStyle:PSTAlertControllerStyleAlert];

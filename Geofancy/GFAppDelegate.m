@@ -12,6 +12,7 @@
 #import "GFMenuViewController.h"
 #import <TSMessages/TSMessage.h>
 #import <PSTAlertController/PSTAlertController.h>
+#import "GFSettings.h"
 
 #define kMainStoryboard [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"] bundle:[NSBundle mainBundle]]
 
@@ -26,8 +27,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.settings = [[GFSettings alloc] init];
     self.geofenceManager = [GFGeofenceManager sharedManager];
-    self.cloudManager = [[GFCloudManager alloc] init];
+    self.cloudManager = [[GFCloudManager alloc] initWithSettings:self.settings];
     self.requestManager = [GFRequestManager sharedManager];
     self.harpy = [Harpy sharedInstance];
     
@@ -38,9 +40,9 @@
     [CoreDataManager sharedManager].modelName = @"Model";
     
     // Initial Setup (if required)
-    if (![[GFSettings sharedSettings] appHasBeenStarted]) {
-        [[GFSettings sharedSettings] setAppHasBeenStarted:[NSNumber numberWithBool:YES]];
-        [[GFSettings sharedSettings] persist];
+    if (![self.settings appHasBeenStarted]) {
+        [self.settings setAppHasBeenStarted:[NSNumber numberWithBool:YES]];
+        [self.settings persist];
     }
 
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];

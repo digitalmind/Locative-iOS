@@ -17,11 +17,12 @@
 
 @interface GFAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) MSDynamicsDrawerViewController *dynamicsDrawerViewController;
-@property (strong, nonatomic) GFGeofenceManager *geofenceManager;
-@property (strong, nonatomic) GFCloudManager *cloudManager;
-@property (strong, nonatomic) GFRequestManager *requestManager;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) MSDynamicsDrawerViewController *dynamicsDrawerViewController;
+@property (nonatomic, strong) GFGeofenceManager *geofenceManager;
+@property (nonatomic, strong) GFCloudManager *cloudManager;
+@property (nonatomic, strong) GFRequestManager *requestManager;
 @property (nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager;
+@property (nonatomic, strong) GFSettings *settings;
 
 @end

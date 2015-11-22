@@ -156,12 +156,12 @@
                  responseStatus:(NSInteger)statusCode
                           error:(NSError *)error
                        callback:(void(^)(BOOL success))cb {
-    if(success && [[[GFSettings sharedSettings] notifyOnSuccess] boolValue]) {
+    if(success && [[self.appDelegate.settings notifyOnSuccess] boolValue]) {
         [self presentLocalNotification:
          [IS_POST_METHOD(httpRequest.method) ? NSLocalizedString(@"POST Success:", nil) : NSLocalizedString(@"GET Success:", nil)
           stringByAppendingFormat:@" %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]]
          success:YES];
-    } else if(!success && [[[GFSettings sharedSettings] notifyOnFailure] boolValue]) {
+    } else if(!success && [[self.appDelegate.settings notifyOnFailure] boolValue]) {
         [self presentLocalNotification:[NSLocalizedString(@"GET Failure:", nil) stringByAppendingFormat:@" %@", error.localizedDescription]
          success:NO];
     }
@@ -184,7 +184,7 @@
 
 #pragma mark - Local Notification
 - (void)presentLocalNotification:(NSString *)text success:(BOOL)success {
-    [UILocalNotification presentLocalNotificationWithSoundName:([[[GFSettings sharedSettings] soundOnNotification] boolValue]) ? @"notification.caf" : nil
+    [UILocalNotification presentLocalNotificationWithSoundName:([[self.appDelegate.settings soundOnNotification] boolValue]) ? @"notification.caf" : nil
                                                      alertBody:text
                                                       userInfo:@{@"success": @(success)}];
 }
@@ -200,7 +200,7 @@
 #pragma mark - Fencelog
 - (void) dispatchFencelog:(GFCloudFencelog *)fencelog
 {
-    if ([[[GFSettings sharedSettings] apiToken] length] > 0) {
+    if ([[self.appDelegate.settings apiToken] length] > 0) {
         [[self.appDelegate cloudManager] dispatchCloudFencelog:fencelog onFinish:nil];
     }
 }

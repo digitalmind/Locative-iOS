@@ -16,8 +16,12 @@ typedef enum {
 } GFCloudManagerSignupError;
 
 @class GFGeofence;
+@class GFSettings;
 
 @interface GFCloudManager : NSObject
+
+- (instancetype)init __attribute__((unavailable("Please use `initWithSettings:` instead")));
+- (instancetype)initWithSettings:(GFSettings *)settings;
 
 - (void) signupAccountWithUsername:(NSString *)username andEmail:(NSString *)email andPassword:(NSString *)password onFinish:(void(^)(NSError *error, GFCloudManagerSignupError gfcError))finish;
 - (void) loginToAccountWithUsername:(NSString *)username andPassword:(NSString *)password onFinish:(void(^)(NSError *error, NSString *sessionId))finish;
