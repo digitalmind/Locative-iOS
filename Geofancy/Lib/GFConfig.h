@@ -13,6 +13,4 @@
 @property (assign, nonatomic) BOOL backgroundFetchMessageShown;
 @property (strong, nonatomic) NSDate *lastMessageFetch;
 
-+ (id) sharedConfig;
-
 @end

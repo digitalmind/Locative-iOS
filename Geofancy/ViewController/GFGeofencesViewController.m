@@ -12,12 +12,12 @@
 #import <PSTAlertController/PSTAlertController.h>
 
 @interface GFGeofencesViewController ()
-{
-    GFAppDelegate *_appDelegate;
-    GFGeofence *_selectedEvent;
-    GFConfig *_config;
-    BOOL _viewDidAppear;
-}
+
+@property (nonatomic, weak) GFAppDelegate *appDelegate;
+@property (nonatomic, strong) GFGeofence *selectedEvent;
+@property (nonatomic, strong) GFConfig *config;
+@property (nonatomic, assign) BOOL viewDidAppear;
+
 @end
 
 @implementation GFGeofencesViewController
@@ -35,10 +35,10 @@
 {
     [super viewDidLoad];
     
-    _appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[_appDelegate geofenceManager] cleanup];
+    self.appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[self.appDelegate geofenceManager] cleanup];
     
-    _config = [GFConfig sharedConfig];
+    self.config = [[GFConfig alloc] init];
 
     /*
      Drawer Menu Shadow
@@ -60,24 +60,24 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadGeofences) name:kReloadGeofences object:nil];
     
-    if(!_viewDidAppear && [[GFGeofence all] count] == 0) {
+    if(!self.viewDidAppear && [[GFGeofence all] count] == 0) {
         [self performSegueWithIdentifier:@"AddEvent" sender:self];
     }
     
-    if(_viewDidAppear) {
+    if(self.viewDidAppear) {
         [self.tableView reloadData];
     }
     
-    if (![_config backgroundFetchMessageShown]) {
+    if (![self.config backgroundFetchMessageShown]) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Note", nil)
                                     message:NSLocalizedString(@"Please make sure to enable \"Background App Fetch\" inside your Device's Settings. This is required for the App to work flawlessly.", nil)
                                    delegate:nil
                           cancelButtonTitle:NSLocalizedString(@"OK", nil)
                           otherButtonTitles:nil, nil] show];
-        [_config setBackgroundFetchMessageShown:YES];
+        [self.config setBackgroundFetchMessageShown:YES];
     }
 
-    _viewDidAppear = YES;
+    self.viewDidAppear = YES;
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -143,7 +143,7 @@
         if (event.managedObjectContext) {
             [event save];
         }
-        [[_appDelegate geofenceManager] stopMonitoringEvent:event];
+        [[self.appDelegate geofenceManager] stopMonitoringEvent:event];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
@@ -151,7 +151,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _selectedEvent = [[GFGeofence all] objectAtIndex:indexPath.row];
+    self.selectedEvent = [[GFGeofence all] objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"AddEvent" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -161,9 +161,9 @@
 {
     if([[segue identifier] isEqualToString:@"AddEvent"]) {
         GFAddEditGeofenceViewController *viewController = (GFAddEditGeofenceViewController *)[segue destinationViewController];
-        if(_selectedEvent) {
-            viewController.event = _selectedEvent;
-            _selectedEvent = nil;
+        if(self.selectedEvent) {
+            viewController.event = self.selectedEvent;
+            self.selectedEvent = nil;
         }
     }
 }

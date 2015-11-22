@@ -13,16 +13,6 @@
 
 @implementation GFConfig
 
-+ (id) sharedConfig
-{
-    static GFConfig *config = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        config = [[GFConfig alloc] init];
-    });
-    return config;
-}
-
 - (BOOL) backgroundFetchMessageShown
 {
     return [[NSUserDefaults standardUserDefaults] boolForKey:kBackgroundFetchMessageShown];
