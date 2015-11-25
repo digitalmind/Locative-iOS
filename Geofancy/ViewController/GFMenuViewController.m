@@ -9,12 +9,6 @@
 #import "GFMenuViewController.h"
 #import <PSTAlertController/PSTAlertController.h>
 
-@interface GFMenuViewController ()
-{
-    IBOutlet UILabel *_versionLabel;
-}
-@end
-
 @implementation GFMenuViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -37,9 +31,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0);
     [self hideEmptySeparators];
-    
-    NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
-    [_versionLabel setText:[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil), bundleVersion]];
 }
 
 - (void) hideEmptySeparators
