@@ -13,26 +13,27 @@
 
 @implementation GFConfig
 
-- (BOOL) backgroundFetchMessageShown
-{
+- (BOOL) backgroundFetchMessageShown {
     return [[NSUserDefaults standardUserDefaults] boolForKey:kBackgroundFetchMessageShown];
 }
 
-- (void) setBackgroundFetchMessageShown:(BOOL)backgroundFetchMessageShown
-{
+- (void) setBackgroundFetchMessageShown:(BOOL)backgroundFetchMessageShown {
     [[NSUserDefaults standardUserDefaults] setBool:backgroundFetchMessageShown forKey:kBackgroundFetchMessageShown];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (NSDate *) lastMessageFetch
-{
+- (NSDate *) lastMessageFetch {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLastMessageFetch];
 }
 
-- (void) setLastMessageFetch:(NSDate *)lastMessageFetch
-{
+- (void) setLastMessageFetch:(NSDate *)lastMessageFetch {
     [[NSUserDefaults standardUserDefaults] setObject:lastMessageFetch forKey:kLastMessageFetch];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)readableVersionString {
+    return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Version", nil),
+            [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]];
 }
 
 @end
