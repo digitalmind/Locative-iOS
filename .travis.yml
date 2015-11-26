@@ -4,10 +4,10 @@ language: objective-c
 before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
-  - sudo apt-get install python3-setuptools
-  - sudo easy_install3 pip
-  - pip install codecov
 
+install:
+  - pip install --user codecov
+  
 script:
   - xctool -workspace Geofancy.xcworkspace -scheme Geofancy -destination name="iPhone 6s" -sdk iphonesimulator CODE_SIGN_ENTITLEMENTS="" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build test
 
