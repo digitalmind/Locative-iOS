@@ -143,8 +143,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HTTP Basic Authentication" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EyG-Pj-s7G">
-                                                    <rect key="frame" x="20" y="11.5" width="481" height="20.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="HTTP Basic Authentication" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EyG-Pj-s7G">
+                                                    <rect key="frame" x="20" y="12" width="481" height="20"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -266,8 +266,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification on Success" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hxl-kn-E2h">
-                                                    <rect key="frame" x="20" y="11.5" width="503" height="20.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Notification on Success" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hxl-kn-E2h">
+                                                    <rect key="frame" x="20" y="12" width="503" height="20"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -299,8 +299,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification on Failure" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="btJ-22-JKg">
-                                                    <rect key="frame" x="20" y="11.5" width="504" height="20.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Notification on Failure" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="btJ-22-JKg">
+                                                    <rect key="frame" x="20" y="12" width="504" height="20"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -332,8 +332,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play Sound on Notification" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lsa-Cf-IyZ">
-                                                    <rect key="frame" x="20" y="11.5" width="504" height="20.5"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Play Sound on Notification" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lsa-Cf-IyZ">
+                                                    <rect key="frame" x="20" y="12" width="504" height="20"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -581,19 +581,19 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="_httpBasicAuthPasswordTextField" destination="vmg-mC-0TT" id="Gcl-O3-v2t"/>
-                        <outlet property="_httpBasicAuthSwitch" destination="cy0-yz-Z99" id="bhG-DR-uyP"/>
-                        <outlet property="_httpBasicAuthUsernameTextField" destination="4qD-Dp-bLe" id="rw4-Aj-LxE"/>
-                        <outlet property="_httpMethodSegmentedControl" destination="e7a-t9-lcY" id="8hz-UI-PMo"/>
-                        <outlet property="_httpUrlTextField" destination="AOD-OW-mpQ" id="tIa-Iu-aq3"/>
-                        <outlet property="_myGfCreateAccountButton" destination="PRr-9r-FMC" id="D3F-oB-Lfy"/>
-                        <outlet property="_myGfLoginButton" destination="czE-RA-CWx" id="NcH-Xx-p7E"/>
-                        <outlet property="_myGfLostPwButton" destination="CEW-Ma-9TN" id="67r-kf-Mga"/>
-                        <outlet property="_myGfPassword" destination="o5g-w3-HEs" id="ge4-0f-XZd"/>
-                        <outlet property="_myGfUsername" destination="4kM-Gu-jQ3" id="Ete-yt-RN3"/>
-                        <outlet property="_notifyOnFailureSwitch" destination="xsG-az-r7b" id="Bwf-26-uMQ"/>
-                        <outlet property="_notifyOnSuccessSwitch" destination="npw-8c-OI2" id="CVb-Qe-3FR"/>
-                        <outlet property="_soundOnNotificationSwitch" destination="Pc5-ZF-tfM" id="vba-2p-SFL"/>
+                        <outlet property="httpBasicAuthPasswordTextField" destination="vmg-mC-0TT" id="B6s-Yv-L4A"/>
+                        <outlet property="httpBasicAuthSwitch" destination="cy0-yz-Z99" id="Pwp-H2-llG"/>
+                        <outlet property="httpBasicAuthUsernameTextField" destination="4qD-Dp-bLe" id="kWP-cl-Fg0"/>
+                        <outlet property="httpMethodSegmentedControl" destination="e7a-t9-lcY" id="qMr-Vp-rAR"/>
+                        <outlet property="httpUrlTextField" destination="AOD-OW-mpQ" id="Th5-Al-FNV"/>
+                        <outlet property="myGfCreateAccountButton" destination="PRr-9r-FMC" id="I7a-Fv-BZv"/>
+                        <outlet property="myGfLoginButton" destination="czE-RA-CWx" id="mxv-Gz-wdv"/>
+                        <outlet property="myGfLostPwButton" destination="CEW-Ma-9TN" id="55v-4V-kR1"/>
+                        <outlet property="myGfPassword" destination="o5g-w3-HEs" id="bvf-dj-LIL"/>
+                        <outlet property="myGfUsername" destination="4kM-Gu-jQ3" id="Wmw-Jt-T6E"/>
+                        <outlet property="notifyOnFailureSwitch" destination="xsG-az-r7b" id="qJU-TT-mhP"/>
+                        <outlet property="notifyOnSuccessSwitch" destination="npw-8c-OI2" id="NmY-bf-Z1A"/>
+                        <outlet property="soundOnNotificationSwitch" destination="Pc5-ZF-tfM" id="s5s-hO-pOm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CfP-uC-lo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
