@@ -14,7 +14,7 @@
 I'm open sourcing this sideproject of mine as I'm not enough time to actively care about it and due to the high number of requests I've got from the community, it feels about right to make further work to it possible.
 
 #### So you're going open source now, what about my data, is it also going open source?
-No, no, no. Of course not, you're data is still storned on the Geofancy servers and it will stay there until further notice. No third party will have access to your data.
+No, no, no. Of course not, you're data is still stored on the Geofancy servers and it will stay there until further notice. No third party will have access to your data.
 
 ## Technologies used
 
