@@ -162,15 +162,9 @@
 }
 
 - (IBAction)toggleHttpBasicAuth:(id)sender {
-    [self.settings setHttpBasicAuthEnabled:[NSNumber numberWithBool:self.httpBasicAuthSwitch.on]];
-    [self.httpBasicAuthUsernameTextField setEnabled:self.httpBasicAuthSwitch.on];
-    [self.httpBasicAuthPasswordTextField setEnabled:self.httpBasicAuthSwitch.on];
 }
 
 - (IBAction) toogleNotificationSettings:(id)sender {
-    [self.settings setNotifyOnSuccess:[NSNumber numberWithBool:self.notifyOnSuccessSwitch.on]];
-    [self.settings setNotifyOnFailure:[NSNumber numberWithBool:self.notifyOnFailureSwitch.on]];
-    [self.settings setSoundOnNotification:[NSNumber numberWithBool:self.soundOnNotificationSwitch.on]];
 }
 
 - (IBAction) sendTestRequest:(id)sender {
