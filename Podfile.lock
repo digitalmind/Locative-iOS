@@ -32,7 +32,6 @@ PODS:
     - ObjectiveSugar
   - ObjectiveSugar (1.1.0)
   - PSTAlertController (1.1.0)
-  - RSEnvironment (0.0.3)
   - Specta (0.2.1)
   - SVProgressHUD (1.0)
   - TBXML (1.5)
@@ -49,7 +48,6 @@ DEPENDENCIES:
   - MSDynamicsDrawerViewController
   - ObjectiveRecord
   - PSTAlertController
-  - RSEnvironment
   - Specta
   - SVProgressHUD
   - TSMessages
@@ -66,7 +64,6 @@ SPEC CHECKSUMS:
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
   PSTAlertController: cb21afcfa76c3229feec7db044afd4f60dab5892
-  RSEnvironment: 653f92019569ef8fb5005d4bb34cd1ccaf50727f
   Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
   SVProgressHUD: 46088807596a795cbcb4affd92cf3f13b6ab3dda
   TBXML: 9f9dadb239f2f2af1dadb87fe43a0ce6e479379a

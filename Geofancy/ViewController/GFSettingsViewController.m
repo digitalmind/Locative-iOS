@@ -9,7 +9,6 @@
 #import "GFSettingsViewController.h"
 #import "GFGeofencesViewController.h"
 #import <INTULocationManager/INTULocationManager.h>
-#import <RSEnvironment/RSEnvironment.h>
 #import <PSTAlertController/PSTAlertController.h>
 
 @interface GFSettingsViewController () <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
@@ -39,8 +38,7 @@
 
 @implementation GFSettingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -48,8 +46,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
@@ -64,8 +61,7 @@
     self.parentViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
 }
 
-- (void) viewWillAppear:(BOOL)animated
-{
+- (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
     [_httpUrlTextField setText:([[[_settings globalUrl] absoluteString] length] > 0)?[[_settings globalUrl] absoluteString]:nil];
@@ -94,24 +90,18 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    /* Register for notifications, atm we're only using local notifications to display success or failure
-     * Only on iOS 8.
-     */
-    if (RSEnvironment.system.version.major >= 8) {
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    }
+    UIUserNotificationType types = (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableViewDelegate
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
         if (indexPath.row >= 0 && indexPath.row < 5) {
             if ([[_appDelegate.settings apiToken] length] == 0) {
@@ -132,15 +122,13 @@
 }
 
 #pragma mark - TextField Delegate
-- (BOOL) textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
 
 #pragma mark - Helpers
-- (AFSecurityPolicy *) commonPolicy
-{
+- (AFSecurityPolicy *) commonPolicy {
     AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
     [policy setAllowInvalidCertificates:YES];
     [policy setValidatesDomainName:NO];
@@ -148,8 +136,7 @@
 }
 
 #pragma mark - IBActions
-- (IBAction)saveSettings:(id)sender
-{
+- (IBAction)saveSettings:(id)sender {
     // Normalize URL if necessary
     if ([[_httpUrlTextField text] length] > 0) {
         if([[[_httpUrlTextField text] lowercaseString] hasPrefix:@"http://"] || [[[_httpUrlTextField text] lowercaseString] hasPrefix:@"https://"]) {
@@ -174,22 +161,19 @@
     [[(GFAppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"GeofencesNav"] animated:YES completion:nil];
 }
 
-- (IBAction)toggleHttpBasicAuth:(id)sender
-{
-    [_settings setHttpBasicAuthEnabled:[NSNumber numberWithBool:_httpBasicAuthSwitch.on]];
-    [_httpBasicAuthUsernameTextField setEnabled:_httpBasicAuthSwitch.on];
-    [_httpBasicAuthPasswordTextField setEnabled:_httpBasicAuthSwitch.on];
+- (IBAction)toggleHttpBasicAuth:(id)sender {
+    [self.settings setHttpBasicAuthEnabled:[NSNumber numberWithBool:self.httpBasicAuthSwitch.on]];
+    [self.httpBasicAuthUsernameTextField setEnabled:self.httpBasicAuthSwitch.on];
+    [self.httpBasicAuthPasswordTextField setEnabled:self.httpBasicAuthSwitch.on];
 }
 
-- (IBAction) toogleNotificationSettings:(id)sender
-{
-    [_settings setNotifyOnSuccess:[NSNumber numberWithBool:_notifyOnSuccessSwitch.on]];
-    [_settings setNotifyOnFailure:[NSNumber numberWithBool:_notifyOnFailureSwitch.on]];
-    [_settings setSoundOnNotification:[NSNumber numberWithBool:_soundOnNotificationSwitch.on]];
+- (IBAction) toogleNotificationSettings:(id)sender {
+    [self.settings setNotifyOnSuccess:[NSNumber numberWithBool:self.notifyOnSuccessSwitch.on]];
+    [self.settings setNotifyOnFailure:[NSNumber numberWithBool:self.notifyOnFailureSwitch.on]];
+    [self.settings setSoundOnNotification:[NSNumber numberWithBool:self.soundOnNotificationSwitch.on]];
 }
 
-- (IBAction) sendTestRequest:(id)sender
-{
+- (IBAction) sendTestRequest:(id)sender {
     [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyRoom
                                                                      timeout:10.0
                                                         delayUntilAuthorized:YES
@@ -233,13 +217,11 @@
 }
 
 #pragma mark - IBActions
-- (IBAction) toggleMenu:(id)sender
-{
+- (IBAction) toggleMenu:(id)sender {
     [[(GFAppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
 }
 
-- (IBAction) loginToAccount:(id)sender
-{
+- (IBAction) loginToAccount:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     
     [[_appDelegate cloudManager] loginToAccountWithUsername:[_myGfUsername text] andPassword:[_myGfPassword text] onFinish:^(NSError *error, NSString *sessionId) {
@@ -264,8 +246,7 @@
     }];
 }
 
-- (IBAction) recoverMyGfPassword:(id)sender
-{
+- (IBAction) recoverMyGfPassword:(id)sender {
     PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                           message:NSLocalizedString(@"This will open up Safari and lead you to the password recovery website. Sure?", nil)
                                                                    preferredStyle:PSTAlertControllerStyleAlert];
@@ -286,8 +267,7 @@
     [[self tableView] reloadData];
 }
 
-- (IBAction) exportAsGpx:(id)sender
-{
+- (IBAction) exportAsGpx:(id)sender {
     PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                           message:NSLocalizedString(@"Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default.", nil)
                                                                    preferredStyle:PSTAlertControllerStyleAlert];
@@ -323,8 +303,7 @@
     });
 }
 
-- (void) sendMailContainingGpxContent:(NSString *)gpx
-{
+- (void) sendMailContainingGpxContent:(NSString *)gpx {
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
@@ -341,8 +320,9 @@
 }
 
 #pragma mark - MailComposeViewController Delegate
-- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
+- (void) mailComposeController:(MFMailComposeViewController *)controller
+           didFinishWithResult:(MFMailComposeResult)result
+                         error:(NSError *)error {
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 

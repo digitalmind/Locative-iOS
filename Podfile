@@ -10,7 +10,6 @@ target "Geofancy" do
   pod 'ObjectiveRecord'
   pod 'SVProgressHUD'
   pod 'DZNEmptyDataSet'
-  pod 'RSEnvironment'
   pod 'Harpy'
   pod 'INTULocationManager'
   pod 'TSMessages'
