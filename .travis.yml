@@ -4,6 +4,8 @@ language: objective-c
 before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
+  - sudo apt-get install python3-setuptools
+  - sudo easy_install3 pip
   - pip install codecov
 
 script:
