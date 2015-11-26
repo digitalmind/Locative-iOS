@@ -5,11 +5,8 @@ before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
 
-install:
-  - pip install --user codecov
-  
 script:
-  - xctool -workspace Geofancy.xcworkspace -scheme Geofancy -destination name="iPhone 6s" -sdk iphonesimulator CODE_SIGN_ENTITLEMENTS="" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO build test
+  - xctool -workspace Geofancy.xcworkspace -scheme Geofancy -destination name="iPhone 6s" -sdk iphonesimulator CODE_SIGN_ENTITLEMENTS="" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES build test
 
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
