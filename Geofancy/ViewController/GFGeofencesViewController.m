@@ -177,7 +177,7 @@
     
     if ([self.appDelegate.settings apiToken].length > 0) {
         // User is logged in, ask wether to import Geofence
-        PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Would you like to add a new Geofence locally or import it from my.geofancy.com?", nil)
+        PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Would you like to add a new Geofence locally or import it from my.locative.io?", nil)
                                                                               message:nil
                                                                        preferredStyle:PSTAlertControllerStyleActionSheet];
         [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:PSTAlertActionStyleCancel handler:nil]];

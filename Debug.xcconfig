@@ -1,14 +1,14 @@
 //
 //  Debug.xcconfig
-//  Geofancy
+//  Locative
 //
 //  Created by Marcus Kida on 9/08/2014.
 //  Copyright (c) 2014 Marcus Kida. All rights reserved.
 //
 
-#include "Pods/Target Support Files/Pods-Geofancy/Pods-Geofancy.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-Locative/Pods-Locative.debug.xcconfig"
 
 BUNDLE_IDENTIFIER = io.kida.Geofancy
 VERSION = 1.8.12
 BACKEND_PROTOCOL = https
-BACKEND_HOST = my.geofancy.com
+BACKEND_HOST = my.locative.io

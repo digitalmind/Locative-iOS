@@ -9,7 +9,7 @@
 #import "GFTodayViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
-static NSString *const TODAY_URL = @"https://my.geofancy.com/api/today";
+static NSString *const TODAY_URL = @"https://my.locative.io/api/today";
 
 @interface GFTodayViewController () <NCWidgetProviding>
 

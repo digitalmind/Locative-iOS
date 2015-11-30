@@ -75,7 +75,7 @@
 "This will open up Safari and lead to our TOS. Sure?" = "Die Nutzungsbedingungen werden im Safari geöffnet, wirklich öffnen?";
 
 // Settings Cloud
-"Login successful! Your triggered geofences will now be visible in you Account at http://my.geofancy.com!" = "Login erfolgreich, du kannst dir die geofences auf http://my.geofancy.com anschauen!";
+"Login successful! Your triggered geofences will now be visible in you Account at http://my.locative.io!" = "Login erfolgreich, du kannst dir die geofences auf http://my.locative.io anschauen!";
 "There has been a problem with your login, please try again!" = "Es gab ein Problem beim Login, bitte versuche es erneut.";
 "This will open up Safari and lead you to the password recovery website. Sure?" = "Die \"Password vergessen\"-Seite wird im Safari geöffnet, wirklich öffnen?";
 
@@ -93,14 +93,14 @@
 "Really delete this Entry?" = "Eintrag wirklich löschen?";
 
 // Cloud Import
-"Would you like to add a new Geofence locally or import it from my.geofancy.com?" = "Möchtest du einen Geofence lokal anlegen oder aus der Cloud importieren?";
+"Would you like to add a new Geofence locally or import it from my.locative.io?" = "Möchtest du einen Geofence lokal anlegen oder aus der Cloud importieren?";
 "Add locally" = "Lokal hinzufügen";
 "Import" = "Importieren";
 "No Geofences" = "Keine Geofences";
-"Add some Geofences at https://my.geofancy.com to get going." = "Lege ein paar Geofences auf https://my.geofancy.com and um sie dann zu importieren.";
+"Add some Geofences at https://my.locative.io to get going." = "Lege ein paar Geofences auf https://my.locative.io and um sie dann zu importieren.";
 
 // Cloud Backup
-"This Geofence will be sent to your my.geofancy.com Account, you may then use it on any other Device. Would you like to do this?" = "Dieser Geofence wird in deinen my.geofancy.com Account geladen, du kannst ihn danach auf jedem deiner Geräte verwenden. Möchtest du fortfahren?";
+"This Geofence will be sent to your my.locative.io Account, you may then use it on any other Device. Would you like to do this?" = "Dieser Geofence wird in deinen my.locative.io Account geladen, du kannst ihn danach auf jedem deiner Geräte verwenden. Möchtest du fortfahren?";
 "Backup" = "Sichern";
 "An error occured when backing up your Geofence, please try again." = "Beim Sichern deines Geofences ist ein Fehler aufgetreten, bitte versuche es erneut.";
 "Your Geofence has been backed up successfully." = "Dein Geofence wurde erfolgreich gesichert.";

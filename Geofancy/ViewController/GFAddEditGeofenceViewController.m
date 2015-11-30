@@ -423,7 +423,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 - (IBAction)backupClicked:(id)sender
 {
     PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
-                                                                          message:NSLocalizedString(@"This Geofence will be sent to your my.geofancy.com Account, you may then use it on any other Device. Would you like to do this?", @"Confirmation when uploading Geofence to my.geofancy.com")
+                                                                          message:NSLocalizedString(@"This Geofence will be sent to your my.locative.io Account, you may then use it on any other Device. Would you like to do this?", @"Confirmation when uploading Geofence to my.locative.io")
                                                                    preferredStyle:PSTAlertControllerStyleAlert];
     [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:PSTAlertActionStyleDefault handler:nil]];
     [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Backup", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Marcus Kida. All rights reserved.
 //
 
-#include "Pods/Target Support Files/Pods-Geofancy/Pods-Geofancy.release.xcconfig"
+#include "Pods/Target Support Files/Pods-Locative/Pods-Locative.release.xcconfig"
 
 BUNDLE_IDENTIFIER = com.marcuskida.Geofancy
 VERSION = 1.8.12
 BACKEND_PROTOCOL = https
-BACKEND_HOST = my.geofancy.com
+BACKEND_HOST = my.locative.io

@@ -228,7 +228,7 @@
 #pragma mark - Reachability
 - (void) setupReachabilityStatus
 {    
-    self.reachabilityManager = [AFNetworkReachabilityManager managerForDomain:@"my.geofancy.com"];
+    self.reachabilityManager = [AFNetworkReachabilityManager managerForDomain:@"my.locative.io"];
     [self.reachabilityManager startMonitoring];
     [self.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
