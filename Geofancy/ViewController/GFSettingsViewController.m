@@ -280,7 +280,7 @@
 - (void) performExportGpx {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     
-    GPXRoot *root = [GPXRoot rootWithCreator:@"Geofancy"];
+    GPXRoot *root = [GPXRoot rootWithCreator:@"Locative"];
     __block NSString *gpx = @"";
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -307,7 +307,7 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
-        [mailViewController setSubject:NSLocalizedString(@"My Geofancy Backup", nil)];
+        [mailViewController setSubject:NSLocalizedString(@"My Locative Backup", nil)];
         [mailViewController addAttachmentData:[gpx dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"application/xml" fileName:@"Geofences.gpx"];
         [self presentViewController:mailViewController animated:YES completion:nil];
     } else {

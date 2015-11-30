@@ -62,14 +62,14 @@
             [[(GFAppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SettingsNav"] animated:YES completion:nil];
         } else if (indexPath.row == 3) {
             [self askToOpenSocialLink:@"GitHub Issues" callback:^{
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/Geofancy/ios-app/issues"]];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/LocativeHQ/ios-app/issues"]];
             }];
         } else if (indexPath.row == 5) {
             [self askToOpenSocialLink:@"Twitter" callback:^{
                 if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]) {
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=geofancy"]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=LocativeHQ"]];
                 } else {
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/geofancy"]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/LocativeHQ"]];
                 }
             }];
 
@@ -79,7 +79,7 @@
                 if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]) {
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/329978570476013"]];
                 } else {
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com/geofancy"]];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com/LocativeHQ"]];
                 }
             }];
             [[(GFAppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateClosed animated:YES allowUserInterruption:YES completion:nil];
