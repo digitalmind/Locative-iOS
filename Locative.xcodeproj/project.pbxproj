@@ -1113,6 +1113,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5C199592C7004479D2 /* Debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Geofancy/Geofancy.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "Geofancy/$(PRODUCT_NAME)-Info.plist";
@@ -1126,6 +1127,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5A199590D7004479D2 /* Release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Geofancy/Geofancy.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "Geofancy/$(PRODUCT_NAME)-Info.plist";
@@ -1186,12 +1188,14 @@
 			baseConfigurationReference = EC11C7681ADE53C2003DC18D /* Widget.Debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = GeofancyWidget/GeofancyWidget.entitlements;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = GeofancyWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcuskida.Geofancy.GeofancyWidget;
 				PRODUCT_NAME = Locative;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1203,12 +1207,14 @@
 			baseConfigurationReference = EC11C7691ADE53C2003DC18D /* Widget.Release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = GeofancyWidget/GeofancyWidget.entitlements;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = GeofancyWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcuskida.Geofancy.GeofancyWidget;
 				PRODUCT_NAME = Locative;
 				SKIP_INSTALL = YES;
 			};
