@@ -71,6 +71,9 @@
 		EC6FECAF19D6E92600D9E746 /* Main~iphone.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC6FECAC19D6E92600D9E746 /* Main~iphone.strings */; };
 		ECCBD31119CEE02A0009399B /* Locative.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC3C13E519B178CF0093F139 /* Locative.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECCBD31F19CEE8F20009399B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCBD31D19CEE8F20009399B /* Localizable.strings */; };
+		ECE802761C0CEA8D00B1B28C /* libExpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE802751C0CEA8D00B1B28C /* libExpecta.a */; };
+		ECE802781C0CEA9500B1B28C /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE802771C0CEA9500B1B28C /* libSpecta.a */; };
+		ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +238,8 @@
 		ECCBD32019CEE8F60009399B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECDCB0381ADE4CE5008988C5 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/Pods-GeofancyWidget/AFNetworking.framework"; sourceTree = "<group>"; };
 		ECDCB03A1ADE5245008988C5 /* libPods-Geofancy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Geofancy.a"; path = "Pods/../build/Debug-iphoneos/libPods-Geofancy.a"; sourceTree = "<group>"; };
+		ECE802751C0CEA8D00B1B28C /* libExpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libExpecta.a; path = "Pods/../build/Debug-iphoneos/libExpecta.a"; sourceTree = "<group>"; };
+		ECE802771C0CEA9500B1B28C /* libSpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpecta.a; path = "Pods/../build/Debug-iphoneos/libSpecta.a"; sourceTree = "<group>"; };
 		EDBC71866C1BC6E7D0455385 /* Pods-GeofancyTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests.testflight.xcconfig"; sourceTree = "<group>"; };
 		EE9EBFC0D9B9435CB25CF4F9 /* Pods-GeofancyWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.release.xcconfig"; sourceTree = "<group>"; };
 		FBD676C69C42E37E21CE3D59 /* Pods-GeofancyWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.debug.xcconfig"; sourceTree = "<group>"; };
@@ -266,6 +271,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE802781C0CEA9500B1B28C /* libSpecta.a in Frameworks */,
+				ECE802761C0CEA8D00B1B28C /* libExpecta.a in Frameworks */,
 				2A8E9DB617FD51DD00F4A805 /* XCTest.framework in Frameworks */,
 				2A8E9DB817FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9DB717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
@@ -341,6 +348,8 @@
 		2A8E9D9517FD51DD00F4A805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECE802771C0CEA9500B1B28C /* libSpecta.a */,
+				ECE802751C0CEA8D00B1B28C /* libExpecta.a */,
 				ECDCB03A1ADE5245008988C5 /* libPods-Geofancy.a */,
 				ECDCB0381ADE4CE5008988C5 /* AFNetworking.framework */,
 				EC6FECA519D6C5D300D9E746 /* libPods.a */,
@@ -938,6 +947,7 @@
 				2A59CD6E18F93DD10062A0FE /* GFMenuViewControllerTests.m in Sources */,
 				2A59CD7018F93E380062A0FE /* GFCloudSignupViewControllerTests.m in Sources */,
 				2A59CD6C18F93D620062A0FE /* GFSettingsViewControllerTests.m in Sources */,
+				ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1141,7 +1151,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5C199592C7004479D2 /* Debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Geofancy.app/Geofancy";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Locative.app/Locative";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1149,12 +1159,16 @@
 					/Users/kimar/Development/iOS/Geofancy,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Geofancy/Locative-Prefix.pch";
+				GCC_PREFIX_HEADER = "GeofancyTests/GeofancyTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "GeofancyTests/LocativeTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marcuskida.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Locative;
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1166,7 +1180,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5A199590D7004479D2 /* Release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Geofancy.app/Geofancy";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Locative.app/Locative";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1174,8 +1188,12 @@
 					/Users/kimar/Development/iOS/Geofancy,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Geofancy/Locative-Prefix.pch";
+				GCC_PREFIX_HEADER = "GeofancyTests/GeofancyTests-Prefix.pch";
 				INFOPLIST_FILE = "GeofancyTests/LocativeTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marcuskida.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Locative;
 				TEST_HOST = "$(BUNDLE_LOADER)";
