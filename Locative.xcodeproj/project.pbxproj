@@ -74,6 +74,7 @@
 		ECE802761C0CEA8D00B1B28C /* libExpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE802751C0CEA8D00B1B28C /* libExpecta.a */; };
 		ECE802781C0CEA9500B1B28C /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE802771C0CEA9500B1B28C /* libSpecta.a */; };
 		ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
+		ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +241,8 @@
 		ECDCB03A1ADE5245008988C5 /* libPods-Geofancy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Geofancy.a"; path = "Pods/../build/Debug-iphoneos/libPods-Geofancy.a"; sourceTree = "<group>"; };
 		ECE802751C0CEA8D00B1B28C /* libExpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libExpecta.a; path = "Pods/../build/Debug-iphoneos/libExpecta.a"; sourceTree = "<group>"; };
 		ECE802771C0CEA9500B1B28C /* libSpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpecta.a; path = "Pods/../build/Debug-iphoneos/libSpecta.a"; sourceTree = "<group>"; };
+		ECE8027B1C0D69B600B1B28C /* GFCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCoreDataManager.h; sourceTree = "<group>"; };
+		ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCoreDataManager.m; sourceTree = "<group>"; };
 		EDBC71866C1BC6E7D0455385 /* Pods-GeofancyTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests.testflight.xcconfig"; sourceTree = "<group>"; };
 		EE9EBFC0D9B9435CB25CF4F9 /* Pods-GeofancyWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.release.xcconfig"; sourceTree = "<group>"; };
 		FBD676C69C42E37E21CE3D59 /* Pods-GeofancyWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.debug.xcconfig"; sourceTree = "<group>"; };
@@ -451,6 +454,8 @@
 				2AD67FB518817E6C003840C8 /* GFRequestManager.m */,
 				2A8D852718AE3F4700CF2693 /* GFConfig.h */,
 				2A8D852818AE3F4700CF2693 /* GFConfig.m */,
+				ECE8027B1C0D69B600B1B28C /* GFCoreDataManager.h */,
+				ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -913,6 +918,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8E9DF917FD5A5800F4A805 /* GFGeofenceManager.m in Sources */,
+				ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */,
 				2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */,
 				EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */,
 				2A2BF52F18537ED400D5DD98 /* GFCloudSignupViewController.m in Sources */,
