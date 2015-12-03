@@ -14,7 +14,7 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Geofancy iBeacon Sample App</string>
+		<string>Locative iBeacon Sample App</string>
 		<key>uuid</key>
 		<string>954FBC91-620E-4B5A-86F7-1F31A0054194</string>
 		<key>minor</key>

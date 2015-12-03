@@ -1,6 +1,6 @@
 /* 
   Localizable.strings
-  Geofancy
+  Locative
 
   Created by Marcus Kida on 12.10.13.
   Copyright (c) 2013 Marcus Kida. All rights reserved.
@@ -59,7 +59,7 @@
 "Something went wrong? Text us!" = "Irgendwas läuft nicht? Schreib uns!!";
 
 "Twitter" = "Twitter";
-"Follow @Geofancy at #Twitter!" = "Folge @Geofancy auf #Twitter!";
+"Follow @LocativeHQ at #Twitter!" = "Folge @LocativeHQ auf #Twitter!";
 
 "This will open up Twitter. Ready?" = "Twitter wird geöffnet. Bereit?";
 "This will open up Facebook. Ready?" = "Facebook wird geöffnet. Bereit?";
@@ -75,12 +75,12 @@
 "This will open up Safari and lead to our TOS. Sure?" = "Die Nutzungsbedingungen werden im Safari geöffnet, wirklich öffnen?";
 
 // Settings Cloud
-"Login successful! Your triggered geofences will now be visible in you Account at http://my.geofancy.com!" = "Login erfolgreich, du kannst dir die geofences auf http://my.geofancy.com anschauen!";
+"Login successful! Your triggered geofences will now be visible in you Account at http://my.locative.io!" = "Login erfolgreich, du kannst dir die geofences auf http://my.locative.io anschauen!";
 "There has been a problem with your login, please try again!" = "Es gab ein Problem beim Login, bitte versuche es erneut.";
 "This will open up Safari and lead you to the password recovery website. Sure?" = "Die \"Password vergessen\"-Seite wird im Safari geöffnet, wirklich öffnen?";
 
 // Backup
-"My Geofancy Backup" = "Mein Geofancy Backup";
+"My Locative Backup" = "Mein Locative Backup";
 "You need to setup an Email account. Go to your device's settings into the mail section." = "Bitte lege in den Einstellungen deines Geräts einen Email Account an! Sonst kannst du dir dein Backup nicht zuschicken.";
 "Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default." = "Deine Geofences (keine iBeacons) werden als gewöhnliche GPX Datei exportiert, dabei werden nur Name/UUID sowie Position und Beschreibung gespeichert. Individuelle Einstellungen wie Radius und URLs gehen verloren.";
 "Would you like to keep your existing Geofences?" = "Möchtest du deine bestehenden Geofences behalten?";
@@ -93,14 +93,14 @@
 "Really delete this Entry?" = "Eintrag wirklich löschen?";
 
 // Cloud Import
-"Would you like to add a new Geofence locally or import it from my.geofancy.com?" = "Möchtest du einen Geofence lokal anlegen oder aus der Cloud importieren?";
+"Would you like to add a new Geofence locally or import it from my.locative.io?" = "Möchtest du einen Geofence lokal anlegen oder aus der Cloud importieren?";
 "Add locally" = "Lokal hinzufügen";
 "Import" = "Importieren";
 "No Geofences" = "Keine Geofences";
-"Add some Geofences at https://my.geofancy.com to get going." = "Lege ein paar Geofences auf https://my.geofancy.com and um sie dann zu importieren.";
+"Add some Geofences at https://my.locative.io to get going." = "Lege ein paar Geofences auf https://my.locative.io and um sie dann zu importieren.";
 
 // Cloud Backup
-"This Geofence will be sent to your my.geofancy.com Account, you may then use it on any other Device. Would you like to do this?" = "Dieser Geofence wird in deinen my.geofancy.com Account geladen, du kannst ihn danach auf jedem deiner Geräte verwenden. Möchtest du fortfahren?";
+"This Geofence will be sent to your my.locative.io Account, you may then use it on any other Device. Would you like to do this?" = "Dieser Geofence wird in deinen my.locative.io Account geladen, du kannst ihn danach auf jedem deiner Geräte verwenden. Möchtest du fortfahren?";
 "Backup" = "Sichern";
 "An error occured when backing up your Geofence, please try again." = "Beim Sichern deines Geofences ist ein Fehler aufgetreten, bitte versuche es erneut.";
 "Your Geofence has been backed up successfully." = "Dein Geofence wurde erfolgreich gesichert.";

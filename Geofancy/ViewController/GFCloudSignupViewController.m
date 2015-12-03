@@ -108,7 +108,7 @@
                                                                         preferredStyle:PSTAlertControllerStyleAlert];
     [alertController addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"No", nil) style:PSTAlertActionStyleCancel handler:nil]];
     [alertController addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Yes", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://my.geofancy.com/tos"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://my.locative.io/tos"]];
     }]];
     [alertController showWithSender:sender controller:self animated:YES completion:nil];
 }

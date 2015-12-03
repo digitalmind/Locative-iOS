@@ -1,10 +1,10 @@
-# Geofancy for iOS
+# Locative for iOS
 
 [![Twitter: @Kidmar](https://img.shields.io/badge/contact-@Kidmar-blue.svg?style=flat)](https://twitter.com/Kidmar)
 [![App Store](https://img.shields.io/badge/app%20store-%20Download-red.svg)](https://itunes.apple.com/us/app/geofancy/id725198453)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/Geofancy/ios-app/blob/master/LICENSE.md)
-[![TravisCI](https://api.travis-ci.org/Geofancy/ios-app.svg?branch=master)](https://travis-ci.org/Geofancy/ios-app) [![Join the chat at https://gitter.im/Geofancy/ios-app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Geofancy/ios-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![codecov.io](https://codecov.io/github/Geofancy/ios-app/coverage.svg?branch=master)](https://codecov.io/github/Geofancy/ios-app?branch=master)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/LocativeHQ/ios-app/blob/master/LICENSE.md)
+[![TravisCI](https://api.travis-ci.org/LocativeHQ/ios-app.svg?branch=master)](https://travis-ci.org/LocativeHQ/ios-app) [![Join the chat at https://gitter.im/LocativeHQ/ios-app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/LocativeHQ/ios-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![codecov.io](https://codecov.io/github/LocativeHQ/ios-app/coverage.svg?branch=master)](https://codecov.io/github/LocativeHQ/ios-app?branch=master)
 
 ![Screenshot](screenshot.png)
 
@@ -14,7 +14,7 @@
 I'm open sourcing this sideproject of mine as I'm not enough time to actively care about it and due to the high number of requests I've got from the community, it feels about right to make further work to it possible.
 
 #### So you're going open source now, what about my data, is it also going open source?
-No, no, no. Of course not, you're data is still storned on the Geofancy servers and it will stay there until further notice. No third party will have access to your data.
+No, no, no. Of course not, you're data is still stored on the Locative servers and it will stay there until further notice. No third party will have access to your data.
 
 ## Technologies used
 
@@ -22,7 +22,7 @@ Objective-C and dependency management using CocoaPods.
 
 ## Development
 
-Clone this repo, open `Geofancy.xcworkspace` in Xcode and you're good to go.
+Clone this repo, open `Locative.xcworkspace` in Xcode and you're good to go.
 
 That's all folks.
 
@@ -35,7 +35,7 @@ I'm going to regularly deploy releases to the App Store.
 
 Right now I'm still getting issues / feature requests etc. reported via UserVoice but I'm planning on moving to GitHub issues with this.
 
-## The Geofancy License
+## The Locative License
 
 Copyright (c) 2013-today Marcus Kida
 
@@ -50,7 +50,7 @@ The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
 You are not eligible to distribute this Software under the name or appearance
-of Geofancy, you may release it under another name and appearance though.
+of Locative, you may release it under another name and appearance though.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

@@ -1,9 +1,9 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, "6.0"
 
-link_with "Geofancy", "GeofancyWidget"
+link_with "Locative", "LocativeWidget"
 
-target "Geofancy" do
+target "Locative" do
   pod 'AFNetworking', '~> 2.6.2'
   pod 'iOS-GPX-Framework'
   pod 'MSDynamicsDrawerViewController'
@@ -16,11 +16,11 @@ target "Geofancy" do
   pod 'PSTAlertController'
 end
 
-target "GeofancyWidget" do
+target "LocativeWidget" do
  pod 'AFNetworking', '~> 2.6.2'
 end
 
-target "GeofancyTests" do
+target "LocativeTests" do
   pod 'Specta'
   pod 'Expecta'
 end

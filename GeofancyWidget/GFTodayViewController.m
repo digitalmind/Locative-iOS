@@ -9,7 +9,7 @@
 #import "GFTodayViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
-static NSString *const TODAY_URL = @"https://my.geofancy.com/api/today";
+static NSString *const TODAY_URL = @"https://my.locative.io/api/today";
 
 @interface GFTodayViewController () <NCWidgetProviding>
 
@@ -60,14 +60,14 @@ static NSString *const TODAY_URL = @"https://my.geofancy.com/api/today";
 }
 
 - (void)updateLabelUsingString:(NSString *)string {
-    self.label.text = string.length > 0 ? string : NSLocalizedString(@"Please login using the Geofancy App by tapping here.", nil);
+    self.label.text = string.length > 0 ? string : NSLocalizedString(@"Please login using the Locative App by tapping here.", nil);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     if ([self getSessionId].length > 0) {
-        return [self.extensionContext openURL:[NSURL URLWithString:@"geofancy://open?ref=todaywidget"] completionHandler:nil];
+        return [self.extensionContext openURL:[NSURL URLWithString:@"locative://open?ref=todaywidget"] completionHandler:nil];
     }
-    [self.extensionContext openURL:[NSURL URLWithString:@"geofancy://open?ref=todaywidget&openSettings=true"] completionHandler:nil];
+    [self.extensionContext openURL:[NSURL URLWithString:@"locative://open?ref=todaywidget&openSettings=true"] completionHandler:nil];
 }
 
 #pragma mark - AFNetworking Security Policy

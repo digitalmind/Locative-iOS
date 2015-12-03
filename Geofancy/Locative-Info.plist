@@ -49,15 +49,15 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>Geofancy</string>
+			<string>Locative</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>geofancy</string>
+				<string>locative</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>292</string>
+	<string>308</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -71,6 +71,8 @@
 	<array>
 		<string>fetch</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
