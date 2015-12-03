@@ -7,7 +7,6 @@
 //
 
 #import "GFAppDelegate.h"
-#import <ObjectiveRecord/CoreDataManager.h>
 #import <Harpy/Harpy.h>
 #import "GFMenuViewController.h"
 #import <TSMessages/TSMessage.h>
@@ -33,12 +32,14 @@
     self.requestManager = [GFRequestManager sharedManager];
     self.harpy = [Harpy sharedInstance];
     
+    // Setup CoreData
+    self.coreDataManager = [[GFCoreDataManager alloc] initWithModel:@"Model"];
+    
     // Reachability
     [self setupReachabilityStatus];
     
     [self.window setBackgroundColor:[UIColor blackColor]];
-    [CoreDataManager sharedManager].modelName = @"Model";
-    
+        
     // Initial Setup (if required)
     if (![self.settings appHasBeenStarted]) {
         [self.settings setAppHasBeenStarted:[NSNumber numberWithBool:YES]];
@@ -228,7 +229,7 @@
 #pragma mark - Reachability
 - (void) setupReachabilityStatus
 {    
-    self.reachabilityManager = [AFNetworkReachabilityManager managerForDomain:@"my.geofancy.com"];
+    self.reachabilityManager = [AFNetworkReachabilityManager managerForDomain:@"my.locative.io"];
     [self.reachabilityManager startMonitoring];
     [self.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));

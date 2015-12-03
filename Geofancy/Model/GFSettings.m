@@ -18,11 +18,7 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath:kOldSettingsFilePath]) {
         [[NSFileManager defaultManager] moveItemAtPath:kOldSettingsFilePath toPath:kNewSettingsFilePath error:nil];
     }
-    self = [NSKeyedUnarchiver unarchiveObjectWithFile:kNewSettingsFilePath];
-    if(!self) {
-        self = [super init];
-    }
-    return self;
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:kNewSettingsFilePath] ?: [super init];
 }
 
 - (void) persist

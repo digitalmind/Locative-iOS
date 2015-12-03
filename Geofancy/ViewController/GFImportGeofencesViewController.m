@@ -116,7 +116,7 @@
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
     
-    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Add some Geofences at https://my.geofancy.com to get going.", nil)];
+    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Add some Geofences at https://my.locative.io to get going.", nil)];
 }
 
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView

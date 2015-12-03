@@ -57,19 +57,24 @@
 		2AD67FB318817BD5003840C8 /* GFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB218817BD5003840C8 /* GFRequest.m */; };
 		2AD67FB618817E6C003840C8 /* GFRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB518817E6C003840C8 /* GFRequestManager.m */; };
 		2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE7D801914F99C00460861 /* iBeaconPresets.plist */; };
-		9C7A4CE6B79B55629E532BD6 /* libPods-GeofancyWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEF522A2929AB46704BE31E /* libPods-GeofancyWidget.a */; };
-		C11EA62B5F564300AC10FBF3 /* libPods-GeofancyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 196FE35C79514CFD91498EA9 /* libPods-GeofancyTests.a */; };
+		678E14832B959DB52519B596 /* libPods-LocativeWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4713869F620CBCC782C138 /* libPods-LocativeWidget.a */; };
+		A5EA9BFEDD978D402D400153 /* libPods-Locative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF31CA767E403D5A592CFAA /* libPods-Locative.a */; };
+		E019C961BE0EFC10BAAE80A4 /* libPods-LocativeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F11EFEED1808D9569A49CD /* libPods-LocativeTests.a */; };
 		EC24859D1AF8D01400A1A041 /* UILocalNotification+Geofancy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC24859C1AF8D01400A1A041 /* UILocalNotification+Geofancy.m */; };
 		EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28B7A619B72913009E5427 /* GFImportGeofencesViewController.m */; };
 		EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
 		EC37383C1BDE2A0900C7DA0C /* GFTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37383B1BDE2A0900C7DA0C /* GFTodayViewController.m */; };
+		EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */; };
 		EC3C13E719B178CF0093F139 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3C13E619B178CF0093F139 /* NotificationCenter.framework */; };
 		EC3C13EE19B178CF0093F139 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3C13ED19B178CF0093F139 /* MainInterface.storyboard */; };
 		EC6FECAE19D6E92600D9E746 /* Main~ipad.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC6FECAA19D6E92600D9E746 /* Main~ipad.strings */; };
 		EC6FECAF19D6E92600D9E746 /* Main~iphone.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC6FECAC19D6E92600D9E746 /* Main~iphone.strings */; };
-		ECCBD31119CEE02A0009399B /* GeofancyWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC3C13E519B178CF0093F139 /* GeofancyWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ECCBD31119CEE02A0009399B /* Locative.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC3C13E519B178CF0093F139 /* Locative.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECCBD31F19CEE8F20009399B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCBD31D19CEE8F20009399B /* Localizable.strings */; };
-		ECDCB03B1ADE5245008988C5 /* libPods-Geofancy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDCB03A1ADE5245008988C5 /* libPods-Geofancy.a */; };
+		ECE802761C0CEA8D00B1B28C /* libExpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE802751C0CEA8D00B1B28C /* libExpecta.a */; };
+		ECE802781C0CEA9500B1B28C /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE802771C0CEA9500B1B28C /* libSpecta.a */; };
+		ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
+		ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +108,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				ECCBD31119CEE02A0009399B /* GeofancyWidget.appex in Embed App Extensions */,
+				ECCBD31119CEE02A0009399B /* Locative.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +116,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14F11EFEED1808D9569A49CD /* libPods-LocativeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LocativeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196FE35C79514CFD91498EA9 /* libPods-GeofancyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeofancyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A04A5941849F1D300D9B485 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		2A27D24818056CB000AC1708 /* GFSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSettingsViewController.h; sourceTree = "<group>"; };
@@ -147,20 +153,20 @@
 		2A8D852518AE3ED000CF2693 /* whatsup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whatsup.caf; sourceTree = "<group>"; };
 		2A8D852718AE3F4700CF2693 /* GFConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFConfig.h; sourceTree = "<group>"; };
 		2A8D852818AE3F4700CF2693 /* GFConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFConfig.m; sourceTree = "<group>"; };
-		2A8E9D9317FD51DD00F4A805 /* Geofancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geofancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A8E9D9317FD51DD00F4A805 /* Locative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8E9D9617FD51DD00F4A805 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2A8E9D9817FD51DD00F4A805 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2A8E9D9A17FD51DD00F4A805 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2A8E9D9E17FD51DD00F4A805 /* Geofancy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Geofancy-Info.plist"; sourceTree = "<group>"; };
+		2A8E9D9E17FD51DD00F4A805 /* Locative-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Locative-Info.plist"; sourceTree = "<group>"; };
 		2A8E9DA217FD51DD00F4A805 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2A8E9DA417FD51DD00F4A805 /* Geofancy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Geofancy-Prefix.pch"; sourceTree = "<group>"; };
+		2A8E9DA417FD51DD00F4A805 /* Locative-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Prefix.pch"; sourceTree = "<group>"; };
 		2A8E9DA517FD51DD00F4A805 /* GFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFAppDelegate.h; sourceTree = "<group>"; };
 		2A8E9DA617FD51DD00F4A805 /* GFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFAppDelegate.m; sourceTree = "<group>"; };
 		2A8E9DA917FD51DD00F4A805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A8E9DAE17FD51DD00F4A805 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		2A8E9DB417FD51DD00F4A805 /* GeofancyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeofancyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A8E9DB417FD51DD00F4A805 /* Locative.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Locative.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8E9DB517FD51DD00F4A805 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		2A8E9DBD17FD51DD00F4A805 /* GeofancyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GeofancyTests-Info.plist"; sourceTree = "<group>"; };
+		2A8E9DBD17FD51DD00F4A805 /* LocativeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LocativeTests-Info.plist"; sourceTree = "<group>"; };
 		2A8E9DBF17FD51DD00F4A805 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A8E9DEE17FD540D00F4A805 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A8E9DF017FD556900F4A805 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -194,6 +200,8 @@
 		9BFC8B4FDBC4C8D8A4178788 /* libPods-Geofancy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Geofancy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEF522A2929AB46704BE31E /* libPods-GeofancyWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeofancyWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC864070A43D948BB3F7E29 /* Pods-GeofancyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD4713869F620CBCC782C138 /* libPods-LocativeWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LocativeWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDF31CA767E403D5A592CFAA /* libPods-Locative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Locative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC11C7681ADE53C2003DC18D /* Widget.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Widget.Debug.xcconfig; sourceTree = "<group>"; };
 		EC11C7691ADE53C2003DC18D /* Widget.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Widget.Release.xcconfig; sourceTree = "<group>"; };
 		EC24859B1AF8D01400A1A041 /* UILocalNotification+Geofancy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILocalNotification+Geofancy.h"; sourceTree = "<group>"; };
@@ -217,7 +225,8 @@
 		EC34CB5C199592C7004479D2 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		EC37383A1BDE2A0900C7DA0C /* GFTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTodayViewController.h; sourceTree = "<group>"; };
 		EC37383B1BDE2A0900C7DA0C /* GFTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTodayViewController.m; sourceTree = "<group>"; };
-		EC3C13E519B178CF0093F139 /* GeofancyWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GeofancyWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		EC3C13E519B178CF0093F139 /* Locative.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Locative.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3C13E619B178CF0093F139 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		EC3C13EA19B178CF0093F139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC3C13ED19B178CF0093F139 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
@@ -230,6 +239,10 @@
 		ECCBD32019CEE8F60009399B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECDCB0381ADE4CE5008988C5 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/Pods-GeofancyWidget/AFNetworking.framework"; sourceTree = "<group>"; };
 		ECDCB03A1ADE5245008988C5 /* libPods-Geofancy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Geofancy.a"; path = "Pods/../build/Debug-iphoneos/libPods-Geofancy.a"; sourceTree = "<group>"; };
+		ECE802751C0CEA8D00B1B28C /* libExpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libExpecta.a; path = "Pods/../build/Debug-iphoneos/libExpecta.a"; sourceTree = "<group>"; };
+		ECE802771C0CEA9500B1B28C /* libSpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpecta.a; path = "Pods/../build/Debug-iphoneos/libSpecta.a"; sourceTree = "<group>"; };
+		ECE8027B1C0D69B600B1B28C /* GFCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCoreDataManager.h; sourceTree = "<group>"; };
+		ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCoreDataManager.m; sourceTree = "<group>"; };
 		EDBC71866C1BC6E7D0455385 /* Pods-GeofancyTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests.testflight.xcconfig"; sourceTree = "<group>"; };
 		EE9EBFC0D9B9435CB25CF4F9 /* Pods-GeofancyWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.release.xcconfig"; sourceTree = "<group>"; };
 		FBD676C69C42E37E21CE3D59 /* Pods-GeofancyWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,9 +264,9 @@
 				2A8E9DF117FD556900F4A805 /* CoreLocation.framework in Frameworks */,
 				2A8E9DEF17FD540D00F4A805 /* CoreData.framework in Frameworks */,
 				2A8E9D9917FD51DD00F4A805 /* CoreGraphics.framework in Frameworks */,
-				ECDCB03B1ADE5245008988C5 /* libPods-Geofancy.a in Frameworks */,
 				2A8E9D9B17FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9D9717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
+				A5EA9BFEDD978D402D400153 /* libPods-Locative.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +274,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE802781C0CEA9500B1B28C /* libSpecta.a in Frameworks */,
+				ECE802761C0CEA8D00B1B28C /* libExpecta.a in Frameworks */,
 				2A8E9DB617FD51DD00F4A805 /* XCTest.framework in Frameworks */,
 				2A8E9DB817FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9DB717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
-				C11EA62B5F564300AC10FBF3 /* libPods-GeofancyTests.a in Frameworks */,
+				E019C961BE0EFC10BAAE80A4 /* libPods-LocativeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3C13E719B178CF0093F139 /* NotificationCenter.framework in Frameworks */,
-				9C7A4CE6B79B55629E532BD6 /* libPods-GeofancyWidget.a in Frameworks */,
+				678E14832B959DB52519B596 /* libPods-LocativeWidget.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,9 +341,9 @@
 		2A8E9D9417FD51DD00F4A805 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A8E9D9317FD51DD00F4A805 /* Geofancy.app */,
-				2A8E9DB417FD51DD00F4A805 /* GeofancyTests.xctest */,
-				EC3C13E519B178CF0093F139 /* GeofancyWidget.appex */,
+				2A8E9D9317FD51DD00F4A805 /* Locative.app */,
+				2A8E9DB417FD51DD00F4A805 /* Locative.xctest */,
+				EC3C13E519B178CF0093F139 /* Locative.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,6 +351,8 @@
 		2A8E9D9517FD51DD00F4A805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECE802771C0CEA9500B1B28C /* libSpecta.a */,
+				ECE802751C0CEA8D00B1B28C /* libExpecta.a */,
 				ECDCB03A1ADE5245008988C5 /* libPods-Geofancy.a */,
 				ECDCB0381ADE4CE5008988C5 /* AFNetworking.framework */,
 				EC6FECA519D6C5D300D9E746 /* libPods.a */,
@@ -360,6 +377,9 @@
 				6736AE0F1787494AA7021FBE /* libPods.a */,
 				9BFC8B4FDBC4C8D8A4178788 /* libPods-Geofancy.a */,
 				9CEF522A2929AB46704BE31E /* libPods-GeofancyWidget.a */,
+				DDF31CA767E403D5A592CFAA /* libPods-Locative.a */,
+				14F11EFEED1808D9569A49CD /* libPods-LocativeTests.a */,
+				CD4713869F620CBCC782C138 /* libPods-LocativeWidget.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -368,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				EC3C13F919B17A280093F139 /* Geofancy.entitlements */,
+				EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */,
 				2A4B2B2D17FD7E17002ECE72 /* Categories */,
 				2A8E9E0717FD5EFC00F4A805 /* Model */,
 				2A8E9E0017FD5A9F00F4A805 /* ViewController */,
@@ -392,10 +413,10 @@
 				2A8D852518AE3ED000CF2693 /* whatsup.caf */,
 				2A04A5941849F1D300D9B485 /* notification.caf */,
 				2A9C1D8618094F0C00F84B5C /* about.html */,
-				2A8E9D9E17FD51DD00F4A805 /* Geofancy-Info.plist */,
+				2A8E9D9E17FD51DD00F4A805 /* Locative-Info.plist */,
 				2A8E9D9F17FD51DD00F4A805 /* InfoPlist.strings */,
 				2A8E9DA217FD51DD00F4A805 /* main.m */,
-				2A8E9DA417FD51DD00F4A805 /* Geofancy-Prefix.pch */,
+				2A8E9DA417FD51DD00F4A805 /* Locative-Prefix.pch */,
 				2ADE7D801914F99C00460861 /* iBeaconPresets.plist */,
 			);
 			name = "Supporting Files";
@@ -414,7 +435,7 @@
 		2A8E9DBC17FD51DD00F4A805 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2A8E9DBD17FD51DD00F4A805 /* GeofancyTests-Info.plist */,
+				2A8E9DBD17FD51DD00F4A805 /* LocativeTests-Info.plist */,
 				2A8E9DBE17FD51DD00F4A805 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -433,6 +454,8 @@
 				2AD67FB518817E6C003840C8 /* GFRequestManager.m */,
 				2A8D852718AE3F4700CF2693 /* GFConfig.h */,
 				2A8D852818AE3F4700CF2693 /* GFConfig.m */,
+				ECE8027B1C0D69B600B1B28C /* GFCoreDataManager.h */,
+				ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -510,9 +533,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2A8E9D9217FD51DD00F4A805 /* Geofancy */ = {
+		2A8E9D9217FD51DD00F4A805 /* Locative */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A8E9DC517FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "Geofancy" */;
+			buildConfigurationList = 2A8E9DC517FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "Locative" */;
 			buildPhases = (
 				1A21849FF996459ABBC6E3E2 /* Check Pods Manifest.lock */,
 				2A5158BD188185B000DCD8D9 /* ShellScript */,
@@ -529,14 +552,14 @@
 				EC3C13F319B178CF0093F139 /* PBXTargetDependency */,
 				ECCBD31319CEE02A0009399B /* PBXTargetDependency */,
 			);
-			name = Geofancy;
+			name = Locative;
 			productName = Geofancy;
-			productReference = 2A8E9D9317FD51DD00F4A805 /* Geofancy.app */;
+			productReference = 2A8E9D9317FD51DD00F4A805 /* Locative.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2A8E9DB317FD51DD00F4A805 /* GeofancyTests */ = {
+		2A8E9DB317FD51DD00F4A805 /* LocativeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A8E9DC817FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "GeofancyTests" */;
+			buildConfigurationList = 2A8E9DC817FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "LocativeTests" */;
 			buildPhases = (
 				CDEDC951DE3842F2A2572801 /* Check Pods Manifest.lock */,
 				2A8E9DB017FD51DD00F4A805 /* Sources */,
@@ -550,15 +573,16 @@
 			dependencies = (
 				2A8E9DBA17FD51DD00F4A805 /* PBXTargetDependency */,
 			);
-			name = GeofancyTests;
+			name = LocativeTests;
 			productName = GeofancyTests;
-			productReference = 2A8E9DB417FD51DD00F4A805 /* GeofancyTests.xctest */;
+			productReference = 2A8E9DB417FD51DD00F4A805 /* Locative.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		EC3C13E419B178CF0093F139 /* GeofancyWidget */ = {
+		EC3C13E419B178CF0093F139 /* LocativeWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC3C13F419B178CF0093F139 /* Build configuration list for PBXNativeTarget "GeofancyWidget" */;
+			buildConfigurationList = EC3C13F419B178CF0093F139 /* Build configuration list for PBXNativeTarget "LocativeWidget" */;
 			buildPhases = (
+				62EB932494A3CFE02FAA05BD /* Check Pods Manifest.lock */,
 				ECCCABA91B04EA4F0040FED2 /* Increment Build */,
 				EC3C13E119B178CF0093F139 /* Sources */,
 				EC3C13E219B178CF0093F139 /* Frameworks */,
@@ -571,9 +595,9 @@
 			);
 			dependencies = (
 			);
-			name = GeofancyWidget;
+			name = LocativeWidget;
 			productName = GeofancyWidget;
-			productReference = EC3C13E519B178CF0093F139 /* GeofancyWidget.appex */;
+			productReference = EC3C13E519B178CF0093F139 /* Locative.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -585,7 +609,7 @@
 				CLASSPREFIX = GF;
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Marcus Kida";
 				TargetAttributes = {
 					2A8E9D9217FD51DD00F4A805 = {
@@ -619,7 +643,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2A8E9D8E17FD51DD00F4A805 /* Build configuration list for PBXProject "Geofancy" */;
+			buildConfigurationList = 2A8E9D8E17FD51DD00F4A805 /* Build configuration list for PBXProject "Locative" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -664,9 +688,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2A8E9D9217FD51DD00F4A805 /* Geofancy */,
-				2A8E9DB317FD51DD00F4A805 /* GeofancyTests */,
-				EC3C13E419B178CF0093F139 /* GeofancyWidget */,
+				2A8E9D9217FD51DD00F4A805 /* Locative */,
+				2A8E9DB317FD51DD00F4A805 /* LocativeTests */,
+				EC3C13E419B178CF0093F139 /* LocativeWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -682,6 +706,7 @@
 				2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */,
 				EC6FECAE19D6E92600D9E746 /* Main~ipad.strings in Resources */,
 				2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */,
+				EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */,
 				2A9C1D8718094F0C00F84B5C /* about.html in Resources */,
 				2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */,
 				2A04A5951849F1D300D9B485 /* notification.caf in Resources */,
@@ -721,7 +746,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Geofancy/Pods-Geofancy-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1A21849FF996459ABBC6E3E2 /* Check Pods Manifest.lock */ = {
@@ -764,7 +789,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62EB932494A3CFE02FAA05BD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7377A4F3A2F0447CBD0813D0 /* Copy Pods Resources */ = {
@@ -779,7 +819,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Geofancy/Pods-Geofancy-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		795B9B69F4424AE69E6D5C82 /* Copy Pods Resources */ = {
@@ -794,7 +834,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8334B1EC3C3128670B9DEBA2 /* Embed Pods Frameworks */ = {
@@ -809,7 +849,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeWidget/Pods-LocativeWidget-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CDEDC951DE3842F2A2572801 /* Check Pods Manifest.lock */ = {
@@ -839,7 +879,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeWidget/Pods-LocativeWidget-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */ = {
@@ -878,6 +918,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8E9DF917FD5A5800F4A805 /* GFGeofenceManager.m in Sources */,
+				ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */,
 				2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */,
 				EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */,
 				2A2BF52F18537ED400D5DD98 /* GFCloudSignupViewController.m in Sources */,
@@ -912,6 +953,7 @@
 				2A59CD6E18F93DD10062A0FE /* GFMenuViewControllerTests.m in Sources */,
 				2A59CD7018F93E380062A0FE /* GFCloudSignupViewControllerTests.m in Sources */,
 				2A59CD6C18F93D620062A0FE /* GFSettingsViewControllerTests.m in Sources */,
+				ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,17 +970,17 @@
 /* Begin PBXTargetDependency section */
 		2A8E9DBA17FD51DD00F4A805 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2A8E9D9217FD51DD00F4A805 /* Geofancy */;
+			target = 2A8E9D9217FD51DD00F4A805 /* Locative */;
 			targetProxy = 2A8E9DB917FD51DD00F4A805 /* PBXContainerItemProxy */;
 		};
 		EC3C13F319B178CF0093F139 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EC3C13E419B178CF0093F139 /* GeofancyWidget */;
+			target = EC3C13E419B178CF0093F139 /* LocativeWidget */;
 			targetProxy = EC3C13F219B178CF0093F139 /* PBXContainerItemProxy */;
 		};
 		ECCBD31319CEE02A0009399B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EC3C13E419B178CF0093F139 /* GeofancyWidget */;
+			target = EC3C13E419B178CF0093F139 /* LocativeWidget */;
 			targetProxy = ECCBD31219CEE02A0009399B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1026,9 +1068,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1067,6 +1111,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1084,16 +1129,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5C199592C7004479D2 /* Debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Geofancy/Geofancy.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Geofancy/Geofancy-Prefix.pch";
-				INFOPLIST_FILE = "Geofancy/Geofancy-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
+				INFOPLIST_FILE = "Geofancy/$(PRODUCT_NAME)-Info.plist";
+				PRODUCT_NAME = Locative;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1103,16 +1143,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5A199590D7004479D2 /* Release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Geofancy/Geofancy.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Geofancy/Geofancy-Prefix.pch";
-				INFOPLIST_FILE = "Geofancy/Geofancy-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
+				INFOPLIST_FILE = "Geofancy/$(PRODUCT_NAME)-Info.plist";
+				PRODUCT_NAME = Locative;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1120,9 +1155,9 @@
 		};
 		2A8E9DC917FD51DD00F4A805 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAC864070A43D948BB3F7E29 /* Pods-GeofancyTests.debug.xcconfig */;
+			baseConfigurationReference = EC34CB5C199592C7004479D2 /* Debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Geofancy.app/Geofancy";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Locative.app/Locative";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1135,8 +1170,13 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "GeofancyTests/GeofancyTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "GeofancyTests/LocativeTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marcuskida.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Locative;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1144,9 +1184,9 @@
 		};
 		2A8E9DCA17FD51DD00F4A805 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AFFBA9FE1F2C1E3E0388265 /* Pods-GeofancyTests.release.xcconfig */;
+			baseConfigurationReference = EC34CB5A199590D7004479D2 /* Release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Geofancy.app/Geofancy";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Locative.app/Locative";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1155,8 +1195,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GeofancyTests/GeofancyTests-Prefix.pch";
-				INFOPLIST_FILE = "GeofancyTests/GeofancyTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "GeofancyTests/LocativeTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marcuskida.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Locative;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1169,21 +1214,14 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = GeofancyWidget/GeofancyWidget.entitlements;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-GeofancyWidget",
-				);
+				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = GeofancyWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
-				);
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcuskida.Geofancy.GeofancyWidget;
+				PRODUCT_NAME = Locative;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = GeofancyWidget/WidgetObjcBridge.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1195,28 +1233,21 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = GeofancyWidget/GeofancyWidget.entitlements;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods-GeofancyWidget",
-				);
+				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = GeofancyWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
-				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcuskida.Geofancy.GeofancyWidget;
+				PRODUCT_NAME = Locative;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = GeofancyWidget/WidgetObjcBridge.h;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A8E9D8E17FD51DD00F4A805 /* Build configuration list for PBXProject "Geofancy" */ = {
+		2A8E9D8E17FD51DD00F4A805 /* Build configuration list for PBXProject "Locative" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A8E9DC317FD51DD00F4A805 /* Debug */,
@@ -1225,7 +1256,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A8E9DC517FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "Geofancy" */ = {
+		2A8E9DC517FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "Locative" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A8E9DC617FD51DD00F4A805 /* Debug */,
@@ -1234,7 +1265,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A8E9DC817FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "GeofancyTests" */ = {
+		2A8E9DC817FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "LocativeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A8E9DC917FD51DD00F4A805 /* Debug */,
@@ -1243,7 +1274,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC3C13F419B178CF0093F139 /* Build configuration list for PBXNativeTarget "GeofancyWidget" */ = {
+		EC3C13F419B178CF0093F139 /* Build configuration list for PBXNativeTarget "LocativeWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC3C13F519B178CF0093F139 /* Debug */,

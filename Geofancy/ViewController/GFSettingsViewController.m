@@ -239,7 +239,7 @@
         }
         
         PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:error ? NSLocalizedString(@"Error", nil) : NSLocalizedString(@"Success", nil)
-                                                                              message:error ? NSLocalizedString(@"There has been a problem with your login, please try again!", nil) : NSLocalizedString(@"Login successful! Your triggered geofences will now be visible in you Account at http://my.geofancy.com!", nil)
+                                                                              message:error ? NSLocalizedString(@"There has been a problem with your login, please try again!", nil) : NSLocalizedString(@"Login successful! Your triggered geofences will now be visible in you Account at http://my.locative.io!", nil)
                                                                        preferredStyle:PSTAlertControllerStyleAlert];
         [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:PSTAlertActionStyleDefault handler:nil]];
         [controller showWithSender:sender controller:self animated:YES completion:nil];
@@ -252,7 +252,7 @@
                                                                    preferredStyle:PSTAlertControllerStyleAlert];
     [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"No", nil) style:PSTAlertActionStyleDefault handler:nil]];
     [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Yes", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://my.geofancy.com/youforgot"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://my.locative.io/youforgot"]];
     }]];
     [controller showWithSender:sender controller:self animated:YES completion:nil];
 }
@@ -280,7 +280,7 @@
 - (void) performExportGpx {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     
-    GPXRoot *root = [GPXRoot rootWithCreator:@"Geofancy"];
+    GPXRoot *root = [GPXRoot rootWithCreator:@"Locative"];
     __block NSString *gpx = @"";
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -307,7 +307,7 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
-        [mailViewController setSubject:NSLocalizedString(@"My Geofancy Backup", nil)];
+        [mailViewController setSubject:NSLocalizedString(@"My Locative Backup", nil)];
         [mailViewController addAttachmentData:[gpx dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"application/xml" fileName:@"Geofences.gpx"];
         [self presentViewController:mailViewController animated:YES completion:nil];
     } else {

@@ -25,7 +25,7 @@
 - (instancetype)initWithSettings:(GFSettings *)settings {
     self = [super init];
     if (self) {
-        NSLog(@"My Geofancy Backend: %@", kMyGeofancyBackend);
+        NSLog(@"My Locative Backend: %@", kMyGeofancyBackend);
         _settings = settings;
     }
     return self;

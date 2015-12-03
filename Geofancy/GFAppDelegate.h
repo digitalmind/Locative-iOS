@@ -14,6 +14,7 @@
 #import "GFGeofenceManager.h"
 #import "GFCloudManager.h"
 #import "GFRequestManager.h"
+#import "GFCoreDataManager.h"
 
 @interface GFAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -24,5 +25,6 @@
 @property (nonatomic, strong) GFRequestManager *requestManager;
 @property (nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager;
 @property (nonatomic, strong) GFSettings *settings;
+@property (nonatomic, strong) GFCoreDataManager *coreDataManager;
 
 @end
