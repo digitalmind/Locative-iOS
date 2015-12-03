@@ -12,28 +12,28 @@
 #import <PSTAlertController/PSTAlertController.h>
 
 @interface GFSettingsViewController () <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
-{
-    IBOutlet UITextField *_httpUrlTextField;
-    IBOutlet UISegmentedControl *_httpMethodSegmentedControl;
-    
-    IBOutlet UISwitch *_httpBasicAuthSwitch;
-    IBOutlet UITextField *_httpBasicAuthUsernameTextField;
-    IBOutlet UITextField *_httpBasicAuthPasswordTextField;
 
-    IBOutlet UISwitch *_notifyOnSuccessSwitch;
-    IBOutlet UISwitch *_notifyOnFailureSwitch;
-    IBOutlet UISwitch *_soundOnNotificationSwitch;
-    
-    // My Geofancy
-    IBOutlet UITextField *_myGfUsername;
-    IBOutlet UITextField *_myGfPassword;
-    IBOutlet UIButton *_myGfLoginButton;
-    IBOutlet UIButton *_myGfCreateAccountButton;
-    IBOutlet UIButton *_myGfLostPwButton;
-    
-    GFSettings *_settings;
-    GFAppDelegate *_appDelegate;
-}
+@property (nonatomic, weak) IBOutlet UITextField *httpUrlTextField;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *httpMethodSegmentedControl;
+
+@property (nonatomic, weak) IBOutlet UISwitch *httpBasicAuthSwitch;
+@property (nonatomic, weak) IBOutlet UITextField *httpBasicAuthUsernameTextField;
+@property (nonatomic, weak) IBOutlet UITextField *httpBasicAuthPasswordTextField;
+
+@property (nonatomic, weak) IBOutlet UISwitch *notifyOnSuccessSwitch;
+@property (nonatomic, weak) IBOutlet UISwitch *notifyOnFailureSwitch;
+@property (nonatomic, weak) IBOutlet UISwitch *soundOnNotificationSwitch;
+
+// My Geofancy
+@property (nonatomic, weak) IBOutlet UITextField *myGfUsername;
+@property (nonatomic, weak) IBOutlet UITextField *myGfPassword;
+@property (nonatomic, weak) IBOutlet UIButton *myGfLoginButton;
+@property (nonatomic, weak) IBOutlet UIButton *myGfCreateAccountButton;
+@property (nonatomic, weak) IBOutlet UIButton *myGfLostPwButton;
+
+@property (nonatomic, strong) GFSettings *settings;
+@property (nonatomic, weak) GFAppDelegate *appDelegate;
+
 @end
 
 @implementation GFSettingsViewController
@@ -50,8 +50,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    _appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
-    _settings = _appDelegate.settings;
+    self.appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.settings = self.appDelegate.settings;
     
     /*
      Drawer Menu Shadow
@@ -64,24 +64,24 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [_httpUrlTextField setText:([[[_settings globalUrl] absoluteString] length] > 0)?[[_settings globalUrl] absoluteString]:nil];
-    [_httpMethodSegmentedControl setSelectedSegmentIndex:[[_settings globalHttpMethod] intValue]];
+    [self.httpUrlTextField setText:([[[self.settings globalUrl] absoluteString] length] > 0)?[[self.settings globalUrl] absoluteString]:nil];
+    [self.httpMethodSegmentedControl setSelectedSegmentIndex:[[self.settings globalHttpMethod] intValue]];
     
-    _httpBasicAuthSwitch.on = [[_settings httpBasicAuthEnabled] boolValue];
-    [_httpBasicAuthUsernameTextField setEnabled:_httpBasicAuthSwitch.on];
-    [_httpBasicAuthPasswordTextField setEnabled:_httpBasicAuthSwitch.on];
-    [_httpBasicAuthUsernameTextField setText:([[_settings httpBasicAuthUsername] length] > 0)?[_settings httpBasicAuthUsername]:nil];
-    [_httpBasicAuthPasswordTextField setText:([[_settings httpBasicAuthPassword] length] > 0)?[_settings httpBasicAuthPassword]:nil];
+    self.httpBasicAuthSwitch.on = [[self.settings httpBasicAuthEnabled] boolValue];
+    [self.httpBasicAuthUsernameTextField setEnabled:self.httpBasicAuthSwitch.on];
+    [self.httpBasicAuthPasswordTextField setEnabled:self.httpBasicAuthSwitch.on];
+    [self.httpBasicAuthUsernameTextField setText:([[self.settings httpBasicAuthUsername] length] > 0)?[self.settings httpBasicAuthUsername]:nil];
+    [self.httpBasicAuthPasswordTextField setText:([[self.settings httpBasicAuthPassword] length] > 0)?[self.settings httpBasicAuthPassword]:nil];
     
-    _notifyOnSuccessSwitch.on = [[_settings notifyOnSuccess] boolValue];
-    _notifyOnFailureSwitch.on = [[_settings notifyOnFailure] boolValue];
-    _soundOnNotificationSwitch.on = [[_settings soundOnNotification] boolValue];
+    self.notifyOnSuccessSwitch.on = [[self.settings notifyOnSuccess] boolValue];
+    self.notifyOnFailureSwitch.on = [[self.settings notifyOnFailure] boolValue];
+    self.soundOnNotificationSwitch.on = [[self.settings soundOnNotification] boolValue];
 
-    [[_appDelegate cloudManager] validateSessionWithCallback:^(BOOL valid) {
+    [[self.appDelegate cloudManager] validateSessionWithCallback:^(BOOL valid) {
         if (valid) {
-            _myGfCreateAccountButton.hidden = YES;
-            _myGfLostPwButton.hidden = YES;
-            _myGfLoginButton.hidden = YES;
+            self.myGfCreateAccountButton.hidden = YES;
+            self.myGfLostPwButton.hidden = YES;
+            self.myGfLoginButton.hidden = YES;
         }
         [[self tableView] reloadData];
     }];
@@ -104,13 +104,13 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
         if (indexPath.row >= 0 && indexPath.row < 5) {
-            if ([[_appDelegate.settings apiToken] length] == 0) {
+            if ([[self.appDelegate.settings apiToken] length] == 0) {
                 return [super tableView:tableView heightForRowAtIndexPath:indexPath];
             } else {
                 return 0.0f;
             }
         } else if (indexPath.row >= 5) {
-            if ([[_appDelegate.settings apiToken] length] == 0) {
+            if ([[self.appDelegate.settings apiToken] length] == 0) {
                 return 0.0f;
             } else {
                 return [super tableView:tableView heightForRowAtIndexPath:indexPath];
@@ -138,25 +138,25 @@
 #pragma mark - IBActions
 - (IBAction)saveSettings:(id)sender {
     // Normalize URL if necessary
-    if ([[_httpUrlTextField text] length] > 0) {
-        if([[[_httpUrlTextField text] lowercaseString] hasPrefix:@"http://"] || [[[_httpUrlTextField text] lowercaseString] hasPrefix:@"https://"]) {
-            [_settings setGlobalUrl:[NSURL URLWithString:[_httpUrlTextField text]]];
+    if ([[self.httpUrlTextField text] length] > 0) {
+        if([[[self.httpUrlTextField text] lowercaseString] hasPrefix:@"http://"] || [[[self.httpUrlTextField text] lowercaseString] hasPrefix:@"https://"]) {
+            [self.settings setGlobalUrl:[NSURL URLWithString:[self.httpUrlTextField text]]];
         } else {
-            [_settings setGlobalUrl:[NSURL URLWithString:[@"http://" stringByAppendingString:[_httpUrlTextField text]]]];
+            [self.settings setGlobalUrl:[NSURL URLWithString:[@"http://" stringByAppendingString:[self.httpUrlTextField text]]]];
         }
     } else {
-        [_settings setGlobalUrl:nil];
+        [self.settings setGlobalUrl:nil];
     }
     
-    [_settings setHttpBasicAuthUsername:[_httpBasicAuthUsernameTextField text]];
-    [_settings setHttpBasicAuthPassword:[_httpBasicAuthPasswordTextField text]];
+    [self.settings setHttpBasicAuthUsername:[self.httpBasicAuthUsernameTextField text]];
+    [self.settings setHttpBasicAuthPassword:[self.httpBasicAuthPasswordTextField text]];
     
-    [_settings setGlobalHttpMethod:[NSNumber numberWithInteger:[_httpMethodSegmentedControl selectedSegmentIndex]]];
-    [_settings setNotifyOnSuccess:[NSNumber numberWithBool:_notifyOnSuccessSwitch.on]];
-    [_settings setNotifyOnFailure:[NSNumber numberWithBool:_notifyOnFailureSwitch.on]];
-    [_settings setSoundOnNotification:[NSNumber numberWithBool:_soundOnNotificationSwitch.on]];
+    [self.settings setGlobalHttpMethod:[NSNumber numberWithInteger:[self.httpMethodSegmentedControl selectedSegmentIndex]]];
+    [self.settings setNotifyOnSuccess:[NSNumber numberWithBool:self.notifyOnSuccessSwitch.on]];
+    [self.settings setNotifyOnFailure:[NSNumber numberWithBool:self.notifyOnFailureSwitch.on]];
+    [self.settings setSoundOnNotification:[NSNumber numberWithBool:self.soundOnNotificationSwitch.on]];
     
-    [_settings persist];
+    [self.settings persist];
 
     [[(GFAppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"GeofencesNav"] animated:YES completion:nil];
 }
@@ -179,7 +179,7 @@
                                                         delayUntilAuthorized:YES
                                                                        block:
      ^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-         NSString *url = [_httpUrlTextField text];
+         NSString *url = [self.httpUrlTextField text];
          NSString *eventId = [[NSUUID UUID] UUIDString];
          NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
          NSDate *timestamp = [NSDate date];
@@ -193,20 +193,20 @@
          
          GFRequest *httpRequest = [GFRequest create];
          httpRequest.url = url;
-         httpRequest.method = ([_httpMethodSegmentedControl selectedSegmentIndex] == 0)?@"POST":@"GET";
+         httpRequest.method = ([self.httpMethodSegmentedControl selectedSegmentIndex] == 0)?@"POST":@"GET";
          httpRequest.parameters = parameters;
          httpRequest.eventType = [NSNumber numberWithInt:0];
          httpRequest.timestamp = timestamp;
          httpRequest.uuid = [[NSUUID UUID] UUIDString];
          
-         if ([_settings httpBasicAuthEnabled]) {
+         if ([self.settings httpBasicAuthEnabled]) {
              httpRequest.httpAuth = [NSNumber numberWithBool:YES];
-             httpRequest.httpAuthUsername = [_settings httpBasicAuthUsername];
-             httpRequest.httpAuthPassword = [_settings httpBasicAuthPassword];
+             httpRequest.httpAuthUsername = [self.settings httpBasicAuthUsername];
+             httpRequest.httpAuthPassword = [self.settings httpBasicAuthPassword];
          }
          
          [httpRequest save];
-         [_appDelegate.requestManager flushWithCompletion:nil];
+         [self.appDelegate.requestManager flushWithCompletion:nil];
     }];
     
     PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
@@ -224,17 +224,17 @@
 - (IBAction) loginToAccount:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     
-    [[_appDelegate cloudManager] loginToAccountWithUsername:[_myGfUsername text] andPassword:[_myGfPassword text] onFinish:^(NSError *error, NSString *sessionId) {
+    [[self.appDelegate cloudManager] loginToAccountWithUsername:[self.myGfUsername text] andPassword:[self.myGfPassword text] onFinish:^(NSError *error, NSString *sessionId) {
         
         [SVProgressHUD dismiss];
         
-        _myGfCreateAccountButton.hidden = !error;
-        _myGfLostPwButton.hidden = !error;
-        _myGfLoginButton.hidden = !error;
+        self.myGfCreateAccountButton.hidden = !error;
+        self.myGfLostPwButton.hidden = !error;
+        self.myGfLoginButton.hidden = !error;
         
         if (!error) {
-            [_appDelegate.settings setApiToken:sessionId];
-            [_appDelegate.settings persist];
+            [self.appDelegate.settings setApiToken:sessionId];
+            [self.appDelegate.settings persist];
             [[self tableView] reloadData];
         }
         
@@ -257,13 +257,12 @@
     [controller showWithSender:sender controller:self animated:YES completion:nil];
 }
 
-- (IBAction) logout:(id)sender
-{
-    [_appDelegate.settings removeApiToken];
+- (IBAction) logout:(id)sender {
+    [self.appDelegate.settings removeApiToken];
     
-    _myGfCreateAccountButton.hidden = NO;
-    _myGfLostPwButton.hidden = NO;
-    _myGfLoginButton.hidden = NO;
+    self.myGfCreateAccountButton.hidden = NO;
+    self.myGfLostPwButton.hidden = NO;
+    self.myGfLoginButton.hidden = NO;
     [[self tableView] reloadData];
 }
 
