@@ -26,10 +26,17 @@ Clone this repo, open `Locative.xcworkspace` in Xcode and you're good to go.
 
 That's all folks.
 
+## Changelog
+
+The `github_changelog_generator` gem is used to generate a changelog. To generate the most current changelog perform
+
+```
+rake changelog
+```
+
 ## Deployment
 
 I'm going to regularly deploy releases to the App Store.
-
 
 ## Issues
 
