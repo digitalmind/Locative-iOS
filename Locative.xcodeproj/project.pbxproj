@@ -544,7 +544,7 @@
 				2A8E9D9117FD51DD00F4A805 /* Resources */,
 				7377A4F3A2F0447CBD0813D0 /* Copy Pods Resources */,
 				ECCBD31419CEE02A0009399B /* Embed App Extensions */,
-				128A2B680DC89EE76B06E6BF /* Embed Pods Frameworks */,
+				A04C6144BDBCC1BE18E62C34 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -566,7 +566,7 @@
 				2A8E9DB117FD51DD00F4A805 /* Frameworks */,
 				2A8E9DB217FD51DD00F4A805 /* Resources */,
 				795B9B69F4424AE69E6D5C82 /* Copy Pods Resources */,
-				5305C9BB6D7059A407CC98F8 /* Embed Pods Frameworks */,
+				F5C8764C4EF77611C9DE13EC /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -588,8 +588,8 @@
 				EC3C13E219B178CF0093F139 /* Frameworks */,
 				EC3C13E319B178CF0093F139 /* Resources */,
 				D622AF3209AC4A738636E0D4 /* Copy Pods Resources */,
-				8334B1EC3C3128670B9DEBA2 /* Embed Pods Frameworks */,
 				ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */,
+				8D747859AF06BB38C8A68EA6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -734,21 +734,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		128A2B680DC89EE76B06E6BF /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1A21849FF996459ABBC6E3E2 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -776,21 +761,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ] || [ $CONFIGURATION == TestFlight ]; then\n    echo \"Bumping build number...\"\n    plist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n    # increment the build number (ie 115 to 116)\n    buildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\n    if [[ \"${buildnum}\" == \"\" ]]; then\n        echo \"No build number in $plist\"\n        exit 2\n    fi\n\n    buildnum=$(expr $buildnum + 1)\n    /usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\n    echo \"Bumped build number to $buildnum\"\n\nelse\n    echo $CONFIGURATION \" build - Not bumping build number.\"\nfi";
-		};
-		5305C9BB6D7059A407CC98F8 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		62EB932494A3CFE02FAA05BD /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -837,7 +807,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8334B1EC3C3128670B9DEBA2 /* Embed Pods Frameworks */ = {
+		8D747859AF06BB38C8A68EA6 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -850,6 +820,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeWidget/Pods-LocativeWidget-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A04C6144BDBCC1BE18E62C34 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CDEDC951DE3842F2A2572801 /* Check Pods Manifest.lock */ = {
@@ -909,6 +894,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ] || [ $CONFIGURATION == TestFlight ]; then\n echo \"Bumping build number...\"\n plist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n# increment the build number (ie 115 to 116)\n buildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\n if [[ \"${buildnum}\" == \"\" ]]; then\n  echo \"No build number in $plist\"\n  exit 2\n fi\n\n buildnum=$(expr $buildnum + 1)\n /usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\n echo \"Bumped build number to $buildnum\"\n\nelse\n echo $CONFIGURATION \" build - Not bumping build number.\"\nfi";
+		};
+		F5C8764C4EF77611C9DE13EC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -14,6 +14,7 @@ target "Locative" do
   pod 'INTULocationManager'
   pod 'TSMessages'
   pod 'PSTAlertController'
+  pod '1PasswordExtension', '~> 1.6.4'
 end
 
 target "LocativeWidget" do
