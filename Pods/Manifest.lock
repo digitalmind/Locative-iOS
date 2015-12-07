@@ -1,4 +1,5 @@
 PODS:
+  - 1PasswordExtension (1.6.4)
   - AFNetworking (2.6.2):
     - AFNetworking/NSURLConnection (= 2.6.2)
     - AFNetworking/NSURLSession (= 2.6.2)
@@ -39,6 +40,7 @@ PODS:
     - HexColors (~> 2.2.0)
 
 DEPENDENCIES:
+  - 1PasswordExtension (~> 1.6.4)
   - AFNetworking (~> 2.6.2)
   - DZNEmptyDataSet
   - Expecta
@@ -53,6 +55,7 @@ DEPENDENCIES:
   - TSMessages
 
 SPEC CHECKSUMS:
+  1PasswordExtension: 9f471645d378283cb88c6d4bf502e4381a42c0ad
   AFNetworking: 7f317038a9710cabfa43ec56396b307b45df72ab
   DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
   Expecta: a354d4633409dd9fe8c4f5ff5130426adbe31628

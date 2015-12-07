@@ -10,6 +10,7 @@
 #import "GFGeofencesViewController.h"
 #import <INTULocationManager/INTULocationManager.h>
 #import <PSTAlertController/PSTAlertController.h>
+#import <1PasswordExtension/OnePasswordExtension.h>
 
 @interface GFSettingsViewController () <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 
@@ -27,6 +28,9 @@
 // My Geofancy
 @property (nonatomic, weak) IBOutlet UITextField *myGfUsername;
 @property (nonatomic, weak) IBOutlet UITextField *myGfPassword;
+@property (nonatomic, weak) IBOutlet UIButton *passwordManagerButton;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *passwordManagerButtonShowConstraint;
+
 @property (nonatomic, weak) IBOutlet UIButton *myGfLoginButton;
 @property (nonatomic, weak) IBOutlet UIButton *myGfCreateAccountButton;
 @property (nonatomic, weak) IBOutlet UIButton *myGfLostPwButton;
@@ -52,7 +56,18 @@
     
     self.appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.settings = self.appDelegate.settings;
-    
+	
+	// show/hide password manager button next to the password text field
+	if ([[OnePasswordExtension sharedExtension] isAppExtensionAvailable]) {
+		NSURL *resourceBundleUrl = [[NSBundle mainBundle] URLForResource:@"OnePasswordExtensionResources" withExtension:@"bundle"];
+		NSBundle *resourceBundle = [NSBundle bundleWithURL:resourceBundleUrl];
+		[self.passwordManagerButton setImage:[UIImage imageNamed:@"onepassword-button" inBundle:resourceBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+		self.passwordManagerButtonShowConstraint.active = YES;
+	} else {
+		[self.passwordManagerButton setImage:nil forState:UIControlStateNormal];
+		self.passwordManagerButtonShowConstraint.active = NO;
+	}
+	
     /*
      Drawer Menu Shadow
      */
@@ -216,7 +231,21 @@
     [controller showWithSender:sender controller:self animated:YES completion:nil];
 }
 
-#pragma mark - IBActions
+- (IBAction)passwordManagerButtonTapped:(id)sender {
+	[[OnePasswordExtension sharedExtension] findLoginForURLString:@"https://my.locative.io" forViewController:self sender:sender completion:^(NSDictionary *loginDictionary, NSError *error) {
+		if (loginDictionary.count == 0) {
+			if (error.code != AppExtensionErrorCodeCancelledByUser) {
+				NSLog(@"Error invoking 1Password App Extension for find login: %@", error);
+			}
+			return;
+		}
+		
+		self.myGfUsername.text = loginDictionary[AppExtensionUsernameKey];
+		self.myGfPassword.text = loginDictionary[AppExtensionPasswordKey];
+		[self loginToAccount:self.myGfLoginButton];
+	}];
+}
+
 - (IBAction) toggleMenu:(id)sender {
     [[(GFAppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
 }
