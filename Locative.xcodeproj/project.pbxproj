@@ -588,8 +588,8 @@
 				EC3C13E219B178CF0093F139 /* Frameworks */,
 				EC3C13E319B178CF0093F139 /* Resources */,
 				D622AF3209AC4A738636E0D4 /* Copy Pods Resources */,
-				ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */,
 				8D747859AF06BB38C8A68EA6 /* Embed Pods Frameworks */,
+				ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */,
 			);
 			buildRules = (
 			);
