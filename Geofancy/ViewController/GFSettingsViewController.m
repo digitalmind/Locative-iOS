@@ -225,7 +225,7 @@
     }];
     
     PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
-                                                                          message:NSLocalizedString(@"A Test-Request has been sent. The result will be dispalyed as soon as it's succeeded / failed.", nil)
+                                                                          message:NSLocalizedString(@"A Test-Request has been sent. The result will be displayed as soon as it's succeeded / failed.", nil)
                                                                    preferredStyle:PSTAlertControllerStyleAlert];
     [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:PSTAlertActionStyleDefault handler:nil]];
     [controller showWithSender:sender controller:self animated:YES completion:nil];
