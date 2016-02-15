@@ -609,7 +609,7 @@
 				CLASSPREFIX = GF;
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Marcus Kida";
 				TargetAttributes = {
 					2A8E9D9217FD51DD00F4A805 = {
@@ -1133,6 +1133,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "Geofancy/$(PRODUCT_NAME)-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = Locative;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1147,6 +1148,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "Geofancy/$(PRODUCT_NAME)-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = Locative;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

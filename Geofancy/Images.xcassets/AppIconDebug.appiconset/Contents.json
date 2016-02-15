@@ -64,6 +64,12 @@
       "idiom" : "ipad",
       "filename" : "76debug@2x.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "iPadProDebug@2x.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
