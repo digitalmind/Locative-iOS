@@ -6,7 +6,12 @@
 //  Copyright © 2015 Marcus Kida. All rights reserved.
 //
 
+#import <ObjectiveRecord/ObjectiveRecord.h>
+#import <ObjectiveSugar/ObjectiveSugar.h>
+
 #import "GFCoreDataManager.h"
+#import "Locative-Swift.h"
+#import "GFGeofence.h"
 
 @implementation GFCoreDataManager
 
@@ -35,6 +40,20 @@
     }
 }
 
-
+- (void)migrateCredentials {
+    @synchronized (self) {
+        [[GFGeofence all] each:^(GFGeofence *object) {
+            if (object.httpUser == nil) {
+                // bail out in case user is nil
+                return;
+            }
+            SecureCredentials *credentials = [[SecureCredentials alloc] initWithService:object.uuid];
+            credentials[object.httpUser] = object.httpPassword;
+            object.httpUser = nil;
+            object.httpPassword = nil;
+            [object save];
+        }];
+    }
+}
 
 @end

@@ -11,7 +11,13 @@ import KeychainAccess
 
 class SecureCredentials: NSObject {
     
-    let keychain = Keychain(service: UIApplication.bundleIdentifier()).accessibility(.AfterFirstUnlock)
+    var service: String { get { return keychain.service } }
+    let keychain: Keychain
+    
+    required init(service: String) {
+        keychain = Keychain(service: "\(UIApplication.bundleIdentifier()).\(service)").accessibility(.AfterFirstUnlock)
+        super.init()
+    }
     
     subscript(key: String) -> String? {
         get {
