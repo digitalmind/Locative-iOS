@@ -7,6 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+
+#import <Expecta/Expecta.h>
+#import <Specta/Specta.h>
+
 #import "GFMenuViewController.h"
 
 SpecBegin(GFMenuViewControllerTestsSpec)
@@ -24,15 +28,15 @@ afterEach(^{
 
 describe(@"the viewcontroller for the menu", ^{
     it(@"should be instance of correct class", ^{
-        expect(sut).to.beInstanceOf(GFMenuViewController.class);
+        EXP_expect(sut).to.beInstanceOf(GFMenuViewController.class);
     });
     
     it(@"should have a data source", ^{
-        expect(sut.tableView.dataSource).toNot.beNil;
+        EXP_expect(sut.tableView.dataSource).toNot.beNil;
     });
     
     it(@"should have a delegate", ^{
-        expect(sut.tableView.delegate).toNot.beNil;
+        EXP_expect(sut.tableView.delegate).toNot.beNil;
     });
 });
 

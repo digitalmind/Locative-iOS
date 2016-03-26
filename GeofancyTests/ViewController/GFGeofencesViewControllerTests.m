@@ -7,6 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+
+#import <Expecta/Expecta.h>
+#import <Specta/Specta.h>
+
 #import "GFGeofencesViewController.h"
 
 SpecBegin(GFGeofencesViewControllerTestsSpec)
@@ -25,15 +29,15 @@ afterEach(^{
 describe(@"GeofenceViewController", ^{
     
     it(@"should be instance of correct clas", ^{
-        expect(sut).to.beInstanceOf(GFGeofencesViewController.class);
+        EXP_expect(sut).to.beInstanceOf(GFGeofencesViewController.class);
     });
     
     it(@"should have a data source", ^{
-        expect(sut.tableView.dataSource).toNot.beNil;
+        EXP_expect(sut.tableView.dataSource).toNot.beNil;
     });
     
     it(@"should have a delegate", ^{
-        expect(sut.tableView.delegate).toNot.beNil;
+        EXP_expect(sut.tableView.delegate).toNot.beNil;
     });
 });
 

@@ -73,8 +73,6 @@
 		EC6FECAF19D6E92600D9E746 /* Main~iphone.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC6FECAC19D6E92600D9E746 /* Main~iphone.strings */; };
 		ECCBD31119CEE02A0009399B /* Locative.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC3C13E519B178CF0093F139 /* Locative.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECCBD31F19CEE8F20009399B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCBD31D19CEE8F20009399B /* Localizable.strings */; };
-		ECE802761C0CEA8D00B1B28C /* libExpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE802751C0CEA8D00B1B28C /* libExpecta.a */; };
-		ECE802781C0CEA9500B1B28C /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE802771C0CEA9500B1B28C /* libSpecta.a */; };
 		ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
 		ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */; };
 /* End PBXBuildFile section */
@@ -279,8 +277,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE802781C0CEA9500B1B28C /* libSpecta.a in Frameworks */,
-				ECE802761C0CEA8D00B1B28C /* libExpecta.a in Frameworks */,
 				2A8E9DB617FD51DD00F4A805 /* XCTest.framework in Frameworks */,
 				2A8E9DB817FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9DB717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
@@ -1094,6 +1090,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1135,6 +1133,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "";
