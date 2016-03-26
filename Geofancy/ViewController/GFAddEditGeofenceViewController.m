@@ -6,11 +6,17 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
-#import "GFAddEditGeofenceViewController.h"
 #import <MapKit/MapKit.h>
+#import <PSTAlertController/PSTAlertController.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <ObjectiveRecord/ObjectiveRecord.h>
+
+#import "GFAddEditGeofenceViewController.h"
 #import "GFGeofenceAnnotation.h"
 #import "GFGeofence.h"
-#import <PSTAlertController/PSTAlertController.h>
+#import "GFAppDelegate.h"
+#import "GFSettings.h"
+#import "MKMapView+ZoomLevel.h"
 
 typedef NS_ENUM(NSInteger, AlertViewType) {
     AlertViewTypeLocationEnter = 1000

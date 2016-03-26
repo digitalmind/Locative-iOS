@@ -82,3 +82,38 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Locative/OnePasswordExtension.framework"
+  install_framework "Pods-Locative/AFNetworking.framework"
+  install_framework "Pods-Locative/DZNEmptyDataSet.framework"
+  install_framework "Pods-Locative/Harpy.framework"
+  install_framework "Pods-Locative/HexColors.framework"
+  install_framework "Pods-Locative/INTULocationManager.framework"
+  install_framework "Pods-Locative/Locksmith.framework"
+  install_framework "Pods-Locative/MSDynamicsDrawerViewController.framework"
+  install_framework "Pods-Locative/ObjectiveRecord.framework"
+  install_framework "Pods-Locative/ObjectiveSugar.framework"
+  install_framework "Pods-Locative/PSTAlertController.framework"
+  install_framework "Pods-Locative/SVProgressHUD.framework"
+  install_framework "Pods-Locative/TBXML.framework"
+  install_framework "Pods-Locative/TSMessages.framework"
+  install_framework "Pods-Locative/iOS_GPX_Framework.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Locative/OnePasswordExtension.framework"
+  install_framework "Pods-Locative/AFNetworking.framework"
+  install_framework "Pods-Locative/DZNEmptyDataSet.framework"
+  install_framework "Pods-Locative/Harpy.framework"
+  install_framework "Pods-Locative/HexColors.framework"
+  install_framework "Pods-Locative/INTULocationManager.framework"
+  install_framework "Pods-Locative/Locksmith.framework"
+  install_framework "Pods-Locative/MSDynamicsDrawerViewController.framework"
+  install_framework "Pods-Locative/ObjectiveRecord.framework"
+  install_framework "Pods-Locative/ObjectiveSugar.framework"
+  install_framework "Pods-Locative/PSTAlertController.framework"
+  install_framework "Pods-Locative/SVProgressHUD.framework"
+  install_framework "Pods-Locative/TBXML.framework"
+  install_framework "Pods-Locative/TSMessages.framework"
+  install_framework "Pods-Locative/iOS_GPX_Framework.framework"
+fi

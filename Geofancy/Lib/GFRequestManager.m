@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Marcus Kida. All rights reserved.
 //
 
+#import <ObjectiveRecord/ObjectiveRecord.h>
+
 #import "GFRequestManager.h"
 #import "UILocalNotification+Geofancy.h"
+#import "GFAppDelegate.h"
+#import "GFSettings.h"
 
 #define IS_POST_METHOD(method) ([method isEqualToString:@"POST"])
 

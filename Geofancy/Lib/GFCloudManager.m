@@ -6,8 +6,14 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworking.h>
+
 #import "GFCloudManager.h"
 #import "GFGeofence.h"
+#import "GFCloudFencelog.h"
+#import "NSString+Hashes.h"
+#import "GFSettings.h"
+#import "GFGeofenceManager.h"
 
 #define StringOrEmpty(arg) (arg ? arg : @"")
 #define NumberOrZeroFloat(arg) (arg ? arg : [NSNumber numberWithFloat:0.0f])

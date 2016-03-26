@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface GFGeofenceAnnotation : NSObject <MKAnnotation>
 

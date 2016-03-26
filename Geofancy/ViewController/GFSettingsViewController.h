@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iOS-GPX-Framework/GPX.h>
+#import <iOS_GPX_Framework/GPX.h>
 #import <MessageUI/MessageUI.h>
 
 @interface GFSettingsViewController : UITableViewController

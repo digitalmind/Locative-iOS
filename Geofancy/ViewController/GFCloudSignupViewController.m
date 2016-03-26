@@ -6,8 +6,12 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
-#import "GFCloudSignupViewController.h"
 #import <PSTAlertController/PSTAlertController.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#import "GFAppDelegate.h"
+#import "GFCloudSignupViewController.h"
+#import "GFSettings.h"
 
 @interface GFCloudSignupViewController ()
 

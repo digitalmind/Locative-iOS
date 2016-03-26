@@ -6,7 +6,11 @@
 //  Copyright (c) 2014 Marcus Kida. All rights reserved.
 //
 
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <ObjectiveRecord/ObjectiveRecord.h>
+
 #import "GFImportGeofencesViewController.h"
+#import "GFAppDelegate.h"
 
 @interface GFImportGeofencesViewController ()
 

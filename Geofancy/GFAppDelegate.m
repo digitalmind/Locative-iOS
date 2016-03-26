@@ -6,11 +6,14 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
-#import "GFAppDelegate.h"
 #import <Harpy/Harpy.h>
-#import "GFMenuViewController.h"
 #import <TSMessages/TSMessage.h>
 #import <PSTAlertController/PSTAlertController.h>
+#import <ObjectiveRecord/ObjectiveRecord.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#import "GFAppDelegate.h"
+#import "GFMenuViewController.h"
 #import "GFSettings.h"
 
 #define kMainStoryboard [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"] bundle:[NSBundle mainBundle]]
@@ -164,7 +167,7 @@
         BOOL maxImportLimitExceeded = NO;
         NSUInteger overallWaypoints = 0;
         if (!error) {
-            GPXRoot *root = [GPXParser parseGPXWithString:gpxString];
+            GPXRoot *root = [GPXParser parseGPXWithString:gpxString error:nil];
             if ([root.waypoints count] > maxLimit) {
                 overallWaypoints = [root.waypoints count];
                 maxImportLimitExceeded = YES;

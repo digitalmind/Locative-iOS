@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
-#import "GFGeofence.h"
 #import <PSTAlertController/PSTAlertController.h>
+#import <ObjectiveSugar/ObjectiveSugar.h>
+#import <ObjectiveRecord/ObjectiveRecord.h>
+
+#import "GFGeofence.h"
 
 @implementation GFGeofence
 

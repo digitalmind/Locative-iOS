@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
-#import "GFMenuViewController.h"
 #import <PSTAlertController/PSTAlertController.h>
+
+#import "GFAppDelegate.h"
+#import "GFMenuViewController.h"
 
 @implementation GFMenuViewController
 

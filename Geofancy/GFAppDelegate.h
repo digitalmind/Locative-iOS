@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iOS-GPX-Framework/GPX.h>
+#import <iOS_GPX_Framework/GPX.h>
 
 #import "AFNetworking.h"
-#import "MSDynamicsDrawerViewController.h"
+#import <MSDynamicsDrawerViewController/MSDynamicsDrawerViewController.h>
 #import "GFGeofenceManager.h"
 #import "GFCloudManager.h"
 #import "GFRequestManager.h"

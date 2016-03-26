@@ -6,11 +6,16 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
-#import "GFSettingsViewController.h"
-#import "GFGeofencesViewController.h"
 #import <INTULocationManager/INTULocationManager.h>
 #import <PSTAlertController/PSTAlertController.h>
-#import <1PasswordExtension/OnePasswordExtension.h>
+#import <OnePasswordExtension/OnePasswordExtension.h>
+#import <ObjectiveRecord/ObjectiveRecord.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#import "GFSettingsViewController.h"
+#import "GFGeofencesViewController.h"
+#import "GFSettings.h"
+#import "GFAppDelegate.h"
 
 @interface GFSettingsViewController () <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 

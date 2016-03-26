@@ -6,10 +6,15 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
+#import <PSTAlertController/PSTAlertController.h>
+#import <ObjectiveSugar/ObjectiveSugar.h>
+#import <ObjectiveRecord/ObjectiveRecord.h>
+
 #import "GFGeofencesViewController.h"
 #import "GFAddEditGeofenceViewController.h"
 #import "GFConfig.h"
-#import <PSTAlertController/PSTAlertController.h>
+#import "GFAppDelegate.h"
+#import "GFSettings.h"
 
 @interface GFGeofencesViewController ()
 

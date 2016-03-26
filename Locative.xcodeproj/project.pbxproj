@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078E79191CA624C40098380D /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E79181CA624C40098380D /* SecureCredentials.swift */; };
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
 		2A27D24A18056CB000AC1708 /* GFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* GFSettingsViewController.m */; };
 		2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24C18057C0100AC1708 /* NSString+URLEncode.m */; };
@@ -57,9 +58,9 @@
 		2AD67FB318817BD5003840C8 /* GFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB218817BD5003840C8 /* GFRequest.m */; };
 		2AD67FB618817E6C003840C8 /* GFRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB518817E6C003840C8 /* GFRequestManager.m */; };
 		2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE7D801914F99C00460861 /* iBeaconPresets.plist */; };
-		678E14832B959DB52519B596 /* libPods-LocativeWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4713869F620CBCC782C138 /* libPods-LocativeWidget.a */; };
-		A5EA9BFEDD978D402D400153 /* libPods-Locative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF31CA767E403D5A592CFAA /* libPods-Locative.a */; };
-		E019C961BE0EFC10BAAE80A4 /* libPods-LocativeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F11EFEED1808D9569A49CD /* libPods-LocativeTests.a */; };
+		6F24DCBE3FE89A0BF4080E79 /* Pods_LocativeWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050E2475F477E40327A03405 /* Pods_LocativeWidget.framework */; };
+		73B5A1ECA4AC0C101ABC8266 /* Pods_Locative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0551D5472A52F616D49D980C /* Pods_Locative.framework */; };
+		C600CC4EE3EC458FAEAE153A /* Pods_LocativeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB3C2FBCDE8E17F7B71306F /* Pods_LocativeTests.framework */; };
 		EC24859D1AF8D01400A1A041 /* UILocalNotification+Geofancy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC24859C1AF8D01400A1A041 /* UILocalNotification+Geofancy.m */; };
 		EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28B7A619B72913009E5427 /* GFImportGeofencesViewController.m */; };
 		EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
@@ -116,7 +117,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		14F11EFEED1808D9569A49CD /* libPods-LocativeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LocativeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		050E2475F477E40327A03405 /* Pods_LocativeWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0551D5472A52F616D49D980C /* Pods_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
+		078E79181CA624C40098380D /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
 		196FE35C79514CFD91498EA9 /* libPods-GeofancyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeofancyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A04A5941849F1D300D9B485 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		2A27D24818056CB000AC1708 /* GFSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSettingsViewController.h; sourceTree = "<group>"; };
@@ -195,13 +199,12 @@
 		2AD67FB518817E6C003840C8 /* GFRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRequestManager.m; sourceTree = "<group>"; };
 		2ADE7D801914F99C00460861 /* iBeaconPresets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iBeaconPresets.plist; sourceTree = "<group>"; };
 		2AF435DE1833A3C5001789BD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		3AB3C2FBCDE8E17F7B71306F /* Pods_LocativeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFFBA9FE1F2C1E3E0388265 /* Pods-GeofancyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests.release.xcconfig"; sourceTree = "<group>"; };
 		6736AE0F1787494AA7021FBE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFC8B4FDBC4C8D8A4178788 /* libPods-Geofancy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Geofancy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEF522A2929AB46704BE31E /* libPods-GeofancyWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeofancyWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC864070A43D948BB3F7E29 /* Pods-GeofancyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CD4713869F620CBCC782C138 /* libPods-LocativeWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LocativeWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDF31CA767E403D5A592CFAA /* libPods-Locative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Locative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC11C7681ADE53C2003DC18D /* Widget.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Widget.Debug.xcconfig; sourceTree = "<group>"; };
 		EC11C7691ADE53C2003DC18D /* Widget.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Widget.Release.xcconfig; sourceTree = "<group>"; };
 		EC24859B1AF8D01400A1A041 /* UILocalNotification+Geofancy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILocalNotification+Geofancy.h"; sourceTree = "<group>"; };
@@ -266,7 +269,7 @@
 				2A8E9D9917FD51DD00F4A805 /* CoreGraphics.framework in Frameworks */,
 				2A8E9D9B17FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9D9717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
-				A5EA9BFEDD978D402D400153 /* libPods-Locative.a in Frameworks */,
+				73B5A1ECA4AC0C101ABC8266 /* Pods_Locative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +282,7 @@
 				2A8E9DB617FD51DD00F4A805 /* XCTest.framework in Frameworks */,
 				2A8E9DB817FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9DB717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
-				E019C961BE0EFC10BAAE80A4 /* libPods-LocativeTests.a in Frameworks */,
+				C600CC4EE3EC458FAEAE153A /* Pods_LocativeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,13 +291,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3C13E719B178CF0093F139 /* NotificationCenter.framework in Frameworks */,
-				678E14832B959DB52519B596 /* libPods-LocativeWidget.a in Frameworks */,
+				6F24DCBE3FE89A0BF4080E79 /* Pods_LocativeWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		078E79171CA624C40098380D /* SecureCredentials */ = {
+			isa = PBXGroup;
+			children = (
+				078E79181CA624C40098380D /* SecureCredentials.swift */,
+			);
+			path = SecureCredentials;
+			sourceTree = "<group>";
+		};
 		2A4B2B2D17FD7E17002ECE72 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,9 +388,9 @@
 				6736AE0F1787494AA7021FBE /* libPods.a */,
 				9BFC8B4FDBC4C8D8A4178788 /* libPods-Geofancy.a */,
 				9CEF522A2929AB46704BE31E /* libPods-GeofancyWidget.a */,
-				DDF31CA767E403D5A592CFAA /* libPods-Locative.a */,
-				14F11EFEED1808D9569A49CD /* libPods-LocativeTests.a */,
-				CD4713869F620CBCC782C138 /* libPods-LocativeWidget.a */,
+				0551D5472A52F616D49D980C /* Pods_Locative.framework */,
+				3AB3C2FBCDE8E17F7B71306F /* Pods_LocativeTests.framework */,
+				050E2475F477E40327A03405 /* Pods_LocativeWidget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -396,6 +407,7 @@
 				2A29EAF818068C7C00E3E943 /* GFConstants.h */,
 				2A8E9DA517FD51DD00F4A805 /* GFAppDelegate.h */,
 				2A8E9DA617FD51DD00F4A805 /* GFAppDelegate.m */,
+				078E79161CA622FC0098380D /* Locative-Bridging-Header.h */,
 				2A8E9DA817FD51DD00F4A805 /* Main.storyboard */,
 				EC6FECAA19D6E92600D9E746 /* Main~ipad.strings */,
 				EC6FECAC19D6E92600D9E746 /* Main~iphone.strings */,
@@ -444,6 +456,7 @@
 		2A8E9DF517FD5A5800F4A805 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				078E79171CA624C40098380D /* SecureCredentials */,
 				2A8E9DF617FD5A5800F4A805 /* GFGeofenceManager.h */,
 				2A8E9DF717FD5A5800F4A805 /* GFGeofenceManager.m */,
 				2A2BF51E185371B800D5DD98 /* GFCloudManager.h */,
@@ -608,7 +621,7 @@
 			attributes = {
 				CLASSPREFIX = GF;
 				LastSwiftMigration = 0710;
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Marcus Kida";
 				TargetAttributes = {
@@ -917,6 +930,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078E79191CA624C40098380D /* SecureCredentials.swift in Sources */,
 				2A8E9DF917FD5A5800F4A805 /* GFGeofenceManager.m in Sources */,
 				ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */,
 				2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */,
@@ -1129,12 +1143,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5C199592C7004479D2 /* Debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Geofancy/Geofancy.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "Geofancy/$(PRODUCT_NAME)-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = Locative;
+				SWIFT_OBJC_BRIDGING_HEADER = "Geofancy/Locative-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1144,12 +1162,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5A199590D7004479D2 /* Release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Geofancy/Geofancy.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Geofancy/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "Geofancy/$(PRODUCT_NAME)-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = Locative;
+				SWIFT_OBJC_BRIDGING_HEADER = "Geofancy/Locative-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

@@ -28,6 +28,7 @@ PODS:
   - INTULocationManager (3.0.1)
   - iOS-GPX-Framework (0.0.2):
     - TBXML (~> 1.5)
+  - Locksmith (2.0.8)
   - MSDynamicsDrawerViewController (1.5.1)
   - ObjectiveRecord (1.5.0):
     - ObjectiveSugar
@@ -46,13 +47,24 @@ DEPENDENCIES:
   - Expecta
   - Harpy
   - INTULocationManager
-  - iOS-GPX-Framework
+  - iOS-GPX-Framework (from `https://github.com/kimar/iOS-GPX-Framework`, commit `e2fd5b9`)
+  - Locksmith (~> 2.0.8)
   - MSDynamicsDrawerViewController
   - ObjectiveRecord
   - PSTAlertController
   - Specta
   - SVProgressHUD
   - TSMessages
+
+EXTERNAL SOURCES:
+  iOS-GPX-Framework:
+    :commit: e2fd5b9
+    :git: https://github.com/kimar/iOS-GPX-Framework
+
+CHECKOUT OPTIONS:
+  iOS-GPX-Framework:
+    :commit: e2fd5b9
+    :git: https://github.com/kimar/iOS-GPX-Framework
 
 SPEC CHECKSUMS:
   1PasswordExtension: 9f471645d378283cb88c6d4bf502e4381a42c0ad
@@ -62,7 +74,8 @@ SPEC CHECKSUMS:
   Harpy: 1c3f286473c97db20a19dda87582331e951036bc
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   INTULocationManager: c27483113e1bbc5952ead6417f9b39824a240ebb
-  iOS-GPX-Framework: f6d50c6664a1747746b73da6899b1fc9a1f81ff6
+  iOS-GPX-Framework: 7297860335a923bb5ea62b29b2691e803226da09
+  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   MSDynamicsDrawerViewController: 2874df90f5e9453dc7d4e32f8038b50615d4baa7
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
