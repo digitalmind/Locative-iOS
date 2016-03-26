@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0746F2811CA62C89009F03D7 /* BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* BundleIdentifier.swift */; };
 		078E79191CA624C40098380D /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E79181CA624C40098380D /* SecureCredentials.swift */; };
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
 		2A27D24A18056CB000AC1708 /* GFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* GFSettingsViewController.m */; };
@@ -119,6 +120,7 @@
 /* Begin PBXFileReference section */
 		050E2475F477E40327A03405 /* Pods_LocativeWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0551D5472A52F616D49D980C /* Pods_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0746F2801CA62C89009F03D7 /* BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleIdentifier.swift; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
 		078E79181CA624C40098380D /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
 		196FE35C79514CFD91498EA9 /* libPods-GeofancyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeofancyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +300,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0746F27F1CA62C7F009F03D7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0746F2801CA62C89009F03D7 /* BundleIdentifier.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		078E79171CA624C40098380D /* SecureCredentials */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +408,7 @@
 		2A8E9D9C17FD51DD00F4A805 /* Geofancy */ = {
 			isa = PBXGroup;
 			children = (
+				0746F27F1CA62C7F009F03D7 /* Extension */,
 				EC3C13F919B17A280093F139 /* Geofancy.entitlements */,
 				EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */,
 				2A4B2B2D17FD7E17002ECE72 /* Categories */,
@@ -932,6 +943,7 @@
 			files = (
 				078E79191CA624C40098380D /* SecureCredentials.swift in Sources */,
 				2A8E9DF917FD5A5800F4A805 /* GFGeofenceManager.m in Sources */,
+				0746F2811CA62C89009F03D7 /* BundleIdentifier.swift in Sources */,
 				ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */,
 				2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */,
 				EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */,

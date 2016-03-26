@@ -16,7 +16,7 @@ target "Locative", :exclusive => true do
   pod 'TSMessages'
   pod 'PSTAlertController'
   pod '1PasswordExtension', '~> 1.6.4'
-  pod 'Locksmith', '~> 2.0.8'
+  pod 'KeychainAccess', '~> 2.3.4'
 end
 
 target "LocativeWidget", :exclusive => true do
