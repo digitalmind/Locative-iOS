@@ -19,6 +19,7 @@
     if (self = [super init]) {
         _coreDataManager = [CoreDataManager sharedManager];
         _coreDataManager.modelName = model;
+        _coreDataManager.bundle = [NSBundle bundleForClass:self.class];
         [self migrate];
     }
     return self;

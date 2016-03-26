@@ -8,7 +8,7 @@ target "Locative", :exclusive => true do
   pod 'AFNetworking', '~> 2.6.2'
   pod 'iOS-GPX-Framework', :git => 'https://github.com/kimar/iOS-GPX-Framework', :commit => 'e2fd5b9'
   pod 'MSDynamicsDrawerViewController'
-  pod 'ObjectiveRecord'
+  pod 'ObjectiveRecord', :git => 'https://github.com/kimar/ObjectiveRecord', :commit => 'd1fbb19'
   pod 'SVProgressHUD'
   pod 'DZNEmptyDataSet'
   pod 'Harpy'

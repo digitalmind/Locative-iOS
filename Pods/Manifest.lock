@@ -50,7 +50,7 @@ DEPENDENCIES:
   - iOS-GPX-Framework (from `https://github.com/kimar/iOS-GPX-Framework`, commit `e2fd5b9`)
   - KeychainAccess (~> 2.3.4)
   - MSDynamicsDrawerViewController
-  - ObjectiveRecord
+  - ObjectiveRecord (from `https://github.com/kimar/ObjectiveRecord`, commit `d1fbb19`)
   - PSTAlertController
   - Specta
   - SVProgressHUD
@@ -60,11 +60,17 @@ EXTERNAL SOURCES:
   iOS-GPX-Framework:
     :commit: e2fd5b9
     :git: https://github.com/kimar/iOS-GPX-Framework
+  ObjectiveRecord:
+    :commit: d1fbb19
+    :git: https://github.com/kimar/ObjectiveRecord
 
 CHECKOUT OPTIONS:
   iOS-GPX-Framework:
     :commit: e2fd5b9
     :git: https://github.com/kimar/iOS-GPX-Framework
+  ObjectiveRecord:
+    :commit: d1fbb19
+    :git: https://github.com/kimar/ObjectiveRecord
 
 SPEC CHECKSUMS:
   1PasswordExtension: 9f471645d378283cb88c6d4bf502e4381a42c0ad

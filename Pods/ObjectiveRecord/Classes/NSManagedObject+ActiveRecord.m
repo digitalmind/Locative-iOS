@@ -64,7 +64,7 @@
 }
 
 + (instancetype)findOrCreate:(NSDictionary *)properties inContext:(NSManagedObjectContext *)context {
-    NSDictionary *transformed = [[self class] transformProperties:properties withContext:context];
+    NSDictionary *transformed = [[self class] transformProperties:properties withObject:nil context:context];
 
     NSManagedObject *existing = [self where:transformed inContext:context].first;
     return existing ?: [self create:transformed inContext:context];
@@ -172,7 +172,7 @@
 - (void)update:(NSDictionary *)attributes {
     unless([attributes exists]) return;
 
-    NSDictionary *transformed = [[self class] transformProperties:attributes withContext:self.managedObjectContext];
+    NSDictionary *transformed = [[self class] transformProperties:attributes withObject:self context:self.managedObjectContext];
 
     for (NSString *key in transformed) [self willChangeValueForKey:key];
     [transformed each:^(NSString *key, id value) {
@@ -207,7 +207,7 @@
 
 #pragma mark - Private
 
-+ (NSDictionary *)transformProperties:(NSDictionary *)properties withContext:(NSManagedObjectContext *)context {
++ (NSDictionary *)transformProperties:(NSDictionary *)properties withObject:(NSManagedObject *)object context:(NSManagedObjectContext *)context {
     NSEntityDescription *entity = [NSEntityDescription entityForName:[self entityName] inManagedObjectContext:context];
 
     NSDictionary *attributes = [entity attributesByName];
@@ -218,7 +218,13 @@
     for (NSString *key in properties) {
         NSString *localKey = [self keyForRemoteKey:key inContext:context];
         if (attributes[localKey] || relationships[localKey]) {
-            transformed[localKey] = [[self class] transformValue:properties[key] forRemoteKey:key inContext:context];
+            id value = [[self class] transformValue:properties[key] forRemoteKey:key inContext:context];
+            if (object) {
+                id localValue = [object primitiveValueForKey:localKey];
+                if ([localValue isEqual:value] || (localValue == nil && value == [NSNull null]))
+                    continue;
+            }
+            transformed[localKey] = value;
         } else {
 #if DEBUG
             NSLog(@"Discarding key ('%@') from properties on class ('%@'): no attribute or relationship found",
@@ -361,12 +367,12 @@
     else if ([value isKindOfClass:[NSString class]]) {
 
         if ([self isIntegerAttributeType:attributeType])
-            value = [NSNumber numberWithInteger:[value integerValue]];
+            value = [NSNumber numberWithLongLong:[value longLongValue]];
 
         else if (attributeType == NSBooleanAttributeType)
             value = [NSNumber numberWithBool:[value boolValue]];
 
-        else if (attributeType == NSFloatAttributeType)
+        else if ([self isFloatAttributeType:attributeType])
             value = [NSNumber numberWithDouble:[value doubleValue]];
 
         else if (attributeType == NSDateAttributeType)
@@ -380,6 +386,11 @@
     return (attributeType == NSInteger16AttributeType) ||
            (attributeType == NSInteger32AttributeType) ||
            (attributeType == NSInteger64AttributeType);
+}
+
+- (BOOL)isFloatAttributeType:(NSAttributeType)attributeType {
+    return (attributeType == NSFloatAttributeType) ||
+           (attributeType == NSDoubleAttributeType);
 }
 
 #pragma mark - Date Formatting
