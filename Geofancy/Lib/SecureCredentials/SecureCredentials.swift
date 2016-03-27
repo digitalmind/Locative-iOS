@@ -15,7 +15,9 @@ class SecureCredentials: NSObject {
     let keychain: Keychain
     
     required init(service: String) {
-        keychain = Keychain(service: "\(UIApplication.bundleIdentifier()).\(service)").accessibility(.AfterFirstUnlock)
+        keychain = Keychain(service: "\(UIApplication.bundleIdentifier()).\(service)")
+            .accessibility(.AfterFirstUnlock)
+            .synchronizable(true)
         super.init()
     }
     

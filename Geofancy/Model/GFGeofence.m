@@ -11,6 +11,7 @@
 #import <ObjectiveRecord/ObjectiveRecord.h>
 
 #import "GFGeofence.h"
+#import "Locative-Swift.h"
 
 @implementation GFGeofence
 
@@ -27,7 +28,7 @@
 @dynamic type;
 @dynamic uuid;
 @dynamic httpAuth;
-@dynamic httpPassword;
+//@dynamic httpPassword;
 @dynamic httpUser;
 
 @dynamic iBeaconUuid;
@@ -47,6 +48,18 @@
         return YES;
     }
     return NO;
+}
+
+- (void)setHttpPassword:(NSString *)httpPassword {
+    self.credentials[self.httpUser] = httpPassword;
+}
+
+- (NSString *)httpPassword {
+    return self.credentials[self.httpUser];
+}
+
+- (SecureCredentials *)credentials {
+    return [[SecureCredentials alloc] initWithService:self.uuid];
 }
 
 @end

@@ -7,10 +7,21 @@
 //
 
 #import "GFSettings.h"
+#import "Locative-Swift.h"
 
 #define kOldSettingsFilePath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"settings.plist"]
 #define kNewSettingsFilePath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@".settings.plist"]
 #define kDefaultsContainer [[NSUserDefaults alloc] initWithSuiteName:@"group.marcuskida.Geofancy"]
+
+#define SECURE_SERVICE_API_TOKEN @"ApiToken"
+#define SECURE_SERVICE_GLOBAL_BASIC_AUTH @"GlobalBasicAuth"
+
+@interface GFSettings ()
+
+@property (nonatomic, strong) SecureCredentials *apiCredentials;
+@property (nonatomic, strong) SecureCredentials *basicAuthCredentials;
+
+@end
 
 @implementation GFSettings
 
@@ -21,8 +32,7 @@
     return [NSKeyedUnarchiver unarchiveObjectWithFile:kNewSettingsFilePath] ?: [super init];
 }
 
-- (void) persist
-{
+- (void) persist {
     [NSKeyedArchiver archiveRootObject:self toFile:kNewSettingsFilePath];
 }
 
@@ -41,8 +51,13 @@
     self.notifyOnFailure = [aDecoder decodeObjectForKey:@"notifyOnFailure"];
     self.soundOnNotification = [aDecoder decodeObjectForKey:@"soundOnNotification"];
     self.httpBasicAuthEnabled = [aDecoder decodeObjectForKey:@"httpBasicAuthEnabled"];
+    
     self.httpBasicAuthUsername = [aDecoder decodeObjectForKey:@"httpBasicAuthUsername"];
     self.httpBasicAuthPassword = [aDecoder decodeObjectForKey:@"httpBasicAuthPassword"];
+    
+    if (self.httpBasicAuthUsername.lct_isNotEmpty) {
+        self.basicAuthCredentials[self.httpBasicAuthUsername] = self.httpBasicAuthPassword;
+    }
     
     return self;
 }
@@ -57,26 +72,50 @@
     [aCoder encodeObject:self.soundOnNotification forKey:@"soundOnNotification"];
     [aCoder encodeObject:self.httpBasicAuthEnabled forKey:@"httpBasicAuthEnabled"];
     [aCoder encodeObject:self.httpBasicAuthUsername forKey:@"httpBasicAuthUsername"];
-    [aCoder encodeObject:self.httpBasicAuthPassword forKey:@"httpBasicAuthPassword"];
+    [aCoder encodeObject:nil forKey:@"httpBasicAuthPassword"]; // remove password from plist
+    self.basicAuthCredentials[self.httpBasicAuthUsername] = self.httpBasicAuthPassword;
 }
 
-- (void) setApiToken:(NSString *)apiToken
+#pragma mark - API token setter
+- (void)setApiToken:(NSString *)apiToken {
+    self.apiCredentials[SECURE_SERVICE_API_TOKEN] = apiToken;
+}
+
+- (void) old_setApiToken:(NSString *)apiToken
 {
     [[NSUserDefaults standardUserDefaults] setObject:apiToken forKey:kCloudSession];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self setApiTokenForContainer:apiToken];
 }
 
-- (void) removeApiToken
+#pragma mark - API token removal
+- (void)removeApiToken {
+    self.apiCredentials[SECURE_SERVICE_API_TOKEN] = nil;
+}
+
+- (void) old_removeApiToken
 {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCloudSession];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self removeApiTokenFromContainer];
 }
 
-- (NSString *) apiToken
+#pragma mark - API token getter
+- (NSString *)apiToken {
+    [self migrateApiToken];
+    return (NSString *)self.apiCredentials[SECURE_SERVICE_API_TOKEN];
+}
+
+- (NSString *) old_apiToken
 {
     return [[NSUserDefaults standardUserDefaults] stringForKey:kCloudSession];
+}
+
+- (void)migrateApiToken {
+    if (self.old_apiToken.lct_isNotEmpty) {
+        [self setApiToken:self.old_apiToken];
+        [self old_removeApiToken];
+    }
 }
 
 - (void)setApiTokenForContainer:(NSString *)apiToken
@@ -90,6 +129,21 @@
 {
     [kDefaultsContainer removeObjectForKey:@"sessionId"];
     [kDefaultsContainer synchronize];
+}
+
+#pragma mark - Secure credentials
+- (SecureCredentials *)apiCredentials {
+    if (!_apiCredentials) {
+        _apiCredentials = [[SecureCredentials alloc] initWithService:SECURE_SERVICE_API_TOKEN];
+    }
+    return _apiCredentials;
+}
+
+- (SecureCredentials *)basicAuthCredentials {
+    if (!_basicAuthCredentials) {
+        _basicAuthCredentials = [[SecureCredentials alloc] initWithService:SECURE_SERVICE_GLOBAL_BASIC_AUTH];
+    }
+    return _basicAuthCredentials;
 }
 
 @end

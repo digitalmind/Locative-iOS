@@ -21,6 +21,7 @@
         _coreDataManager.modelName = model;
         _coreDataManager.bundle = [NSBundle bundleForClass:self.class];
         [self migrate];
+        [self migrateCredentials];
     }
     return self;
 }
@@ -44,7 +45,7 @@
 - (void)migrateCredentials {
     @synchronized (self) {
         [[GFGeofence all] each:^(GFGeofence *object) {
-            if (object.httpUser == nil) {
+            if (object.httpUser.lct_isNotEmpty == YES) {
                 // bail out in case user is nil
                 return;
             }

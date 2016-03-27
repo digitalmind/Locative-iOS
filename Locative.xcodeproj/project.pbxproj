@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0746F2811CA62C89009F03D7 /* BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* BundleIdentifier.swift */; };
+		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
 		078E79191CA624C40098380D /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E79181CA624C40098380D /* SecureCredentials.swift */; };
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
 		2A27D24A18056CB000AC1708 /* GFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* GFSettingsViewController.m */; };
@@ -119,6 +120,7 @@
 		050E2475F477E40327A03405 /* Pods_LocativeWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0551D5472A52F616D49D980C /* Pods_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0746F2801CA62C89009F03D7 /* BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleIdentifier.swift; sourceTree = "<group>"; };
+		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
 		078E79181CA624C40098380D /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
 		196FE35C79514CFD91498EA9 /* libPods-GeofancyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeofancyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				0746F2801CA62C89009F03D7 /* BundleIdentifier.swift */,
+				0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */,
 				2A2BF52F18537ED400D5DD98 /* GFCloudSignupViewController.m in Sources */,
 				2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */,
+				0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */,
 				EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */,
 				2A8D852918AE3F4700CF2693 /* GFConfig.m in Sources */,
 				2A2BF520185371B800D5DD98 /* GFCloudManager.m in Sources */,
