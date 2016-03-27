@@ -73,7 +73,7 @@
     [aCoder encodeObject:self.httpBasicAuthEnabled forKey:@"httpBasicAuthEnabled"];
     [aCoder encodeObject:self.httpBasicAuthUsername forKey:@"httpBasicAuthUsername"];
     [aCoder encodeObject:nil forKey:@"httpBasicAuthPassword"]; // remove password from plist
-    self.basicAuthCredentials[self.httpBasicAuthUsername] = self.httpBasicAuthPassword;
+    self.httpBasicAuthPassword = self.basicAuthCredentials[self.httpBasicAuthUsername];
 }
 
 #pragma mark - API token setter

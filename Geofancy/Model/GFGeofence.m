@@ -28,7 +28,7 @@
 @dynamic type;
 @dynamic uuid;
 @dynamic httpAuth;
-//@dynamic httpPassword;
+@dynamic httpPassword;
 @dynamic httpUser;
 
 @dynamic iBeaconUuid;
@@ -50,11 +50,14 @@
     return NO;
 }
 
-- (void)setHttpPassword:(NSString *)httpPassword {
-    self.credentials[self.httpUser] = httpPassword;
+- (void)setHttpPasswordSecure:(NSString *)httpPasswordSecure {
+    self.credentials[self.httpUser] = httpPasswordSecure;
 }
 
-- (NSString *)httpPassword {
+- (NSString *)httpPasswordSecure {
+    if (self.httpPassword.lct_isNotEmpty) {
+        self.credentials[self.httpPassword] = self.httpPassword;
+    }
     return self.credentials[self.httpUser];
 }
 

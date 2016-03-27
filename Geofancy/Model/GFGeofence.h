@@ -30,6 +30,7 @@ typedef enum NSUInteger {
 @property (nonatomic, retain) NSString * uuid;
 @property (nonatomic, retain) NSNumber * httpAuth;
 @property (nonatomic, retain) NSString * httpPassword;
+@property (nonatomic, retain) NSString * httpPasswordSecure;
 @property (nonatomic, retain) NSString * httpUser;
 
 @property (nonatomic, retain) NSString * iBeaconUuid;

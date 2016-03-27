@@ -236,7 +236,7 @@
     
     self.event.httpAuth = @([self.selectedGeofence[@"basicAuth"][@"enabled"] boolValue]);
     self.event.httpUser = self.selectedGeofence[@"basicAuth"][@"username"];
-    self.event.httpPassword = self.selectedGeofence[@"basicAuth"][@"password"];
+    self.event.httpPasswordSecure = self.selectedGeofence[@"basicAuth"][@"password"];
     
     [[_appDelegate geofenceManager] startMonitoringEvent:self.event];
     [self.event save];

@@ -198,7 +198,7 @@
                              @"triggerOnLeaveUrl": geofence.exitUrl ? geofence.exitUrl : @"",
                              @"basicAuth": geofence.httpAuth ? @1 : @0,
                              @"basicAuthUsername": geofence.httpUser ? geofence.httpUser : @"",
-                             @"basicAuthPassword": geofence.httpPassword ? geofence.httpPassword : @""
+                             @"basicAuthPassword": geofence.httpPasswordSecure ? geofence.httpPasswordSecure : @""
                              };
     [manager POST:[kMyGeofancyBackend stringByAppendingFormat:@"/api/geofences/%@", sessionId] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         finish(nil);

@@ -189,7 +189,7 @@
                     if ([event.httpAuth boolValue]) {
                         httpRequest.httpAuth = [NSNumber numberWithBool:YES];
                         httpRequest.httpAuthUsername = event.httpUser;
-                        httpRequest.httpAuthPassword = event.httpPassword;
+                        httpRequest.httpAuthPassword = event.httpPasswordSecure;
                     }
                 }
                 

@@ -51,8 +51,6 @@
             }
             SecureCredentials *credentials = [[SecureCredentials alloc] initWithService:object.uuid];
             credentials[object.httpUser] = object.httpPassword;
-            object.httpUser = nil;
-            object.httpPassword = nil;
             [object save];
         }];
     }
