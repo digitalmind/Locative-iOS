@@ -312,7 +312,7 @@ Love the project? Wanna buy me a coffee? [![donation](http://www.paypal.com/en_U
 
 ## TSMessages
 
-Copyright (c) 2014 Toursprung, Felix Krause <krausefx@gmail.com>
+Copyright (c) 2016 Felix Krause
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

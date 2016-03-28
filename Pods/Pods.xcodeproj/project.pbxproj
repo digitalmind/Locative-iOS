@@ -72,39 +72,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>012486102AB1FD7C0656654A9988E6C3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>013AF05BDB6F65F9915BCEE8D226A8F5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9B79A9104CF14B86C0851D35D8B60E4A</string>
-				<string>A4F65FE063ADB97C9C2B5777149B8BCD</string>
-				<string>3556A23C03006B6EB4DE5225EC5B4620</string>
-				<string>9C8238D8C499E10A9AA624BF3AFAD9D5</string>
-				<string>741525C01191226C55E9E56F5B6AAC3F</string>
-				<string>012486102AB1FD7C0656654A9988E6C3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/HexColors</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>0145F40C537AB476B5B18B32742DF2F9</key>
 		<dict>
 			<key>containerPortal</key>
@@ -1140,20 +1107,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0F09B9486ECFAFED088754AF63EBDA9E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1CB76D71444FB4E2C847E5438F186200</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>0F482C12328423677E1A9FBBA82C2E87</key>
 		<dict>
 			<key>fileRef</key>
@@ -1548,6 +1501,21 @@
 			<string>PBXResourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>13E451E300C432F292717377A4D30C36</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>HexColors.h</string>
+			<key>path</key>
+			<string>Classes/HexColors.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>13FC3E01A6E426696F77B89FF1D9275C</key>
 		<dict>
@@ -2132,21 +2100,6 @@
 			<string>text</string>
 			<key>path</key>
 			<string>Pods-LocativeTests-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1CB76D71444FB4E2C847E5438F186200</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>HexColor.h</string>
-			<key>path</key>
-			<string>Classes/HexColor.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2752,20 +2705,6 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-fno-objc-arc</string>
 			</dict>
-		</dict>
-		<key>25BBFC5180BA4CD0F4067A4E1058A01F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>0F09B9486ECFAFED088754AF63EBDA9E</string>
-				<string>FBDCA85F7CFBC3DFA5134DB59A680242</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>25ED0453313E25F8D1798A60C44A399C</key>
 		<dict>
@@ -3589,19 +3528,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3556A23C03006B6EB4DE5225EC5B4620</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>HexColors-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>35DB74AE2AFC9AE0E9DE539C4E419858</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4210,6 +4136,17 @@
 				</array>
 			</dict>
 		</dict>
+		<key>41A76223DD038B528A59A554D36EE3B9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>HexColors.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>41EDA03AA4730453197F384D24462187</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4240,6 +4177,19 @@
 			<string>PBXHeadersBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>428D8BCD70F653B083B91E53E3E84E3E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>HexColors.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>433861317A18DDD6DBF4702DED845E20</key>
 		<dict>
@@ -4924,6 +4874,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>4E5B4EEA50BEF0B4D0FE2394D3EB119A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>81E3A0E40725DB95675A6157F46B3AFB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
 		<key>4E94B8F460BF431A50D94814F7C8AF61</key>
 		<dict>
 			<key>fileRef</key>
@@ -5167,20 +5129,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>525846ACE59F44A9D0EB6B9BA8391444</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>8C91BF53C3EF19AD26723EA56AD4B184</string>
-				<string>CE984CB467CBD3D2E2F6F06CBB4E408C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>52C46BE8060389FDBB56558AC58E4668</key>
 		<dict>
@@ -5539,6 +5487,20 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
+		</dict>
+		<key>596758BBEC68789E6C8928ECE3FC341C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>13E451E300C432F292717377A4D30C36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>596AA47A0818C0C972425ABDD7D0E9C8</key>
 		<dict>
@@ -6515,6 +6477,20 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>67EF9044B76E629170DD09EE2E94E76D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8DCF5C0EE6AC7543935C51AA756864C0</string>
+				<string>4E5B4EEA50BEF0B4D0FE2394D3EB119A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>683EE4800570FBBA0572E29596A9B144</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -6723,6 +6699,19 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Debug</string>
+		</dict>
+		<key>6A892B901B3D13F56BDBB03060998E1A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>HexColors-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>6AC301744AAA63B7B8013D567ADFA1A9</key>
 		<dict>
@@ -7211,6 +7200,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>73275FC34908540F4972DEA87E68616A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>HexColors-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>734A1F6B4B3107E5F2460A26BCC5F550</key>
 		<dict>
 			<key>containerPortal</key>
@@ -7263,19 +7265,6 @@
 			<string>TSMessage.m</string>
 			<key>path</key>
 			<string>Pod/Classes/TSMessage.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>741525C01191226C55E9E56F5B6AAC3F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>HexColors-umbrella.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -7960,6 +7949,21 @@
 			<string>KeychainAccess.framework</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>81E3A0E40725DB95675A6157F46B3AFB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>HexColors.m</string>
+			<key>path</key>
+			<string>Classes/HexColors.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>81EAE3E19FEC4263768C070518820473</key>
 		<dict>
@@ -8740,18 +8744,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>8C91BF53C3EF19AD26723EA56AD4B184</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FBF2E90B9E75F3451627682497E2C8CC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-fno-objc-arc</string>
-			</dict>
-		</dict>
 		<key>8CA77158C430D3D3766A1099468207B1</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -8828,6 +8820,13 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>8DCF5C0EE6AC7543935C51AA756864C0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>73275FC34908540F4972DEA87E68616A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>8E0DD14E618171C462EB80FA37B7596D</key>
 		<dict>
@@ -9692,17 +9691,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>9B79A9104CF14B86C0851D35D8B60E4A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>HexColors.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>9BAFB6B1C45B0D6E291118C121DBD3B6</key>
 		<dict>
 			<key>buildConfigurationList</key>
@@ -9849,19 +9837,6 @@
 			<string>PBXHeadersBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
-		</dict>
-		<key>9C8238D8C499E10A9AA624BF3AFAD9D5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>HexColors-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>9D6E97B71D310E7751BB2F56D1705FDB</key>
 		<dict>
@@ -10314,19 +10289,6 @@
 			<string>PBXHeadersBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
-		</dict>
-		<key>A4F65FE063ADB97C9C2B5777149B8BCD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>HexColors.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>A55098BD47E3B6D7E4B6E8A92D0CD6A0</key>
 		<dict>
@@ -11072,6 +11034,19 @@
 			<string>NotificationBackgroundMessage@2x.png</string>
 			<key>path</key>
 			<string>Pod/Assets/NotificationBackgroundMessage@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>ACDF0D1F1D95AA4A3200C92681C3AE1E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -12161,6 +12136,23 @@
 				</array>
 			</dict>
 		</dict>
+		<key>BF36C2502FFAEDBD71E218BE2230D97E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>13E451E300C432F292717377A4D30C36</string>
+				<string>81E3A0E40725DB95675A6157F46B3AFB</string>
+				<string>DCE2F8AD4D49D4CC9DD9C7520C3A505F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>HexColors</string>
+			<key>path</key>
+			<string>HexColors</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>BF9E3B74413425A37D49CC0452502B4E</key>
 		<dict>
 			<key>children</key>
@@ -12535,9 +12527,9 @@
 			<string>120D0B17EB9DEF64F2E1BC979F24A556</string>
 			<key>buildPhases</key>
 			<array>
-				<string>525846ACE59F44A9D0EB6B9BA8391444</string>
+				<string>67EF9044B76E629170DD09EE2E94E76D</string>
 				<string>4BA155DC3466C96A26E2FED0479F99BA</string>
-				<string>25BBFC5180BA4CD0F4067A4E1058A01F</string>
+				<string>D17BEB90EB4C27B46F1BB2CD8FF0C542</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -13334,13 +13326,6 @@
 				<string>-DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
 		</dict>
-		<key>CE984CB467CBD3D2E2F6F06CBB4E408C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3556A23C03006B6EB4DE5225EC5B4620</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>CEA2B3D8BEDDCB6ECF22CE7304D6B3ED</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -13548,6 +13533,20 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
+		<key>D17BEB90EB4C27B46F1BB2CD8FF0C542</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>D1E92AEC9F093E10C69F2B89A14F49F5</string>
+				<string>596758BBEC68789E6C8928ECE3FC341C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>D1B037499CCAB3EC31D3844FDF7FF43B</key>
 		<dict>
 			<key>fileRef</key>
@@ -13561,6 +13560,20 @@
 			<string>8BEC6A6F0C080F98F7CA400E25C728A5</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>D1E92AEC9F093E10C69F2B89A14F49F5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6A892B901B3D13F56BDBB03060998E1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>D253FEA88C9C568035BEF739B3DCC960</key>
 		<dict>
@@ -14194,6 +14207,26 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>DCE2F8AD4D49D4CC9DD9C7520C3A505F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>41A76223DD038B528A59A554D36EE3B9</string>
+				<string>428D8BCD70F653B083B91E53E3E84E3E</string>
+				<string>73275FC34908540F4972DEA87E68616A</string>
+				<string>E1362997BE4EE09D052B7529A40DB68F</string>
+				<string>6A892B901B3D13F56BDBB03060998E1A</string>
+				<string>ACDF0D1F1D95AA4A3200C92681C3AE1E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/HexColors</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>DCFA04D9F87841983F47B020C3F295D0</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -14366,7 +14399,7 @@
 				<string>6EC458E50F3F8E4FE87F3794077E2A0E</string>
 				<string>93BB0688F8EDAAC2BADF7B2172557AB1</string>
 				<string>A140EFFB43E99A14905A56B6FB47892B</string>
-				<string>E356756722176FE1113C416E329296C0</string>
+				<string>BF36C2502FFAEDBD71E218BE2230D97E</string>
 				<string>C70E10A9930ACA4D3993B5C8953EC8F3</string>
 				<string>56F2510D3267162CE5226E40C8FBDB87</string>
 				<string>807F6F2A4AFD642BB46FE5C18DFCC192</string>
@@ -14474,7 +14507,7 @@
 		<key>E10B75F4FD9BE5631AEBE3B699CB24D7</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>A4F65FE063ADB97C9C2B5777149B8BCD</string>
+			<string>428D8BCD70F653B083B91E53E3E84E3E</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -14552,6 +14585,19 @@
 			<string>TBXML+Compression.h</string>
 			<key>path</key>
 			<string>TBXML-Headers/TBXML+Compression.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E1362997BE4EE09D052B7529A40DB68F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>HexColors-prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -14686,23 +14732,6 @@
 			<string>GPXPoint.h</string>
 			<key>path</key>
 			<string>GPX/GPXPoint.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E356756722176FE1113C416E329296C0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1CB76D71444FB4E2C847E5438F186200</string>
-				<string>FBF2E90B9E75F3451627682497E2C8CC</string>
-				<string>013AF05BDB6F65F9915BCEE8D226A8F5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>HexColors</string>
-			<key>path</key>
-			<string>HexColors</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -14848,7 +14877,7 @@
 		<key>E5D2448F42F9B1B54F9B3FA3A2E605F6</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>A4F65FE063ADB97C9C2B5777149B8BCD</string>
+			<string>428D8BCD70F653B083B91E53E3E84E3E</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -16160,35 +16189,6 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-fno-objc-arc</string>
 			</dict>
-		</dict>
-		<key>FBDCA85F7CFBC3DFA5134DB59A680242</key>
-		<dict>
-			<key>fileRef</key>
-			<string>741525C01191226C55E9E56F5B6AAC3F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>FBF2E90B9E75F3451627682497E2C8CC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>HexColor.m</string>
-			<key>path</key>
-			<string>Classes/HexColor.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>FC490A40A9790B9B41BAA802C1FF9DE6</key>
 		<dict>
