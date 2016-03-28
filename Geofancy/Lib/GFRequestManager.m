@@ -11,7 +11,6 @@
 #import "GFRequestManager.h"
 #import "UILocalNotification+Geofancy.h"
 #import "GFAppDelegate.h"
-#import "GFSettings.h"
 
 #define IS_POST_METHOD(method) ([method isEqualToString:@"POST"])
 
@@ -160,12 +159,12 @@
                  responseStatus:(NSInteger)statusCode
                           error:(NSError *)error
                        callback:(void(^)(BOOL success))cb {
-    if(success && [[self.appDelegate.settings notifyOnSuccess] boolValue]) {
+    if(success && [self.appDelegate.settings notifyOnSuccess]) {
         [self presentLocalNotification:
          [IS_POST_METHOD(httpRequest.method) ? NSLocalizedString(@"POST Success:", nil) : NSLocalizedString(@"GET Success:", nil)
           stringByAppendingFormat:@" %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]]
          success:YES];
-    } else if(!success && [[self.appDelegate.settings notifyOnFailure] boolValue]) {
+    } else if(!success && [self.appDelegate.settings notifyOnFailure]) {
         [self presentLocalNotification:[NSLocalizedString(@"GET Failure:", nil) stringByAppendingFormat:@" %@", error.localizedDescription]
          success:NO];
     }
@@ -188,7 +187,7 @@
 
 #pragma mark - Local Notification
 - (void)presentLocalNotification:(NSString *)text success:(BOOL)success {
-    [UILocalNotification presentLocalNotificationWithSoundName:([[self.appDelegate.settings soundOnNotification] boolValue]) ? @"notification.caf" : nil
+    [UILocalNotification presentLocalNotificationWithSoundName:([self.appDelegate.settings soundOnNotification]) ? @"notification.caf" : nil
                                                      alertBody:text
                                                       userInfo:@{@"success": @(success)}];
 }

@@ -8,11 +8,11 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+#import "Locative-Swift.h"
 #import "GFCloudManager.h"
 #import "GFGeofence.h"
 #import "GFCloudFencelog.h"
 #import "NSString+Hashes.h"
-#import "GFSettings.h"
 #import "GFGeofenceManager.h"
 
 #define StringOrEmpty(arg) (arg ? arg : @"")
@@ -22,13 +22,13 @@
 
 @interface GFCloudManager ()
 
-@property (nonatomic, strong) GFSettings *settings;
+@property (nonatomic, strong) Settings *settings;
 
 @end
 
 @implementation GFCloudManager
 
-- (instancetype)initWithSettings:(GFSettings *)settings {
+- (instancetype)initWithSettings:(Settings *)settings {
     self = [super init];
     if (self) {
         NSLog(@"My Locative Backend: %@", kMyGeofancyBackend);

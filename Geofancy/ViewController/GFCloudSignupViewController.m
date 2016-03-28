@@ -11,7 +11,6 @@
 
 #import "GFAppDelegate.h"
 #import "GFCloudSignupViewController.h"
-#import "GFSettings.h"
 
 @interface GFCloudSignupViewController ()
 

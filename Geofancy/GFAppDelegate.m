@@ -14,7 +14,7 @@
 
 #import "GFAppDelegate.h"
 #import "GFMenuViewController.h"
-#import "GFSettings.h"
+//#import "GFSettings.h"
 
 #define kMainStoryboard [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"] bundle:[NSBundle mainBundle]]
 
@@ -29,7 +29,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.settings = [[GFSettings alloc] init];
+    self.settings = [[Settings alloc] init];
     self.geofenceManager = [GFGeofenceManager sharedManager];
     self.cloudManager = [[GFCloudManager alloc] initWithSettings:self.settings];
     self.requestManager = [GFRequestManager sharedManager];

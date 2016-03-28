@@ -14,7 +14,6 @@
 #import "GFAddEditGeofenceViewController.h"
 #import "GFConfig.h"
 #import "GFAppDelegate.h"
-#import "GFSettings.h"
 
 @interface GFGeofencesViewController ()
 

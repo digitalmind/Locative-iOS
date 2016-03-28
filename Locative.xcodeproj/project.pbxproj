@@ -10,6 +10,7 @@
 		0746F2811CA62C89009F03D7 /* BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
 		078E79191CA624C40098380D /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E79181CA624C40098380D /* SecureCredentials.swift */; };
+		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
 		2A27D24A18056CB000AC1708 /* GFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* GFSettingsViewController.m */; };
 		2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24C18057C0100AC1708 /* NSString+URLEncode.m */; };
@@ -55,7 +56,6 @@
 		2A918277186B1B630088EF91 /* GFBackgroundBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A918276186B1B630088EF91 /* GFBackgroundBlockOperation.m */; };
 		2A9C1D8718094F0C00F84B5C /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1D8618094F0C00F84B5C /* about.html */; };
 		2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1DF2180969F700F84B5C /* Localizable.strings */; };
-		2AB31B701805571B00FC839B /* GFSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB31B6F1805571B00FC839B /* GFSettings.m */; };
 		2AB31B7E18055C6400FC839B /* GFGeofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB31B7D18055C6400FC839B /* GFGeofence.m */; };
 		2AD67FB318817BD5003840C8 /* GFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB218817BD5003840C8 /* GFRequest.m */; };
 		2AD67FB618817E6C003840C8 /* GFRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB518817E6C003840C8 /* GFRequestManager.m */; };
@@ -123,6 +123,7 @@
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
 		078E79181CA624C40098380D /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
+		07E2254F1CA77B0500572180 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		196FE35C79514CFD91498EA9 /* libPods-GeofancyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeofancyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A04A5941849F1D300D9B485 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		2A27D24818056CB000AC1708 /* GFSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSettingsViewController.h; sourceTree = "<group>"; };
@@ -191,8 +192,6 @@
 		2A9C1D8618094F0C00F84B5C /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		2A9C1DF718096A3400F84B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A9C1DF818096A3B00F84B5C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2AB31B6E1805571B00FC839B /* GFSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSettings.h; sourceTree = "<group>"; };
-		2AB31B6F1805571B00FC839B /* GFSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSettings.m; sourceTree = "<group>"; };
 		2AB31B7C18055C6400FC839B /* GFGeofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeofence.h; sourceTree = "<group>"; };
 		2AB31B7D18055C6400FC839B /* GFGeofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofence.m; sourceTree = "<group>"; };
 		2AD67FB118817BD5003840C8 /* GFRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRequest.h; sourceTree = "<group>"; };
@@ -507,8 +506,7 @@
 			children = (
 				2A4B2B3117FD7FC6002ECE72 /* GFGeofenceAnnotation.h */,
 				2A4B2B3217FD7FC6002ECE72 /* GFGeofenceAnnotation.m */,
-				2AB31B6E1805571B00FC839B /* GFSettings.h */,
-				2AB31B6F1805571B00FC839B /* GFSettings.m */,
+				07E2254F1CA77B0500572180 /* Settings.swift */,
 				2AB31B7C18055C6400FC839B /* GFGeofence.h */,
 				2AB31B7D18055C6400FC839B /* GFGeofence.m */,
 				2A2BF5271853748F00D5DD98 /* GFCloudFencelog.h */,
@@ -954,10 +952,10 @@
 				2A2BF520185371B800D5DD98 /* GFCloudManager.m in Sources */,
 				2AD67FB318817BD5003840C8 /* GFRequest.m in Sources */,
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
-				2AB31B701805571B00FC839B /* GFSettings.m in Sources */,
 				2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */,
 				2A521A7D18354958001F3669 /* GFMenuViewController.m in Sources */,
 				2A8E9E0317FD5AA500F4A805 /* GFGeofencesViewController.m in Sources */,
+				07E225501CA77B0500572180 /* Settings.swift in Sources */,
 				2A918277186B1B630088EF91 /* GFBackgroundBlockOperation.m in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Geofancy.m in Sources */,
 				2A2BF5291853748F00D5DD98 /* GFCloudFencelog.m in Sources */,

@@ -14,7 +14,6 @@
 
 #import "GFSettingsViewController.h"
 #import "GFGeofencesViewController.h"
-#import "GFSettings.h"
 #import "GFAppDelegate.h"
 
 @interface GFSettingsViewController () <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
@@ -40,7 +39,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *myGfCreateAccountButton;
 @property (nonatomic, weak) IBOutlet UIButton *myGfLostPwButton;
 
-@property (nonatomic, strong) GFSettings *settings;
+@property (nonatomic, strong) Settings *settings;
 @property (nonatomic, weak) GFAppDelegate *appDelegate;
 
 @end
@@ -64,7 +63,7 @@
 	
 	// show/hide password manager button next to the password text field
 	if ([[OnePasswordExtension sharedExtension] isAppExtensionAvailable]) {
-		NSURL *resourceBundleUrl = [[NSBundle mainBundle] URLForResource:@"OnePasswordExtensionResources" withExtension:@"bundle"];
+		NSURL *resourceBundleUrl = [[NSBundle bundleForClass:OnePasswordExtension.class] URLForResource:@"OnePasswordExtensionResources" withExtension:@"bundle"];
 		NSBundle *resourceBundle = [NSBundle bundleWithURL:resourceBundleUrl];
 		[self.passwordManagerButton setImage:[UIImage imageNamed:@"onepassword-button" inBundle:resourceBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
 		self.passwordManagerButtonShowConstraint.active = YES;
@@ -85,17 +84,17 @@
     [super viewWillAppear:animated];
 
     [self.httpUrlTextField setText:([[[self.settings globalUrl] absoluteString] length] > 0)?[[self.settings globalUrl] absoluteString]:nil];
-    [self.httpMethodSegmentedControl setSelectedSegmentIndex:[[self.settings globalHttpMethod] intValue]];
+    [self.httpMethodSegmentedControl setSelectedSegmentIndex:[self.settings globalHttpMethod]];
     
-    self.httpBasicAuthSwitch.on = [[self.settings httpBasicAuthEnabled] boolValue];
+    self.httpBasicAuthSwitch.on = [self.settings httpBasicAuthEnabled];
     [self.httpBasicAuthUsernameTextField setEnabled:self.httpBasicAuthSwitch.on];
     [self.httpBasicAuthPasswordTextField setEnabled:self.httpBasicAuthSwitch.on];
     [self.httpBasicAuthUsernameTextField setText:([[self.settings httpBasicAuthUsername] length] > 0)?[self.settings httpBasicAuthUsername]:nil];
     [self.httpBasicAuthPasswordTextField setText:([[self.settings httpBasicAuthPassword] length] > 0)?[self.settings httpBasicAuthPassword]:nil];
     
-    self.notifyOnSuccessSwitch.on = [[self.settings notifyOnSuccess] boolValue];
-    self.notifyOnFailureSwitch.on = [[self.settings notifyOnFailure] boolValue];
-    self.soundOnNotificationSwitch.on = [[self.settings soundOnNotification] boolValue];
+    self.notifyOnSuccessSwitch.on = [self.settings notifyOnSuccess];
+    self.notifyOnFailureSwitch.on = [self.settings notifyOnFailure];
+    self.soundOnNotificationSwitch.on = [self.settings soundOnNotification];
 
     [[self.appDelegate cloudManager] validateSessionWithCallback:^(BOOL valid) {
         if (valid) {
@@ -171,10 +170,10 @@
     [self.settings setHttpBasicAuthUsername:[self.httpBasicAuthUsernameTextField text]];
     [self.settings setHttpBasicAuthPassword:[self.httpBasicAuthPasswordTextField text]];
     
-    [self.settings setGlobalHttpMethod:[NSNumber numberWithInteger:[self.httpMethodSegmentedControl selectedSegmentIndex]]];
-    [self.settings setNotifyOnSuccess:[NSNumber numberWithBool:self.notifyOnSuccessSwitch.on]];
-    [self.settings setNotifyOnFailure:[NSNumber numberWithBool:self.notifyOnFailureSwitch.on]];
-    [self.settings setSoundOnNotification:[NSNumber numberWithBool:self.soundOnNotificationSwitch.on]];
+    [self.settings setGlobalHttpMethod:[self.httpMethodSegmentedControl selectedSegmentIndex]];
+    [self.settings setNotifyOnSuccess:self.notifyOnSuccessSwitch.on];
+    [self.settings setNotifyOnFailure:self.notifyOnFailureSwitch.on];
+    [self.settings setSoundOnNotification:self.soundOnNotificationSwitch.on];
     
     [self.settings persist];
 

@@ -15,7 +15,6 @@
 #import "GFAppDelegate.h"
 #import "GFBackgroundBlockOperation.h"
 #import "GFRequest.h"
-#import "GFSettings.h"
 
 #define WHICH_METHOD(number) ([number intValue] == 0)?@"POST":@"GET"
 

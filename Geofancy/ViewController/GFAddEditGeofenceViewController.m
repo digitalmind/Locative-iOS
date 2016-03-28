@@ -15,8 +15,9 @@
 #import "GFGeofenceAnnotation.h"
 #import "GFGeofence.h"
 #import "GFAppDelegate.h"
-#import "GFSettings.h"
+//#import "GFSettings.h"
 #import "MKMapView+ZoomLevel.h"
+#import "Locative-Swift.h"
 
 typedef NS_ENUM(NSInteger, AlertViewType) {
     AlertViewTypeLocationEnter = 1000
@@ -164,8 +165,8 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         {
             [self setTitle:NSLocalizedString(@"New Fence", @"Title for new Geofence Screen.")];
             
-            [_enterMethod setTitle:([[_appDelegate.settings globalHttpMethod] intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
-            [_exitMethod setTitle:([[_appDelegate.settings globalHttpMethod] intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
+            [_enterMethod setTitle:([_appDelegate.settings globalHttpMethod] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
+            [_exitMethod setTitle:([_appDelegate.settings globalHttpMethod] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
             
             _iBeaconUuidTextField.text = [[NSUUID UUID] UUIDString];
             _typeSegmentedControl.hidden = NO;
