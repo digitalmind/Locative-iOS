@@ -11,13 +11,11 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <ObjectiveRecord/ObjectiveRecord.h>
 
+#import "Locative-Swift.h"
 #import "GFAddEditGeofenceViewController.h"
-#import "GFGeofenceAnnotation.h"
 #import "GFGeofence.h"
 #import "GFAppDelegate.h"
-//#import "GFSettings.h"
 #import "MKMapView+ZoomLevel.h"
-#import "Locative-Swift.h"
 
 typedef NS_ENUM(NSInteger, AlertViewType) {
     AlertViewTypeLocationEnter = 1000
@@ -251,9 +249,9 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         [_mapView setCenterCoordinate:currentLocation.coordinate zoomLevel:15 animated:YES];
     }
 
-    GFGeofenceAnnotation *annotation = [GFGeofenceAnnotation new];
-    annotation.coordinate = currentLocation.coordinate;
-    [_mapView addAnnotation:annotation];
+    [_mapView addAnnotation:
+     [[GeofenceAnnotation alloc] initWithCoordinate:currentLocation.coordinate]
+     ];
     
     _radialCircle = [MKCircle circleWithCenterCoordinate:currentLocation.coordinate radius:self.event?[self.event.radius doubleValue]:_radiusSlider.value];
     [_mapView addOverlay:_radialCircle];
