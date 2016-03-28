@@ -20,16 +20,10 @@ class Settings: NSObject, NSCoding {
     var httpBasicAuthUsername: String?
     var httpBasicAuthPassword: String?
     
-    let oldSettingsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first?.stringByAppendingString("settings.plist")
-    
-    let newSettingsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first?.stringByAppendingString(".settings.plist")
-
     let cloudSession = "cloudSession"
     
     let basicAuthCredentials = SecureCredentials(service: "GlobalBasicAuth")
     let apiCredentials = SecureCredentials(service: "ApiToken")
-    
-    let defaultsContainer = NSUserDefaults(suiteName: "group.marcuskida.Geofancy")
     
     var apiToken: String? {
         get {
@@ -53,23 +47,13 @@ class Settings: NSObject, NSCoding {
             self.setApiTokenForContainer(new)
         }
     }
-    
-    private func filemanager() -> NSFileManager {
-        return NSFileManager.defaultManager()
-    }
-    
+
     private func defaults() -> NSUserDefaults {
         return NSUserDefaults.standardUserDefaults()
     }
     
     override init() {
         super.init()
-        if let oldSettingsPath = oldSettingsPath,
-            newSettingsPath = newSettingsPath {
-        if filemanager().fileExistsAtPath(oldSettingsPath) {
-            try! filemanager().moveItemAtPath(oldSettingsPath, toPath: newSettingsPath)
-        }
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -88,6 +72,7 @@ class Settings: NSObject, NSCoding {
         if httpBasicAuthUsername.isNotEmpty() {
             self.basicAuthCredentials[httpBasicAuthUsername] = httpBasicAuthPassword
         }
+        
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -106,6 +91,40 @@ class Settings: NSObject, NSCoding {
         httpBasicAuthPassword = basicAuthCredentials[httpBasicAuthUsername]
     }
     
+}
+
+//MARK: - Restoration
+extension Settings {
+    func restoredSettings() -> Settings? {
+        if let oldSettingsPath = NSString.oldSettingsPath(),
+            newSettingsPath = NSString.settingsPath() {
+            if NSFileManager.defaultManager().fileExistsAtPath(oldSettingsPath) {
+                try! NSFileManager.defaultManager().moveItemAtPath(oldSettingsPath, toPath: newSettingsPath)
+            }
+        }
+        guard let new = NSString.settingsPath() else {
+            return nil
+        }
+        guard let restored = NSKeyedUnarchiver.unarchiveObjectWithFile(new) as? Settings else {
+            return Settings()
+        }
+        return restored
+    }
+}
+
+//MARK: - API Token
+extension Settings {
+    //MARK: - Legacy
+    func old_apiToken() -> String? {
+        return defaults().stringForKey(cloudSession)
+    }
+    
+    func old_removeApiToken() {
+        defaults().removeObjectForKey(cloudSession)
+        defaults().synchronize()
+    }
+    
+    //MARK: - Removal
     func removeApiToken() {
         apiCredentials[cloudSession] = nil
         removeApiTokenFromContainer()
@@ -118,32 +137,22 @@ class Settings: NSObject, NSCoding {
         }
     }
     
+    //MARK: - Persitency
     func persist() {
-        guard let newSettingsPath = newSettingsPath else {
+        guard let newSettingsPath = NSString.settingsPath() else {
             return assertionFailure()
         }
         NSKeyedArchiver.archiveRootObject(self, toFile: newSettingsPath)
     }
     
+    //MARK: - Shared suite
     func setApiTokenForContainer(apiToken: String) {
-        defaultsContainer?.setObject(apiToken, forKey: "sessionId")
-        defaultsContainer?.synchronize()
+        NSUserDefaults.sharedSuite()?.setObject(apiToken, forKey: "sessionId")
+        NSUserDefaults.sharedSuite()?.synchronize()
     }
     
     func removeApiTokenFromContainer() {
-        defaultsContainer?.removeObjectForKey("sessionId")
-        defaultsContainer?.synchronize()
-    }
-}
-
-extension Settings {
-    // legacy
-    func old_apiToken() -> String? {
-        return defaults().stringForKey(cloudSession)
-    }
-    
-    func old_removeApiToken() {
-        defaults().removeObjectForKey(cloudSession)
-        defaults().synchronize()
+        NSUserDefaults.sharedSuite()?.removeObjectForKey("sessionId")
+        NSUserDefaults.sharedSuite()?.synchronize()
     }
 }

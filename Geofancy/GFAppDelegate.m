@@ -29,7 +29,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.settings = [[Settings alloc] init];
+    self.settings = [[[Settings alloc] init] restoredSettings];
     self.geofenceManager = [GFGeofenceManager sharedManager];
     self.cloudManager = [[GFCloudManager alloc] initWithSettings:self.settings];
     self.requestManager = [GFRequestManager sharedManager];
