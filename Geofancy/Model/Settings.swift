@@ -11,12 +11,12 @@ import Foundation
 class Settings: NSObject, NSCoding {
 
     var globalUrl: NSURL?
-    var appHasBeenStarted = false
-    var globalHttpMethod = 0
-    var notifyOnSuccess = true
-    var notifyOnFailure = true
-    var soundOnNotification = true
-    var httpBasicAuthEnabled = false
+    var appHasBeenStarted: NSNumber? = NSNumber(bool: false)
+    var globalHttpMethod: NSNumber? = NSNumber(integer: 0)
+    var notifyOnSuccess: NSNumber? = NSNumber(bool: true)
+    var notifyOnFailure: NSNumber? = NSNumber(bool: true)
+    var soundOnNotification: NSNumber? = NSNumber(bool: true)
+    var httpBasicAuthEnabled: NSNumber? = NSNumber(bool: false)
     var httpBasicAuthUsername: String?
     var httpBasicAuthPassword: String?
     
@@ -58,12 +58,12 @@ class Settings: NSObject, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         globalUrl = aDecoder.decodeObjectForKey("globalUrl") as? NSURL
-        appHasBeenStarted = aDecoder.decodeBoolForKey("appHasBeenStarted")
-        globalHttpMethod = aDecoder.decodeIntegerForKey("globalHttpMethod")
-        notifyOnSuccess = aDecoder.decodeBoolForKey("notifyOnSuccess")
-        notifyOnFailure = aDecoder.decodeBoolForKey("notifyOnFailure")
-        soundOnNotification = aDecoder.decodeBoolForKey("soundOnNotification")
-        httpBasicAuthEnabled = aDecoder.decodeBoolForKey("httpBasicAuthEnabled")
+        appHasBeenStarted = aDecoder.decodeObjectForKey("appHasBeenStarted") as? NSNumber
+        globalHttpMethod = aDecoder.decodeObjectForKey("globalHttpMethod") as? NSNumber
+        notifyOnSuccess = aDecoder.decodeObjectForKey("notifyOnSuccess") as? NSNumber
+        notifyOnFailure = aDecoder.decodeObjectForKey("notifyOnFailure") as? NSNumber
+        soundOnNotification = aDecoder.decodeObjectForKey("soundOnNotification") as? NSNumber
+        httpBasicAuthEnabled = aDecoder.decodeObjectForKey("httpBasicAuthEnabled") as? NSNumber
         httpBasicAuthUsername = aDecoder.decodeObjectForKey("httpBasicAuthUsername") as? String
         httpBasicAuthPassword = aDecoder.decodeObjectForKey("httpBasicAuthPassword") as? String
         
@@ -77,12 +77,12 @@ class Settings: NSObject, NSCoding {
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(globalUrl, forKey: "globalUrl")
-        aCoder.encodeBool(appHasBeenStarted, forKey: "appHasBeenStarted")
-        aCoder.encodeInteger(globalHttpMethod, forKey: "globalHttpMethod")
-        aCoder.encodeBool(notifyOnSuccess, forKey: "notifyOnSuccess")
-        aCoder.encodeBool(notifyOnFailure, forKey: "notifyOnFailure")
-        aCoder.encodeBool(soundOnNotification, forKey: "soundOnNotification")
-        aCoder.encodeBool(httpBasicAuthEnabled, forKey: "httpBasicAuthEnabled")
+        aCoder.encodeObject(appHasBeenStarted, forKey: "appHasBeenStarted")
+        aCoder.encodeObject(globalHttpMethod, forKey: "globalHttpMethod")
+        aCoder.encodeObject(notifyOnSuccess, forKey: "notifyOnSuccess")
+        aCoder.encodeObject(notifyOnFailure, forKey: "notifyOnFailure")
+        aCoder.encodeObject(soundOnNotification, forKey: "soundOnNotification")
+        aCoder.encodeObject(httpBasicAuthEnabled, forKey: "httpBasicAuthEnabled")
         aCoder.encodeObject(httpBasicAuthUsername, forKey: "httpBasicAuthUsername")
         aCoder.encodeObject(nil, forKey: "httpBasicAuthPassword")
         
@@ -105,6 +105,9 @@ extension Settings {
         guard let new = NSString.settingsPath() else {
             return nil
         }
+        // important: otherwise we can't restore from original settings
+        NSKeyedUnarchiver.setClass(self.dynamicType, forClassName: "GFSettings")
+        // in case we don't have any setttings, let's just return a fresh settings instance
         guard let restored = NSKeyedUnarchiver.unarchiveObjectWithFile(new) as? Settings else {
             return Settings()
         }

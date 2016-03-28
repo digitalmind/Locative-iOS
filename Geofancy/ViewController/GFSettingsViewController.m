@@ -84,7 +84,7 @@
     [super viewWillAppear:animated];
 
     [self.httpUrlTextField setText:([[[self.settings globalUrl] absoluteString] length] > 0)?[[self.settings globalUrl] absoluteString]:nil];
-    [self.httpMethodSegmentedControl setSelectedSegmentIndex:[self.settings globalHttpMethod]];
+    [self.httpMethodSegmentedControl setSelectedSegmentIndex:[[self.settings globalHttpMethod] integerValue]];
     
     self.httpBasicAuthSwitch.on = [self.settings httpBasicAuthEnabled];
     [self.httpBasicAuthUsernameTextField setEnabled:self.httpBasicAuthSwitch.on];
@@ -170,10 +170,10 @@
     [self.settings setHttpBasicAuthUsername:[self.httpBasicAuthUsernameTextField text]];
     [self.settings setHttpBasicAuthPassword:[self.httpBasicAuthPasswordTextField text]];
     
-    [self.settings setGlobalHttpMethod:[self.httpMethodSegmentedControl selectedSegmentIndex]];
-    [self.settings setNotifyOnSuccess:self.notifyOnSuccessSwitch.on];
-    [self.settings setNotifyOnFailure:self.notifyOnFailureSwitch.on];
-    [self.settings setSoundOnNotification:self.soundOnNotificationSwitch.on];
+    [self.settings setGlobalHttpMethod:@([self.httpMethodSegmentedControl selectedSegmentIndex])];
+    [self.settings setNotifyOnSuccess:@(self.notifyOnSuccessSwitch.on)];
+    [self.settings setNotifyOnFailure:@(self.notifyOnFailureSwitch.on)];
+    [self.settings setSoundOnNotification:@(self.soundOnNotificationSwitch.on)];
     
     [self.settings persist];
 
