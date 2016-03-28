@@ -52,7 +52,6 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     BOOL _viewAppeared;
     BOOL _gotCurrentLocation;
     MKCircle *_radialCircle;
-    MKCircleView *_radialCircleView;
     CLLocation *_location;
     GFGeofenceType _geofenceType;
     GFAppDelegate *_appDelegate;
@@ -345,13 +344,12 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     }
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
-{
-    _radialCircleView = [[MKCircleView alloc] initWithOverlay:overlay];
-    [_radialCircleView setFillColor:[UIColor redColor]];
-    [_radialCircleView setStrokeColor:[UIColor blackColor]];
-    [_radialCircleView setAlpha:0.5f];
-    return _radialCircleView;
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKCircleRenderer * renderer = [[MKCircleRenderer alloc] initWithCircle:_radialCircle];
+    renderer.strokeColor = [UIColor blackColor];
+    renderer.fillColor = [UIColor redColor];
+    renderer.alpha = .5f;
+    return renderer;
 }
 
 - (void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
