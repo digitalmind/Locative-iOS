@@ -9,8 +9,8 @@
 import MapKit
 
 class GeofenceAnnotation: NSObject, MKAnnotation {
-    let coordinate: CLLocationCoordinate2D
-    
+    var coordinate: CLLocationCoordinate2D
+
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
     }
