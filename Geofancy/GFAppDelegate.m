@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Marcus Kida. All rights reserved.
 //
 
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 #import <Harpy/Harpy.h>
 #import <TSMessages/TSMessage.h>
 #import <PSTAlertController/PSTAlertController.h>
@@ -28,6 +30,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Fabric
+    [Fabric with:@[[Crashlytics class]]];
+
     // Override point for customization after application launch.
     self.settings = [[[Settings alloc] init] restoredSettings];
     self.geofenceManager = [GFGeofenceManager sharedManager];

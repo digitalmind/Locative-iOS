@@ -21,6 +21,8 @@ def app_pods
   pod 'PSTAlertController', '~> 1.1.0'
   pod '1PasswordExtension', '~> 1.6.4'
   pod 'KeychainAccess', '~> 2.3.4'
+  pod 'Fabric', '~> 1.6.7'
+  pod 'Crashlytics', '~> 3.7.0'
 end
 
 def test_pods
