@@ -4,7 +4,7 @@
 link_with "Locative", "LocativeWidget"
 
 target "Locative" do
-  pod 'AFNetworking', '~> 2.6.2'
+  pod 'AFNetworking'
   pod 'iOS-GPX-Framework'
   pod 'MSDynamicsDrawerViewController'
   pod 'ObjectiveRecord'
@@ -14,11 +14,13 @@ target "Locative" do
   pod 'INTULocationManager'
   pod 'TSMessages'
   pod 'PSTAlertController'
-  pod '1PasswordExtension', '~> 1.6.4'
+  pod '1PasswordExtension'
+  pod 'Fabric'
+ pod 'Crashlytics'
 end
 
 target "LocativeWidget" do
- pod 'AFNetworking', '~> 2.6.2'
+  pod 'AFNetworking'
 end
 
 target "LocativeTests" do

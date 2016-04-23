@@ -21,8 +21,11 @@ PODS:
   - AFNetworking/UIKit (2.6.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Crashlytics (3.7.0):
+    - Fabric (~> 1.6.3)
   - DZNEmptyDataSet (1.4.1)
   - Expecta (0.3.1)
+  - Fabric (1.6.7)
   - Harpy (3.3.1)
   - HexColors (2.2.1)
   - INTULocationManager (3.0.1)
@@ -40,10 +43,12 @@ PODS:
     - HexColors (~> 2.2.0)
 
 DEPENDENCIES:
-  - 1PasswordExtension (~> 1.6.4)
-  - AFNetworking (~> 2.6.2)
+  - 1PasswordExtension
+  - AFNetworking
+  - Crashlytics
   - DZNEmptyDataSet
   - Expecta
+  - Fabric
   - Harpy
   - INTULocationManager
   - iOS-GPX-Framework
@@ -57,8 +62,10 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   1PasswordExtension: 9f471645d378283cb88c6d4bf502e4381a42c0ad
   AFNetworking: 7f317038a9710cabfa43ec56396b307b45df72ab
+  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
   Expecta: a354d4633409dd9fe8c4f5ff5130426adbe31628
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   Harpy: 1c3f286473c97db20a19dda87582331e951036bc
   HexColors: abfd172e329dab59888614ccba6f216cec59289d
   INTULocationManager: c27483113e1bbc5952ead6417f9b39824a240ebb
