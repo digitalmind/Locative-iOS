@@ -16,5 +16,4 @@ DerivedData
 .idea/
 *.hmap
 *.xccheckout
-fabric.apikey
-fabric.buildsecret
+fabric.sh
