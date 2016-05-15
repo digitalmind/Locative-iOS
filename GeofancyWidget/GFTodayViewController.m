@@ -32,7 +32,7 @@ static NSString *const TODAY_URL = @"https://my.locative.io/api/today";
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
     
-    if (![self getSessionId].length > 0) {
+    if (!([self getSessionId].length > 0)) {
         [self updateLabelUsingString:nil];
         return completionHandler(NCUpdateResultFailed);
     }
