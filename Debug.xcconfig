@@ -1,6 +1,6 @@
 #include "Pods/Target Support Files/Pods-Locative/Pods-Locative.debug.xcconfig"
 
 BUNDLE_IDENTIFIER = io.kida.Geofancy
-VERSION = 1.11.0
+VERSION = 1.11.1
 BACKEND_PROTOCOL = https
 BACKEND_HOST = my.locative.io
