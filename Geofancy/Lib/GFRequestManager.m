@@ -73,7 +73,13 @@
                         } else { // Increase failcount on error
                             NSInteger oldFailCount = httpRequest.failCount.integerValue;
                             oldFailCount++;
-                            httpRequest.failCount = @(oldFailCount);
+                            NSError *error;
+                            // perform check for fault and returns nil if object doesn't exist anymore
+                            // e.g. if request has already been fulfilled/removed
+                            // fixes https://fabric.io/locative/ios/apps/com.marcuskida.geofancy/issues/573d92aaffcdc04250123a23
+                            if([httpRequest.managedObjectContext existingObjectWithID:httpRequest.objectID error:&error]) {
+                                httpRequest.failCount = @(oldFailCount);
+                            }
                         }
                     }];
                 }];
