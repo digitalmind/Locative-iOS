@@ -239,12 +239,18 @@
 - (void) performAfterRetrievingCurrentLocation:(void (^)(CLLocation *currentLocation))block
 {
     self.locationBlock = block;
+    __weak typeof (self) weakSelf = self;
     [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyRoom
                                                                      timeout:10.0
                                                         delayUntilAuthorized:YES
                                                                        block:
      ^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-         self.locationBlock(currentLocation);
+         // only invoke block if it's not been nulled
+         // fixes https://fabric.io/locative/ios/apps/com.marcuskida.geofancy/issues/573d9287ffcdc042501238c9
+         __strong typeof (self) strongSelf = weakSelf;
+         if (strongSelf.locationBlock) {
+             strongSelf.locationBlock(currentLocation);
+         }
      }];
 }
 
