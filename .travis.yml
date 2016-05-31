@@ -4,7 +4,6 @@ language: objective-c
 before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
-  - cat fabric.sh
   - rm fabric.sh
 
 script:
