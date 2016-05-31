@@ -772,7 +772,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${SRCROOT}/fabric.sh\" ]; then\n source \"${SRCROOT}/fabric.sh\"\nfi\n\nif [ -n $FABRIC_API_KEY ] && [ -n $FABRIC_API_SECRET ]; then\n echo \"Fabric enabled.\"\n ${PODS_ROOT}/Fabric/run ${FABRIC_API_KEY} ${FABRIC_API_SECRET}\nelse\n echo \"Fabric disabled.\"\nfi";
+			shellScript = "if [ -f \"${SRCROOT}/fabric.sh\" ]; then\n source \"${SRCROOT}/fabric.sh\"\nfi\n\nif [ -n \"${FABRIC_API_KEY+1}\" ] && [ -n \"${FABRIC_API_SECRET+1}\" ]; then\n echo \"Fabric enabled.\"\n ${PODS_ROOT}/Fabric/run ${FABRIC_API_KEY} ${FABRIC_API_SECRET}\nelse\n echo \"Fabric disabled.\"\nfi";
 		};
 		1A21849FF996459ABBC6E3E2 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
