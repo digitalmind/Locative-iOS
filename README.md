@@ -3,7 +3,7 @@
 [![Twitter: @Kidmar](https://img.shields.io/badge/contact-@Kidmar-blue.svg?style=flat)](https://twitter.com/Kidmar)
 [![App Store](https://img.shields.io/badge/app%20store-%20Download-red.svg)](https://itunes.apple.com/us/app/geofancy/id725198453)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/LocativeHQ/ios-app/blob/master/LICENSE.md)
-[![TravisCI](https://api.travis-ci.org/LocativeHQ/ios-app.svg?branch=master)](https://travis-ci.org/LocativeHQ/ios-app) [![Join the chat at https://gitter.im/LocativeHQ/ios-app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/LocativeHQ/ios-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![TravisCI](https://api.travis-ci.org/LocativeHQ/Locative-iOS.svg?branch=master)](https://travis-ci.org/LocativeHQ/Locative-iOS) [![Join the chat at https://gitter.im/LocativeHQ/ios-app](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/LocativeHQ/ios-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![codecov.io](https://codecov.io/github/LocativeHQ/ios-app/coverage.svg?branch=master)](https://codecov.io/github/LocativeHQ/ios-app?branch=master)
 
 ![Screenshot](screenshot.png)
