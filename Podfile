@@ -1,16 +1,12 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, "6.0"
+source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-link_with "Locative", "LocativeWidget"
-
-# PODS
 def common_pods
   pod 'AFNetworking', '~> 2.6.2'
 end
 
 def app_pods
-  pod 'iOS-GPX-Framework', :git => 'https://github.com/kimar/iOS-GPX-Framework', :commit => 'e2fd5b9'
+  pod 'iOS-GPX-Framework', :git => 'https://github.com/kimar/iOS-GPX-Framework', :commit => 'cb2b563'
   pod 'MSDynamicsDrawerViewController', '~> 1.5.1'
   pod 'ObjectiveRecord', :git => 'https://github.com/kimar/ObjectiveRecord', :commit => 'd1fbb19'
   pod 'SVProgressHUD', '~> 1.0'
@@ -19,7 +15,7 @@ def app_pods
   pod 'INTULocationManager', '~> 3.0.1'
   pod 'TSMessages', :git => 'https://github.com/KrauseFx/TSMessages', :commit => 'e63f233'
   pod 'PSTAlertController', '~> 1.1.0'
-  pod '1PasswordExtension', '~> 1.6.4'
+  pod '1PasswordExtension', '~> 1.8.2'
   pod 'KeychainAccess', '~> 2.3.4'
   pod 'Fabric', '~> 1.6.7'
   pod 'Crashlytics', '~> 3.7.0'
@@ -30,16 +26,16 @@ def test_pods
   pod 'Expecta'
 end
 
-# Targets
-target "Locative", :exclusive => true do
+target "Locative" do
   common_pods
   app_pods
 end
 
-target "LocativeWidget", :exclusive => true do
+target "LocativeWidget" do
   common_pods
 end
 
-target "LocativeTests", :exclusive => true do
+target "LocativeTests" do
+  inherit! :search_paths
   test_pods
 end
