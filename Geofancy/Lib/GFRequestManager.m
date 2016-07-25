@@ -1,18 +1,10 @@
-//
-//  GFRequestManager.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 11.01.14.
-//  Copyright (c) 2014 Marcus Kida. All rights reserved.
-//
-
-#import <ObjectiveRecord/ObjectiveRecord.h>
-
 #import "GFRequestManager.h"
 #import "UILocalNotification+Geofancy.h"
 #import "GFAppDelegate.h"
 
 #define IS_POST_METHOD(method) ([method isEqualToString:@"POST"])
+
+@import ObjectiveRecord;
 
 @interface GFRequestManager ()
 

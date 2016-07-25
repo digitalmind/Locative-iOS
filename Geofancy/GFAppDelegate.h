@@ -1,21 +1,13 @@
-//
-//  GFAppDelegate.h
-//  Geofancy
-//
-//  Created by Marcus Kida on 03.10.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import <UIKit/UIKit.h>
-#import <iOS_GPX_Framework/GPX.h>
-
 #import "AFNetworking.h"
-#import <MSDynamicsDrawerViewController/MSDynamicsDrawerViewController.h>
 #import "GFGeofenceManager.h"
 #import "GFCloudManager.h"
 #import "GFRequestManager.h"
 #import "GFCoreDataManager.h"
 #import "Locative-Swift.h"
+
+@import UIKit;
+@import iOS_GPX_Framework;
+@import MSDynamicsDrawerViewController;
 
 @interface GFAppDelegate : UIResponder <UIApplicationDelegate>
 

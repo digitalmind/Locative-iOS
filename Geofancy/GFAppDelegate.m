@@ -1,24 +1,15 @@
-//
-//  GFAppDelegate.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 03.10.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
-#import <Harpy/Harpy.h>
-#import <TSMessages/TSMessage.h>
-#import <PSTAlertController/PSTAlertController.h>
-#import <ObjectiveRecord/ObjectiveRecord.h>
-#import <SVProgressHUD/SVProgressHUD.h>
-
 #import "GFAppDelegate.h"
 #import "GFMenuViewController.h"
-//#import "GFSettings.h"
 
 #define kMainStoryboard [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"] bundle:[NSBundle mainBundle]]
+
+@import Fabric;
+@import Crashlytics;
+@import Harpy;
+@import TSMessages;
+@import PSTAlertController;
+@import ObjectiveRecord;
+@import SVProgressHUD;
 
 @interface GFAppDelegate ()
 

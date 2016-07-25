@@ -16,7 +16,7 @@ install_framework()
     local source="$1"
   fi
 
-  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+  local destination="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
@@ -59,8 +59,8 @@ code_sign_if_enabled() {
   if [ -n "${EXPANDED_CODE_SIGN_IDENTITY}" -a "${CODE_SIGNING_REQUIRED}" != "NO" -a "${CODE_SIGNING_ALLOWED}" != "NO" ]; then
     # Use the current code_sign_identitiy
     echo "Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}"
-    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\""
-    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements "$1"
+    echo "/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements \"$1\""
+    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} ${OTHER_CODE_SIGN_FLAGS} --preserve-metadata=identifier,entitlements "$1"
   fi
 }
 
@@ -84,36 +84,36 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-Locative/OnePasswordExtension.framework"
-  install_framework "Pods-Locative/AFNetworking.framework"
-  install_framework "Pods-Locative/DZNEmptyDataSet.framework"
-  install_framework "Pods-Locative/Harpy.framework"
-  install_framework "Pods-Locative/HexColors.framework"
-  install_framework "Pods-Locative/INTULocationManager.framework"
-  install_framework "Pods-Locative/KeychainAccess.framework"
-  install_framework "Pods-Locative/MSDynamicsDrawerViewController.framework"
-  install_framework "Pods-Locative/ObjectiveRecord.framework"
-  install_framework "Pods-Locative/ObjectiveSugar.framework"
-  install_framework "Pods-Locative/PSTAlertController.framework"
-  install_framework "Pods-Locative/SVProgressHUD.framework"
-  install_framework "Pods-Locative/TBXML.framework"
-  install_framework "Pods-Locative/TSMessages.framework"
-  install_framework "Pods-Locative/iOS_GPX_Framework.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/1PasswordExtension/OnePasswordExtension.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Harpy/Harpy.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/HexColors/HexColors.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/INTULocationManager/INTULocationManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MSDynamicsDrawerViewController/MSDynamicsDrawerViewController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ObjectiveRecord/ObjectiveRecord.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ObjectiveSugar/ObjectiveSugar.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PSTAlertController/PSTAlertController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/TBXML/TBXML.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/TSMessages/TSMessages.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/iOS-GPX-Framework/iOS_GPX_Framework.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-Locative/OnePasswordExtension.framework"
-  install_framework "Pods-Locative/AFNetworking.framework"
-  install_framework "Pods-Locative/DZNEmptyDataSet.framework"
-  install_framework "Pods-Locative/Harpy.framework"
-  install_framework "Pods-Locative/HexColors.framework"
-  install_framework "Pods-Locative/INTULocationManager.framework"
-  install_framework "Pods-Locative/KeychainAccess.framework"
-  install_framework "Pods-Locative/MSDynamicsDrawerViewController.framework"
-  install_framework "Pods-Locative/ObjectiveRecord.framework"
-  install_framework "Pods-Locative/ObjectiveSugar.framework"
-  install_framework "Pods-Locative/PSTAlertController.framework"
-  install_framework "Pods-Locative/SVProgressHUD.framework"
-  install_framework "Pods-Locative/TBXML.framework"
-  install_framework "Pods-Locative/TSMessages.framework"
-  install_framework "Pods-Locative/iOS_GPX_Framework.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/1PasswordExtension/OnePasswordExtension.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Harpy/Harpy.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/HexColors/HexColors.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/INTULocationManager/INTULocationManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/KeychainAccess/KeychainAccess.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MSDynamicsDrawerViewController/MSDynamicsDrawerViewController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ObjectiveRecord/ObjectiveRecord.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ObjectiveSugar/ObjectiveSugar.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PSTAlertController/PSTAlertController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/TBXML/TBXML.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/TSMessages/TSMessages.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/iOS-GPX-Framework/iOS_GPX_Framework.framework"
 fi

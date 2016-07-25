@@ -1,13 +1,3 @@
-//
-//  GFCloudManager.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 07.12.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import <AFNetworking/AFNetworking.h>
-
 #import "Locative-Swift.h"
 #import "GFCloudManager.h"
 #import "GFGeofence.h"
@@ -19,6 +9,8 @@
 #define NumberOrZeroFloat(arg) (arg ? arg : [NSNumber numberWithFloat:0.0f])
 #define kMyGeofancyBackend      [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"BackendProtocol"] stringByAppendingFormat:@"://%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"BackendHost"]]
 #define kOriginFallbackString   @"iOS App"
+
+@import AFNetworking;
 
 @interface GFCloudManager ()
 

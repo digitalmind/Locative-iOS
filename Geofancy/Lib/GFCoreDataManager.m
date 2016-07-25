@@ -1,17 +1,9 @@
-//
-//  GFCoreDataManager.m
-//  Locative
-//
-//  Created by Marcus Kida on 1/12/2015.
-//  Copyright © 2015 Marcus Kida. All rights reserved.
-//
-
-#import <ObjectiveRecord/ObjectiveRecord.h>
-#import <ObjectiveSugar/ObjectiveSugar.h>
-
 #import "GFCoreDataManager.h"
 #import "Locative-Swift.h"
 #import "GFGeofence.h"
+
+@import ObjectiveSugar;
+@import ObjectiveRecord;
 
 @implementation GFCoreDataManager
 

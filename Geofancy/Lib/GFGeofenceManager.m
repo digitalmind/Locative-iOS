@@ -1,22 +1,12 @@
-//
-//  GFGeofenceManager.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 03.10.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import "GFGeofenceManager.h"
-
-#import <INTULocationManager/INTULocationManager.h>
-#import <ObjectiveSugar/ObjectiveSugar.h>
-#import <ObjectiveRecord/ObjectiveRecord.h>
-
 #import "GFAppDelegate.h"
 #import "GFBackgroundBlockOperation.h"
 #import "GFRequest.h"
 
 #define WHICH_METHOD(number) ([number intValue] == 0)?@"POST":@"GET"
+
+@import INTULocationManager;
+@import ObjectiveSugar;
+@import ObjectiveRecord;
 
 @interface GFGeofenceManager () <CLLocationManagerDelegate>
 

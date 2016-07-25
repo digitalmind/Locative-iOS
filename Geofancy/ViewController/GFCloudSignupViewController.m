@@ -1,16 +1,8 @@
-//
-//  GFCloudSignupViewController.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 07.12.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import <PSTAlertController/PSTAlertController.h>
-#import <SVProgressHUD/SVProgressHUD.h>
-
 #import "GFAppDelegate.h"
 #import "GFCloudSignupViewController.h"
+
+@import PSTAlertController;
+@import SVProgressHUD;
 
 @interface GFCloudSignupViewController ()
 

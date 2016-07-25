@@ -1,17 +1,9 @@
-//
-//  GFEvent.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 13.11.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import <PSTAlertController/PSTAlertController.h>
-#import <ObjectiveSugar/ObjectiveSugar.h>
-#import <ObjectiveRecord/ObjectiveRecord.h>
-
 #import "GFGeofence.h"
 #import "Locative-Swift.h"
+
+@import PSTAlertController;
+@import ObjectiveSugar;
+@import ObjectiveRecord;
 
 @implementation GFGeofence
 

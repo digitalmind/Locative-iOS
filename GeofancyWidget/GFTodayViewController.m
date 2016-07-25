@@ -1,13 +1,6 @@
-//
-//  GFTodayViewController.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 26/10/2015.
-//  Copyright © 2015 Marcus Kida. All rights reserved.
-//
-
 #import "GFTodayViewController.h"
-#import <AFNetworking/AFNetworking.h>
+
+@import AFNetworking;
 
 static NSString *const TODAY_URL = @"https://my.locative.io/api/today";
 

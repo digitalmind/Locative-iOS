@@ -1,16 +1,8 @@
-//
-//  GFImportGeofencesViewController.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 3/09/2014.
-//  Copyright (c) 2014 Marcus Kida. All rights reserved.
-//
-
-#import <SVProgressHUD/SVProgressHUD.h>
-#import <ObjectiveRecord/ObjectiveRecord.h>
-
 #import "GFImportGeofencesViewController.h"
 #import "GFAppDelegate.h"
+
+@import ObjectiveRecord;
+@import SVProgressHUD;
 
 @interface GFImportGeofencesViewController ()
 

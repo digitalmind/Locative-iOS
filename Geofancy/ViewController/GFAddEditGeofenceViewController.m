@@ -1,21 +1,13 @@
-//
-//  GFAddEventViewController.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 03.10.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import <MapKit/MapKit.h>
-#import <PSTAlertController/PSTAlertController.h>
-#import <SVProgressHUD/SVProgressHUD.h>
-#import <ObjectiveRecord/ObjectiveRecord.h>
-
 #import "Locative-Swift.h"
 #import "GFAddEditGeofenceViewController.h"
 #import "GFGeofence.h"
 #import "GFAppDelegate.h"
 #import "MKMapView+ZoomLevel.h"
+
+@import MapKit;
+@import PSTAlertController;
+@import SVProgressHUD;
+@import ObjectiveRecord;
 
 typedef NS_ENUM(NSInteger, AlertViewType) {
     AlertViewTypeLocationEnter = 1000

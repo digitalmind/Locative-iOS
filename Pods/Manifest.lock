@@ -1,5 +1,5 @@
 PODS:
-  - 1PasswordExtension (1.6.4)
+  - 1PasswordExtension (1.8.2)
   - AFNetworking (2.6.2):
     - AFNetworking/NSURLConnection (= 2.6.2)
     - AFNetworking/NSURLSession (= 2.6.2)
@@ -44,7 +44,7 @@ PODS:
     - HexColors (~> 2.3.0)
 
 DEPENDENCIES:
-  - 1PasswordExtension (~> 1.6.4)
+  - 1PasswordExtension (~> 1.8.2)
   - AFNetworking (~> 2.6.2)
   - Crashlytics (~> 3.7.0)
   - DZNEmptyDataSet (~> 1.4.1)
@@ -52,7 +52,7 @@ DEPENDENCIES:
   - Fabric (~> 1.6.7)
   - Harpy (~> 3.3.1)
   - INTULocationManager (~> 3.0.1)
-  - iOS-GPX-Framework (from `https://github.com/kimar/iOS-GPX-Framework`, commit `e2fd5b9`)
+  - iOS-GPX-Framework (from `https://github.com/kimar/iOS-GPX-Framework`, commit `cb2b563`)
   - KeychainAccess (~> 2.3.4)
   - MSDynamicsDrawerViewController (~> 1.5.1)
   - ObjectiveRecord (from `https://github.com/kimar/ObjectiveRecord`, commit `d1fbb19`)
@@ -63,7 +63,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   iOS-GPX-Framework:
-    :commit: e2fd5b9
+    :commit: cb2b563
     :git: https://github.com/kimar/iOS-GPX-Framework
   ObjectiveRecord:
     :commit: d1fbb19
@@ -74,7 +74,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   iOS-GPX-Framework:
-    :commit: e2fd5b9
+    :commit: cb2b563
     :git: https://github.com/kimar/iOS-GPX-Framework
   ObjectiveRecord:
     :commit: d1fbb19
@@ -84,7 +84,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/KrauseFx/TSMessages
 
 SPEC CHECKSUMS:
-  1PasswordExtension: 9f471645d378283cb88c6d4bf502e4381a42c0ad
+  1PasswordExtension: 303f2b7bbf6dc19ede3090bd6b5987530648d687
   AFNetworking: 7f317038a9710cabfa43ec56396b307b45df72ab
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
@@ -104,4 +104,6 @@ SPEC CHECKSUMS:
   TBXML: 9f9dadb239f2f2af1dadb87fe43a0ce6e479379a
   TSMessages: 6e403b790139636c15ab4f51946537095e03e79c
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 8b04626a4b4fea6385e828f6c1807b7292b83189
+
+COCOAPODS: 1.0.1

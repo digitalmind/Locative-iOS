@@ -1,20 +1,13 @@
-//
-//  GFSettingsViewController.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 09.10.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import <INTULocationManager/INTULocationManager.h>
-#import <PSTAlertController/PSTAlertController.h>
-#import <OnePasswordExtension/OnePasswordExtension.h>
-#import <ObjectiveRecord/ObjectiveRecord.h>
-#import <SVProgressHUD/SVProgressHUD.h>
-
 #import "GFSettingsViewController.h"
 #import "GFGeofencesViewController.h"
 #import "GFAppDelegate.h"
+
+@import INTULocationManager;
+@import MessageUI;
+@import OnePasswordExtension;
+@import ObjectiveRecord;
+@import PSTAlertController;
+@import SVProgressHUD;
 
 @interface GFSettingsViewController () <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 

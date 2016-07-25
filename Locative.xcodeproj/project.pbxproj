@@ -62,9 +62,9 @@
 		2AD67FB318817BD5003840C8 /* GFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB218817BD5003840C8 /* GFRequest.m */; };
 		2AD67FB618817E6C003840C8 /* GFRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB518817E6C003840C8 /* GFRequestManager.m */; };
 		2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE7D801914F99C00460861 /* iBeaconPresets.plist */; };
-		6F24DCBE3FE89A0BF4080E79 /* Pods_LocativeWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050E2475F477E40327A03405 /* Pods_LocativeWidget.framework */; };
-		73B5A1ECA4AC0C101ABC8266 /* Pods_Locative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0551D5472A52F616D49D980C /* Pods_Locative.framework */; };
-		C600CC4EE3EC458FAEAE153A /* Pods_LocativeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB3C2FBCDE8E17F7B71306F /* Pods_LocativeTests.framework */; };
+		2B6B255EC6E6FCF3756FD146 /* Pods_LocativeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */; };
+		B5FF87B6381EDA94460A963C /* Pods_Locative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DCE64809809285D7A6941B /* Pods_Locative.framework */; };
+		E77730C2DC8A06B54FE9CA11 /* Pods_LocativeWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E74C7E70352C766CF546839F /* Pods_LocativeWidget.framework */; };
 		EC24859D1AF8D01400A1A041 /* UILocalNotification+Geofancy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC24859C1AF8D01400A1A041 /* UILocalNotification+Geofancy.m */; };
 		EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28B7A619B72913009E5427 /* GFImportGeofencesViewController.m */; };
 		EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
@@ -119,8 +119,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		050E2475F477E40327A03405 /* Pods_LocativeWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0551D5472A52F616D49D980C /* Pods_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -131,7 +129,7 @@
 		07E225511CA8D38C00572180 /* NSString+Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Paths.swift"; sourceTree = "<group>"; };
 		07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefault+Locative.swift"; sourceTree = "<group>"; };
 		07E225551CA8D58F00572180 /* GeofenceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceAnnotation.swift; sourceTree = "<group>"; };
-		196FE35C79514CFD91498EA9 /* libPods-GeofancyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeofancyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07E8A9A86F05B3D9DB13F986 /* Pods_LocativeWidget_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A04A5941849F1D300D9B485 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		2A27D24818056CB000AC1708 /* GFSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSettingsViewController.h; sourceTree = "<group>"; };
 		2A27D24918056CB000AC1708 /* GFSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSettingsViewController.m; sourceTree = "<group>"; };
@@ -205,12 +203,9 @@
 		2AD67FB518817E6C003840C8 /* GFRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRequestManager.m; sourceTree = "<group>"; };
 		2ADE7D801914F99C00460861 /* iBeaconPresets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iBeaconPresets.plist; sourceTree = "<group>"; };
 		2AF435DE1833A3C5001789BD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		3AB3C2FBCDE8E17F7B71306F /* Pods_LocativeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5AFFBA9FE1F2C1E3E0388265 /* Pods-GeofancyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests.release.xcconfig"; sourceTree = "<group>"; };
-		6736AE0F1787494AA7021FBE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BFC8B4FDBC4C8D8A4178788 /* libPods-Geofancy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Geofancy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CEF522A2929AB46704BE31E /* libPods-GeofancyWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeofancyWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAC864070A43D948BB3F7E29 /* Pods-GeofancyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0DCE64809809285D7A6941B /* Pods_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E74C7E70352C766CF546839F /* Pods_LocativeWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC11C7681ADE53C2003DC18D /* Widget.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Widget.Debug.xcconfig; sourceTree = "<group>"; };
 		EC11C7691ADE53C2003DC18D /* Widget.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Widget.Release.xcconfig; sourceTree = "<group>"; };
 		EC24859B1AF8D01400A1A041 /* UILocalNotification+Geofancy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILocalNotification+Geofancy.h"; sourceTree = "<group>"; };
@@ -252,9 +247,6 @@
 		ECE802771C0CEA9500B1B28C /* libSpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpecta.a; path = "Pods/../build/Debug-iphoneos/libSpecta.a"; sourceTree = "<group>"; };
 		ECE8027B1C0D69B600B1B28C /* GFCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCoreDataManager.h; sourceTree = "<group>"; };
 		ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCoreDataManager.m; sourceTree = "<group>"; };
-		EDBC71866C1BC6E7D0455385 /* Pods-GeofancyTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyTests/Pods-GeofancyTests.testflight.xcconfig"; sourceTree = "<group>"; };
-		EE9EBFC0D9B9435CB25CF4F9 /* Pods-GeofancyWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.release.xcconfig"; sourceTree = "<group>"; };
-		FBD676C69C42E37E21CE3D59 /* Pods-GeofancyWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeofancyWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeofancyWidget/Pods-GeofancyWidget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,7 +267,7 @@
 				2A8E9D9917FD51DD00F4A805 /* CoreGraphics.framework in Frameworks */,
 				2A8E9D9B17FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9D9717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
-				73B5A1ECA4AC0C101ABC8266 /* Pods_Locative.framework in Frameworks */,
+				B5FF87B6381EDA94460A963C /* Pods_Locative.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +278,7 @@
 				2A8E9DB617FD51DD00F4A805 /* XCTest.framework in Frameworks */,
 				2A8E9DB817FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9DB717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
-				C600CC4EE3EC458FAEAE153A /* Pods_LocativeTests.framework in Frameworks */,
+				2B6B255EC6E6FCF3756FD146 /* Pods_LocativeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3C13E719B178CF0093F139 /* NotificationCenter.framework in Frameworks */,
-				6F24DCBE3FE89A0BF4080E79 /* Pods_LocativeWidget.framework in Frameworks */,
+				E77730C2DC8A06B54FE9CA11 /* Pods_LocativeWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,12 +347,14 @@
 				EC34CB5A199590D7004479D2 /* Release.xcconfig */,
 				EC11C7681ADE53C2003DC18D /* Widget.Debug.xcconfig */,
 				EC11C7691ADE53C2003DC18D /* Widget.Release.xcconfig */,
+				07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */,
+				07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */,
 				2A8E9D9C17FD51DD00F4A805 /* Geofancy */,
 				2A8E9DBB17FD51DD00F4A805 /* GeofancyTests */,
 				EC3C13E819B178CF0093F139 /* GeofancyWidget */,
 				2A8E9D9517FD51DD00F4A805 /* Frameworks */,
 				2A8E9D9417FD51DD00F4A805 /* Products */,
-				F6208CFB3D7525DA283C890C /* Pods */,
+				A159DC94D3DC883CE8202FEC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -398,14 +392,11 @@
 				2A8E9D9817FD51DD00F4A805 /* CoreGraphics.framework */,
 				2A8E9D9A17FD51DD00F4A805 /* UIKit.framework */,
 				2A8E9DB517FD51DD00F4A805 /* XCTest.framework */,
-				196FE35C79514CFD91498EA9 /* libPods-GeofancyTests.a */,
 				EC3C13E619B178CF0093F139 /* NotificationCenter.framework */,
-				6736AE0F1787494AA7021FBE /* libPods.a */,
-				9BFC8B4FDBC4C8D8A4178788 /* libPods-Geofancy.a */,
-				9CEF522A2929AB46704BE31E /* libPods-GeofancyWidget.a */,
-				0551D5472A52F616D49D980C /* Pods_Locative.framework */,
-				3AB3C2FBCDE8E17F7B71306F /* Pods_LocativeTests.framework */,
-				050E2475F477E40327A03405 /* Pods_LocativeWidget.framework */,
+				A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */,
+				E74C7E70352C766CF546839F /* Pods_LocativeWidget.framework */,
+				07E8A9A86F05B3D9DB13F986 /* Pods_LocativeWidget_Locative.framework */,
+				E0DCE64809809285D7A6941B /* Pods_Locative.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -523,6 +514,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A159DC94D3DC883CE8202FEC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EC3C13E819B178CF0093F139 /* GeofancyWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,18 +543,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F6208CFB3D7525DA283C890C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AAC864070A43D948BB3F7E29 /* Pods-GeofancyTests.debug.xcconfig */,
-				EDBC71866C1BC6E7D0455385 /* Pods-GeofancyTests.testflight.xcconfig */,
-				5AFFBA9FE1F2C1E3E0388265 /* Pods-GeofancyTests.release.xcconfig */,
-				FBD676C69C42E37E21CE3D59 /* Pods-GeofancyWidget.debug.xcconfig */,
-				EE9EBFC0D9B9435CB25CF4F9 /* Pods-GeofancyWidget.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -564,15 +550,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A8E9DC517FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "Locative" */;
 			buildPhases = (
-				1A21849FF996459ABBC6E3E2 /* Check Pods Manifest.lock */,
+				65631DCE165A9C84B29C44B2 /* [CP] Check Pods Manifest.lock */,
 				2A5158BD188185B000DCD8D9 /* ShellScript */,
 				2A8E9D8F17FD51DD00F4A805 /* Sources */,
 				2A8E9D9017FD51DD00F4A805 /* Frameworks */,
 				2A8E9D9117FD51DD00F4A805 /* Resources */,
-				7377A4F3A2F0447CBD0813D0 /* Copy Pods Resources */,
 				ECCBD31419CEE02A0009399B /* Embed App Extensions */,
-				A04C6144BDBCC1BE18E62C34 /* Embed Pods Frameworks */,
 				07DF8D2B1CCBA1E4001D858B /* Fabric */,
+				5F766997094B39CF6EA3F669 /* [CP] Embed Pods Frameworks */,
+				0299760BFEB3AD961861FCFA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -589,12 +575,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A8E9DC817FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "LocativeTests" */;
 			buildPhases = (
-				CDEDC951DE3842F2A2572801 /* Check Pods Manifest.lock */,
+				40C3D7993557DD75E37D457D /* [CP] Check Pods Manifest.lock */,
 				2A8E9DB017FD51DD00F4A805 /* Sources */,
 				2A8E9DB117FD51DD00F4A805 /* Frameworks */,
 				2A8E9DB217FD51DD00F4A805 /* Resources */,
-				795B9B69F4424AE69E6D5C82 /* Copy Pods Resources */,
-				F5C8764C4EF77611C9DE13EC /* Embed Pods Frameworks */,
+				850086477CFC51BB945395C2 /* [CP] Embed Pods Frameworks */,
+				469ED89DD18D6A6430489F97 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -610,14 +596,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC3C13F419B178CF0093F139 /* Build configuration list for PBXNativeTarget "LocativeWidget" */;
 			buildPhases = (
-				62EB932494A3CFE02FAA05BD /* Check Pods Manifest.lock */,
+				D9E64DA8B9275515F8B3DC61 /* [CP] Check Pods Manifest.lock */,
 				ECCCABA91B04EA4F0040FED2 /* Increment Build */,
 				EC3C13E119B178CF0093F139 /* Sources */,
 				EC3C13E219B178CF0093F139 /* Frameworks */,
 				EC3C13E319B178CF0093F139 /* Resources */,
-				D622AF3209AC4A738636E0D4 /* Copy Pods Resources */,
-				8D747859AF06BB38C8A68EA6 /* Embed Pods Frameworks */,
 				ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */,
+				6F9492CAD3730B792314F102 /* [CP] Embed Pods Frameworks */,
+				9554A19967883FCF1E3D6549 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -762,6 +748,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0299760BFEB3AD961861FCFA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		07DF8D2B1CCBA1E4001D858B /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -776,21 +777,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ -f \"${SRCROOT}/fabric.sh\" ]; then\n source \"${SRCROOT}/fabric.sh\"\nfi\n\nif [ -n \"${FABRIC_API_KEY+1}\" ] && [ -n \"${FABRIC_API_SECRET+1}\" ]; then\n echo \"Fabric enabled.\"\n ${PODS_ROOT}/Fabric/run ${FABRIC_API_KEY} ${FABRIC_API_SECRET}\nelse\n echo \"Fabric disabled.\"\nfi";
 		};
-		1A21849FF996459ABBC6E3E2 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		2A5158BD188185B000DCD8D9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -804,14 +790,14 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ] || [ $CONFIGURATION == TestFlight ]; then\n    echo \"Bumping build number...\"\n    plist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n    # increment the build number (ie 115 to 116)\n    buildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\n    if [[ \"${buildnum}\" == \"\" ]]; then\n        echo \"No build number in $plist\"\n        exit 2\n    fi\n\n    buildnum=$(expr $buildnum + 1)\n    /usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\n    echo \"Bumped build number to $buildnum\"\n\nelse\n    echo $CONFIGURATION \" build - Not bumping build number.\"\nfi";
 		};
-		62EB932494A3CFE02FAA05BD /* Check Pods Manifest.lock */ = {
+		40C3D7993557DD75E37D457D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -819,29 +805,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7377A4F3A2F0447CBD0813D0 /* Copy Pods Resources */ = {
+		469ED89DD18D6A6430489F97 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		795B9B69F4424AE69E6D5C82 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -849,29 +820,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8D747859AF06BB38C8A68EA6 /* Embed Pods Frameworks */ = {
+		5F766997094B39CF6EA3F669 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeWidget/Pods-LocativeWidget-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A04C6144BDBCC1BE18E62C34 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -879,14 +835,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CDEDC951DE3842F2A2572801 /* Check Pods Manifest.lock */ = {
+		65631DCE165A9C84B29C44B2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -894,19 +850,64 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D622AF3209AC4A738636E0D4 /* Copy Pods Resources */ = {
+		6F9492CAD3730B792314F102 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeWidget/Pods-LocativeWidget-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		850086477CFC51BB945395C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9554A19967883FCF1E3D6549 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeWidget/Pods-LocativeWidget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9E64DA8B9275515F8B3DC61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */ = {
@@ -936,21 +937,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ] || [ $CONFIGURATION == TestFlight ]; then\n echo \"Bumping build number...\"\n plist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n# increment the build number (ie 115 to 116)\n buildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\n if [[ \"${buildnum}\" == \"\" ]]; then\n  echo \"No build number in $plist\"\n  exit 2\n fi\n\n buildnum=$(expr $buildnum + 1)\n /usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\n echo \"Bumped build number to $buildnum\"\n\nelse\n echo $CONFIGURATION \" build - Not bumping build number.\"\nfi";
-		};
-		F5C8764C4EF77611C9DE13EC /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 

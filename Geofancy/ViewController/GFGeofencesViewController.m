@@ -1,19 +1,11 @@
-//
-//  GFEventsViewController.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 03.10.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import <PSTAlertController/PSTAlertController.h>
-#import <ObjectiveSugar/ObjectiveSugar.h>
-#import <ObjectiveRecord/ObjectiveRecord.h>
-
 #import "GFGeofencesViewController.h"
 #import "GFAddEditGeofenceViewController.h"
 #import "GFConfig.h"
 #import "GFAppDelegate.h"
+
+@import PSTAlertController;
+@import ObjectiveSugar;
+@import ObjectiveRecord;
 
 @interface GFGeofencesViewController ()
 

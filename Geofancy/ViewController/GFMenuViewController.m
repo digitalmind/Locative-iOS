@@ -1,15 +1,7 @@
-//
-//  GFMenuViewController.m
-//  Geofancy
-//
-//  Created by Marcus Kida on 14.11.13.
-//  Copyright (c) 2013 Marcus Kida. All rights reserved.
-//
-
-#import <PSTAlertController/PSTAlertController.h>
-
 #import "GFAppDelegate.h"
 #import "GFMenuViewController.h"
+
+@import PSTAlertController;
 
 @implementation GFMenuViewController
 
