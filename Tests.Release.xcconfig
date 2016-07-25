@@ -1,6 +1,5 @@
 #include "Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests.release.xcconfig"
 
 BUNDLE_IDENTIFIER = com.marcuskida.Geofancy
-VERSION = 1.11.0
 BACKEND_PROTOCOL = https
 BACKEND_HOST = my.locative.io
