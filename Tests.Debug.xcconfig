@@ -1,4 +1,4 @@
-#include "Pods/Target Support Files/Pods-Locative/Pods-Locative.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests.debug.xcconfig"
 
 BUNDLE_IDENTIFIER = io.kida.Geofancy
 VERSION = 1.11.0
