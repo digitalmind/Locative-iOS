@@ -48,7 +48,7 @@
 		2A8E9DC017FD51DD00F4A805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9DBE17FD51DD00F4A805 /* InfoPlist.strings */; };
 		2A8E9DEF17FD540D00F4A805 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9DEE17FD540D00F4A805 /* CoreData.framework */; };
 		2A8E9DF117FD556900F4A805 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9DF017FD556900F4A805 /* CoreLocation.framework */; };
-		2A8E9DF917FD5A5800F4A805 /* GFGeofenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9DF717FD5A5800F4A805 /* GFGeofenceManager.m */; };
+		2A8E9DF917FD5A5800F4A805 /* GeofenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */; };
 		2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */; };
 		2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9E2C17FD6EFE00F4A805 /* AddEditGeofenceViewController.m */; };
 		2A8E9E2F17FD6F7D00F4A805 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E2E17FD6F7D00F4A805 /* SystemConfiguration.framework */; };
@@ -180,8 +180,8 @@
 		2A8E9DBF17FD51DD00F4A805 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A8E9DEE17FD540D00F4A805 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A8E9DF017FD556900F4A805 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2A8E9DF617FD5A5800F4A805 /* GFGeofenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeofenceManager.h; sourceTree = "<group>"; };
-		2A8E9DF717FD5A5800F4A805 /* GFGeofenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofenceManager.m; sourceTree = "<group>"; };
+		2A8E9DF617FD5A5800F4A805 /* GeofenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeofenceManager.h; sourceTree = "<group>"; };
+		2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeofenceManager.m; sourceTree = "<group>"; };
 		2A8E9E0117FD5AA500F4A805 /* GeofencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeofencesViewController.h; sourceTree = "<group>"; };
 		2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeofencesViewController.m; sourceTree = "<group>"; };
 		2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditGeofenceViewController.h; sourceTree = "<group>"; };
@@ -464,8 +464,8 @@
 			isa = PBXGroup;
 			children = (
 				078E79171CA624C40098380D /* SecureCredentials */,
-				2A8E9DF617FD5A5800F4A805 /* GFGeofenceManager.h */,
-				2A8E9DF717FD5A5800F4A805 /* GFGeofenceManager.m */,
+				2A8E9DF617FD5A5800F4A805 /* GeofenceManager.h */,
+				2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */,
 				2A2BF51E185371B800D5DD98 /* GFCloudManager.h */,
 				2A2BF51F185371B800D5DD98 /* GFCloudManager.m */,
 				2A918275186B1B630088EF91 /* GFBackgroundBlockOperation.h */,
@@ -946,7 +946,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				078E79191CA624C40098380D /* SecureCredentials.swift in Sources */,
-				2A8E9DF917FD5A5800F4A805 /* GFGeofenceManager.m in Sources */,
+				2A8E9DF917FD5A5800F4A805 /* GeofenceManager.m in Sources */,
 				07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */,
 				07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */,
 				0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */,

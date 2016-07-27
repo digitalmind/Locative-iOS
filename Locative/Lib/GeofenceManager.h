@@ -5,14 +5,14 @@
 #import "GFCloudManager.h"
 
 typedef enum : NSUInteger {
-    GFTriggerOnEnter = (0x1 << 0), // => 0x00000001
-    GFTriggerOnExit   = (0x1 << 1) // => 0x00000010
-} GFGeofenceTrigger;
+    TriggerOnEnter = (0x1 << 0), // => 0x00000001
+    TriggerOnExit   = (0x1 << 1) // => 0x00000010
+} GeofenceTrigger;
 
 static NSString *const GFEnter = @"enter";
 static NSString *const GFExit = @"exit";
 
-@interface GFGeofenceManager : NSObject
+@interface GeofenceManager : NSObject
 
 #pragma mark - Initialization
 + (id) sharedManager;

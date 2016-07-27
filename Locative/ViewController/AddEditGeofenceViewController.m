@@ -129,8 +129,8 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
                 _typeSegmentedControl.hidden = YES;
             }
             
-            _enterSwitch.on = ([self.event.triggers intValue] & GFTriggerOnEnter);
-            _exitSwitch.on = ([self.event.triggers intValue] & GFTriggerOnExit);
+            _enterSwitch.on = ([self.event.triggers intValue] & TriggerOnEnter);
+            _exitSwitch.on = ([self.event.triggers intValue] & TriggerOnExit);
             
             _enterUrlTextField.text = self.event.enterUrl;
             _exitUrlTextField.text = self.event.exitUrl;
@@ -575,14 +575,14 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 
 - (void) saveEventWithEventName:(NSString *)eventName andUuid:(NSString *)uuid
 {
-    NSNumber *triggers = [NSNumber numberWithInt:(GFTriggerOnEnter | GFTriggerOnExit)];
+    NSNumber *triggers = [NSNumber numberWithInt:(TriggerOnEnter | TriggerOnExit)];
     if(!_enterSwitch.on && _exitSwitch.on)
     {
-        triggers = [NSNumber numberWithInt:(GFTriggerOnExit)];
+        triggers = [NSNumber numberWithInt:(TriggerOnExit)];
     }
     else if(_enterSwitch.on && !_exitSwitch.on)
     {
-        triggers = [NSNumber numberWithInt:(GFTriggerOnEnter)];
+        triggers = [NSNumber numberWithInt:(TriggerOnEnter)];
     }
     else if(!_enterSwitch.on && !_exitSwitch.on)
     {

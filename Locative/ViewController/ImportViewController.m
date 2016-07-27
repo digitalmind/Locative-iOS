@@ -170,17 +170,17 @@
 
 - (void) saveEventWithEventName:(NSString *)eventName andUuid:(NSString *)uuid
 {
-    NSNumber *triggers = [NSNumber numberWithInt:(GFTriggerOnEnter | GFTriggerOnExit)];
+    NSNumber *triggers = [NSNumber numberWithInt:(TriggerOnEnter | TriggerOnExit)];
     BOOL enterSwitchOn = [self.selectedGeofence[@"triggerOnArrival"][@"enabled"] boolValue];
     BOOL exitSwitchOn = [self.selectedGeofence[@"triggerOnLeave"][@"enabled"] boolValue];
     
     if(!enterSwitchOn && exitSwitchOn)
     {
-        triggers = [NSNumber numberWithInt:(GFTriggerOnExit)];
+        triggers = [NSNumber numberWithInt:(TriggerOnExit)];
     }
     else if(enterSwitchOn && !exitSwitchOn)
     {
-        triggers = [NSNumber numberWithInt:(GFTriggerOnEnter)];
+        triggers = [NSNumber numberWithInt:(TriggerOnEnter)];
     }
     else if(!exitSwitchOn && !exitSwitchOn)
     {

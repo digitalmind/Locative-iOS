@@ -8,7 +8,7 @@
 @import ObjectiveSugar;
 @import ObjectiveRecord;
 
-@interface GFGeofenceManager () <CLLocationManagerDelegate>
+@interface GeofenceManager () <CLLocationManagerDelegate>
 
 @property (nonatomic, weak) AppDelegate *appDelegate;
 @property (nonatomic, copy) void (^locationBlock)(CLLocation *currentLocation);
@@ -20,14 +20,14 @@
 
 @end
 
-@implementation GFGeofenceManager
+@implementation GeofenceManager
 
 + (id) sharedManager
 {
-    static GFGeofenceManager *geofenceManager = nil;
+    static GeofenceManager *geofenceManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        geofenceManager = [[GFGeofenceManager alloc] init];
+        geofenceManager = [[GeofenceManager alloc] init];
         [geofenceManager setup];
     });
     return geofenceManager;
@@ -135,11 +135,11 @@
     {
         CLLocation *location = [[CLLocation alloc] initWithLatitude:[event.latitude doubleValue] longitude:[event.longitude doubleValue]];
         NSLog(@"got location update: %@", location);
-        if ([trigger isEqualToString:GFEnter] && !([event.triggers integerValue] & GFTriggerOnEnter)) {
+        if ([trigger isEqualToString:GFEnter] && !([event.triggers integerValue] & TriggerOnEnter)) {
             return;
         }
         
-        if ([trigger isEqualToString:GFExit] && !([event.triggers integerValue] & GFTriggerOnExit)) {
+        if ([trigger isEqualToString:GFExit] && !([event.triggers integerValue] & TriggerOnExit)) {
             return;
         }
         

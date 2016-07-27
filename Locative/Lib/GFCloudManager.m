@@ -3,7 +3,7 @@
 #import "Geofence.h"
 #import "Fencelog.h"
 #import "NSString+Hashes.h"
-#import "GFGeofenceManager.h"
+#import "GeofenceManager.h"
 
 #define StringOrEmpty(arg) (arg ? arg : @"")
 #define NumberOrZeroFloat(arg) (arg ? arg : [NSNumber numberWithFloat:0.0f])
@@ -182,10 +182,10 @@
                              @"lon": geofence.longitude,
                              @"lat": geofence.latitude,
                              @"radius": geofence.radius,
-                             @"triggerOnArrival": (geofence.triggers.integerValue & GFTriggerOnEnter) ? @1 : @0,
+                             @"triggerOnArrival": (geofence.triggers.integerValue & TriggerOnEnter) ? @1 : @0,
                              @"triggerOnArrivalMethod" : geofence.enterMethod,
                              @"triggerOnArrivalUrl" : geofence.enterUrl ? geofence.enterUrl : @"",
-                             @"triggerOnLeave": (geofence.triggers.integerValue & GFTriggerOnExit) ? @1 : @0,
+                             @"triggerOnLeave": (geofence.triggers.integerValue & TriggerOnExit) ? @1 : @0,
                              @"triggerOnLeaveMethod": geofence.exitMethod,
                              @"triggerOnLeaveUrl": geofence.exitUrl ? geofence.exitUrl : @"",
                              @"basicAuth": geofence.httpAuth ? @1 : @0,

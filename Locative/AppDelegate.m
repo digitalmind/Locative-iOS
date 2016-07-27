@@ -26,7 +26,7 @@
 
     // Override point for customization after application launch.
     self.settings = [[[Settings alloc] init] restoredSettings];
-    self.geofenceManager = [GFGeofenceManager sharedManager];
+    self.geofenceManager = [GeofenceManager sharedManager];
     self.cloudManager = [[GFCloudManager alloc] initWithSettings:self.settings];
     self.requestManager = [GFRequestManager sharedManager];
     self.harpy = [Harpy sharedInstance];
@@ -180,7 +180,7 @@
                     geofence.latitude = [NSNumber numberWithFloat:waypoint.latitude];
                     geofence.longitude = [NSNumber numberWithFloat:waypoint.longitude];
                     geofence.radius = [NSNumber numberWithInt:50];
-                    geofence.triggers = @(GFTriggerOnEnter | GFTriggerOnExit);
+                    geofence.triggers = @(TriggerOnEnter | TriggerOnExit);
                     [geofence save];
                     [self.geofenceManager startMonitoringEvent:geofence];
                     NSLog(@"Importing and starting to monitor Geofences: %@", geofence);
