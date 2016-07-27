@@ -40,10 +40,10 @@
         [self.lastRequestIds removeAllObjects];
     }
     
-    NSArray *allRequests = [GFRequest all];
+    NSArray *allRequests = [HttpRequest all];
     NSOperation *operation = nil;
     NSOperation *previousOperation = nil;
-    for (GFRequest *httpRequest in allRequests) {
+    for (HttpRequest *httpRequest in allRequests) {
         BOOL faulty = NO;
         if ([httpRequest.failCount intValue] >= 3) {
             faulty = YES;
@@ -96,7 +96,7 @@
     [self.queue addOperation:operation];
 }
 
-- (void) dispatchRequest:(GFRequest *)httpRequest completion:(void(^)(BOOL success))cb
+- (void) dispatchRequest:(HttpRequest *)httpRequest completion:(void(^)(BOOL success))cb
 {
     AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
     requestManager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -152,7 +152,7 @@
 }
 
 - (void)dispatchFencelogSuccess:(BOOL)success
-                    httpRequest:(GFRequest *)httpRequest
+                    httpRequest:(HttpRequest *)httpRequest
                  responseObject:(id)responseObject
                  responseStatus:(NSInteger)statusCode
                           error:(NSError *)error

@@ -1,6 +1,6 @@
 #import "AppDelegate.h"
 #import "GFBackgroundBlockOperation.h"
-#import "GFRequest.h"
+#import "HttpRequest.h"
 
 #define WHICH_METHOD(number) ([number intValue] == 0)?@"POST":@"GET"
 
@@ -160,7 +160,7 @@
         if([url length] > 0)
         {
             [self.mainQueue addOperationWithBlock:^{
-                GFRequest *httpRequest = [GFRequest create];
+                HttpRequest *httpRequest = [HttpRequest create];
                 httpRequest.url = url;
                 httpRequest.method = WHICH_METHOD([event enterMethod]);
                 httpRequest.parameters = parameters;

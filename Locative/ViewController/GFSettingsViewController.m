@@ -202,7 +202,7 @@
                                       @"longitude":currentLocation?[NSNumber numberWithFloat:currentLocation.coordinate.longitude]:@123.0f,
                                       @"timestamp": [NSString stringWithFormat:@"%f", [timestamp timeIntervalSince1970]]};
          
-         GFRequest *httpRequest = [GFRequest create];
+         HttpRequest *httpRequest = [HttpRequest create];
          httpRequest.url = url;
          httpRequest.method = ([self.httpMethodSegmentedControl selectedSegmentIndex] == 0)?@"POST":@"GET";
          httpRequest.parameters = parameters;

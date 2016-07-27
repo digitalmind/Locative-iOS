@@ -2,7 +2,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface GFRequest : NSManagedObject
+@interface HttpRequest : NSManagedObject
 
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSString * method;

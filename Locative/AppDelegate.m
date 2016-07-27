@@ -63,7 +63,7 @@
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     // Remove all remaining GFRequests
-    [GFRequest deleteAll];
+    [HttpRequest deleteAll];
     
     [self.harpy setAppID:@"725198453"];
 #ifdef DEBUG

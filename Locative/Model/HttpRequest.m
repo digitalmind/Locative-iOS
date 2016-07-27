@@ -1,7 +1,7 @@
-#import "GFRequest.h"
+#import "HttpRequest.h"
 
 
-@implementation GFRequest
+@implementation HttpRequest
 
 @dynamic url;
 @dynamic method;

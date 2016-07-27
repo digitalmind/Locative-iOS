@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "GFRequest.h"
+#import "HttpRequest.h"
 
 @class Fencelog;
 

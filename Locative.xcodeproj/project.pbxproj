@@ -59,7 +59,7 @@
 		2A9C1D8718094F0C00F84B5C /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1D8618094F0C00F84B5C /* about.html */; };
 		2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1DF2180969F700F84B5C /* Localizable.strings */; };
 		2AB31B7E18055C6400FC839B /* Geofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB31B7D18055C6400FC839B /* Geofence.m */; };
-		2AD67FB318817BD5003840C8 /* GFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB218817BD5003840C8 /* GFRequest.m */; };
+		2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB218817BD5003840C8 /* HttpRequest.m */; };
 		2AD67FB618817E6C003840C8 /* GFRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB518817E6C003840C8 /* GFRequestManager.m */; };
 		2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE7D801914F99C00460861 /* iBeaconPresets.plist */; };
 		2B6B255EC6E6FCF3756FD146 /* Pods_LocativeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */; };
@@ -197,8 +197,8 @@
 		2A9C1DF818096A3B00F84B5C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AB31B7C18055C6400FC839B /* Geofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geofence.h; sourceTree = "<group>"; };
 		2AB31B7D18055C6400FC839B /* Geofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geofence.m; sourceTree = "<group>"; };
-		2AD67FB118817BD5003840C8 /* GFRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRequest.h; sourceTree = "<group>"; };
-		2AD67FB218817BD5003840C8 /* GFRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRequest.m; sourceTree = "<group>"; };
+		2AD67FB118817BD5003840C8 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
+		2AD67FB218817BD5003840C8 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
 		2AD67FB418817E6C003840C8 /* GFRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRequestManager.h; sourceTree = "<group>"; };
 		2AD67FB518817E6C003840C8 /* GFRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRequestManager.m; sourceTree = "<group>"; };
 		2ADE7D801914F99C00460861 /* iBeaconPresets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iBeaconPresets.plist; sourceTree = "<group>"; };
@@ -508,8 +508,8 @@
 				2AB31B7D18055C6400FC839B /* Geofence.m */,
 				2A2BF5271853748F00D5DD98 /* Fencelog.h */,
 				2A2BF5281853748F00D5DD98 /* Fencelog.m */,
-				2AD67FB118817BD5003840C8 /* GFRequest.h */,
-				2AD67FB218817BD5003840C8 /* GFRequest.m */,
+				2AD67FB118817BD5003840C8 /* HttpRequest.h */,
+				2AD67FB218817BD5003840C8 /* HttpRequest.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -960,7 +960,7 @@
 				EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */,
 				2A8D852918AE3F4700CF2693 /* GFConfig.m in Sources */,
 				2A2BF520185371B800D5DD98 /* GFCloudManager.m in Sources */,
-				2AD67FB318817BD5003840C8 /* GFRequest.m in Sources */,
+				2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */,
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
 				2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */,
 				2A521A7D18354958001F3669 /* GFMenuViewController.m in Sources */,

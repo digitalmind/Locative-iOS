@@ -20,7 +20,7 @@
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="GFRequest" representedClassName="GFRequest" syncable="YES">
+    <entity name="HttpRequest" representedClassName="HttpRequest" syncable="YES">
         <attribute name="eventType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="failCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="httpAuth" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -34,6 +34,6 @@
     </entity>
     <elements>
         <element name="Geofence" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="GFRequest" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="HttpRequest" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
