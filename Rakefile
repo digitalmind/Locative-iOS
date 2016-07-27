@@ -4,6 +4,9 @@ def run(command, min_exit_status = 0)
   return $?.exitstatus
 end
 
+desc "Start dev environment"
+task :dev do
+  run("open Locative.xcworkspace")
 end
 
 desc "Generate changelog"
