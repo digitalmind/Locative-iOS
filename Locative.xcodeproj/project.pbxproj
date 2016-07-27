@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
-		078E79191CA624C40098380D /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E79181CA624C40098380D /* SecureCredentials.swift */; };
 		07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E11D48BAEA00286073 /* CoreDataStack.swift */; };
 		07BC81E41D48BEAF00286073 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E31D48BEAF00286073 /* Synchronized.swift */; };
 		07BC81E61D48C34E00286073 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E51D48C34E00286073 /* Config.swift */; };
 		07BC81E81D48C72F00286073 /* BackgroundBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */; };
+		07BC81EA1D48C92500286073 /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E91D48C92500286073 /* SecureCredentials.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
@@ -123,11 +123,11 @@
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
-		078E79181CA624C40098380D /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
 		07BC81E11D48BAEA00286073 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		07BC81E31D48BEAF00286073 /* Synchronized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
 		07BC81E51D48C34E00286073 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundBlockOperation.swift; sourceTree = "<group>"; };
+		07BC81E91D48C92500286073 /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
 		07E2254F1CA77B0500572180 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -304,14 +304,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		078E79171CA624C40098380D /* SecureCredentials */ = {
-			isa = PBXGroup;
-			children = (
-				078E79181CA624C40098380D /* SecureCredentials.swift */,
-			);
-			path = SecureCredentials;
-			sourceTree = "<group>";
-		};
 		2A4B2B2D17FD7E17002ECE72 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,14 +454,14 @@
 		2A8E9DF517FD5A5800F4A805 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				078E79171CA624C40098380D /* SecureCredentials */,
 				2A8E9DF617FD5A5800F4A805 /* GeofenceManager.h */,
 				2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */,
 				2A2BF51E185371B800D5DD98 /* CloudManager.h */,
 				2A2BF51F185371B800D5DD98 /* CloudManager.m */,
-				07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */,
 				2AD67FB418817E6C003840C8 /* HttpRequestManager.h */,
 				2AD67FB518817E6C003840C8 /* HttpRequestManager.m */,
+				07BC81E91D48C92500286073 /* SecureCredentials.swift */,
+				07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */,
 				07BC81E11D48BAEA00286073 /* CoreDataStack.swift */,
 				07BC81E31D48BEAF00286073 /* Synchronized.swift */,
 				07BC81E51D48C34E00286073 /* Config.swift */,
@@ -942,7 +934,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				078E79191CA624C40098380D /* SecureCredentials.swift in Sources */,
+				07BC81EA1D48C92500286073 /* SecureCredentials.swift in Sources */,
 				2A8E9DF917FD5A5800F4A805 /* GeofenceManager.m in Sources */,
 				07BC81E61D48C34E00286073 /* Config.swift in Sources */,
 				07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */,
