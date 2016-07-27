@@ -1,7 +1,7 @@
 @import Foundation;
 @import ObjectiveRecord;
 
-@interface GFCoreDataManager : NSObject
+@interface CoreDataStack : NSObject
 
 @property (nonatomic, strong) CoreDataManager *coreDataManager;
 

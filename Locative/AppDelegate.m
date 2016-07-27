@@ -32,7 +32,7 @@
     self.harpy = [Harpy sharedInstance];
     
     // Setup CoreData
-    self.coreDataManager = [[GFCoreDataManager alloc] initWithModel:@"Model"];
+    self.coreDataManager = [[CoreDataStack alloc] initWithModel:@"Model"];
     
     // Reachability
     [self setupReachabilityStatus];

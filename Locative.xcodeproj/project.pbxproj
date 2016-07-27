@@ -77,7 +77,7 @@
 		ECCBD31119CEE02A0009399B /* Locative.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC3C13E519B178CF0093F139 /* Locative.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECCBD31F19CEE8F20009399B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCBD31D19CEE8F20009399B /* Localizable.strings */; };
 		ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
-		ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */; };
+		ECE8027D1C0D69B600B1B28C /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE8027C1C0D69B600B1B28C /* CoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,8 +245,8 @@
 		ECDCB03A1ADE5245008988C5 /* libPods-Locative.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Locative.a"; path = "Pods/../build/Debug-iphoneos/libPods-Locative.a"; sourceTree = "<group>"; };
 		ECE802751C0CEA8D00B1B28C /* libExpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libExpecta.a; path = "Pods/../build/Debug-iphoneos/libExpecta.a"; sourceTree = "<group>"; };
 		ECE802771C0CEA9500B1B28C /* libSpecta.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSpecta.a; path = "Pods/../build/Debug-iphoneos/libSpecta.a"; sourceTree = "<group>"; };
-		ECE8027B1C0D69B600B1B28C /* GFCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCoreDataManager.h; sourceTree = "<group>"; };
-		ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCoreDataManager.m; sourceTree = "<group>"; };
+		ECE8027B1C0D69B600B1B28C /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		ECE8027C1C0D69B600B1B28C /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,8 +474,8 @@
 				2AD67FB518817E6C003840C8 /* HttpRequestManager.m */,
 				2A8D852718AE3F4700CF2693 /* Config.h */,
 				2A8D852818AE3F4700CF2693 /* Config.m */,
-				ECE8027B1C0D69B600B1B28C /* GFCoreDataManager.h */,
-				ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */,
+				ECE8027B1C0D69B600B1B28C /* CoreDataStack.h */,
+				ECE8027C1C0D69B600B1B28C /* CoreDataStack.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -950,7 +950,7 @@
 				07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */,
 				07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */,
 				0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */,
-				ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */,
+				ECE8027D1C0D69B600B1B28C /* CoreDataStack.m in Sources */,
 				2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */,
 				EC28B7A719B72913009E5427 /* ImportViewController.m in Sources */,
 				07E225561CA8D58F00572180 /* GeofenceAnnotation.swift in Sources */,

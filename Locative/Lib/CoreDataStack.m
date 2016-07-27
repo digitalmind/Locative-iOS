@@ -1,11 +1,11 @@
-#import "GFCoreDataManager.h"
+#import "CoreDataStack.h"
 #import "Locative-Swift.h"
 #import "Geofence.h"
 
 @import ObjectiveSugar;
 @import ObjectiveRecord;
 
-@implementation GFCoreDataManager
+@implementation CoreDataStack
 
 - (instancetype)initWithModel:(NSString *)model {
     if (self = [super init]) {
