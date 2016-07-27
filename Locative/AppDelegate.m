@@ -28,7 +28,7 @@
     self.settings = [[[Settings alloc] init] restoredSettings];
     self.geofenceManager = [GeofenceManager sharedManager];
     self.cloudManager = [[CloudManager alloc] initWithSettings:self.settings];
-    self.requestManager = [GFRequestManager sharedManager];
+    self.requestManager = [HttpRequestManager sharedManager];
     self.harpy = [Harpy sharedInstance];
     
     // Setup CoreData

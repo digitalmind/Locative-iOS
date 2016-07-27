@@ -60,7 +60,7 @@
 		2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1DF2180969F700F84B5C /* Localizable.strings */; };
 		2AB31B7E18055C6400FC839B /* Geofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB31B7D18055C6400FC839B /* Geofence.m */; };
 		2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB218817BD5003840C8 /* HttpRequest.m */; };
-		2AD67FB618817E6C003840C8 /* GFRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB518817E6C003840C8 /* GFRequestManager.m */; };
+		2AD67FB618817E6C003840C8 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB518817E6C003840C8 /* HttpRequestManager.m */; };
 		2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE7D801914F99C00460861 /* iBeaconPresets.plist */; };
 		2B6B255EC6E6FCF3756FD146 /* Pods_LocativeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */; };
 		B5FF87B6381EDA94460A963C /* Pods_Locative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DCE64809809285D7A6941B /* Pods_Locative.framework */; };
@@ -199,8 +199,8 @@
 		2AB31B7D18055C6400FC839B /* Geofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geofence.m; sourceTree = "<group>"; };
 		2AD67FB118817BD5003840C8 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
 		2AD67FB218817BD5003840C8 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
-		2AD67FB418817E6C003840C8 /* GFRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFRequestManager.h; sourceTree = "<group>"; };
-		2AD67FB518817E6C003840C8 /* GFRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFRequestManager.m; sourceTree = "<group>"; };
+		2AD67FB418817E6C003840C8 /* HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestManager.h; sourceTree = "<group>"; };
+		2AD67FB518817E6C003840C8 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
 		2ADE7D801914F99C00460861 /* iBeaconPresets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iBeaconPresets.plist; sourceTree = "<group>"; };
 		2AF435DE1833A3C5001789BD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -470,8 +470,8 @@
 				2A2BF51F185371B800D5DD98 /* CloudManager.m */,
 				2A918275186B1B630088EF91 /* BackgroundBlockOperation.h */,
 				2A918276186B1B630088EF91 /* BackgroundBlockOperation.m */,
-				2AD67FB418817E6C003840C8 /* GFRequestManager.h */,
-				2AD67FB518817E6C003840C8 /* GFRequestManager.m */,
+				2AD67FB418817E6C003840C8 /* HttpRequestManager.h */,
+				2AD67FB518817E6C003840C8 /* HttpRequestManager.m */,
 				2A8D852718AE3F4700CF2693 /* GFConfig.h */,
 				2A8D852818AE3F4700CF2693 /* GFConfig.m */,
 				ECE8027B1C0D69B600B1B28C /* GFCoreDataManager.h */,
@@ -973,7 +973,7 @@
 				2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */,
 				2AB31B7E18055C6400FC839B /* Geofence.m in Sources */,
 				2A8E9DA717FD51DD00F4A805 /* AppDelegate.m in Sources */,
-				2AD67FB618817E6C003840C8 /* GFRequestManager.m in Sources */,
+				2AD67FB618817E6C003840C8 /* HttpRequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

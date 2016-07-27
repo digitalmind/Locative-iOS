@@ -1,4 +1,4 @@
-#import "GFRequestManager.h"
+#import "HttpRequestManager.h"
 #import "UILocalNotification+Locative.h"
 #import "AppDelegate.h"
 
@@ -6,7 +6,7 @@
 
 @import ObjectiveRecord;
 
-@interface GFRequestManager ()
+@interface HttpRequestManager ()
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) NSOperationQueue *queue;
@@ -15,14 +15,14 @@
 
 @end
 
-@implementation GFRequestManager
+@implementation HttpRequestManager
 
-+ (GFRequestManager *) sharedManager
++ (HttpRequestManager *) sharedManager
 {
-    static GFRequestManager *manager = nil;
+    static HttpRequestManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[GFRequestManager alloc] init];
+        manager = [[HttpRequestManager alloc] init];
         [manager setAppDelegate:(AppDelegate *)[[UIApplication sharedApplication] delegate]];
         [manager setQueue:[NSOperationQueue new]];
     });
