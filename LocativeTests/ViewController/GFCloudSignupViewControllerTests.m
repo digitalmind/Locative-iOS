@@ -3,15 +3,15 @@
 #import <Expecta/Expecta.h>
 #import <Specta/Specta.h>
 
-#import "GFCloudSignupViewController.h"
+#import "SignupViewController.h"
 
 SpecBegin(GFCloudSignupViewControllerTestsSpec)
 
-__block GFCloudSignupViewController *sut = nil;
+__block SignupViewController *sut = nil;
 
 beforeEach(^{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[GFCloudSignupViewController class]]];
-    sut = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([GFCloudSignupViewController class])];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[SignupViewController class]]];
+    sut = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([SignupViewController class])];
 });
 
 afterEach(^{

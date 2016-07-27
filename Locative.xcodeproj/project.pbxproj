@@ -20,7 +20,7 @@
 		2A2BF520185371B800D5DD98 /* GFCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF51F185371B800D5DD98 /* GFCloudManager.m */; };
 		2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF5251853735800D5DD98 /* NSString+Hashes.m */; };
 		2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF5281853748F00D5DD98 /* Fencelog.m */; };
-		2A2BF52F18537ED400D5DD98 /* GFCloudSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF52E18537ED400D5DD98 /* GFCloudSignupViewController.m */; };
+		2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF52E18537ED400D5DD98 /* SignupViewController.m */; };
 		2A4805191807E3A60063BA82 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4805181807E3A60063BA82 /* libz.dylib */; };
 		2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2B2F17FD7E28002ECE72 /* MKMapView+ZoomLevel.m */; };
 		2A521A7D18354958001F3669 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A521A7C18354958001F3669 /* MenuViewController.m */; };
@@ -142,8 +142,8 @@
 		2A2BF5251853735800D5DD98 /* NSString+Hashes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hashes.m"; sourceTree = "<group>"; };
 		2A2BF5271853748F00D5DD98 /* Fencelog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fencelog.h; sourceTree = "<group>"; };
 		2A2BF5281853748F00D5DD98 /* Fencelog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fencelog.m; sourceTree = "<group>"; };
-		2A2BF52D18537ED400D5DD98 /* GFCloudSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCloudSignupViewController.h; sourceTree = "<group>"; };
-		2A2BF52E18537ED400D5DD98 /* GFCloudSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCloudSignupViewController.m; sourceTree = "<group>"; };
+		2A2BF52D18537ED400D5DD98 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		2A2BF52E18537ED400D5DD98 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		2A4805181807E3A60063BA82 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2A4B2B2E17FD7E28002ECE72 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		2A4B2B2F17FD7E28002ECE72 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
@@ -491,8 +491,8 @@
 				2A27D24918056CB000AC1708 /* SettingsViewController.m */,
 				2A521A7B18354958001F3669 /* MenuViewController.h */,
 				2A521A7C18354958001F3669 /* MenuViewController.m */,
-				2A2BF52D18537ED400D5DD98 /* GFCloudSignupViewController.h */,
-				2A2BF52E18537ED400D5DD98 /* GFCloudSignupViewController.m */,
+				2A2BF52D18537ED400D5DD98 /* SignupViewController.h */,
+				2A2BF52E18537ED400D5DD98 /* SignupViewController.m */,
 				EC28B7A519B72913009E5427 /* GFImportGeofencesViewController.h */,
 				EC28B7A619B72913009E5427 /* GFImportGeofencesViewController.m */,
 			);
@@ -954,7 +954,7 @@
 				2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */,
 				EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */,
 				07E225561CA8D58F00572180 /* GeofenceAnnotation.swift in Sources */,
-				2A2BF52F18537ED400D5DD98 /* GFCloudSignupViewController.m in Sources */,
+				2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */,
 				2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */,
 				0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */,
 				EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */,

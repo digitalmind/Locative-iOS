@@ -1,10 +1,10 @@
 #import "AppDelegate.h"
-#import "GFCloudSignupViewController.h"
+#import "SignupViewController.h"
 
 @import PSTAlertController;
 @import SVProgressHUD;
 
-@interface GFCloudSignupViewController ()
+@interface SignupViewController ()
 
 @property (nonatomic, weak) IBOutlet UITextField *usernameTextField;
 @property (nonatomic, weak) IBOutlet UITextField *emailTextField;
@@ -13,7 +13,7 @@
 @property (nonatomic, weak) GFAppDelegate *appDelegate;
 @end
 
-@implementation GFCloudSignupViewController
+@implementation SignupViewController
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
