@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import "BackgroundBlockOperation.h"
 #import "HttpRequest.h"
 
 #define WHICH_METHOD(number) ([number intValue] == 0)?@"POST":@"GET"

@@ -13,6 +13,7 @@
 		07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E11D48BAEA00286073 /* CoreDataStack.swift */; };
 		07BC81E41D48BEAF00286073 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E31D48BEAF00286073 /* Synchronized.swift */; };
 		07BC81E61D48C34E00286073 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E51D48C34E00286073 /* Config.swift */; };
+		07BC81E81D48C72F00286073 /* BackgroundBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
@@ -57,7 +58,6 @@
 		2A8E9E3117FD6F8500F4A805 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3017FD6F8500F4A805 /* CFNetwork.framework */; };
 		2A8E9E3317FD6FBF00F4A805 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3217FD6FBF00F4A805 /* MobileCoreServices.framework */; };
 		2A8E9E3517FD6FE900F4A805 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3417FD6FE900F4A805 /* MapKit.framework */; };
-		2A918277186B1B630088EF91 /* BackgroundBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A918276186B1B630088EF91 /* BackgroundBlockOperation.m */; };
 		2A9C1D8718094F0C00F84B5C /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1D8618094F0C00F84B5C /* about.html */; };
 		2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1DF2180969F700F84B5C /* Localizable.strings */; };
 		2AB31B7E18055C6400FC839B /* Geofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB31B7D18055C6400FC839B /* Geofence.m */; };
@@ -127,6 +127,7 @@
 		07BC81E11D48BAEA00286073 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		07BC81E31D48BEAF00286073 /* Synchronized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
 		07BC81E51D48C34E00286073 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundBlockOperation.swift; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
 		07E2254F1CA77B0500572180 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -192,8 +193,6 @@
 		2A8E9E3017FD6F8500F4A805 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2A8E9E3217FD6FBF00F4A805 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		2A8E9E3417FD6FE900F4A805 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2A918275186B1B630088EF91 /* BackgroundBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundBlockOperation.h; sourceTree = "<group>"; };
-		2A918276186B1B630088EF91 /* BackgroundBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundBlockOperation.m; sourceTree = "<group>"; };
 		2A9C1D8618094F0C00F84B5C /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		2A9C1DF718096A3400F84B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A9C1DF818096A3B00F84B5C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -468,8 +467,7 @@
 				2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */,
 				2A2BF51E185371B800D5DD98 /* CloudManager.h */,
 				2A2BF51F185371B800D5DD98 /* CloudManager.m */,
-				2A918275186B1B630088EF91 /* BackgroundBlockOperation.h */,
-				2A918276186B1B630088EF91 /* BackgroundBlockOperation.m */,
+				07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */,
 				2AD67FB418817E6C003840C8 /* HttpRequestManager.h */,
 				2AD67FB518817E6C003840C8 /* HttpRequestManager.m */,
 				07BC81E11D48BAEA00286073 /* CoreDataStack.swift */,
@@ -965,7 +963,6 @@
 				2A521A7D18354958001F3669 /* MenuViewController.m in Sources */,
 				2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
-				2A918277186B1B630088EF91 /* BackgroundBlockOperation.m in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
 				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,
 				2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */,
@@ -974,6 +971,7 @@
 				2AB31B7E18055C6400FC839B /* Geofence.m in Sources */,
 				2A8E9DA717FD51DD00F4A805 /* AppDelegate.m in Sources */,
 				2AD67FB618817E6C003840C8 /* HttpRequestManager.m in Sources */,
+				07BC81E81D48C72F00286073 /* BackgroundBlockOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
