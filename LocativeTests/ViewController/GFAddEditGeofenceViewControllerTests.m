@@ -3,15 +3,15 @@
 #import <Expecta/Expecta.h>
 #import <Specta/Specta.h>
 
-#import "GFAddEditGeofenceViewController.h"
+#import "AddEditGeofenceViewController.h"
 
 SpecBegin(GFAddEditGeofenceViewControllerTestsSpec)
 
-__block GFAddEditGeofenceViewController *sut = nil;
+__block AddEditGeofenceViewController *sut = nil;
 
 beforeEach(^{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[GFAddEditGeofenceViewController class]]];
-    sut = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([GFAddEditGeofenceViewController class])];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[AddEditGeofenceViewController class]]];
+    sut = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([AddEditGeofenceViewController class])];
 });
 
 afterEach(^{

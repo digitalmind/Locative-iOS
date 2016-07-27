@@ -3,14 +3,14 @@
 #import <Expecta/Expecta.h>
 #import <Specta/Specta.h>
 
-#import "GFGeofencesViewController.h"
+#import "GeofencesViewController.h"
 
 SpecBegin(GFGeofencesViewControllerTestsSpec)
 
-__block GFGeofencesViewController *sut = nil;
+__block GeofencesViewController *sut = nil;
 
 beforeEach(^{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[GFGeofencesViewController class]]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[GeofencesViewController class]]];
     sut = [storyboard instantiateViewControllerWithIdentifier:@"Geofences"];
 });
 

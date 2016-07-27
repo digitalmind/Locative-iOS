@@ -49,8 +49,8 @@
 		2A8E9DEF17FD540D00F4A805 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9DEE17FD540D00F4A805 /* CoreData.framework */; };
 		2A8E9DF117FD556900F4A805 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9DF017FD556900F4A805 /* CoreLocation.framework */; };
 		2A8E9DF917FD5A5800F4A805 /* GFGeofenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9DF717FD5A5800F4A805 /* GFGeofenceManager.m */; };
-		2A8E9E0317FD5AA500F4A805 /* GFGeofencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9E0217FD5AA500F4A805 /* GFGeofencesViewController.m */; };
-		2A8E9E2D17FD6EFE00F4A805 /* GFAddEditGeofenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9E2C17FD6EFE00F4A805 /* GFAddEditGeofenceViewController.m */; };
+		2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */; };
+		2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9E2C17FD6EFE00F4A805 /* AddEditGeofenceViewController.m */; };
 		2A8E9E2F17FD6F7D00F4A805 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E2E17FD6F7D00F4A805 /* SystemConfiguration.framework */; };
 		2A8E9E3117FD6F8500F4A805 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3017FD6F8500F4A805 /* CFNetwork.framework */; };
 		2A8E9E3317FD6FBF00F4A805 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3217FD6FBF00F4A805 /* MobileCoreServices.framework */; };
@@ -182,10 +182,10 @@
 		2A8E9DF017FD556900F4A805 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2A8E9DF617FD5A5800F4A805 /* GFGeofenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeofenceManager.h; sourceTree = "<group>"; };
 		2A8E9DF717FD5A5800F4A805 /* GFGeofenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofenceManager.m; sourceTree = "<group>"; };
-		2A8E9E0117FD5AA500F4A805 /* GFGeofencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeofencesViewController.h; sourceTree = "<group>"; };
-		2A8E9E0217FD5AA500F4A805 /* GFGeofencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofencesViewController.m; sourceTree = "<group>"; };
-		2A8E9E2B17FD6EFE00F4A805 /* GFAddEditGeofenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFAddEditGeofenceViewController.h; sourceTree = "<group>"; };
-		2A8E9E2C17FD6EFE00F4A805 /* GFAddEditGeofenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFAddEditGeofenceViewController.m; sourceTree = "<group>"; };
+		2A8E9E0117FD5AA500F4A805 /* GeofencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeofencesViewController.h; sourceTree = "<group>"; };
+		2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeofencesViewController.m; sourceTree = "<group>"; };
+		2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditGeofenceViewController.h; sourceTree = "<group>"; };
+		2A8E9E2C17FD6EFE00F4A805 /* AddEditGeofenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditGeofenceViewController.m; sourceTree = "<group>"; };
 		2A8E9E2E17FD6F7D00F4A805 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2A8E9E3017FD6F8500F4A805 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2A8E9E3217FD6FBF00F4A805 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -483,10 +483,10 @@
 		2A8E9E0017FD5A9F00F4A805 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2A8E9E0117FD5AA500F4A805 /* GFGeofencesViewController.h */,
-				2A8E9E0217FD5AA500F4A805 /* GFGeofencesViewController.m */,
-				2A8E9E2B17FD6EFE00F4A805 /* GFAddEditGeofenceViewController.h */,
-				2A8E9E2C17FD6EFE00F4A805 /* GFAddEditGeofenceViewController.m */,
+				2A8E9E0117FD5AA500F4A805 /* GeofencesViewController.h */,
+				2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */,
+				2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */,
+				2A8E9E2C17FD6EFE00F4A805 /* AddEditGeofenceViewController.m */,
 				2A27D24818056CB000AC1708 /* GFSettingsViewController.h */,
 				2A27D24918056CB000AC1708 /* GFSettingsViewController.m */,
 				2A521A7B18354958001F3669 /* GFMenuViewController.h */,
@@ -964,13 +964,13 @@
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
 				2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */,
 				2A521A7D18354958001F3669 /* GFMenuViewController.m in Sources */,
-				2A8E9E0317FD5AA500F4A805 /* GFGeofencesViewController.m in Sources */,
+				2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
 				2A918277186B1B630088EF91 /* GFBackgroundBlockOperation.m in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
 				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,
 				2A27D24A18056CB000AC1708 /* GFSettingsViewController.m in Sources */,
-				2A8E9E2D17FD6EFE00F4A805 /* GFAddEditGeofenceViewController.m in Sources */,
+				2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */,
 				2AB31B7E18055C6400FC839B /* Geofence.m in Sources */,
 				2A8E9DA717FD51DD00F4A805 /* AppDelegate.m in Sources */,
 				2AD67FB618817E6C003840C8 /* GFRequestManager.m in Sources */,

@@ -1,5 +1,5 @@
 #import "Locative-Swift.h"
-#import "GFAddEditGeofenceViewController.h"
+#import "AddEditGeofenceViewController.h"
 #import "Geofence.h"
 #import "AppDelegate.h"
 #import "MKMapView+ZoomLevel.h"
@@ -13,7 +13,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     AlertViewTypeLocationEnter = 1000
 };
 
-@interface GFAddEditGeofenceViewController () <MKMapViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>
+@interface AddEditGeofenceViewController () <MKMapViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>
 {
     IBOutlet MKMapView *_mapView;
     IBOutlet UISlider *_radiusSlider;
@@ -55,7 +55,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 
 @end
 
-@implementation GFAddEditGeofenceViewController
+@implementation AddEditGeofenceViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -1,7 +1,7 @@
 @import UIKit;
 @class Geofence;
 
-@interface GFAddEditGeofenceViewController : UITableViewController
+@interface AddEditGeofenceViewController : UITableViewController
 
 @property (strong) Geofence *event;
 

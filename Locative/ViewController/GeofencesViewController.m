@@ -1,5 +1,5 @@
-#import "GFGeofencesViewController.h"
-#import "GFAddEditGeofenceViewController.h"
+#import "GeofencesViewController.h"
+#import "AddEditGeofenceViewController.h"
 #import "GFConfig.h"
 #import "AppDelegate.h"
 
@@ -7,7 +7,7 @@
 @import ObjectiveSugar;
 @import ObjectiveRecord;
 
-@interface GFGeofencesViewController ()
+@interface GeofencesViewController ()
 
 @property (nonatomic, weak) GFAppDelegate *appDelegate;
 @property (nonatomic, strong) Geofence *selectedEvent;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation GFGeofencesViewController
+@implementation GeofencesViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -156,7 +156,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqualToString:@"AddEvent"]) {
-        GFAddEditGeofenceViewController *viewController = (GFAddEditGeofenceViewController *)[segue destinationViewController];
+        AddEditGeofenceViewController *viewController = (AddEditGeofenceViewController *)[segue destinationViewController];
         if(self.selectedEvent) {
             viewController.event = self.selectedEvent;
             self.selectedEvent = nil;

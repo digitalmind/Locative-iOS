@@ -1,5 +1,5 @@
 #import "GFSettingsViewController.h"
-#import "GFGeofencesViewController.h"
+#import "GeofencesViewController.h"
 #import "AppDelegate.h"
 
 @import INTULocationManager;
