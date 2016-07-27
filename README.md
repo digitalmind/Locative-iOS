@@ -18,20 +18,28 @@ No, no, no. Of course not, you're data is still stored on the Locative servers a
 
 ## Technologies used
 
-Objective-C and dependency management using CocoaPods.
+Objective-C, Swift and dependency management using CocoaPods (>= 1.0).
 
 ## Development
 
-Clone this repo, open `Locative.xcworkspace` in Xcode and you're good to go.
+The following commands will clone this repository and spin up the dev environment.
 
-That's all folks.
+```
+git clone https://github.com/LocativeHQ/Locative-iOS
+cd Locative-iOS
+bundle install
+bundle exec rake dev
+```
 
 ## Changelog
 
-The `github_changelog_generator` gem is used to generate a changelog. To generate the most current changelog perform
+The `github_changelog_generator` gem is used to generate a changelog.
+
+To generate the most current changelog perform
 
 ```
-rake changelog
+bundle install
+bundle exec rake changelog
 ```
 
 ## Deployment
