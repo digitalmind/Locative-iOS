@@ -33,8 +33,9 @@
     [super addExecutionBlock:^{
         [weakSelf startBackgroundTask];
         block();
-        if (weakSelf.automaticallyEndsBackgroundTask)
+        if (weakSelf.automaticallyEndsBackgroundTask) {
             [weakSelf endBackgroundTask];
+        }
     }];
 }
 
