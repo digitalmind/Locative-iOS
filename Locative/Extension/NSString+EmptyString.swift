@@ -1,11 +1,3 @@
-//
-//  NSString+EmptyString.swift
-//  Locative
-//
-//  Created by Marcus Kida on 27/03/2016.
-//  Copyright © 2016 Marcus Kida. All rights reserved.
-//
-
 import Foundation
 
 extension NSString {
