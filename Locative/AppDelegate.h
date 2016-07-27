@@ -2,7 +2,6 @@
 #import "GeofenceManager.h"
 #import "CloudManager.h"
 #import "HttpRequestManager.h"
-#import "CoreDataStack.h"
 #import "Locative-Swift.h"
 
 @import UIKit;
