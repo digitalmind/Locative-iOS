@@ -1,10 +1,10 @@
-#import "GFImportGeofencesViewController.h"
+#import "ImportViewController.h"
 #import "AppDelegate.h"
 
 @import ObjectiveRecord;
 @import SVProgressHUD;
 
-@interface GFImportGeofencesViewController ()
+@interface ImportViewController ()
 
 @property (nonatomic, strong) GFAppDelegate *appDelegate;
 @property (nonatomic, strong) CLGeocoder *geocoder;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation GFImportGeofencesViewController
+@implementation ImportViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

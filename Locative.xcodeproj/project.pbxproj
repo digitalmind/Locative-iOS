@@ -66,7 +66,7 @@
 		B5FF87B6381EDA94460A963C /* Pods_Locative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DCE64809809285D7A6941B /* Pods_Locative.framework */; };
 		E77730C2DC8A06B54FE9CA11 /* Pods_LocativeWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E74C7E70352C766CF546839F /* Pods_LocativeWidget.framework */; };
 		EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */ = {isa = PBXBuildFile; fileRef = EC24859C1AF8D01400A1A041 /* UILocalNotification+Locative.m */; };
-		EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28B7A619B72913009E5427 /* GFImportGeofencesViewController.m */; };
+		EC28B7A719B72913009E5427 /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28B7A619B72913009E5427 /* ImportViewController.m */; };
 		EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
 		EC37383C1BDE2A0900C7DA0C /* GFTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37383B1BDE2A0900C7DA0C /* GFTodayViewController.m */; };
 		EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */; };
@@ -210,8 +210,8 @@
 		EC11C7691ADE53C2003DC18D /* Widget.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Widget.Release.xcconfig; sourceTree = "<group>"; };
 		EC24859B1AF8D01400A1A041 /* UILocalNotification+Locative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILocalNotification+Locative.h"; sourceTree = "<group>"; };
 		EC24859C1AF8D01400A1A041 /* UILocalNotification+Locative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILocalNotification+Locative.m"; sourceTree = "<group>"; };
-		EC28B7A519B72913009E5427 /* GFImportGeofencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFImportGeofencesViewController.h; sourceTree = "<group>"; };
-		EC28B7A619B72913009E5427 /* GFImportGeofencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFImportGeofencesViewController.m; sourceTree = "<group>"; };
+		EC28B7A519B72913009E5427 /* ImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportViewController.h; sourceTree = "<group>"; };
+		EC28B7A619B72913009E5427 /* ImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportViewController.m; sourceTree = "<group>"; };
 		EC30993619B1D18300845430 /* WidgetObjcBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WidgetObjcBridge.h; sourceTree = "<group>"; };
 		EC30993719B1D58900845430 /* libPods-Locative-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Locative-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-Locative-AFNetworking.a"; sourceTree = "<group>"; };
 		EC30993D19B1EA6300845430 /* libPods-Locative.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Locative.a"; path = "Pods/build/Debug-iphoneos/libPods-Locative.a"; sourceTree = "<group>"; };
@@ -493,8 +493,8 @@
 				2A521A7C18354958001F3669 /* MenuViewController.m */,
 				2A2BF52D18537ED400D5DD98 /* SignupViewController.h */,
 				2A2BF52E18537ED400D5DD98 /* SignupViewController.m */,
-				EC28B7A519B72913009E5427 /* GFImportGeofencesViewController.h */,
-				EC28B7A619B72913009E5427 /* GFImportGeofencesViewController.m */,
+				EC28B7A519B72913009E5427 /* ImportViewController.h */,
+				EC28B7A619B72913009E5427 /* ImportViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -952,7 +952,7 @@
 				0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */,
 				ECE8027D1C0D69B600B1B28C /* GFCoreDataManager.m in Sources */,
 				2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */,
-				EC28B7A719B72913009E5427 /* GFImportGeofencesViewController.m in Sources */,
+				EC28B7A719B72913009E5427 /* ImportViewController.m in Sources */,
 				07E225561CA8D58F00572180 /* GeofenceAnnotation.swift in Sources */,
 				2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */,
 				2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */,
