@@ -48,7 +48,7 @@
         
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 
-        [[_appDelegate cloudManager] signupAccountWithUsername:[self.usernameTextField text] andEmail:[self.emailTextField text] andPassword:[self.passwordTextField text] onFinish:^(NSError *error, GFCloudManagerSignupError gfcError) {
+        [[_appDelegate cloudManager] signupAccountWithUsername:[self.usernameTextField text] andEmail:[self.emailTextField text] andPassword:[self.passwordTextField text] onFinish:^(NSError *error, CloudManagerSignupError gfcError) {
             
             [SVProgressHUD dismiss];
             
@@ -79,7 +79,7 @@
                 }];
                 
                 
-            } else if (gfcError == GFCloudManagerSignupErrorUserExisting) {
+            } else if (gfcError == CloudManagerSignupErrorUserExisting) {
                 // User already existing
                 PSTAlertController *alertController = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
                                                                                            message:NSLocalizedString(@"A user with the same Username / E-Mail address ist already existing. Please choose another one..", nil)

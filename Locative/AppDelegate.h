@@ -1,6 +1,6 @@
 #import "AFNetworking.h"
 #import "GeofenceManager.h"
-#import "GFCloudManager.h"
+#import "CloudManager.h"
 #import "GFRequestManager.h"
 #import "GFCoreDataManager.h"
 #import "Locative-Swift.h"
@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) MSDynamicsDrawerViewController *dynamicsDrawerViewController;
 @property (nonatomic, strong) GeofenceManager *geofenceManager;
-@property (nonatomic, strong) GFCloudManager *cloudManager;
+@property (nonatomic, strong) CloudManager *cloudManager;
 @property (nonatomic, strong) GFRequestManager *requestManager;
 @property (nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager;
 @property (nonatomic, strong) Settings *settings;

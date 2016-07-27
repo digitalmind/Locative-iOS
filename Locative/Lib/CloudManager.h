@@ -4,20 +4,20 @@
 #import "Fencelog.h"
 
 typedef enum {
-    GFCloudManagerSignupErrorNoError = 0,
-    GFCloudManagerSignupErrorUserExisting,
+    CloudManagerSignupErrorNoError = 0,
+    CloudManagerSignupErrorUserExisting,
     GFCloudManagerSignupErrorGeneric
-} GFCloudManagerSignupError;
+} CloudManagerSignupError;
 
 @class Geofence;
 @class GFSettings;
 
-@interface GFCloudManager : NSObject
+@interface CloudManager : NSObject
 
 - (instancetype)init __attribute__((unavailable("Please use `initWithSettings:` instead")));
 - (instancetype)initWithSettings:(Settings *)settings;
 
-- (void) signupAccountWithUsername:(NSString *)username andEmail:(NSString *)email andPassword:(NSString *)password onFinish:(void(^)(NSError *error, GFCloudManagerSignupError gfcError))finish;
+- (void) signupAccountWithUsername:(NSString *)username andEmail:(NSString *)email andPassword:(NSString *)password onFinish:(void(^)(NSError *error, CloudManagerSignupError gfcError))finish;
 - (void) loginToAccountWithUsername:(NSString *)username andPassword:(NSString *)password onFinish:(void(^)(NSError *error, NSString *sessionId))finish;
 - (void) checkSessionWithSessionId:(NSString *)sessionId onFinish:(void(^)(NSError *error))finish;
 

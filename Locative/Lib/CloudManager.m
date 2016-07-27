@@ -1,5 +1,5 @@
 #import "Locative-Swift.h"
-#import "GFCloudManager.h"
+#import "CloudManager.h"
 #import "Geofence.h"
 #import "Fencelog.h"
 #import "NSString+Hashes.h"
@@ -12,13 +12,13 @@
 
 @import AFNetworking;
 
-@interface GFCloudManager ()
+@interface CloudManager ()
 
 @property (nonatomic, strong) Settings *settings;
 
 @end
 
-@implementation GFCloudManager
+@implementation CloudManager
 
 - (instancetype)initWithSettings:(Settings *)settings {
     self = [super init];
@@ -37,7 +37,7 @@
     return policy;
 }
 
-- (void) signupAccountWithUsername:(NSString *)username andEmail:(NSString *)email andPassword:(NSString *)password onFinish:(void (^)(NSError *, GFCloudManagerSignupError))finish
+- (void) signupAccountWithUsername:(NSString *)username andEmail:(NSString *)email andPassword:(NSString *)password onFinish:(void (^)(NSError *, CloudManagerSignupError))finish
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setSecurityPolicy:[self commonPolicy]];
@@ -49,13 +49,13 @@
     [manager POST:[kMyGeofancyBackend stringByAppendingString:@"/api/signup"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // Request succeeded
         if (finish) {
-            finish(nil, GFCloudManagerSignupErrorNoError);
+            finish(nil, CloudManagerSignupErrorNoError);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // Request failed
         if ([operation.response statusCode] == 409) {
             if (finish) {
-                finish(error, GFCloudManagerSignupErrorUserExisting);
+                finish(error, CloudManagerSignupErrorUserExisting);
             }
         } else {
             if (finish) {

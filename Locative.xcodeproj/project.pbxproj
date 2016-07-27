@@ -17,7 +17,7 @@
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
 		2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* SettingsViewController.m */; };
 		2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24C18057C0100AC1708 /* NSString+URLEncode.m */; };
-		2A2BF520185371B800D5DD98 /* GFCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF51F185371B800D5DD98 /* GFCloudManager.m */; };
+		2A2BF520185371B800D5DD98 /* CloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF51F185371B800D5DD98 /* CloudManager.m */; };
 		2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF5251853735800D5DD98 /* NSString+Hashes.m */; };
 		2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF5281853748F00D5DD98 /* Fencelog.m */; };
 		2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF52E18537ED400D5DD98 /* SignupViewController.m */; };
@@ -136,8 +136,8 @@
 		2A27D24B18057C0100AC1708 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		2A27D24C18057C0100AC1708 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		2A29EAF818068C7C00E3E943 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		2A2BF51E185371B800D5DD98 /* GFCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCloudManager.h; sourceTree = "<group>"; };
-		2A2BF51F185371B800D5DD98 /* GFCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCloudManager.m; sourceTree = "<group>"; };
+		2A2BF51E185371B800D5DD98 /* CloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudManager.h; sourceTree = "<group>"; };
+		2A2BF51F185371B800D5DD98 /* CloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudManager.m; sourceTree = "<group>"; };
 		2A2BF5241853735800D5DD98 /* NSString+Hashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hashes.h"; sourceTree = "<group>"; };
 		2A2BF5251853735800D5DD98 /* NSString+Hashes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hashes.m"; sourceTree = "<group>"; };
 		2A2BF5271853748F00D5DD98 /* Fencelog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fencelog.h; sourceTree = "<group>"; };
@@ -466,8 +466,8 @@
 				078E79171CA624C40098380D /* SecureCredentials */,
 				2A8E9DF617FD5A5800F4A805 /* GeofenceManager.h */,
 				2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */,
-				2A2BF51E185371B800D5DD98 /* GFCloudManager.h */,
-				2A2BF51F185371B800D5DD98 /* GFCloudManager.m */,
+				2A2BF51E185371B800D5DD98 /* CloudManager.h */,
+				2A2BF51F185371B800D5DD98 /* CloudManager.m */,
 				2A918275186B1B630088EF91 /* GFBackgroundBlockOperation.h */,
 				2A918276186B1B630088EF91 /* GFBackgroundBlockOperation.m */,
 				2AD67FB418817E6C003840C8 /* GFRequestManager.h */,
@@ -959,7 +959,7 @@
 				0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */,
 				EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */,
 				2A8D852918AE3F4700CF2693 /* GFConfig.m in Sources */,
-				2A2BF520185371B800D5DD98 /* GFCloudManager.m in Sources */,
+				2A2BF520185371B800D5DD98 /* CloudManager.m in Sources */,
 				2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */,
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
 				2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */,
