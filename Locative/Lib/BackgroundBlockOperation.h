@@ -1,6 +1,6 @@
-#import <Foundation/Foundation.h>
+@import Foundation;
 
-@interface GFBackgroundBlockOperation : NSBlockOperation
+@interface BackgroundBlockOperation : NSBlockOperation
 
 @property (assign) BOOL automaticallyEndsBackgroundTask;
 

@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "GFBackgroundBlockOperation.h"
+#import "BackgroundBlockOperation.h"
 #import "HttpRequest.h"
 
 #define WHICH_METHOD(number) ([number intValue] == 0)?@"POST":@"GET"
@@ -111,7 +111,7 @@
 {
     NSLog(@"CLRegion: %@, Trigger: %@", region, trigger);
 
-    [self.dispatchQueue addOperation:[GFBackgroundBlockOperation blockOperationWithBlock:^{
+    [self.dispatchQueue addOperation:[BackgroundBlockOperation blockOperationWithBlock:^{
         [self performUrlRequestForRegion:region withTrigger:trigger];
     }]];
 }

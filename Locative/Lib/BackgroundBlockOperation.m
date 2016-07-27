@@ -1,12 +1,12 @@
-#import "GFBackgroundBlockOperation.h"
+#import "BackgroundBlockOperation.h"
 
-@interface GFBackgroundBlockOperation ()
+@interface BackgroundBlockOperation ()
 
 @property (assign) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
 
 @end
 
-@implementation GFBackgroundBlockOperation
+@implementation BackgroundBlockOperation
 
 - (id)init {
     if (self = [super init]) {

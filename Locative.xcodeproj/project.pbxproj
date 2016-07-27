@@ -55,7 +55,7 @@
 		2A8E9E3117FD6F8500F4A805 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3017FD6F8500F4A805 /* CFNetwork.framework */; };
 		2A8E9E3317FD6FBF00F4A805 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3217FD6FBF00F4A805 /* MobileCoreServices.framework */; };
 		2A8E9E3517FD6FE900F4A805 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3417FD6FE900F4A805 /* MapKit.framework */; };
-		2A918277186B1B630088EF91 /* GFBackgroundBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A918276186B1B630088EF91 /* GFBackgroundBlockOperation.m */; };
+		2A918277186B1B630088EF91 /* BackgroundBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A918276186B1B630088EF91 /* BackgroundBlockOperation.m */; };
 		2A9C1D8718094F0C00F84B5C /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1D8618094F0C00F84B5C /* about.html */; };
 		2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1DF2180969F700F84B5C /* Localizable.strings */; };
 		2AB31B7E18055C6400FC839B /* Geofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB31B7D18055C6400FC839B /* Geofence.m */; };
@@ -190,8 +190,8 @@
 		2A8E9E3017FD6F8500F4A805 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2A8E9E3217FD6FBF00F4A805 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		2A8E9E3417FD6FE900F4A805 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2A918275186B1B630088EF91 /* GFBackgroundBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFBackgroundBlockOperation.h; sourceTree = "<group>"; };
-		2A918276186B1B630088EF91 /* GFBackgroundBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFBackgroundBlockOperation.m; sourceTree = "<group>"; };
+		2A918275186B1B630088EF91 /* BackgroundBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundBlockOperation.h; sourceTree = "<group>"; };
+		2A918276186B1B630088EF91 /* BackgroundBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundBlockOperation.m; sourceTree = "<group>"; };
 		2A9C1D8618094F0C00F84B5C /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		2A9C1DF718096A3400F84B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A9C1DF818096A3B00F84B5C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -468,8 +468,8 @@
 				2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */,
 				2A2BF51E185371B800D5DD98 /* CloudManager.h */,
 				2A2BF51F185371B800D5DD98 /* CloudManager.m */,
-				2A918275186B1B630088EF91 /* GFBackgroundBlockOperation.h */,
-				2A918276186B1B630088EF91 /* GFBackgroundBlockOperation.m */,
+				2A918275186B1B630088EF91 /* BackgroundBlockOperation.h */,
+				2A918276186B1B630088EF91 /* BackgroundBlockOperation.m */,
 				2AD67FB418817E6C003840C8 /* GFRequestManager.h */,
 				2AD67FB518817E6C003840C8 /* GFRequestManager.m */,
 				2A8D852718AE3F4700CF2693 /* GFConfig.h */,
@@ -966,7 +966,7 @@
 				2A521A7D18354958001F3669 /* MenuViewController.m in Sources */,
 				2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
-				2A918277186B1B630088EF91 /* GFBackgroundBlockOperation.m in Sources */,
+				2A918277186B1B630088EF91 /* BackgroundBlockOperation.m in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
 				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,
 				2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */,
