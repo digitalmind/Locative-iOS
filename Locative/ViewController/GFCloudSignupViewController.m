@@ -1,4 +1,4 @@
-#import "GFAppDelegate.h"
+#import "AppDelegate.h"
 #import "GFCloudSignupViewController.h"
 
 @import PSTAlertController;

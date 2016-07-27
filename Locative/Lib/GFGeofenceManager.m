@@ -1,4 +1,4 @@
-#import "GFAppDelegate.h"
+#import "AppDelegate.h"
 #import "GFBackgroundBlockOperation.h"
 #import "GFRequest.h"
 

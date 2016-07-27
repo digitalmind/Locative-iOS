@@ -1,6 +1,6 @@
 #import "GFSettingsViewController.h"
 #import "GFGeofencesViewController.h"
-#import "GFAppDelegate.h"
+#import "AppDelegate.h"
 
 @import INTULocationManager;
 @import MessageUI;

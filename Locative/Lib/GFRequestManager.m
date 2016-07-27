@@ -1,6 +1,6 @@
 #import "GFRequestManager.h"
 #import "UILocalNotification+Locative.h"
-#import "GFAppDelegate.h"
+#import "AppDelegate.h"
 
 #define IS_POST_METHOD(method) ([method isEqualToString:@"POST"])
 

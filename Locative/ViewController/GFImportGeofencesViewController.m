@@ -1,5 +1,5 @@
 #import "GFImportGeofencesViewController.h"
-#import "GFAppDelegate.h"
+#import "AppDelegate.h"
 
 @import ObjectiveRecord;
 @import SVProgressHUD;

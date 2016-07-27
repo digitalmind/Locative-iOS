@@ -39,7 +39,7 @@
 		2A8E9D9B17FD51DD00F4A805 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9D9A17FD51DD00F4A805 /* UIKit.framework */; };
 		2A8E9DA117FD51DD00F4A805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9D9F17FD51DD00F4A805 /* InfoPlist.strings */; };
 		2A8E9DA317FD51DD00F4A805 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9DA217FD51DD00F4A805 /* main.m */; };
-		2A8E9DA717FD51DD00F4A805 /* GFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9DA617FD51DD00F4A805 /* GFAppDelegate.m */; };
+		2A8E9DA717FD51DD00F4A805 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9DA617FD51DD00F4A805 /* AppDelegate.m */; };
 		2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9DA817FD51DD00F4A805 /* Main.storyboard */; };
 		2A8E9DAF17FD51DD00F4A805 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9DAE17FD51DD00F4A805 /* Images.xcassets */; };
 		2A8E9DB617FD51DD00F4A805 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9DB517FD51DD00F4A805 /* XCTest.framework */; };
@@ -135,7 +135,7 @@
 		2A27D24918056CB000AC1708 /* GFSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSettingsViewController.m; sourceTree = "<group>"; };
 		2A27D24B18057C0100AC1708 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		2A27D24C18057C0100AC1708 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
-		2A29EAF818068C7C00E3E943 /* GFConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFConstants.h; sourceTree = "<group>"; };
+		2A29EAF818068C7C00E3E943 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2A2BF51E185371B800D5DD98 /* GFCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCloudManager.h; sourceTree = "<group>"; };
 		2A2BF51F185371B800D5DD98 /* GFCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCloudManager.m; sourceTree = "<group>"; };
 		2A2BF5241853735800D5DD98 /* NSString+Hashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hashes.h"; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 		2A8E9D9E17FD51DD00F4A805 /* Locative-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Locative-Info.plist"; sourceTree = "<group>"; };
 		2A8E9DA217FD51DD00F4A805 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A8E9DA417FD51DD00F4A805 /* Locative-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Prefix.pch"; sourceTree = "<group>"; };
-		2A8E9DA517FD51DD00F4A805 /* GFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFAppDelegate.h; sourceTree = "<group>"; };
-		2A8E9DA617FD51DD00F4A805 /* GFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GFAppDelegate.m; sourceTree = "<group>"; };
+		2A8E9DA517FD51DD00F4A805 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2A8E9DA617FD51DD00F4A805 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2A8E9DA917FD51DD00F4A805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A8E9DAE17FD51DD00F4A805 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2A8E9DB417FD51DD00F4A805 /* Locative.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Locative.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -411,9 +411,9 @@
 				2A8E9E0717FD5EFC00F4A805 /* Model */,
 				2A8E9E0017FD5A9F00F4A805 /* ViewController */,
 				2A8E9DF517FD5A5800F4A805 /* Lib */,
-				2A29EAF818068C7C00E3E943 /* GFConstants.h */,
-				2A8E9DA517FD51DD00F4A805 /* GFAppDelegate.h */,
-				2A8E9DA617FD51DD00F4A805 /* GFAppDelegate.m */,
+				2A29EAF818068C7C00E3E943 /* Constants.h */,
+				2A8E9DA517FD51DD00F4A805 /* AppDelegate.h */,
+				2A8E9DA617FD51DD00F4A805 /* AppDelegate.m */,
 				078E79161CA622FC0098380D /* Locative-Bridging-Header.h */,
 				2A8E9DA817FD51DD00F4A805 /* Main.storyboard */,
 				EC6FECAA19D6E92600D9E746 /* Main~ipad.strings */,
@@ -972,7 +972,7 @@
 				2A27D24A18056CB000AC1708 /* GFSettingsViewController.m in Sources */,
 				2A8E9E2D17FD6EFE00F4A805 /* GFAddEditGeofenceViewController.m in Sources */,
 				2AB31B7E18055C6400FC839B /* GFGeofence.m in Sources */,
-				2A8E9DA717FD51DD00F4A805 /* GFAppDelegate.m in Sources */,
+				2A8E9DA717FD51DD00F4A805 /* AppDelegate.m in Sources */,
 				2AD67FB618817E6C003840C8 /* GFRequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

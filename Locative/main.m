@@ -1,6 +1,6 @@
 @import UIKit;
 
-#import "GFAppDelegate.h"
+#import "AppDelegate.h"
 
 int main(int argc, char * argv[])
 {

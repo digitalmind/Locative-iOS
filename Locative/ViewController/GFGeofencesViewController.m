@@ -1,7 +1,7 @@
 #import "GFGeofencesViewController.h"
 #import "GFAddEditGeofenceViewController.h"
 #import "GFConfig.h"
-#import "GFAppDelegate.h"
+#import "AppDelegate.h"
 
 @import PSTAlertController;
 @import ObjectiveSugar;
