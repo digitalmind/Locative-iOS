@@ -33,7 +33,7 @@
 		2A74C2DA180B13F9008A13B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A74C2D9180B13F9008A13B9 /* Security.framework */; };
 		2A7D40B5186475F000F9A61A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7D40B4186475F000F9A61A /* MessageUI.framework */; };
 		2A8D852618AE3ED000CF2693 /* whatsup.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8D852518AE3ED000CF2693 /* whatsup.caf */; };
-		2A8D852918AE3F4700CF2693 /* GFConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D852818AE3F4700CF2693 /* GFConfig.m */; };
+		2A8D852918AE3F4700CF2693 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D852818AE3F4700CF2693 /* Config.m */; };
 		2A8E9D9717FD51DD00F4A805 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9D9617FD51DD00F4A805 /* Foundation.framework */; };
 		2A8E9D9917FD51DD00F4A805 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9D9817FD51DD00F4A805 /* CoreGraphics.framework */; };
 		2A8E9D9B17FD51DD00F4A805 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9D9A17FD51DD00F4A805 /* UIKit.framework */; };
@@ -161,8 +161,8 @@
 		2A74C2D9180B13F9008A13B9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2A7D40B4186475F000F9A61A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2A8D852518AE3ED000CF2693 /* whatsup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whatsup.caf; sourceTree = "<group>"; };
-		2A8D852718AE3F4700CF2693 /* GFConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFConfig.h; sourceTree = "<group>"; };
-		2A8D852818AE3F4700CF2693 /* GFConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFConfig.m; sourceTree = "<group>"; };
+		2A8D852718AE3F4700CF2693 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		2A8D852818AE3F4700CF2693 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		2A8E9D9317FD51DD00F4A805 /* Locative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8E9D9617FD51DD00F4A805 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2A8E9D9817FD51DD00F4A805 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -472,8 +472,8 @@
 				2A918276186B1B630088EF91 /* BackgroundBlockOperation.m */,
 				2AD67FB418817E6C003840C8 /* HttpRequestManager.h */,
 				2AD67FB518817E6C003840C8 /* HttpRequestManager.m */,
-				2A8D852718AE3F4700CF2693 /* GFConfig.h */,
-				2A8D852818AE3F4700CF2693 /* GFConfig.m */,
+				2A8D852718AE3F4700CF2693 /* Config.h */,
+				2A8D852818AE3F4700CF2693 /* Config.m */,
 				ECE8027B1C0D69B600B1B28C /* GFCoreDataManager.h */,
 				ECE8027C1C0D69B600B1B28C /* GFCoreDataManager.m */,
 			);
@@ -958,7 +958,7 @@
 				2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */,
 				0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */,
 				EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */,
-				2A8D852918AE3F4700CF2693 /* GFConfig.m in Sources */,
+				2A8D852918AE3F4700CF2693 /* Config.m in Sources */,
 				2A2BF520185371B800D5DD98 /* CloudManager.m in Sources */,
 				2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */,
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,

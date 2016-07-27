@@ -1,9 +1,9 @@
-#import "GFConfig.h"
+#import "Config.h"
 
 #define kBackgroundFetchMessageShown @"backgroundFetchMessageShown"
 #define kLastMessageFetch @"lastMessageFetch"
 
-@implementation GFConfig
+@implementation Config
 
 - (BOOL) backgroundFetchMessageShown {
     return [[NSUserDefaults standardUserDefaults] boolForKey:kBackgroundFetchMessageShown];

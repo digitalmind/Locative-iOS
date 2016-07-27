@@ -1,6 +1,6 @@
 #import "GeofencesViewController.h"
 #import "AddEditGeofenceViewController.h"
-#import "GFConfig.h"
+#import "Config.h"
 #import "AppDelegate.h"
 
 @import PSTAlertController;
@@ -11,7 +11,7 @@
 
 @property (nonatomic, weak) AppDelegate *appDelegate;
 @property (nonatomic, strong) Geofence *selectedEvent;
-@property (nonatomic, strong) GFConfig *config;
+@property (nonatomic, strong) Config *config;
 @property (nonatomic, assign) BOOL viewDidAppear;
 
 @end
@@ -34,7 +34,7 @@
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [[self.appDelegate geofenceManager] cleanup];
     
-    self.config = [[GFConfig alloc] init];
+    self.config = [[Config alloc] init];
 
     /*
      Drawer Menu Shadow

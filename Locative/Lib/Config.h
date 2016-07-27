@@ -1,6 +1,6 @@
-#import <Foundation/Foundation.h>
+@import Foundation;
 
-@interface GFConfig : NSObject
+@interface Config : NSObject
 
 @property (nonatomic, assign) BOOL backgroundFetchMessageShown;
 @property (nonatomic, strong) NSDate *lastMessageFetch;
