@@ -1361,7 +1361,7 @@
         <!--Locative-->
         <scene sceneID="SDn-JZ-qIC">
             <objects>
-                <tableViewController storyboardIdentifier="Menu" id="7RQ-qj-IAn" customClass="GFMenuViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Menu" id="7RQ-qj-IAn" customClass="MenuViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fYn-OR-mIM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

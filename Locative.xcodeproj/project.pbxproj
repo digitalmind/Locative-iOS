@@ -23,7 +23,7 @@
 		2A2BF52F18537ED400D5DD98 /* GFCloudSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF52E18537ED400D5DD98 /* GFCloudSignupViewController.m */; };
 		2A4805191807E3A60063BA82 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4805181807E3A60063BA82 /* libz.dylib */; };
 		2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2B2F17FD7E28002ECE72 /* MKMapView+ZoomLevel.m */; };
-		2A521A7D18354958001F3669 /* GFMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A521A7C18354958001F3669 /* GFMenuViewController.m */; };
+		2A521A7D18354958001F3669 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A521A7C18354958001F3669 /* MenuViewController.m */; };
 		2A521A87183627C9001F3669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A521A86183627C9001F3669 /* QuartzCore.framework */; };
 		2A59CD6418F939670062A0FE /* GFGeofencesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6318F939670062A0FE /* GFGeofencesViewControllerTests.m */; };
 		2A59CD6A18F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6918F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m */; };
@@ -147,8 +147,8 @@
 		2A4805181807E3A60063BA82 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2A4B2B2E17FD7E28002ECE72 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		2A4B2B2F17FD7E28002ECE72 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
-		2A521A7B18354958001F3669 /* GFMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMenuViewController.h; sourceTree = "<group>"; };
-		2A521A7C18354958001F3669 /* GFMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMenuViewController.m; sourceTree = "<group>"; };
+		2A521A7B18354958001F3669 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		2A521A7C18354958001F3669 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		2A521A86183627C9001F3669 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2A59CD6318F939670062A0FE /* GFGeofencesViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofencesViewControllerTests.m; sourceTree = "<group>"; };
 		2A59CD6818F93C6B0062A0FE /* LocativeTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocativeTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -489,8 +489,8 @@
 				2A8E9E2C17FD6EFE00F4A805 /* AddEditGeofenceViewController.m */,
 				2A27D24818056CB000AC1708 /* SettingsViewController.h */,
 				2A27D24918056CB000AC1708 /* SettingsViewController.m */,
-				2A521A7B18354958001F3669 /* GFMenuViewController.h */,
-				2A521A7C18354958001F3669 /* GFMenuViewController.m */,
+				2A521A7B18354958001F3669 /* MenuViewController.h */,
+				2A521A7C18354958001F3669 /* MenuViewController.m */,
 				2A2BF52D18537ED400D5DD98 /* GFCloudSignupViewController.h */,
 				2A2BF52E18537ED400D5DD98 /* GFCloudSignupViewController.m */,
 				EC28B7A519B72913009E5427 /* GFImportGeofencesViewController.h */,
@@ -963,7 +963,7 @@
 				2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */,
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
 				2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */,
-				2A521A7D18354958001F3669 /* GFMenuViewController.m in Sources */,
+				2A521A7D18354958001F3669 /* MenuViewController.m in Sources */,
 				2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
 				2A918277186B1B630088EF91 /* GFBackgroundBlockOperation.m in Sources */,

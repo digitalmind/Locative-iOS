@@ -1,9 +1,9 @@
 #import "AppDelegate.h"
-#import "GFMenuViewController.h"
+#import "MenuViewController.h"
 
 @import PSTAlertController;
 
-@implementation GFMenuViewController
+@implementation MenuViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

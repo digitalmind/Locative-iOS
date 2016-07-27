@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "GFMenuViewController.h"
+#import "MenuViewController.h"
 
 #define kMainStoryboard [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"] bundle:[NSBundle mainBundle]]
 

@@ -3,14 +3,14 @@
 #import <Expecta/Expecta.h>
 #import <Specta/Specta.h>
 
-#import "GFMenuViewController.h"
+#import "MenuViewController.h"
 
 SpecBegin(GFMenuViewControllerTestsSpec)
 
-__block GFMenuViewController *sut = nil;
+__block MenuViewController *sut = nil;
 
 beforeEach(^{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[GFMenuViewController class]]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[MenuViewController class]]];
     sut = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
 });
 
