@@ -1,7 +1,7 @@
 #import "Locative-Swift.h"
 #import "GFCloudManager.h"
-#import "GFGeofence.h"
-#import "GFCloudFencelog.h"
+#import "Geofence.h"
+#import "Fencelog.h"
 #import "NSString+Hashes.h"
 #import "GFGeofenceManager.h"
 
@@ -101,7 +101,7 @@
     }];
 }
 
-- (void) dispatchCloudFencelog:(GFCloudFencelog *)fencelog onFinish:(void (^)(NSError *))finish
+- (void) dispatchCloudFencelog:(Fencelog *)fencelog onFinish:(void (^)(NSError *))finish
 {
     NSLog(@"dispatchCloudFencelog");
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -168,7 +168,7 @@
     }];
 }
 
-- (void)uploadGeofence:(GFGeofence *)geofence onFinish:(void (^)(NSError *))finish
+- (void)uploadGeofence:(Geofence *)geofence onFinish:(void (^)(NSError *))finish
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setSecurityPolicy:[self commonPolicy]];

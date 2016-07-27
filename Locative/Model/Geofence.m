@@ -1,11 +1,11 @@
-#import "GFGeofence.h"
+#import "Geofence.h"
 #import "Locative-Swift.h"
 
 @import PSTAlertController;
 @import ObjectiveSugar;
 @import ObjectiveRecord;
 
-@implementation GFGeofence
+@implementation Geofence
 
 @dynamic customId;
 @dynamic enterMethod;
@@ -29,7 +29,7 @@
 
 + (BOOL)maximumReachedShowingAlert:(BOOL)alert viewController:(UIViewController *)vc
 {
-    if ([[GFGeofence all] count] >= 20) {
+    if ([[Geofence all] count] >= 20) {
         if (alert) {
             PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                                   message:NSLocalizedString(@"There's a maximum limit of 20 Geofences per App, please remove some Geofences before adding new ones.", nil)

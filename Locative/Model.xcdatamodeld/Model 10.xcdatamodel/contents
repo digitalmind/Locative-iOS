@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="GFGeofence" representedClassName="GFGeofence" elementID="GFEvent" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 4.3">
+    <entity name="Geofence" representedClassName="Geofence" elementID="GFEvent" syncable="YES">
         <attribute name="customId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="enterMethod" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="enterUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -33,7 +33,7 @@
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="GFGeofence" positionX="0" positionY="0" width="128" height="315"/>
-        <element name="GFRequest" positionX="-218" positionY="54" width="128" height="195"/>
+        <element name="Geofence" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="GFRequest" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

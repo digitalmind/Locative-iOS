@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Locative-Swift.h"
-#import "GFCloudFencelog.h"
+#import "Fencelog.h"
 
 typedef enum {
     GFCloudManagerSignupErrorNoError = 0,
@@ -9,7 +9,7 @@ typedef enum {
     GFCloudManagerSignupErrorGeneric
 } GFCloudManagerSignupError;
 
-@class GFGeofence;
+@class Geofence;
 @class GFSettings;
 
 @interface GFCloudManager : NSObject
@@ -21,10 +21,10 @@ typedef enum {
 - (void) loginToAccountWithUsername:(NSString *)username andPassword:(NSString *)password onFinish:(void(^)(NSError *error, NSString *sessionId))finish;
 - (void) checkSessionWithSessionId:(NSString *)sessionId onFinish:(void(^)(NSError *error))finish;
 
-- (void) dispatchCloudFencelog:(GFCloudFencelog *)fencelog onFinish:(void(^)(NSError *error))finish;
+- (void) dispatchCloudFencelog:(Fencelog *)fencelog onFinish:(void(^)(NSError *error))finish;
 - (void) validateSessionWithCallback:(void(^)(BOOL valid))cb;
 - (void) validateSession;
 - (void) loadGeofences:(void(^)(NSError *error, NSArray *geofences))completion;
-- (void) uploadGeofence:(GFGeofence *)geofence onFinish:(void(^)(NSError *error))finish;
+- (void) uploadGeofence:(Geofence *)geofence onFinish:(void(^)(NSError *error))finish;
 
 @end

@@ -2,11 +2,11 @@
 #import <CoreData/CoreData.h>
 
 typedef enum NSUInteger {
-    GFGeofenceTypeGeofence = 0,
-    GFGeofenceTypeIbeacon
-} GFGeofenceType;
+    GeofenceTypeGeofence = 0,
+    GeofenceTypeIbeacon
+} GeofenceType;
 
-@interface GFGeofence : NSManagedObject
+@interface Geofence : NSManagedObject
 
 @property (nonatomic, retain) NSString * customId;
 @property (nonatomic, retain) NSNumber * enterMethod;

@@ -137,7 +137,7 @@
                                                                           message:NSLocalizedString(@"Would you like to keep your existing Geofences?", nil)
                                                                    preferredStyle:PSTAlertControllerStyleAlert];
     [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"No", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
-        [GFGeofence deleteAll];
+        [Geofence deleteAll];
         [self importGpxAtUrl:url keepExistingGeofences:NO];
     }]];
     [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Yes", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
@@ -155,7 +155,7 @@
                                                               encoding:NSUTF8StringEncoding
                                                                  error:&error];
         
-        NSUInteger maxLimit = (20 - [[GFGeofence all] count]);
+        NSUInteger maxLimit = (20 - [[Geofence all] count]);
         if (!keepExisting) {
             maxLimit = 20;
         }
@@ -172,8 +172,8 @@
             for (int i = 0; i < (maxImportLimitExceeded?maxLimit:[root.waypoints count]); i++) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     GPXWaypoint *waypoint = [root.waypoints objectAtIndex:i];
-                    GFGeofence *geofence = [GFGeofence create];
-                    geofence.type = GFGeofenceTypeGeofence;
+                    Geofence *geofence = [Geofence create];
+                    geofence.type = GeofenceTypeGeofence;
                     geofence.name = waypoint.comment;
                     geofence.uuid = [[NSUUID UUID] UUIDString];
                     geofence.customId = waypoint.name;

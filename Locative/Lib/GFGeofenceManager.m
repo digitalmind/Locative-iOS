@@ -51,7 +51,7 @@
 {
     [[self geofences] each:^(CLRegion *fence) {
         __block BOOL found = NO;
-        [[GFGeofence all] each:^(GFGeofence *event) {
+        [[Geofence all] each:^(Geofence *event) {
             if([event.uuid isEqualToString:fence.identifier]) {
                 found = YES;
             }
@@ -62,7 +62,7 @@
         }
     }];
     
-    [[GFGeofence all] each:^(GFGeofence *event) {
+    [[Geofence all] each:^(Geofence *event) {
         [self startMonitoringEvent:event];
     }];
 }
@@ -128,7 +128,7 @@
 
 - (void) performUrlRequestForRegion:(CLRegion *)region withTrigger:(NSString *)trigger
 {
-    GFGeofence *event = [GFGeofence where:[NSString stringWithFormat:@"uuid == '%@'", region.identifier]].first;
+    Geofence *event = [Geofence where:[NSString stringWithFormat:@"uuid == '%@'", region.identifier]].first;
     NSLog(@"uuid == '%@'", region.identifier);
     
     if(event)
@@ -205,7 +205,7 @@
     [[self locationManager] stopMonitoringForRegion:region];
 }
 
-- (void) stopMonitoringEvent:(GFGeofence *)event
+- (void) stopMonitoringEvent:(Geofence *)event
 {
     CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake([event.latitude doubleValue], [event.longitude doubleValue])
                                                                  radius:[event.radius doubleValue]
@@ -213,9 +213,9 @@
     [self stopMonitoringForRegion:region];
 }
 
-- (void) startMonitoringEvent:(GFGeofence *)event
+- (void) startMonitoringEvent:(Geofence *)event
 {
-    if ([event.type intValue] == GFGeofenceTypeGeofence) {
+    if ([event.type intValue] == GeofenceTypeGeofence) {
         CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake([event.latitude doubleValue], [event.longitude doubleValue])
                                                                      radius:[event.radius doubleValue]
                                                                  identifier:event.uuid];

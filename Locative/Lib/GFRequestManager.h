@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "GFRequest.h"
 
-@class GFCloudFencelog;
+@class Fencelog;
 
 @interface GFRequestManager : NSObject
 
@@ -9,6 +9,6 @@
 - (void) flushWithCompletion:(void(^)())cb;
 
 /* Fencelogs */
-- (void) dispatchFencelog:(GFCloudFencelog *)fencelog;
+- (void) dispatchFencelog:(Fencelog *)fencelog;
 
 @end

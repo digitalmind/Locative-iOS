@@ -308,9 +308,9 @@
     __block NSString *gpx = @"";
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSArray *geofences = [GFGeofence all];
-        for (GFGeofence *geofence in geofences) {
-            if ([geofence.type intValue] == GFGeofenceTypeGeofence) {
+        NSArray *geofences = [Geofence all];
+        for (Geofence *geofence in geofences) {
+            if ([geofence.type intValue] == GeofenceTypeGeofence) {
                 GPXWaypoint *waypoint = [GPXWaypoint waypointWithLatitude:[geofence.latitude floatValue] longitude:[geofence.longitude floatValue]];
                 waypoint.name = ([geofence.customId length] > 0)?geofence.customId:geofence.uuid;
                 waypoint.comment = geofence.name;

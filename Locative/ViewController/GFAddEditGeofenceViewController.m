@@ -1,6 +1,6 @@
 #import "Locative-Swift.h"
 #import "GFAddEditGeofenceViewController.h"
-#import "GFGeofence.h"
+#import "Geofence.h"
 #import "AppDelegate.h"
 #import "MKMapView+ZoomLevel.h"
 
@@ -45,7 +45,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     BOOL _gotCurrentLocation;
     MKCircle *_radialCircle;
     CLLocation *_location;
-    GFGeofenceType _geofenceType;
+    GeofenceType _geofenceType;
     GFAppDelegate *_appDelegate;
     NSMutableArray *_iBeaconPresets;
     CLGeocoder *_geocoder;
@@ -106,7 +106,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         {
             _geofenceType = [self.event.type intValue];
             
-            if (_geofenceType == GFGeofenceTypeGeofence) {
+            if (_geofenceType == GeofenceTypeGeofence) {
                 _location = [[CLLocation alloc] initWithLatitude:[self.event.latitude doubleValue] longitude:[self.event.longitude doubleValue]];
 
                 NSLog(@"RADIUS: %f", [self.event.radius doubleValue]);
@@ -193,7 +193,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 {
     // Backup Button
     if (self.event) {
-        if (self.event.type.integerValue == GFGeofenceTypeGeofence) {
+        if (self.event.type.integerValue == GeofenceTypeGeofence) {
             [_backupButton setHidden:NO];
             return;
         }
@@ -258,15 +258,15 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         }
     }
     if(indexPath.section == 1 || indexPath.section == 2) {
-        if(_geofenceType == GFGeofenceTypeGeofence) {
+        if(_geofenceType == GeofenceTypeGeofence) {
             return 0.0f;
         }
     } else if (indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5) {
-        if (_geofenceType == GFGeofenceTypeIbeacon) {
+        if (_geofenceType == GeofenceTypeIbeacon) {
             return 0.0f;
         }
     } else if (indexPath.section == 7) {
-        if (_geofenceType == GFGeofenceTypeIbeacon) {
+        if (_geofenceType == GeofenceTypeIbeacon) {
             return 0.0f;
         }
         if ([_appDelegate.settings apiToken].length == 0) {
@@ -280,11 +280,11 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if(section == 1 || section == 2) {
-        if(_geofenceType == GFGeofenceTypeGeofence) {
+        if(_geofenceType == GeofenceTypeGeofence) {
             return 0.0f;
         }
     } else if (section == 3 || section == 4 || section == 5) {
-        if (_geofenceType == GFGeofenceTypeIbeacon) {
+        if (_geofenceType == GeofenceTypeIbeacon) {
             return 0.0f;
         }
     }
@@ -365,9 +365,9 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 - (IBAction) toggleType:(UISegmentedControl *)sgControl
 {
     if(sgControl.selectedSegmentIndex == 1) {
-        _geofenceType = GFGeofenceTypeIbeacon;
+        _geofenceType = GeofenceTypeIbeacon;
     } else {
-        _geofenceType = GFGeofenceTypeGeofence;
+        _geofenceType = GeofenceTypeGeofence;
     }
 
     [self.tableView beginUpdates];
@@ -375,9 +375,9 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:(NSRange){1,4}] withRowAnimation:UITableViewRowAnimationNone];
     
     [UIView animateWithDuration:.25f animations:^{
-        _iBeaconPicker.alpha = (_geofenceType == GFGeofenceTypeIbeacon) ? 1.0f : 0.0f;
+        _iBeaconPicker.alpha = (_geofenceType == GeofenceTypeIbeacon) ? 1.0f : 0.0f;
     } completion:^(BOOL finished) {
-        _iBeaconPicker.hidden = !(_geofenceType == GFGeofenceTypeIbeacon);
+        _iBeaconPicker.hidden = !(_geofenceType == GeofenceTypeIbeacon);
     }];
 }
 
@@ -529,7 +529,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 - (IBAction)saveEvent:(id)sender
 {
     // iBeacon: Check if exceeding uint16
-    if (_geofenceType == GFGeofenceTypeIbeacon) {
+    if (_geofenceType == GeofenceTypeIbeacon) {
         if ([[self.majorMinorFormatter numberFromString:_iBeaconMajorTextField.text] intValue] > UINT16_MAX ||
             [[self.majorMinorFormatter numberFromString:_iBeaconMinorTextField.text] intValue] > UINT16_MAX) {
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
@@ -543,7 +543,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     
-    if (_geofenceType == GFGeofenceTypeGeofence) {
+    if (_geofenceType == GeofenceTypeGeofence) {
         NSString *uuid = (self.event)?self.event.uuid:[[NSUUID UUID] UUIDString];
         if (!_gotCurrentLocation) {
             [self reverseGeocodeForNearestPlacemark:^(CLPlacemark *placemark) {
@@ -591,7 +591,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     
     if(!self.event)
     {
-        self.event = [GFGeofence create];
+        self.event = [Geofence create];
         self.event.uuid = uuid;
     }
     
@@ -600,7 +600,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     self.event.type = [NSNumber numberWithInt:_geofenceType];
     
     // Geofence
-    if (_geofenceType == GFGeofenceTypeGeofence) {
+    if (_geofenceType == GeofenceTypeGeofence) {
         self.event.latitude = [NSNumber numberWithDouble:[_location coordinate].latitude];
         self.event.longitude = [NSNumber numberWithDouble:[_location coordinate].longitude];
         self.event.radius = [NSNumber numberWithDouble:_radiusSlider.value];
@@ -608,7 +608,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     }
     
     // iBeacon
-    if (_geofenceType == GFGeofenceTypeIbeacon) {
+    if (_geofenceType == GeofenceTypeIbeacon) {
         self.event.iBeaconUuid = _iBeaconUuidTextField.text;
         self.event.iBeaconMajor = [self.majorMinorFormatter numberFromString:_iBeaconMajorTextField.text];//@([_iBeaconMajorTextField.text longLongValue]);
         self.event.iBeaconMinor = [self.majorMinorFormatter numberFromString:_iBeaconMinorTextField.text];//@([_iBeaconMinorTextField.text longLongValue]);

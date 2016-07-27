@@ -167,7 +167,7 @@
          success:NO];
     }
     // my.locative.io Fencelog
-    GFCloudFencelog *fencelog = [GFCloudFencelog new];
+    Fencelog *fencelog = [Fencelog new];
     fencelog.latitude = [httpRequest.parameters objectForKey:@"latitude"];
     fencelog.longitude = [httpRequest.parameters objectForKey:@"longitude"];
     fencelog.httpResponseCode = [NSNumber numberWithLong:statusCode];
@@ -199,7 +199,7 @@
 }
 
 #pragma mark - Fencelog
-- (void) dispatchFencelog:(GFCloudFencelog *)fencelog
+- (void) dispatchFencelog:(Fencelog *)fencelog
 {
     if ([[self.appDelegate.settings apiToken] length] > 0) {
         [[self.appDelegate cloudManager] dispatchCloudFencelog:fencelog onFinish:nil];

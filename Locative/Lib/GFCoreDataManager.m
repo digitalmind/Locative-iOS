@@ -1,6 +1,6 @@
 #import "GFCoreDataManager.h"
 #import "Locative-Swift.h"
-#import "GFGeofence.h"
+#import "Geofence.h"
 
 @import ObjectiveSugar;
 @import ObjectiveRecord;
@@ -36,7 +36,7 @@
 
 - (void)migrateCredentials {
     @synchronized (self) {
-        [[GFGeofence all] each:^(GFGeofence *object) {
+        [[Geofence all] each:^(Geofence *object) {
             if (object.httpUser.lct_isNotEmpty == YES) {
                 // bail out in case user is nil
                 return;

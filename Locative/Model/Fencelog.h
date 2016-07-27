@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface GFCloudFencelog : NSObject
+@interface Fencelog : NSObject
 
 // Double
 @property (strong) NSNumber *longitude;

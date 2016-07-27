@@ -8,7 +8,7 @@
 
 @property (nonatomic, strong) GFAppDelegate *appDelegate;
 @property (nonatomic, strong) CLGeocoder *geocoder;
-@property (nonatomic, strong) GFGeofence *event;
+@property (nonatomic, strong) Geofence *event;
 
 @property (nonatomic, strong) NSArray *geofences;
 @property (nonatomic, assign) BOOL loading;
@@ -64,7 +64,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if ([GFGeofence maximumReachedShowingAlert:YES viewController:self]) {
+    if ([Geofence maximumReachedShowingAlert:YES viewController:self]) {
         return;
     }
     
@@ -187,12 +187,12 @@
         triggers = [NSNumber numberWithInt:0];
     }
     
-    self.event = [GFGeofence create];
+    self.event = [Geofence create];
     self.event.uuid = self.selectedGeofence[@"uuid"];
     
     self.event.name = eventName;
     self.event.triggers = triggers;
-    self.event.type = @(GFGeofenceTypeGeofence);
+    self.event.type = @(GeofenceTypeGeofence);
     
     // Geofence
     self.event.latitude = @([self.selectedGeofence[@"location"][@"lat"] doubleValue]);

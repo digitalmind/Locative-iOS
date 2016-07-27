@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-#import "GFGeofence.h"
+#import "Geofence.h"
 #import "GFCloudManager.h"
 
 typedef enum : NSUInteger {
@@ -25,8 +25,8 @@ static NSString *const GFExit = @"exit";
 - (void) startMonitoringForRegion:(CLRegion *)region;
 - (void) stopMonitoringForRegion:(CLRegion *)region;
 
-- (void) startMonitoringEvent:(GFGeofence *)event;
-- (void) stopMonitoringEvent:(GFGeofence *)event;
+- (void) startMonitoringEvent:(Geofence *)event;
+- (void) stopMonitoringEvent:(Geofence *)event;
 
 #pragma mark - Current Location
 - (void) performAfterRetrievingCurrentLocation:(void(^)(CLLocation *currentLocation))block;

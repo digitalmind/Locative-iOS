@@ -10,7 +10,7 @@
 @interface GFGeofencesViewController ()
 
 @property (nonatomic, weak) GFAppDelegate *appDelegate;
-@property (nonatomic, strong) GFGeofence *selectedEvent;
+@property (nonatomic, strong) Geofence *selectedEvent;
 @property (nonatomic, strong) GFConfig *config;
 @property (nonatomic, assign) BOOL viewDidAppear;
 
@@ -56,7 +56,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadGeofences) name:kReloadGeofences object:nil];
     
-    if(!self.viewDidAppear && [[GFGeofence all] count] == 0) {
+    if(!self.viewDidAppear && [[Geofence all] count] == 0) {
         [self performSegueWithIdentifier:@"AddEvent" sender:self];
     }
     
@@ -99,7 +99,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[GFGeofence all] count];
+    return [[Geofence all] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,13 +107,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    GFGeofence *event = [[GFGeofence all] objectAtIndex:indexPath.row];
+    Geofence *event = [[Geofence all] objectAtIndex:indexPath.row];
     
     cell.textLabel.text = event.name;
     
-    if ([event.type intValue] == GFGeofenceTypeGeofence) {
+    if ([event.type intValue] == GeofenceTypeGeofence) {
         cell.imageView.image = [UIImage imageNamed:@"icon-geofence"];
-    } else if ([event.type intValue] == GFGeofenceTypeIbeacon) {
+    } else if ([event.type intValue] == GeofenceTypeIbeacon) {
         cell.imageView.image = [UIImage imageNamed:@"icon-ibeacon"];
     } else {
         cell.imageView.image = nil;
@@ -134,7 +134,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        GFGeofence *event = [[GFGeofence all] objectAtIndex:indexPath.row];
+        Geofence *event = [[Geofence all] objectAtIndex:indexPath.row];
         [event delete];
         if (event.managedObjectContext) {
             [event save];
@@ -147,7 +147,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedEvent = [[GFGeofence all] objectAtIndex:indexPath.row];
+    self.selectedEvent = [[Geofence all] objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"AddEvent" sender:self];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -167,7 +167,7 @@
 #pragma mark - IBActions
 - (IBAction) addGeofence:(id)sender
 {
-    if ([GFGeofence maximumReachedShowingAlert:YES viewController:self]) {
+    if ([Geofence maximumReachedShowingAlert:YES viewController:self]) {
         return;
     }
     
