@@ -12,6 +12,7 @@
 		078E79191CA624C40098380D /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E79181CA624C40098380D /* SecureCredentials.swift */; };
 		07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E11D48BAEA00286073 /* CoreDataStack.swift */; };
 		07BC81E41D48BEAF00286073 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E31D48BEAF00286073 /* Synchronized.swift */; };
+		07BC81E61D48C34E00286073 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E51D48C34E00286073 /* Config.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
@@ -35,7 +36,6 @@
 		2A74C2DA180B13F9008A13B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A74C2D9180B13F9008A13B9 /* Security.framework */; };
 		2A7D40B5186475F000F9A61A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7D40B4186475F000F9A61A /* MessageUI.framework */; };
 		2A8D852618AE3ED000CF2693 /* whatsup.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8D852518AE3ED000CF2693 /* whatsup.caf */; };
-		2A8D852918AE3F4700CF2693 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D852818AE3F4700CF2693 /* Config.m */; };
 		2A8E9D9717FD51DD00F4A805 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9D9617FD51DD00F4A805 /* Foundation.framework */; };
 		2A8E9D9917FD51DD00F4A805 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9D9817FD51DD00F4A805 /* CoreGraphics.framework */; };
 		2A8E9D9B17FD51DD00F4A805 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9D9A17FD51DD00F4A805 /* UIKit.framework */; };
@@ -126,6 +126,7 @@
 		078E79181CA624C40098380D /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
 		07BC81E11D48BAEA00286073 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		07BC81E31D48BEAF00286073 /* Synchronized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronized.swift; sourceTree = "<group>"; };
+		07BC81E51D48C34E00286073 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
 		07E2254F1CA77B0500572180 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -164,8 +165,6 @@
 		2A74C2D9180B13F9008A13B9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2A7D40B4186475F000F9A61A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2A8D852518AE3ED000CF2693 /* whatsup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whatsup.caf; sourceTree = "<group>"; };
-		2A8D852718AE3F4700CF2693 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		2A8D852818AE3F4700CF2693 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		2A8E9D9317FD51DD00F4A805 /* Locative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8E9D9617FD51DD00F4A805 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2A8E9D9817FD51DD00F4A805 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -473,10 +472,9 @@
 				2A918276186B1B630088EF91 /* BackgroundBlockOperation.m */,
 				2AD67FB418817E6C003840C8 /* HttpRequestManager.h */,
 				2AD67FB518817E6C003840C8 /* HttpRequestManager.m */,
-				2A8D852718AE3F4700CF2693 /* Config.h */,
-				2A8D852818AE3F4700CF2693 /* Config.m */,
 				07BC81E11D48BAEA00286073 /* CoreDataStack.swift */,
 				07BC81E31D48BEAF00286073 /* Synchronized.swift */,
+				07BC81E51D48C34E00286073 /* Config.swift */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -948,6 +946,7 @@
 			files = (
 				078E79191CA624C40098380D /* SecureCredentials.swift in Sources */,
 				2A8E9DF917FD5A5800F4A805 /* GeofenceManager.m in Sources */,
+				07BC81E61D48C34E00286073 /* Config.swift in Sources */,
 				07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */,
 				07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */,
 				0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */,
@@ -958,7 +957,6 @@
 				2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */,
 				0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */,
 				EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */,
-				2A8D852918AE3F4700CF2693 /* Config.m in Sources */,
 				2A2BF520185371B800D5DD98 /* CloudManager.m in Sources */,
 				07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */,
 				2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */,

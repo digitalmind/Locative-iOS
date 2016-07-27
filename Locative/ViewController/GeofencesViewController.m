@@ -1,6 +1,5 @@
 #import "GeofencesViewController.h"
 #import "AddEditGeofenceViewController.h"
-#import "Config.h"
 #import "AppDelegate.h"
 
 @import PSTAlertController;
