@@ -15,7 +15,7 @@
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
 		07E225561CA8D58F00572180 /* GeofenceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225551CA8D58F00572180 /* GeofenceAnnotation.swift */; };
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
-		2A27D24A18056CB000AC1708 /* GFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* GFSettingsViewController.m */; };
+		2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* SettingsViewController.m */; };
 		2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24C18057C0100AC1708 /* NSString+URLEncode.m */; };
 		2A2BF520185371B800D5DD98 /* GFCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF51F185371B800D5DD98 /* GFCloudManager.m */; };
 		2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF5251853735800D5DD98 /* NSString+Hashes.m */; };
@@ -131,8 +131,8 @@
 		07E225551CA8D58F00572180 /* GeofenceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceAnnotation.swift; sourceTree = "<group>"; };
 		07E8A9A86F05B3D9DB13F986 /* Pods_LocativeWidget_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A04A5941849F1D300D9B485 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
-		2A27D24818056CB000AC1708 /* GFSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFSettingsViewController.h; sourceTree = "<group>"; };
-		2A27D24918056CB000AC1708 /* GFSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSettingsViewController.m; sourceTree = "<group>"; };
+		2A27D24818056CB000AC1708 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		2A27D24918056CB000AC1708 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		2A27D24B18057C0100AC1708 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		2A27D24C18057C0100AC1708 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		2A29EAF818068C7C00E3E943 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -487,8 +487,8 @@
 				2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */,
 				2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */,
 				2A8E9E2C17FD6EFE00F4A805 /* AddEditGeofenceViewController.m */,
-				2A27D24818056CB000AC1708 /* GFSettingsViewController.h */,
-				2A27D24918056CB000AC1708 /* GFSettingsViewController.m */,
+				2A27D24818056CB000AC1708 /* SettingsViewController.h */,
+				2A27D24918056CB000AC1708 /* SettingsViewController.m */,
 				2A521A7B18354958001F3669 /* GFMenuViewController.h */,
 				2A521A7C18354958001F3669 /* GFMenuViewController.m */,
 				2A2BF52D18537ED400D5DD98 /* GFCloudSignupViewController.h */,
@@ -969,7 +969,7 @@
 				2A918277186B1B630088EF91 /* GFBackgroundBlockOperation.m in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
 				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,
-				2A27D24A18056CB000AC1708 /* GFSettingsViewController.m in Sources */,
+				2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */,
 				2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */,
 				2AB31B7E18055C6400FC839B /* Geofence.m in Sources */,
 				2A8E9DA717FD51DD00F4A805 /* AppDelegate.m in Sources */,

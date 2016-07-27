@@ -1,3 +1,0 @@
-@interface GFSettingsViewController : UITableViewController
-
-@end

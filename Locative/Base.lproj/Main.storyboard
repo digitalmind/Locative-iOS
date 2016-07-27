@@ -67,7 +67,7 @@
         <!--Settings-->
         <scene sceneID="paY-O2-EwB">
             <objects>
-                <tableViewController storyboardIdentifier="Settings" id="Yno-41-G6i" customClass="GFSettingsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Settings" id="Yno-41-G6i" customClass="SettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Z6z-By-bRn">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

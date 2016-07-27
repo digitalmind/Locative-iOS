@@ -1,4 +1,4 @@
-#import "GFSettingsViewController.h"
+#import "SettingsViewController.h"
 #import "GeofencesViewController.h"
 #import "AppDelegate.h"
 
@@ -9,7 +9,7 @@
 @import PSTAlertController;
 @import SVProgressHUD;
 
-@interface GFSettingsViewController () <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
+@interface SettingsViewController () <UITextFieldDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *httpUrlTextField;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *httpMethodSegmentedControl;

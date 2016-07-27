@@ -3,14 +3,14 @@
 #import <Expecta/Expecta.h>
 #import <Specta/Specta.h>
 
-#import "GFSettingsViewController.h"
+#import "SettingsViewController.h"
 
 SpecBegin(GFSettingsViewControllerTestsSpec)
 
-__block GFSettingsViewController *sut = nil;
+__block SettingsViewController *sut = nil;
 
 beforeEach(^{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[GFSettingsViewController class]]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle bundleForClass:[SettingsViewController class]]];
     sut = [storyboard instantiateViewControllerWithIdentifier:@"Settings"];
 });
 
