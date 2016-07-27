@@ -5,7 +5,7 @@
 
 #import "SettingsViewController.h"
 
-SpecBegin(GFSettingsViewControllerTestsSpec)
+SpecBegin(SettingsViewControllerTestsSpec)
 
 __block SettingsViewController *sut = nil;
 
@@ -20,7 +20,7 @@ afterEach(^{
 
 describe(@"the viewcontroller for settings", ^{
     it(@"should be instance of correct class", ^{
-        EXP_expect(sut).to.beInstanceOf(GFSettingsViewController.class);
+        EXP_expect(sut).to.beInstanceOf(SettingsViewController.class);
     });
     
     it(@"should have a data source", ^{

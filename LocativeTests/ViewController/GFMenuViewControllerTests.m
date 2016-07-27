@@ -5,7 +5,7 @@
 
 #import "MenuViewController.h"
 
-SpecBegin(GFMenuViewControllerTestsSpec)
+SpecBegin(MenuViewControllerTestsSpec)
 
 __block MenuViewController *sut = nil;
 
@@ -20,7 +20,7 @@ afterEach(^{
 
 describe(@"the viewcontroller for the menu", ^{
     it(@"should be instance of correct class", ^{
-        EXP_expect(sut).to.beInstanceOf(GFMenuViewController.class);
+        EXP_expect(sut).to.beInstanceOf(MenuViewController.class);
     });
     
     it(@"should have a data source", ^{

@@ -5,7 +5,7 @@
 
 #import "SignupViewController.h"
 
-SpecBegin(GFCloudSignupViewControllerTestsSpec)
+SpecBegin(SignupViewControllerTestsSpec)
 
 __block SignupViewController *sut = nil;
 
@@ -20,7 +20,7 @@ afterEach(^{
 
 describe(@"the viewcontroller for cloud signup", ^{
     it(@"should be instance of correct class", ^{
-        EXP_expect(sut).to.beInstanceOf(GFCloudSignupViewController.class);
+        EXP_expect(sut).to.beInstanceOf(SignupViewController.class);
     });
     
     it(@"should have a data source", ^{

@@ -5,7 +5,7 @@
 
 #import "GeofencesViewController.h"
 
-SpecBegin(GFGeofencesViewControllerTestsSpec)
+SpecBegin(GeofencesViewControllerTestsSpec)
 
 __block GeofencesViewController *sut = nil;
 
@@ -21,7 +21,7 @@ afterEach(^{
 describe(@"GeofenceViewController", ^{
     
     it(@"should be instance of correct clas", ^{
-        EXP_expect(sut).to.beInstanceOf(GFGeofencesViewController.class);
+        EXP_expect(sut).to.beInstanceOf(GeofencesViewController.class);
     });
     
     it(@"should have a data source", ^{

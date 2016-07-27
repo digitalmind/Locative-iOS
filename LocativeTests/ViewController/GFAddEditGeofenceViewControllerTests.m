@@ -5,7 +5,7 @@
 
 #import "AddEditGeofenceViewController.h"
 
-SpecBegin(GFAddEditGeofenceViewControllerTestsSpec)
+SpecBegin(AddEditGeofenceViewControllerTestsSpec)
 
 __block AddEditGeofenceViewController *sut = nil;
 
@@ -20,7 +20,7 @@ afterEach(^{
 
 describe(@"the viewcontroller for adding / editing geofences", ^{
     it(@"should be instance of correct class", ^{
-        EXP_expect(sut).to.beInstanceOf(GFAddEditGeofenceViewController.class);
+        EXP_expect(sut).to.beInstanceOf(AddEditGeofenceViewController.class);
     });
     
     it(@"should have a data source", ^{
