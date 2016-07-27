@@ -9,7 +9,7 @@
 
 @interface GeofencesViewController ()
 
-@property (nonatomic, weak) GFAppDelegate *appDelegate;
+@property (nonatomic, weak) AppDelegate *appDelegate;
 @property (nonatomic, strong) Geofence *selectedEvent;
 @property (nonatomic, strong) GFConfig *config;
 @property (nonatomic, assign) BOOL viewDidAppear;
@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    self.appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [[self.appDelegate geofenceManager] cleanup];
     
     self.config = [[GFConfig alloc] init];
@@ -193,7 +193,7 @@
 
 - (IBAction) toggleMenu:(id)sender
 {
-    [[(GFAppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
+    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
 }
 
 @end

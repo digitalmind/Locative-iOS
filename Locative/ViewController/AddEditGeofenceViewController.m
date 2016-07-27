@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     MKCircle *_radialCircle;
     CLLocation *_location;
     GeofenceType _geofenceType;
-    GFAppDelegate *_appDelegate;
+    AppDelegate *_appDelegate;
     NSMutableArray *_iBeaconPresets;
     CLGeocoder *_geocoder;
 }
@@ -75,7 +75,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         _typeSegmentedControl.hidden = YES;
     }
     
-    _appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
+    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _iBeaconPicker.hidden = YES;
     _geocoder = [[CLGeocoder alloc] init];
     [self setupBeaconPresets];

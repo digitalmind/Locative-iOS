@@ -10,7 +10,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *emailTextField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
 
-@property (nonatomic, weak) GFAppDelegate *appDelegate;
+@property (nonatomic, weak) AppDelegate *appDelegate;
 @end
 
 @implementation SignupViewController
@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
+    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void) viewDidAppear:(BOOL)animated {

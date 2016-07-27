@@ -11,13 +11,13 @@
 @import ObjectiveRecord;
 @import SVProgressHUD;
 
-@interface GFAppDelegate ()
+@interface AppDelegate ()
 
 @property (nonatomic, strong) Harpy *harpy;
 
 @end
 
-@implementation GFAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

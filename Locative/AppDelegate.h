@@ -9,7 +9,7 @@
 @import iOS_GPX_Framework;
 @import MSDynamicsDrawerViewController;
 
-@interface GFAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) MSDynamicsDrawerViewController *dynamicsDrawerViewController;

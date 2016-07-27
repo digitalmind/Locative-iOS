@@ -6,7 +6,7 @@
 
 @interface ImportViewController ()
 
-@property (nonatomic, strong) GFAppDelegate *appDelegate;
+@property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) CLGeocoder *geocoder;
 @property (nonatomic, strong) Geofence *event;
 
@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.geocoder = [[CLGeocoder alloc] init];
     self.tableView.tableFooterView = [UIView new];
 }

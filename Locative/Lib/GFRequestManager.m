@@ -8,7 +8,7 @@
 
 @interface GFRequestManager ()
 
-@property (nonatomic, strong) GFAppDelegate *appDelegate;
+@property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic, assign) BOOL currentlyFlushing;
 @property (nonatomic, strong) NSMutableArray *lastRequestIds;
@@ -23,7 +23,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[GFRequestManager alloc] init];
-        [manager setAppDelegate:(GFAppDelegate *)[[UIApplication sharedApplication] delegate]];
+        [manager setAppDelegate:(AppDelegate *)[[UIApplication sharedApplication] delegate]];
         [manager setQueue:[NSOperationQueue new]];
     });
     return manager;

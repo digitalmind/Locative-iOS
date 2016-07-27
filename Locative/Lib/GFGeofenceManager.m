@@ -10,7 +10,7 @@
 
 @interface GFGeofenceManager () <CLLocationManagerDelegate>
 
-@property (nonatomic, weak) GFAppDelegate *appDelegate;
+@property (nonatomic, weak) AppDelegate *appDelegate;
 @property (nonatomic, copy) void (^locationBlock)(CLLocation *currentLocation);
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;
@@ -35,7 +35,7 @@
 
 - (void) setup
 {
-    self.appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager setDelegate:self];
     

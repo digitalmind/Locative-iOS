@@ -32,7 +32,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *myGfLostPwButton;
 
 @property (nonatomic, strong) Settings *settings;
-@property (nonatomic, weak) GFAppDelegate *appDelegate;
+@property (nonatomic, weak) AppDelegate *appDelegate;
 
 @end
 
@@ -50,7 +50,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.appDelegate = (GFAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.settings = self.appDelegate.settings;
 	
 	// show/hide password manager button next to the password text field
@@ -169,7 +169,7 @@
     
     [self.settings persist];
 
-    [[(GFAppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"GeofencesNav"] animated:YES completion:nil];
+    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"GeofencesNav"] animated:YES completion:nil];
 }
 
 - (IBAction)toggleHttpBasicAuth:(id)sender {
@@ -243,7 +243,7 @@
 }
 
 - (IBAction) toggleMenu:(id)sender {
-    [[(GFAppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
+    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
 }
 
 - (IBAction) loginToAccount:(id)sender {
