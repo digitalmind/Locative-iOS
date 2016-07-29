@@ -133,7 +133,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         TSMessage.showNotificationWithTitle(notification.alertBody, type: type)
     }
-    
+}
+
+//MARK: GPX Import
+private extension AppDelegate {
     func importGpx(url: NSURL) {
         let controller = PSTAlertController(
             title: NSLocalizedString("Note", comment: "Alert title when importing GPX"),
@@ -203,7 +206,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         }
     }
-    
+}
+
+//MARK: - Alert
+private extension AppDelegate {
     func showAlert(errored: Bool, limitExceeded: Bool, maxLimit: Int, overall: Int) {
         func message(errored: Bool, limitExceeded: Bool, maxLimit: Int, overall: Int) -> String {
             if !errored && limitExceeded {
