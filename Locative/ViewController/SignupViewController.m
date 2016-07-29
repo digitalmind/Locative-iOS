@@ -1,4 +1,5 @@
-#import "AppDelegate.h"
+#import "Locative-Swift.h"
+#import "CloudManager.h"
 #import "SignupViewController.h"
 
 @import PSTAlertController;

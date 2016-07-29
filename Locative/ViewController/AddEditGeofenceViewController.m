@@ -1,7 +1,8 @@
 #import "Locative-Swift.h"
 #import "AddEditGeofenceViewController.h"
+#import "CloudManager.h"
 #import "Geofence.h"
-#import "AppDelegate.h"
+#import "GeofenceManager.h"
 #import "MKMapView+ZoomLevel.h"
 
 @import MapKit;

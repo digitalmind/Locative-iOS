@@ -14,6 +14,7 @@
 		07BC81E61D48C34E00286073 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E51D48C34E00286073 /* Config.swift */; };
 		07BC81E81D48C72F00286073 /* BackgroundBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */; };
 		07BC81EA1D48C92500286073 /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E91D48C92500286073 /* SecureCredentials.swift */; };
+		07BC81F31D4B5FA600286073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F21D4B5FA600286073 /* AppDelegate.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
@@ -42,7 +43,6 @@
 		2A8E9D9B17FD51DD00F4A805 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9D9A17FD51DD00F4A805 /* UIKit.framework */; };
 		2A8E9DA117FD51DD00F4A805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9D9F17FD51DD00F4A805 /* InfoPlist.strings */; };
 		2A8E9DA317FD51DD00F4A805 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9DA217FD51DD00F4A805 /* main.m */; };
-		2A8E9DA717FD51DD00F4A805 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9DA617FD51DD00F4A805 /* AppDelegate.m */; };
 		2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9DA817FD51DD00F4A805 /* Main.storyboard */; };
 		2A8E9DAF17FD51DD00F4A805 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9DAE17FD51DD00F4A805 /* Images.xcassets */; };
 		2A8E9DB617FD51DD00F4A805 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9DB517FD51DD00F4A805 /* XCTest.framework */; };
@@ -128,6 +128,7 @@
 		07BC81E51D48C34E00286073 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundBlockOperation.swift; sourceTree = "<group>"; };
 		07BC81E91D48C92500286073 /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
+		07BC81F21D4B5FA600286073 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
 		07E2254F1CA77B0500572180 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -173,8 +174,6 @@
 		2A8E9D9E17FD51DD00F4A805 /* Locative-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Locative-Info.plist"; sourceTree = "<group>"; };
 		2A8E9DA217FD51DD00F4A805 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A8E9DA417FD51DD00F4A805 /* Locative-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Prefix.pch"; sourceTree = "<group>"; };
-		2A8E9DA517FD51DD00F4A805 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2A8E9DA617FD51DD00F4A805 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2A8E9DA917FD51DD00F4A805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A8E9DAE17FD51DD00F4A805 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2A8E9DB417FD51DD00F4A805 /* Locative.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Locative.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -403,8 +402,7 @@
 				2A8E9E0017FD5A9F00F4A805 /* ViewController */,
 				2A8E9DF517FD5A5800F4A805 /* Lib */,
 				2A29EAF818068C7C00E3E943 /* Constants.h */,
-				2A8E9DA517FD51DD00F4A805 /* AppDelegate.h */,
-				2A8E9DA617FD51DD00F4A805 /* AppDelegate.m */,
+				07BC81F21D4B5FA600286073 /* AppDelegate.swift */,
 				078E79161CA622FC0098380D /* Locative-Bridging-Header.h */,
 				2A8E9DA817FD51DD00F4A805 /* Main.storyboard */,
 				EC6FECAA19D6E92600D9E746 /* Main~ipad.strings */,
@@ -942,6 +940,7 @@
 				0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */,
 				2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */,
 				EC28B7A719B72913009E5427 /* ImportViewController.m in Sources */,
+				07BC81F31D4B5FA600286073 /* AppDelegate.swift in Sources */,
 				07E225561CA8D58F00572180 /* GeofenceAnnotation.swift in Sources */,
 				2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */,
 				2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */,
@@ -961,7 +960,6 @@
 				07BC81E41D48BEAF00286073 /* Synchronized.swift in Sources */,
 				2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */,
 				2AB31B7E18055C6400FC839B /* Geofence.m in Sources */,
-				2A8E9DA717FD51DD00F4A805 /* AppDelegate.m in Sources */,
 				2AD67FB618817E6C003840C8 /* HttpRequestManager.m in Sources */,
 				07BC81E81D48C72F00286073 /* BackgroundBlockOperation.swift in Sources */,
 			);

@@ -1,9 +1,12 @@
+#import "Locative-Swift.h"
+#import "CloudManager.h"
+#import "Fencelog.h"
 #import "HttpRequestManager.h"
 #import "UILocalNotification+Locative.h"
-#import "AppDelegate.h"
 
 #define IS_POST_METHOD(method) ([method isEqualToString:@"POST"])
 
+@import AFNetworking;
 @import ObjectiveRecord;
 
 @interface HttpRequestManager ()

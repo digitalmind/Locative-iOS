@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 
-#import "Locative-Swift.h"
 #import "Fencelog.h"
 
 typedef enum {
@@ -10,7 +9,7 @@ typedef enum {
 } CloudManagerSignupError;
 
 @class Geofence;
-@class GFSettings;
+@class Settings;
 
 @interface CloudManager : NSObject
 

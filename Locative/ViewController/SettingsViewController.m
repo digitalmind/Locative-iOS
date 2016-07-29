@@ -1,9 +1,16 @@
+#import "Locative-Swift.h"
+#import "CloudManager.h"
 #import "SettingsViewController.h"
+#import "Geofence.h"
 #import "GeofencesViewController.h"
-#import "AppDelegate.h"
+#import "HttpRequest.h"
+#import "HttpRequestManager.h"
 
+@import AFNetworking;
 @import INTULocationManager;
+@import iOS_GPX_Framework;
 @import MessageUI;
+@import MSDynamicsDrawerViewController;
 @import OnePasswordExtension;
 @import ObjectiveRecord;
 @import PSTAlertController;

@@ -1,6 +1,6 @@
 import Foundation
 
-class Settings: NSObject, NSCoding {
+public class Settings: NSObject, NSCoding {
 
     var globalUrl: NSURL?
     var appHasBeenStarted: NSNumber? = NSNumber(bool: false)
@@ -48,7 +48,7 @@ class Settings: NSObject, NSCoding {
         super.init()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         globalUrl = aDecoder.decodeObjectForKey("globalUrl") as? NSURL
         appHasBeenStarted = aDecoder.decodeObjectForKey("appHasBeenStarted") as? NSNumber
         globalHttpMethod = aDecoder.decodeObjectForKey("globalHttpMethod") as? NSNumber
@@ -67,7 +67,7 @@ class Settings: NSObject, NSCoding {
         
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(globalUrl, forKey: "globalUrl")
         aCoder.encodeObject(appHasBeenStarted, forKey: "appHasBeenStarted")
         aCoder.encodeObject(globalHttpMethod, forKey: "globalHttpMethod")

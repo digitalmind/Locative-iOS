@@ -1,9 +1,9 @@
-#import "Locative-Swift.h"
 #import "CloudManager.h"
 #import "Geofence.h"
 #import "Fencelog.h"
 #import "NSString+Hashes.h"
 #import "GeofenceManager.h"
+#import "Locative-Swift.h"
 
 #define StringOrEmpty(arg) (arg ? arg : @"")
 #define NumberOrZeroFloat(arg) (arg ? arg : [NSNumber numberWithFloat:0.0f])

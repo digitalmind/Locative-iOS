@@ -5,3 +5,6 @@
 @import UIKit;
 
 #import "Geofence.h"
+#import "GeofenceManager.h"
+#import "CloudManager.h"
+#import "HttpRequestManager.h"

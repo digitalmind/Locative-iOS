@@ -1,10 +1,12 @@
+#import "Locative-Swift.h"
 #import "GeofencesViewController.h"
 #import "AddEditGeofenceViewController.h"
-#import "AppDelegate.h"
+#import "GeofenceManager.h"
 
 @import PSTAlertController;
 @import ObjectiveSugar;
 @import ObjectiveRecord;
+@import MSDynamicsDrawerViewController;
 
 @interface GeofencesViewController ()
 

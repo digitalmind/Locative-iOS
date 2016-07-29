@@ -1,5 +1,7 @@
-#import "AppDelegate.h"
+#import "Locative-Swift.h"
+#import "GeofenceManager.h"
 #import "HttpRequest.h"
+#import "HttpRequestManager.h"
 
 #define WHICH_METHOD(number) ([number intValue] == 0)?@"POST":@"GET"
 

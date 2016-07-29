@@ -2,7 +2,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "Geofence.h"
-#import "CloudManager.h"
+//#import "CloudManager.h"
 
 typedef enum : NSUInteger {
     TriggerOnEnter = (0x1 << 0), // => 0x00000001

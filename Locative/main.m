@@ -1,6 +1,6 @@
 @import UIKit;
 
-#import "AppDelegate.h"
+#import "Locative-Swift.h"
 
 int main(int argc, char * argv[])
 {

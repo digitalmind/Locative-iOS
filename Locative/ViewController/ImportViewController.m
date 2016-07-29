@@ -1,5 +1,8 @@
+#import "Locative-Swift.h"
+#import "CloudManager.h"
+#import "Geofence.h"
+#import "GeofenceManager.h"
 #import "ImportViewController.h"
-#import "AppDelegate.h"
 
 @import ObjectiveRecord;
 @import SVProgressHUD;
