@@ -14,6 +14,8 @@
 		07BC81E61D48C34E00286073 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E51D48C34E00286073 /* Config.swift */; };
 		07BC81E81D48C72F00286073 /* BackgroundBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */; };
 		07BC81EA1D48C92500286073 /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E91D48C92500286073 /* SecureCredentials.swift */; };
+		07BC81EE1D4B5B1200286073 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */; };
+		07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F01D4B5DBF00286073 /* Environment.swift */; };
 		07BC81F31D4B5FA600286073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F21D4B5FA600286073 /* AppDelegate.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
@@ -128,6 +130,8 @@
 		07BC81E51D48C34E00286073 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundBlockOperation.swift; sourceTree = "<group>"; };
 		07BC81E91D48C92500286073 /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
+		07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		07BC81F01D4B5DBF00286073 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		07BC81F21D4B5FA600286073 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BC81EE1D4B5B1200286073 /* SwiftyBeaver.framework in Frameworks */,
 				2A7D40B5186475F000F9A61A /* MessageUI.framework in Frameworks */,
 				2A521A87183627C9001F3669 /* QuartzCore.framework in Frameworks */,
 				2A74C2DA180B13F9008A13B9 /* Security.framework in Frameworks */,
@@ -361,6 +366,7 @@
 		2A8E9D9517FD51DD00F4A805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */,
 				ECE802771C0CEA9500B1B28C /* libSpecta.a */,
 				ECE802751C0CEA8D00B1B28C /* libExpecta.a */,
 				ECDCB03A1ADE5245008988C5 /* libPods-Locative.a */,
@@ -497,6 +503,7 @@
 				2A2BF5281853748F00D5DD98 /* Fencelog.m */,
 				2AD67FB118817BD5003840C8 /* HttpRequest.h */,
 				2AD67FB218817BD5003840C8 /* HttpRequest.m */,
+				07BC81F01D4B5DBF00286073 /* Environment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -538,7 +545,7 @@
 			buildConfigurationList = 2A8E9DC517FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "Locative" */;
 			buildPhases = (
 				65631DCE165A9C84B29C44B2 /* [CP] Check Pods Manifest.lock */,
-				2A5158BD188185B000DCD8D9 /* ShellScript */,
+				2A5158BD188185B000DCD8D9 /* Bump Build no. */,
 				2A8E9D8F17FD51DD00F4A805 /* Sources */,
 				2A8E9D9017FD51DD00F4A805 /* Frameworks */,
 				2A8E9D9117FD51DD00F4A805 /* Resources */,
@@ -546,6 +553,8 @@
 				07DF8D2B1CCBA1E4001D858B /* Fabric */,
 				5F766997094B39CF6EA3F669 /* [CP] Embed Pods Frameworks */,
 				0299760BFEB3AD961861FCFA /* [CP] Copy Pods Resources */,
+				07BC81EB1D4B5AD200286073 /* Copy Carthage frameworks */,
+				07BC81EF1D4B5D5A00286073 /* Implement SwiftyBeaver */,
 			);
 			buildRules = (
 			);
@@ -750,6 +759,35 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		07BC81EB1D4B5AD200286073 /* Copy Carthage frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
+			);
+			name = "Copy Carthage frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		07BC81EF1D4B5D5A00286073 /* Implement SwiftyBeaver */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Implement SwiftyBeaver";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/swiftybeaver.sh\"";
+		};
 		07DF8D2B1CCBA1E4001D858B /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -764,13 +802,14 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ -f \"${SRCROOT}/fabric.sh\" ]; then\n source \"${SRCROOT}/fabric.sh\"\nfi\n\nif [ -n \"${FABRIC_API_KEY+1}\" ] && [ -n \"${FABRIC_API_SECRET+1}\" ]; then\n echo \"Fabric enabled.\"\n ${PODS_ROOT}/Fabric/run ${FABRIC_API_KEY} ${FABRIC_API_SECRET}\nelse\n echo \"Fabric disabled.\"\nfi";
 		};
-		2A5158BD188185B000DCD8D9 /* ShellScript */ = {
+		2A5158BD188185B000DCD8D9 /* Bump Build no. */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Bump Build no.";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -952,6 +991,7 @@
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
 				2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */,
 				2A521A7D18354958001F3669 /* MenuViewController.m in Sources */,
+				07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */,
 				2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
@@ -1156,6 +1196,10 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Info.plist";
@@ -1175,6 +1219,10 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Info.plist";
