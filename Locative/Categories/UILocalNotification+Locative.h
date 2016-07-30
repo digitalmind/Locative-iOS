@@ -2,10 +2,10 @@
 
 @interface UILocalNotification (Locative)
 
-+ (void)presentLocalNotificationWithAlertBody:(NSString *)alertBody;
-+ (void)presentLocalDebugNotificationWithAlertBody:(NSString *)alertBody;
++ (void)presentLocalNotificationWithAlertBody:(NSString * __nonnull)alertBody;
++ (void)presentLocalDebugNotificationWithAlertBody:(NSString * __nonnull)alertBody;
 
-+ (void)presentLocalNotificationWithSoundName:(NSString *)soundName alertBody:(NSString *)alertBody;
-+ (void)presentLocalNotificationWithSoundName:(NSString *)soundName alertBody:(NSString *)alertBody userInfo:(NSDictionary *)userInfo;
++ (void)presentLocalNotificationWithSoundName:(NSString * __nullable)soundName alertBody:(NSString * __nonnull)alertBody;
++ (void)presentLocalNotificationWithSoundName:(NSString * __nullable)soundName alertBody:(NSString * __nonnull)alertBody userInfo:(NSDictionary * __nullable)userInfo;
 
 @end
