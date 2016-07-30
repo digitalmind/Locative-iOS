@@ -17,6 +17,7 @@
 		07BC81EE1D4B5B1200286073 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */; };
 		07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F01D4B5DBF00286073 /* Environment.swift */; };
 		07BC81F31D4B5FA600286073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F21D4B5FA600286073 /* AppDelegate.swift */; };
+		07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F41D4CC29200286073 /* HttpRequestManager.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
@@ -64,7 +65,6 @@
 		2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1DF2180969F700F84B5C /* Localizable.strings */; };
 		2AB31B7E18055C6400FC839B /* Geofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB31B7D18055C6400FC839B /* Geofence.m */; };
 		2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB218817BD5003840C8 /* HttpRequest.m */; };
-		2AD67FB618817E6C003840C8 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB518817E6C003840C8 /* HttpRequestManager.m */; };
 		2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE7D801914F99C00460861 /* iBeaconPresets.plist */; };
 		2B6B255EC6E6FCF3756FD146 /* Pods_LocativeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */; };
 		B5FF87B6381EDA94460A963C /* Pods_Locative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DCE64809809285D7A6941B /* Pods_Locative.framework */; };
@@ -133,6 +133,7 @@
 		07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		07BC81F01D4B5DBF00286073 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		07BC81F21D4B5FA600286073 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07BC81F41D4CC29200286073 /* HttpRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestManager.swift; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
 		07E2254F1CA77B0500572180 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -203,8 +204,6 @@
 		2AB31B7D18055C6400FC839B /* Geofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geofence.m; sourceTree = "<group>"; };
 		2AD67FB118817BD5003840C8 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
 		2AD67FB218817BD5003840C8 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
-		2AD67FB418817E6C003840C8 /* HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestManager.h; sourceTree = "<group>"; };
-		2AD67FB518817E6C003840C8 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
 		2ADE7D801914F99C00460861 /* iBeaconPresets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iBeaconPresets.plist; sourceTree = "<group>"; };
 		2AF435DE1833A3C5001789BD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -462,8 +461,7 @@
 				2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */,
 				2A2BF51E185371B800D5DD98 /* CloudManager.h */,
 				2A2BF51F185371B800D5DD98 /* CloudManager.m */,
-				2AD67FB418817E6C003840C8 /* HttpRequestManager.h */,
-				2AD67FB518817E6C003840C8 /* HttpRequestManager.m */,
+				07BC81F41D4CC29200286073 /* HttpRequestManager.swift */,
 				07BC81E91D48C92500286073 /* SecureCredentials.swift */,
 				07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */,
 				07BC81E11D48BAEA00286073 /* CoreDataStack.swift */,
@@ -994,13 +992,13 @@
 				07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */,
 				2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
+				07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
 				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,
 				2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */,
 				07BC81E41D48BEAF00286073 /* Synchronized.swift in Sources */,
 				2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */,
 				2AB31B7E18055C6400FC839B /* Geofence.m in Sources */,
-				2AD67FB618817E6C003840C8 /* HttpRequestManager.m in Sources */,
 				07BC81E81D48C72F00286073 /* BackgroundBlockOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

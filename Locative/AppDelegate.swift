@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let reachabilityManager = AFNetworkReachabilityManager(forDomain: "my.locative.io")
     let geofenceManager = GeofenceManager.sharedManager()
-    let requestManager = HttpRequestManager.sharedManager()
+    let requestManager = HttpRequestManager.sharedManager
     let settings = Settings().restoredSettings()
     let coreDataStack = CoreDataStack(model: "Model")
     let harpy = Harpy.sharedInstance()

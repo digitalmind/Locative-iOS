@@ -4,7 +4,6 @@
 #import "Geofence.h"
 #import "GeofencesViewController.h"
 #import "HttpRequest.h"
-#import "HttpRequestManager.h"
 
 @import AFNetworking;
 @import INTULocationManager;
