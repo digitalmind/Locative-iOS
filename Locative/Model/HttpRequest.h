@@ -4,15 +4,15 @@
 
 @interface HttpRequest : NSManagedObject
 
-@property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSString * method;
-@property (nonatomic, retain) NSNumber * httpAuth;
-@property (nonatomic, retain) NSString * httpAuthUsername;
-@property (nonatomic, retain) NSString * httpAuthPassword;
-@property (nonatomic, retain) NSDictionary *parameters;
-@property (nonatomic, retain) NSNumber * eventType;
-@property (nonatomic, retain) NSNumber * failCount;
-@property (nonatomic, retain) NSDate * timestamp;
-@property (nonatomic, retain) NSString * uuid;
+@property (nonatomic, retain, nullable) NSString * url;
+@property (nonatomic, retain, nullable) NSString * method;
+@property (nonatomic, retain, nullable) NSNumber * httpAuth;
+@property (nonatomic, retain, nullable) NSString * httpAuthUsername;
+@property (nonatomic, retain, nullable) NSString * httpAuthPassword;
+@property (nonatomic, retain, nullable) NSDictionary *parameters;
+@property (nonatomic, retain, nullable) NSNumber * eventType;
+@property (nonatomic, retain, nullable) NSNumber * failCount;
+@property (nonatomic, retain, nullable) NSDate * timestamp;
+@property (nonatomic, retain, nullable) NSString * uuid;
 
 @end
