@@ -9,7 +9,6 @@
 @import INTULocationManager;
 @import iOS_GPX_Framework;
 @import MessageUI;
-@import MSDynamicsDrawerViewController;
 @import OnePasswordExtension;
 @import ObjectiveRecord;
 @import PSTAlertController;

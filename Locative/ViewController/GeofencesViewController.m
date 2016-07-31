@@ -6,7 +6,6 @@
 @import PSTAlertController;
 @import ObjectiveSugar;
 @import ObjectiveRecord;
-@import MSDynamicsDrawerViewController;
 
 @interface GeofencesViewController ()
 
