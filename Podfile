@@ -7,7 +7,6 @@ end
 
 def app_pods
   pod 'iOS-GPX-Framework', :git => 'https://github.com/kimar/iOS-GPX-Framework', :commit => 'cb2b563'
-  pod 'MSDynamicsDrawerViewController', '~> 1.5.1'
   pod 'ObjectiveRecord', :git => 'https://github.com/kimar/ObjectiveRecord', :commit => 'd1fbb19'
   pod 'SVProgressHUD', '~> 1.0'
   pod 'DZNEmptyDataSet', '~> 1.4.1'

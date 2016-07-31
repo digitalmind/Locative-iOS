@@ -19,6 +19,8 @@
 		07BC81F31D4B5FA600286073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F21D4B5FA600286073 /* AppDelegate.swift */; };
 		07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F41D4CC29200286073 /* HttpRequestManager.swift */; };
 		07BC81F71D4D913E00286073 /* AFSecurityPolicy+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */; };
+		07BC82021D4D974C00286073 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82011D4D974C00286073 /* Enums.swift */; };
+		07BC82041D4D97EC00286073 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82031D4D97EC00286073 /* Social.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
@@ -136,6 +138,8 @@
 		07BC81F21D4B5FA600286073 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07BC81F41D4CC29200286073 /* HttpRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestManager.swift; sourceTree = "<group>"; };
 		07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AFSecurityPolicy+Locative.swift"; sourceTree = "<group>"; };
+		07BC82011D4D974C00286073 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		07BC82031D4D97EC00286073 /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
 		07E2254F1CA77B0500572180 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -470,6 +474,8 @@
 				07BC81E31D48BEAF00286073 /* Synchronized.swift */,
 				07BC81E51D48C34E00286073 /* Config.swift */,
 				07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */,
+				07BC82011D4D974C00286073 /* Enums.swift */,
+				07BC82031D4D97EC00286073 /* Social.swift */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -982,6 +988,7 @@
 				EC28B7A719B72913009E5427 /* ImportViewController.m in Sources */,
 				07BC81F31D4B5FA600286073 /* AppDelegate.swift in Sources */,
 				07E225561CA8D58F00572180 /* GeofenceAnnotation.swift in Sources */,
+				07BC82021D4D974C00286073 /* Enums.swift in Sources */,
 				2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */,
 				07BC81F71D4D913E00286073 /* AFSecurityPolicy+Locative.swift in Sources */,
 				2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */,
@@ -995,6 +1002,7 @@
 				2A521A7D18354958001F3669 /* MenuViewController.m in Sources */,
 				07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */,
 				2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */,
+				07BC82041D4D97EC00286073 /* Social.swift in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
 				07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,

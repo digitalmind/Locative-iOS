@@ -175,7 +175,7 @@
     
     [self.settings persist];
 
-    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"GeofencesNav"] animated:YES completion:nil];
+//    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"GeofencesNav"] animated:YES completion:nil];
 }
 
 - (IBAction)toggleHttpBasicAuth:(id)sender {
@@ -248,9 +248,9 @@
 	}];
 }
 
-- (IBAction) toggleMenu:(id)sender {
-    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
-}
+//- (IBAction) toggleMenu:(id)sender {
+//    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
+//}
 
 - (IBAction) loginToAccount:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];

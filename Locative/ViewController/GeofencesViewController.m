@@ -192,9 +192,9 @@
     
 }
 
-- (IBAction) toggleMenu:(id)sender
-{
-    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
-}
+//- (IBAction) toggleMenu:(id)sender
+//{
+//    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
+//}
 
 @end
