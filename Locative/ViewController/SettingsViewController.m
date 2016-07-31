@@ -84,15 +84,15 @@
     [self.httpUrlTextField setText:([[[self.settings globalUrl] absoluteString] length] > 0)?[[self.settings globalUrl] absoluteString]:nil];
     [self.httpMethodSegmentedControl setSelectedSegmentIndex:[[self.settings globalHttpMethod] integerValue]];
     
-    self.httpBasicAuthSwitch.on = [self.settings httpBasicAuthEnabled];
+    self.httpBasicAuthSwitch.on = [self.settings httpBasicAuthEnabled].boolValue;
     [self.httpBasicAuthUsernameTextField setEnabled:self.httpBasicAuthSwitch.on];
     [self.httpBasicAuthPasswordTextField setEnabled:self.httpBasicAuthSwitch.on];
     [self.httpBasicAuthUsernameTextField setText:([[self.settings httpBasicAuthUsername] length] > 0)?[self.settings httpBasicAuthUsername]:nil];
     [self.httpBasicAuthPasswordTextField setText:([[self.settings httpBasicAuthPassword] length] > 0)?[self.settings httpBasicAuthPassword]:nil];
     
-    self.notifyOnSuccessSwitch.on = [self.settings notifyOnSuccess];
-    self.notifyOnFailureSwitch.on = [self.settings notifyOnFailure];
-    self.soundOnNotificationSwitch.on = [self.settings soundOnNotification];
+    self.notifyOnSuccessSwitch.on = [self.settings notifyOnSuccess].boolValue;
+    self.notifyOnFailureSwitch.on = [self.settings notifyOnFailure].boolValue;
+    self.soundOnNotificationSwitch.on = [self.settings soundOnNotification].boolValue;
 
     [[self.appDelegate cloudManager] validateSessionWithCallback:^(BOOL valid) {
         if (valid) {
