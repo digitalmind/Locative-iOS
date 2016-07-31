@@ -94,7 +94,7 @@ private extension HttpRequestManager {
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.requestSerializer = AFHTTPRequestSerializer()
-        manager.securityPolicy = commonPolicy()
+        manager.securityPolicy = .locativePolicy
         
         if let h = request.httpAuth,
             u = request.httpAuthUsername,
@@ -105,50 +105,50 @@ private extension HttpRequestManager {
             )
         }
         
-        if let url = request.url {
-            if let m = request.method where isPostMethod(m) {
-                manager.POST(url, parameters: request.parameters, success: { [weak self] op, r in
-                    SwiftyBeaver.debug("HTTP request completion: \(r)")
+        // bail out in case no url is present in request
+        guard let url = request.url else { return }
+        if let m = request.method where isPostMethod(m) {
+            manager.POST(url, parameters: request.parameters, success: { [weak self] op, r in
+                SwiftyBeaver.debug("HTTP request completion: \(r)")
+                self?.dispatchFencelog(
+                    true,
+                    request: request,
+                    responseObject: r,
+                    responseStatus: op.response?.statusCode,
+                    error: nil,
+                    completion: completion
+                )
+                }, failure: { [weak self] op, e in
                     self?.dispatchFencelog(
-                        true,
+                        false,
                         request: request,
-                        responseObject: r,
-                        responseStatus: op.response?.statusCode,
-                        error: nil,
+                        responseObject: nil,
+                        responseStatus: op?.response?.statusCode,
+                        error: e,
                         completion: completion
                     )
-                    }, failure: { [weak self] op, e in
-                        self?.dispatchFencelog(
-                            false,
-                            request: request,
-                            responseObject: nil,
-                            responseStatus: op?.response?.statusCode,
-                            error: e,
-                            completion: completion
-                        )
-                    })
-            } else {
-                manager.GET(url, parameters: request.parameters, success: { [weak self] op, r in
-                    SwiftyBeaver.debug("HTTP request completion: \(r)")
+                })
+        } else {
+            manager.GET(url, parameters: request.parameters, success: { [weak self] op, r in
+                SwiftyBeaver.debug("HTTP request completion: \(r)")
+                self?.dispatchFencelog(
+                    true,
+                    request: request,
+                    responseObject: r,
+                    responseStatus: op.response?.statusCode,
+                    error: nil,
+                    completion: completion
+                )
+                }, failure: { [weak self] op, e in
                     self?.dispatchFencelog(
-                        true,
+                        false,
                         request: request,
-                        responseObject: r,
-                        responseStatus: op.response?.statusCode,
-                        error: nil,
+                        responseObject: nil,
+                        responseStatus: op?.response?.statusCode,
+                        error: e,
                         completion: completion
                     )
-                    }, failure: { [weak self] op, e in
-                        self?.dispatchFencelog(
-                            false,
-                            request: request,
-                            responseObject: nil,
-                            responseStatus: op?.response?.statusCode,
-                            error: e,
-                            completion: completion
-                        )
-                    })
-            }
+                })
         }
     }
     
@@ -241,13 +241,6 @@ private extension HttpRequestManager {
             sound,
             alertBody: text,
             userInfo: ["success": success])
-    }
-    
-    func commonPolicy() -> AFSecurityPolicy {
-        let policy = AFSecurityPolicy(pinningMode: .None)
-        policy.allowInvalidCertificates = true
-        policy.validatesDomainName = false
-        return policy
     }
     
     func isPostMethod(method: String) -> Bool {
