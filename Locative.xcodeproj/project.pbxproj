@@ -34,12 +34,10 @@
 		2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF52E18537ED400D5DD98 /* SignupViewController.m */; };
 		2A4805191807E3A60063BA82 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4805181807E3A60063BA82 /* libz.dylib */; };
 		2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2B2F17FD7E28002ECE72 /* MKMapView+ZoomLevel.m */; };
-		2A521A7D18354958001F3669 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A521A7C18354958001F3669 /* MenuViewController.m */; };
 		2A521A87183627C9001F3669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A521A86183627C9001F3669 /* QuartzCore.framework */; };
 		2A59CD6418F939670062A0FE /* GFGeofencesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6318F939670062A0FE /* GFGeofencesViewControllerTests.m */; };
 		2A59CD6A18F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6918F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m */; };
 		2A59CD6C18F93D620062A0FE /* GFSettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6B18F93D620062A0FE /* GFSettingsViewControllerTests.m */; };
-		2A59CD6E18F93DD10062A0FE /* GFMenuViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6D18F93DD10062A0FE /* GFMenuViewControllerTests.m */; };
 		2A59CD7018F93E380062A0FE /* GFCloudSignupViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6F18F93E380062A0FE /* GFCloudSignupViewControllerTests.m */; };
 		2A74C2DA180B13F9008A13B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A74C2D9180B13F9008A13B9 /* Security.framework */; };
 		2A7D40B5186475F000F9A61A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7D40B4186475F000F9A61A /* MessageUI.framework */; };
@@ -164,14 +162,11 @@
 		2A4805181807E3A60063BA82 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2A4B2B2E17FD7E28002ECE72 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		2A4B2B2F17FD7E28002ECE72 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
-		2A521A7B18354958001F3669 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		2A521A7C18354958001F3669 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		2A521A86183627C9001F3669 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2A59CD6318F939670062A0FE /* GFGeofencesViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofencesViewControllerTests.m; sourceTree = "<group>"; };
 		2A59CD6818F93C6B0062A0FE /* LocativeTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocativeTests-Prefix.pch"; sourceTree = "<group>"; };
 		2A59CD6918F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFAddEditGeofenceViewControllerTests.m; sourceTree = "<group>"; };
 		2A59CD6B18F93D620062A0FE /* GFSettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFSettingsViewControllerTests.m; sourceTree = "<group>"; };
-		2A59CD6D18F93DD10062A0FE /* GFMenuViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMenuViewControllerTests.m; sourceTree = "<group>"; };
 		2A59CD6F18F93E380062A0FE /* GFCloudSignupViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCloudSignupViewControllerTests.m; sourceTree = "<group>"; };
 		2A686FD4196BDA1F000C4B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A686FD5196BDA20000C4B62 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -334,7 +329,6 @@
 				2A59CD6318F939670062A0FE /* GFGeofencesViewControllerTests.m */,
 				2A59CD6918F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m */,
 				2A59CD6B18F93D620062A0FE /* GFSettingsViewControllerTests.m */,
-				2A59CD6D18F93DD10062A0FE /* GFMenuViewControllerTests.m */,
 				2A59CD6F18F93E380062A0FE /* GFCloudSignupViewControllerTests.m */,
 			);
 			path = ViewController;
@@ -489,8 +483,6 @@
 				2A8E9E2C17FD6EFE00F4A805 /* AddEditGeofenceViewController.m */,
 				2A27D24818056CB000AC1708 /* SettingsViewController.h */,
 				2A27D24918056CB000AC1708 /* SettingsViewController.m */,
-				2A521A7B18354958001F3669 /* MenuViewController.h */,
-				2A521A7C18354958001F3669 /* MenuViewController.m */,
 				2A2BF52D18537ED400D5DD98 /* SignupViewController.h */,
 				2A2BF52E18537ED400D5DD98 /* SignupViewController.m */,
 				EC28B7A519B72913009E5427 /* ImportViewController.h */,
@@ -999,7 +991,6 @@
 				2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */,
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
 				2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */,
-				2A521A7D18354958001F3669 /* MenuViewController.m in Sources */,
 				07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */,
 				2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */,
 				07BC82041D4D97EC00286073 /* Social.swift in Sources */,
@@ -1021,7 +1012,6 @@
 			files = (
 				2A59CD6418F939670062A0FE /* GFGeofencesViewControllerTests.m in Sources */,
 				2A59CD6A18F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m in Sources */,
-				2A59CD6E18F93DD10062A0FE /* GFMenuViewControllerTests.m in Sources */,
 				2A59CD7018F93E380062A0FE /* GFCloudSignupViewControllerTests.m in Sources */,
 				2A59CD6C18F93D620062A0FE /* GFSettingsViewControllerTests.m in Sources */,
 				ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */,

@@ -248,10 +248,6 @@
 	}];
 }
 
-//- (IBAction) toggleMenu:(id)sender {
-//    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
-//}
-
 - (IBAction) loginToAccount:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     

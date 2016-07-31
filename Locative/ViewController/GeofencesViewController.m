@@ -33,16 +33,9 @@
     [super viewDidLoad];
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[self.appDelegate geofenceManager] cleanup];
-    
     self.config = [[Config alloc] init];
 
-    /*
-     Drawer Menu Shadow
-     */
-    self.parentViewController.view.layer.shadowOpacity = 0.75f;
-    self.parentViewController.view.layer.shadowRadius = 10.0f;
-    self.parentViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    [[self.appDelegate geofenceManager] cleanup];
 }
 
 - (void)didReceiveMemoryWarning
@@ -191,10 +184,5 @@
     [self performSegueWithIdentifier:@"AddEvent" sender:self];
     
 }
-
-//- (IBAction) toggleMenu:(id)sender
-//{
-//    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
-//}
 
 @end
