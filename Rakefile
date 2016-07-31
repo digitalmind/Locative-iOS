@@ -1,5 +1,5 @@
 desc "Setup dev environment"
-tas :setup do
+task :setup do
   sh "carthage build --platform iOS"
 end
 
