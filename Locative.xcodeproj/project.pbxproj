@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070568071D4DDA0B005C5E9A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070568061D4DDA0B005C5E9A /* AboutViewController.swift */; };
+		070568091D4DDAEB005C5E9A /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070568081D4DDAEB005C5E9A /* Eureka.framework */; };
 		0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
 		07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E11D48BAEA00286073 /* CoreDataStack.swift */; };
@@ -77,8 +79,6 @@
 		EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */; };
 		EC3C13E719B178CF0093F139 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3C13E619B178CF0093F139 /* NotificationCenter.framework */; };
 		EC3C13EE19B178CF0093F139 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3C13ED19B178CF0093F139 /* MainInterface.storyboard */; };
-		EC6FECAE19D6E92600D9E746 /* Main~ipad.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC6FECAA19D6E92600D9E746 /* Main~ipad.strings */; };
-		EC6FECAF19D6E92600D9E746 /* Main~iphone.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC6FECAC19D6E92600D9E746 /* Main~iphone.strings */; };
 		ECCBD31119CEE02A0009399B /* Locative.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC3C13E519B178CF0093F139 /* Locative.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECCBD31F19CEE8F20009399B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCBD31D19CEE8F20009399B /* Localizable.strings */; };
 		ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
@@ -123,6 +123,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		070568061D4DDA0B005C5E9A /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		070568081D4DDAEB005C5E9A /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		0705680F1D4DE388005C5E9A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -206,7 +209,6 @@
 		2AD67FB118817BD5003840C8 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
 		2AD67FB218817BD5003840C8 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
 		2ADE7D801914F99C00460861 /* iBeaconPresets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iBeaconPresets.plist; sourceTree = "<group>"; };
-		2AF435DE1833A3C5001789BD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DCE64809809285D7A6941B /* Pods_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74C7E70352C766CF546839F /* Pods_LocativeWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,8 +243,6 @@
 		EC3C13F919B17A280093F139 /* Locative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Locative.entitlements; sourceTree = "<group>"; };
 		EC3C13FA19B17A780093F139 /* LocativeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocativeWidget.entitlements; sourceTree = "<group>"; };
 		EC6FECA519D6C5D300D9E746 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		EC6FECAB19D6E92600D9E746 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = "de.lproj/Main~ipad.strings"; sourceTree = "<group>"; };
-		EC6FECAD19D6E92600D9E746 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = "de.lproj/Main~iphone.strings"; sourceTree = "<group>"; };
 		ECCBD31E19CEE8F20009399B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECCBD32019CEE8F60009399B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECDCB0381ADE4CE5008988C5 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/Pods-LocativeWidget/AFNetworking.framework"; sourceTree = "<group>"; };
@@ -256,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070568091D4DDAEB005C5E9A /* Eureka.framework in Frameworks */,
 				07BC81EE1D4B5B1200286073 /* SwiftyBeaver.framework in Frameworks */,
 				2A7D40B5186475F000F9A61A /* MessageUI.framework in Frameworks */,
 				2A521A87183627C9001F3669 /* QuartzCore.framework in Frameworks */,
@@ -365,6 +366,7 @@
 		2A8E9D9517FD51DD00F4A805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				070568081D4DDAEB005C5E9A /* Eureka.framework */,
 				07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */,
 				ECE802771C0CEA9500B1B28C /* libSpecta.a */,
 				ECE802751C0CEA8D00B1B28C /* libExpecta.a */,
@@ -410,8 +412,6 @@
 				07BC81F21D4B5FA600286073 /* AppDelegate.swift */,
 				078E79161CA622FC0098380D /* Locative-Bridging-Header.h */,
 				2A8E9DA817FD51DD00F4A805 /* Main.storyboard */,
-				EC6FECAA19D6E92600D9E746 /* Main~ipad.strings */,
-				EC6FECAC19D6E92600D9E746 /* Main~iphone.strings */,
 				2A9C1DF2180969F700F84B5C /* Localizable.strings */,
 				2A8E9DAE17FD51DD00F4A805 /* Images.xcassets */,
 				2A8E9D9D17FD51DD00F4A805 /* Supporting Files */,
@@ -477,6 +477,7 @@
 		2A8E9E0017FD5A9F00F4A805 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				070568061D4DDA0B005C5E9A /* AboutViewController.swift */,
 				2A8E9E0117FD5AA500F4A805 /* GeofencesViewController.h */,
 				2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */,
 				2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */,
@@ -710,10 +711,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8E9DAF17FD51DD00F4A805 /* Images.xcassets in Resources */,
-				EC6FECAF19D6E92600D9E746 /* Main~iphone.strings in Resources */,
 				2A8E9DA117FD51DD00F4A805 /* InfoPlist.strings in Resources */,
 				2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */,
-				EC6FECAE19D6E92600D9E746 /* Main~ipad.strings in Resources */,
 				2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */,
 				EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */,
 				2A9C1D8718094F0C00F84B5C /* about.html in Resources */,
@@ -765,6 +764,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
 			);
 			name = "Copy Carthage frameworks";
 			outputPaths = (
@@ -996,6 +996,7 @@
 				07BC82041D4D97EC00286073 /* Social.swift in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
 				07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */,
+				070568071D4DDA0B005C5E9A /* AboutViewController.swift in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
 				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,
 				2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */,
@@ -1060,7 +1061,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2A8E9DA917FD51DD00F4A805 /* Base */,
-				2AF435DE1833A3C5001789BD /* de */,
+				0705680F1D4DE388005C5E9A /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1080,22 +1081,6 @@
 				2A9C1DF818096A3B00F84B5C /* de */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		EC6FECAA19D6E92600D9E746 /* Main~ipad.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC6FECAB19D6E92600D9E746 /* de */,
-			);
-			name = "Main~ipad.strings";
-			sourceTree = "<group>";
-		};
-		EC6FECAC19D6E92600D9E746 /* Main~iphone.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC6FECAD19D6E92600D9E746 /* de */,
-			);
-			name = "Main~iphone.strings";
 			sourceTree = "<group>";
 		};
 		ECCBD31D19CEE8F20009399B /* Localizable.strings */ = {

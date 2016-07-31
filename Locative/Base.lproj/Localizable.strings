@@ -104,3 +104,11 @@
 "Backup" = "Backup";
 "An error occured when backing up your Geofence, please try again." = "An error occured when backing up your Geofence, please try again.";
 "Your Geofence has been backed up successfully." = "Your Geofence has been backed up successfully.";
+
+// Info
+"Get in touch" = "Get in touch";
+"Support" = "Support";
+"Support request" = "Support request";
+"Licenses" = "Licenses";
+"Open Source" = "Open Source";
+

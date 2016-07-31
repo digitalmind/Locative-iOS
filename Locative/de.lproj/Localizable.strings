@@ -104,3 +104,10 @@
 "Backup" = "Sichern";
 "An error occured when backing up your Geofence, please try again." = "Beim Sichern deines Geofences ist ein Fehler aufgetreten, bitte versuche es erneut.";
 "Your Geofence has been backed up successfully." = "Dein Geofence wurde erfolgreich gesichert.";
+
+// Info
+"Get in touch" = "Social Media";
+"Support" = "Support";
+"Support request" = "Supportanfrage";
+"Licenses" = "Lizenzen";
+"Open Source" = "Open Source";

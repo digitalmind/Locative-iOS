@@ -1,139 +1,195 @@
 
-/* Class = "IBUINavigationItem"; title = "Add Geofence"; ObjectID = "3H0-Om-2GN"; */
+/* Class = "UITextField"; placeholder = "Minor"; ObjectID = "2md-cK-QRz"; */
+"2md-cK-QRz.placeholder" = "Minor";
+
+/* Class = "UINavigationItem"; title = "Add Geofence"; ObjectID = "3H0-Om-2GN"; */
 "3H0-Om-2GN.title" = "Neuer Geofence";
 
-/* Class = "IBUITextField"; placeholder = "Username"; ObjectID = "4qD-Dp-bLe"; */
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "4kM-Gu-jQ3"; */
+"4kM-Gu-jQ3.placeholder" = "Benutzername";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "4qD-Dp-bLe"; */
 "4qD-Dp-bLe.placeholder" = "Benutzername";
 
-/* Class = "IBUIButton"; normalTitle = "Send Test-Request"; ObjectID = "6fI-bE-YgT"; */
+/* Class = "UILabel"; text = "Title"; ObjectID = "56P-9f-sTh"; */
+"56P-9f-sTh.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Send Test-Request"; ObjectID = "6fI-bE-YgT"; */
 "6fI-bE-YgT.normalTitle" = "Test-Request senden";
 
-/* Class = "IBUITableViewSection"; headerTitle = "Other"; ObjectID = "879-2k-8KR"; */
-"879-2k-8KR.headerTitle" = "Weiteres";
+/* Class = "UITableViewSection"; headerTitle = "Location"; ObjectID = "7ws-mu-Oqu"; */
+"7ws-mu-Oqu.headerTitle" = "Ort";
 
-/* Class = "IBUITableViewSection"; headerTitle = "Global HTTP Settings"; ObjectID = "9TA-DF-o4S"; */
+/* Class = "UIViewController"; title = "Info"; ObjectID = "8Uw-6B-6U2"; */
+"8Uw-6B-6U2.title" = "Info";
+
+/* Class = "UITableViewSection"; headerTitle = "Global HTTP Settings"; ObjectID = "9TA-DF-o4S"; */
 "9TA-DF-o4S.headerTitle" = "Globale HTTP Einstellungen";
 
-/* Class = "IBUITextField"; placeholder = "http://yourserver.com/event.php"; ObjectID = "AOD-OW-mpQ"; */
+/* Class = "UITextField"; placeholder = "http://yourserver.com/event.php"; ObjectID = "AOD-OW-mpQ"; */
 "AOD-OW-mpQ.placeholder" = "http://yourserver.com/event.php";
 
-/* Class = "IBUINavigationItem"; title = "Geofences"; ObjectID = "BAh-EN-Rnh"; */
+/* Class = "UINavigationItem"; title = "Geofences"; ObjectID = "BAh-EN-Rnh"; */
 "BAh-EN-Rnh.title" = "Geofences";
 
-/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "D66-2S-7uk"; */
+/* Class = "UIButton"; normalTitle = "Recover lost password"; ObjectID = "CEW-Ma-9TN"; */
+"CEW-Ma-9TN.normalTitle" = "Password vergessen";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "D66-2S-7uk"; */
 "D66-2S-7uk.text" = "Subtitle";
 
-/* Class = "IBUILabel"; text = "HTTP Basic Authentication"; ObjectID = "EyG-Pj-s7G"; */
+/* Class = "UITabBarItem"; title = "Info"; ObjectID = "ExW-mv-vM1"; */
+"ExW-mv-vM1.title" = "Info";
+
+/* Class = "UILabel"; text = "HTTP Basic Authentication"; ObjectID = "EyG-Pj-s7G"; */
 "EyG-Pj-s7G.text" = "HTTP Basic Authentifizierung";
 
-/* Class = "IBUILabel"; text = "Trigger on Departure"; ObjectID = "G8I-2a-6qL"; */
+/* Class = "UINavigationItem"; title = "Signup"; ObjectID = "F6g-b9-zbg"; */
+"F6g-b9-zbg.title" = "Registrieren";
+
+/* Class = "UILabel"; text = "Trigger on Departure"; ObjectID = "G8I-2a-6qL"; */
 "G8I-2a-6qL.text" = "Auslösen bei Verlassen";
 
-/* Class = "IBUIBarButtonItem"; title = "Settings"; ObjectID = "Ges-ox-GvX"; */
-"DE4-aR-PFt.text" = "Einstellungen";
-
-/* Class = "IBUITableViewSection"; headerTitle = "Radius and Location ID"; ObjectID = "GzM-Bo-f03"; */
+/* Class = "UITableViewSection"; headerTitle = "Radius and Location ID"; ObjectID = "GzM-Bo-f03"; */
 "GzM-Bo-f03.headerTitle" = "Radius und Location ID";
 
-/* Class = "IBUILabel"; text = "Notification on Success"; ObjectID = "Hxl-kn-E2h"; */
+/* Class = "UITableViewSection"; headerTitle = "iBeacon ID"; ObjectID = "HvY-QE-js6"; */
+"HvY-QE-js6.headerTitle" = "iBeacon ID";
+
+/* Class = "UILabel"; text = "Notification on Success"; ObjectID = "Hxl-kn-E2h"; */
 "Hxl-kn-E2h.text" = "Benachrichtigung bei Erfolg";
 
-/* Class = "IBUIButton"; normalTitle = "POST"; ObjectID = "KDA-p1-q14"; */
-"KDA-p1-q14.normalTitle" = "POST";
+/* Class = "UITableViewSection"; headerTitle = "Backup"; ObjectID = "JEr-Dg-VKa"; */
+"JEr-Dg-VKa.headerTitle" = "Backup";
 
-/* Class = "IBUILabel"; text = "Title"; ObjectID = "M8V-sR-LpK"; */
-"M8V-sR-LpK.text" = "Title";
-
-/* Class = "IBUIBarButtonItem"; title = "Save"; ObjectID = "MYx-Mq-lBV"; */
-"MYx-Mq-lBV.title" = "Speichern";
-
-/* Class = "IBUITextField"; placeholder = "Custom Location ID"; ObjectID = "Ncz-t1-9GX"; */
-"Ncz-t1-9GX.placeholder" = "Eigene Location ID";
-
-/* Class = "IBUILabel"; text = "Disable anonymous statistics"; ObjectID = "SSq-3z-VvH"; */
-"SSq-3z-VvH.text" = "Deaktiviere anonyme Statistiken";
-
-/* Class = "IBUITextField"; placeholder = "Username"; ObjectID = "ZW7-gQ-QdX"; */
-"ZW7-gQ-QdX.placeholder" = "Benutzername";
-
-/* Class = "IBUINavigationItem"; title = "Settings"; ObjectID = "ayv-na-ABx"; */
-"ayv-na-ABx.title" = "Einstellungen";
-
-/* Class = "IBUILabel"; text = "Notification on Failure"; ObjectID = "btJ-22-JKg"; */
-"btJ-22-JKg.text" = "Benachrichtigung bei Fehler";
-
-/* Class = "IBUIButton"; normalTitle = "Open-Source Licenses"; ObjectID = "cPC-Cx-wzZ"; */
-"cPC-Cx-wzZ.normalTitle" = "Open-Source Lizenzen";
-
-/* Class = "IBUISegmentedControl"; e7a-t9-lcY.segmentTitles[0] = "POST"; ObjectID = "e7a-t9-lcY"; */
-"e7a-t9-lcY.segmentTitles[0]" = "POST";
-
-/* Class = "IBUISegmentedControl"; e7a-t9-lcY.segmentTitles[1] = "GET"; ObjectID = "e7a-t9-lcY"; */
-"e7a-t9-lcY.segmentTitles[1]" = "GET";
-
-/* Class = "IBUITextField"; placeholder = "http://yourserver.com/geo.php"; ObjectID = "hJY-8T-bUd"; */
-"hJY-8T-bUd.placeholder" = "http://yourserver.com/geo.php";
-
-/* Class = "IBUIBarButtonItem"; title = "Save"; ObjectID = "lGw-of-CTn"; */
-"lGw-of-CTn.title" = "Speichern";
-
-/* Class = "IBUILabel"; text = "Trigger on Arrival"; ObjectID = "qtg-Bk-nve"; */
-"qtg-Bk-nve.text" = "Auslösen bei Ankunft";
-
-/* Class = "IBUILabel"; text = "HTTP Basic Authentication"; ObjectID = "t7n-tI-gah"; */
-"t7n-tI-gah.text" = "HTTP Basic Authentifizierung";
-
-/* Class = "IBUITextField"; placeholder = "Password"; ObjectID = "tgZ-Vi-BSE"; */
-"tgZ-Vi-BSE.placeholder" = "Passwort";
-
-/* Class = "IBUITextField"; placeholder = "http://yourserver.com/geo.php"; ObjectID = "uG3-6y-gN3"; */
-"uG3-6y-gN3.placeholder" = "http://yourserver.com/geo.php";
-
-/* Class = "IBUITextField"; placeholder = "Password"; ObjectID = "vmg-mC-0TT"; */
-"vmg-mC-0TT.placeholder" = "Passwort";
-
-/* Class = "IBUIButton"; normalTitle = "POST"; ObjectID = "wlq-uQ-MCW"; */
-"wlq-uQ-MCW.normalTitle" = "POST";
-
-/* Class = "IBUITableViewSection"; headerTitle = "Notifications"; ObjectID = "xhz-9j-yMc"; */
-"xhz-9j-yMc.headerTitle" = "Benachrichtigungen";
-
-/* Class = "IBUITableViewSection"; headerTitle = "HTTP Push"; ObjectID = "yWz-y9-EDR"; */
-"yWz-y9-EDR.headerTitle" = "HTTP Push";
-
-/* Location */
-"7ws-mu-Oqu.headerTitle" = "Ort";
-"v30-nt-Tdj.normalTitle" = "Unbekannter Ort";
-
-/* Class = "IBUIButton"; normalTitle = "Feedback / Support"; ObjectID = "z9T-nJ-902"; */
-"z9T-nJ-902.normalTitle" = "Feedback / Support";
-
-"lsa-Cf-IyZ.text" = "Sound bei Benachrichtigung";
-
-// Cloud Signup ViewController
-"Z0l-np-cb3.placeholder" = "Benutzername";
-"UWQ-Tp-BQm.placeholder" = "E-Mail Adresse";
-"bIB-T0-BUx.placeholder" = "Passwort";
-"tcc-iU-q6z.normalTitle" = "Account erstellen";
-"MFw-CP-xlp.normalTitle" = "Nutzungsbedingungen";
-
-// Login in Settings
-"4kM-Gu-jQ3.placeholder" = "Benutzername";
-"o5g-w3-HEs.placeholder" = "Passwort";
-"czE-RA-CWx.normalTitle" = "Login";
-"PRr-9r-FMC.normalTitle" = "Neuen Account erstellen";
-"CEW-Ma-9TN.normalTitle" = "Password vergessen";
-"NLe-L4-COV.normalTitle" = "Abmelden";
-
-// Backup
+/* Class = "UIButton"; normalTitle = "Export Geofences as GPX"; ObjectID = "KBC-Ar-0g0"; */
 "KBC-Ar-0g0.normalTitle" = "Geofences als GPX exportieren";
 
-// iBeacon
-"qYP-mZ-vYn.placeholder" = "Eigene iBeacon ID";
+/* Class = "UIButton"; normalTitle = "POST"; ObjectID = "KDA-p1-q14"; */
+"KDA-p1-q14.normalTitle" = "POST";
 
-// Delete Button
+/* Class = "UILabel"; text = "Title"; ObjectID = "M8V-sR-LpK"; */
+"M8V-sR-LpK.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Terms of Service"; ObjectID = "MFw-CP-xlp"; */
+"MFw-CP-xlp.normalTitle" = "Nutzungsbedingungen";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "MYx-Mq-lBV"; */
+"MYx-Mq-lBV.title" = "Speichern";
+
+/* Class = "UITextField"; placeholder = "UUID"; ObjectID = "N7h-aJ-NzD"; */
+"N7h-aJ-NzD.placeholder" = "UUID";
+
+/* Class = "UIButton"; normalTitle = "Logout"; ObjectID = "NLe-L4-COV"; */
+"NLe-L4-COV.normalTitle" = "Abmelden";
+
+/* Class = "UITextField"; placeholder = "Custom Location ID"; ObjectID = "Ncz-t1-9GX"; */
+"Ncz-t1-9GX.placeholder" = "Eigene Location ID";
+
+/* Class = "UIButton"; normalTitle = "Signup new Account"; ObjectID = "PRr-9r-FMC"; */
+"PRr-9r-FMC.normalTitle" = "Neuen Account erstellen";
+
+/* Class = "UISegmentedControl"; SfU-7E-6Km.segmentTitles[0] = "Geofence"; ObjectID = "SfU-7E-6Km"; */
+"SfU-7E-6Km.segmentTitles[0]" = "Geofence";
+
+/* Class = "UISegmentedControl"; SfU-7E-6Km.segmentTitles[1] = "iBeacon"; ObjectID = "SfU-7E-6Km"; */
+"SfU-7E-6Km.segmentTitles[1]" = "iBeacon";
+
+/* Class = "UINavigationItem"; title = "Import"; ObjectID = "U3H-Ya-vhv"; */
+"U3H-Ya-vhv.title" = "Importieren";
+
+/* Class = "UITextField"; placeholder = "E-Mail address"; ObjectID = "UWQ-Tp-BQm"; */
+"UWQ-Tp-BQm.placeholder" = "E-Mail Adresse";
+
+/* Class = "UITableViewSection"; headerTitle = "My Locative Account"; ObjectID = "WXY-dH-LYm"; */
+"WXY-dH-LYm.headerTitle" = "My Locative Account";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Z0l-np-cb3"; */
+"Z0l-np-cb3.placeholder" = "Benutzername";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "ZW7-gQ-QdX"; */
+"ZW7-gQ-QdX.placeholder" = "Benutzername";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "ayv-na-ABx"; */
+"ayv-na-ABx.title" = "Einstellungen";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "bIB-T0-BUx"; */
+"bIB-T0-BUx.placeholder" = "Passwort";
+
+/* Class = "UITabBarItem"; title = "Geofences"; ObjectID = "bYJ-7U-uW5"; */
+"bYJ-7U-uW5.title" = "Geofences";
+
+/* Class = "UILabel"; text = "Notification on Failure"; ObjectID = "btJ-22-JKg"; */
+"btJ-22-JKg.text" = "Benachrichtigung bei Fehler";
+
+/* Class = "UINavigationItem"; title = "About Locative"; ObjectID = "cT3-CL-J9z"; */
+"cT3-CL-J9z.title" = "Über Locative";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "czE-RA-CWx"; */
+"czE-RA-CWx.normalTitle" = "Login";
+
+/* Class = "UISegmentedControl"; e7a-t9-lcY.segmentTitles[0] = "POST"; ObjectID = "e7a-t9-lcY"; */
+"e7a-t9-lcY.segmentTitles[0]" = "POST";
+
+/* Class = "UISegmentedControl"; e7a-t9-lcY.segmentTitles[1] = "GET"; ObjectID = "e7a-t9-lcY"; */
+"e7a-t9-lcY.segmentTitles[1]" = "GET";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "h7L-Gv-Ll2"; */
+"h7L-Gv-Ll2.title" = "Einstellungen";
+
+/* Class = "UITextField"; placeholder = "http://yourserver.com/geo.php"; ObjectID = "hJY-8T-bUd"; */
+"hJY-8T-bUd.placeholder" = "http://yourserver.com/geo.php";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "hqC-Ed-pHA"; */
 "hqC-Ed-pHA.normalTitle" = "Löschen";
 
-// Backup Button
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "k4k-tE-HSL"; */
+"k4k-tE-HSL.text" = "Subtitle";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "lGw-of-CTn"; */
+"lGw-of-CTn.title" = "Speichern";
+
+/* Class = "UILabel"; text = "Play Sound on Notification"; ObjectID = "lsa-Cf-IyZ"; */
+"lsa-Cf-IyZ.text" = "Ton bei Benachrichtigung";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "o5g-w3-HEs"; */
+"o5g-w3-HEs.placeholder" = "Passwort";
+
+/* Class = "UITextField"; placeholder = "Custom iBeacon ID"; ObjectID = "qYP-mZ-vYn"; */
+"qYP-mZ-vYn.placeholder" = "Eigene iBeacon ID";
+
+/* Class = "UILabel"; text = "Trigger on Arrival"; ObjectID = "qtg-Bk-nve"; */
+"qtg-Bk-nve.text" = "Auslösen bei Ankunft";
+
+/* Class = "UITextField"; placeholder = "Major"; ObjectID = "rZq-2e-RrO"; */
+"rZq-2e-RrO.placeholder" = "Major";
+
+/* Class = "UILabel"; text = "HTTP Basic Authentication"; ObjectID = "t7n-tI-gah"; */
+"t7n-tI-gah.text" = "HTTP Basic Authentifizierung";
+
+/* Class = "UIButton"; normalTitle = "Signup Account"; ObjectID = "tcc-iU-q6z"; */
+"tcc-iU-q6z.normalTitle" = "Account erstellen";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "tgZ-Vi-BSE"; */
+"tgZ-Vi-BSE.placeholder" = "Passwort";
+
+/* Class = "UIButton"; normalTitle = "Backup in Cloud"; ObjectID = "thx-5B-4qM"; */
 "thx-5B-4qM.normalTitle" = "In der Cloud sichern";
 
+/* Class = "UITextField"; placeholder = "http://yourserver.com/geo.php"; ObjectID = "uG3-6y-gN3"; */
+"uG3-6y-gN3.placeholder" = "http://yourserver.com/geo.php";
+
+/* Class = "UIButton"; normalTitle = "Unknown Location"; ObjectID = "v30-nt-Tdj"; */
+"v30-nt-Tdj.normalTitle" = "Unbekannter Ort";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "vmg-mC-0TT"; */
+"vmg-mC-0TT.placeholder" = "Passwort";
+
+/* Class = "UIButton"; normalTitle = "POST"; ObjectID = "wlq-uQ-MCW"; */
+"wlq-uQ-MCW.normalTitle" = "POST";
+
+/* Class = "UITableViewSection"; headerTitle = "Notifications"; ObjectID = "xhz-9j-yMc"; */
+"xhz-9j-yMc.headerTitle" = "Benachrichtigungen";
+
+/* Class = "UITableViewSection"; headerTitle = "HTTP Push"; ObjectID = "yWz-y9-EDR"; */
+"yWz-y9-EDR.headerTitle" = "HTTP Push";

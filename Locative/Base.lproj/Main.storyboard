@@ -60,6 +60,25 @@
             </objects>
             <point key="canvasLocation" x="258.75" y="-252.46478873239434"/>
         </scene>
+        <!--Info-->
+        <scene sceneID="lv2-ct-unB">
+            <objects>
+                <viewController title="Info" id="8Uw-6B-6U2" customClass="AboutViewController" customModule="Locative" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Xo-EW-wIk"/>
+                        <viewControllerLayoutGuide type="bottom" id="VBQ-2X-jQB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gza-K9-cqE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About Locative" id="cT3-CL-J9z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6l-al-bOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="258" y="519"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="paY-O2-EwB">
             <objects>
@@ -1390,35 +1409,6 @@
             </objects>
             <point key="canvasLocation" x="-742.5" y="-252.46478873239434"/>
         </scene>
-        <!--About Locative-->
-        <scene sceneID="THj-le-4Hp">
-            <objects>
-                <tableViewController id="1qj-Ch-g37" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QbF-0X-l1v">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HdC-mC-295">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HdC-mC-295" id="ShA-Cz-Cvx">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1qj-Ch-g37" id="Kaf-tg-kaM"/>
-                            <outlet property="delegate" destination="1qj-Ch-g37" id="INn-Ta-5Au"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="About Locative" id="mix-P9-5Vh"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D7C-c5-U3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="77" y="442"/>
-        </scene>
         <!--Info-->
         <scene sceneID="Fbp-xH-GdM">
             <objects>
@@ -1429,12 +1419,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="1qj-Ch-g37" kind="relationship" relationship="rootViewController" id="DXn-NA-0VY"/>
+                        <segue destination="8Uw-6B-6U2" kind="relationship" relationship="rootViewController" id="EzH-XL-yPd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pn-FB-3aL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743" y="442"/>
+            <point key="canvasLocation" x="-743" y="519"/>
         </scene>
     </scenes>
     <resources>
