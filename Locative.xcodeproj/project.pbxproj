@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		070568071D4DDA0B005C5E9A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070568061D4DDA0B005C5E9A /* AboutViewController.swift */; };
 		070568091D4DDAEB005C5E9A /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070568081D4DDAEB005C5E9A /* Eureka.framework */; };
+		070568111D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */; };
+		070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 070568141D4DF623005C5E9A /* Acknowledgements.plist */; };
 		0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
 		07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E11D48BAEA00286073 /* CoreDataStack.swift */; };
@@ -64,7 +66,6 @@
 		2A8E9E3117FD6F8500F4A805 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3017FD6F8500F4A805 /* CFNetwork.framework */; };
 		2A8E9E3317FD6FBF00F4A805 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3217FD6FBF00F4A805 /* MobileCoreServices.framework */; };
 		2A8E9E3517FD6FE900F4A805 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E3417FD6FE900F4A805 /* MapKit.framework */; };
-		2A9C1D8718094F0C00F84B5C /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1D8618094F0C00F84B5C /* about.html */; };
 		2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A9C1DF2180969F700F84B5C /* Localizable.strings */; };
 		2AB31B7E18055C6400FC839B /* Geofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB31B7D18055C6400FC839B /* Geofence.m */; };
 		2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD67FB218817BD5003840C8 /* HttpRequest.m */; };
@@ -126,6 +127,8 @@
 		070568061D4DDA0B005C5E9A /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		070568081D4DDAEB005C5E9A /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		0705680F1D4DE388005C5E9A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VTAcknowledgementsViewController.framework; path = Carthage/Build/iOS/VTAcknowledgementsViewController.framework; sourceTree = "<group>"; };
+		070568141D4DF623005C5E9A /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -201,7 +204,6 @@
 		2A8E9E3017FD6F8500F4A805 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2A8E9E3217FD6FBF00F4A805 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		2A8E9E3417FD6FE900F4A805 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2A9C1D8618094F0C00F84B5C /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		2A9C1DF718096A3400F84B5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A9C1DF818096A3B00F84B5C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AB31B7C18055C6400FC839B /* Geofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geofence.h; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070568111D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework in Frameworks */,
 				070568091D4DDAEB005C5E9A /* Eureka.framework in Frameworks */,
 				07BC81EE1D4B5B1200286073 /* SwiftyBeaver.framework in Frameworks */,
 				2A7D40B5186475F000F9A61A /* MessageUI.framework in Frameworks */,
@@ -349,7 +352,7 @@
 				EC3C13E819B178CF0093F139 /* LocativeWidget */,
 				2A8E9D9517FD51DD00F4A805 /* Frameworks */,
 				2A8E9D9417FD51DD00F4A805 /* Products */,
-				A159DC94D3DC883CE8202FEC /* Pods */,
+				797220C52F9EF4EEFE29DEF3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -366,6 +369,7 @@
 		2A8E9D9517FD51DD00F4A805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */,
 				070568081D4DDAEB005C5E9A /* Eureka.framework */,
 				07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */,
 				ECE802771C0CEA9500B1B28C /* libSpecta.a */,
@@ -423,9 +427,9 @@
 		2A8E9D9D17FD51DD00F4A805 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				070568141D4DF623005C5E9A /* Acknowledgements.plist */,
 				2A8D852518AE3ED000CF2693 /* whatsup.caf */,
 				2A04A5941849F1D300D9B485 /* notification.caf */,
-				2A9C1D8618094F0C00F84B5C /* about.html */,
 				2A8E9D9E17FD51DD00F4A805 /* Locative-Info.plist */,
 				2A8E9D9F17FD51DD00F4A805 /* InfoPlist.strings */,
 				2A8E9DA217FD51DD00F4A805 /* main.m */,
@@ -508,7 +512,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A159DC94D3DC883CE8202FEC /* Pods */ = {
+		797220C52F9EF4EEFE29DEF3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -715,8 +719,8 @@
 				2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */,
 				2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */,
 				EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */,
-				2A9C1D8718094F0C00F84B5C /* about.html in Resources */,
 				2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */,
+				070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */,
 				2A04A5951849F1D300D9B485 /* notification.caf in Resources */,
 				2A8D852618AE3ED000CF2693 /* whatsup.caf in Resources */,
 			);
@@ -765,6 +769,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/VTAcknowledgementsViewController.framework",
 			);
 			name = "Copy Carthage frameworks";
 			outputPaths = (

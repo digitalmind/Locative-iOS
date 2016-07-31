@@ -1,4 +1,5 @@
 import Eureka
+import VTAcknowledgementsViewController
 
 private extension String {
     static let shortVersionString = "CFBundleShortVersionString"
@@ -35,13 +36,18 @@ class AboutViewController: FormViewController {
         +++ Section(NSLocalizedString("Licenses", comment: "Licenses header"))
             <<< ButtonRow {
                 $0.title = NSLocalizedString("Open Source", comment: "Open Source licenses button")
-                $0.onCellSelection { cell, row in }
+                $0.onCellSelection { cell, row in
+                    if let controller = VTAcknowledgementsViewController(fileNamed: "Acknowledgements") {
+                        controller.title = NSLocalizedString("Licenses", comment: "Licenses header")
+                        controller.footerText = "Made with ❤️ and Open Source Software"
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }
+                }
             }
         
         +++ Section(footer: versionString())
     }
 }
-
 
 private extension AboutViewController {
     func versionString() -> String {

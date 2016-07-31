@@ -28,6 +28,9 @@ end
 target "Locative" do
   common_pods
   app_pods
+  post_install do | installer |
+    FileUtils.cp_r('Pods/Target Support Files/Pods-Locative/Pods-Locative-Acknowledgements.plist', 'Acknowledgements.plist', :remove_destination => true)
+end
 end
 
 target "LocativeWidget" do
