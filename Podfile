@@ -15,7 +15,6 @@ def app_pods
   pod 'TSMessages', :git => 'https://github.com/KrauseFx/TSMessages', :commit => 'e63f233'
   pod 'PSTAlertController', '~> 1.1.0'
   pod '1PasswordExtension', '~> 1.8.2'
-  pod 'KeychainAccess', '~> 2.3.4'
   pod 'Fabric', '~> 1.6.7'
   pod 'Crashlytics', '~> 3.7.0'
 end

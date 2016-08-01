@@ -31,7 +31,6 @@ PODS:
   - INTULocationManager (3.0.1)
   - iOS-GPX-Framework (0.0.2):
     - TBXML (~> 1.5)
-  - KeychainAccess (2.3.4)
   - ObjectiveRecord (1.5.0):
     - ObjectiveSugar
   - ObjectiveSugar (1.1.0)
@@ -52,7 +51,6 @@ DEPENDENCIES:
   - Harpy (~> 3.3.1)
   - INTULocationManager (~> 3.0.1)
   - iOS-GPX-Framework (from `https://github.com/kimar/iOS-GPX-Framework`, commit `cb2b563`)
-  - KeychainAccess (~> 2.3.4)
   - ObjectiveRecord (from `https://github.com/kimar/ObjectiveRecord`, commit `d1fbb19`)
   - PSTAlertController (~> 1.1.0)
   - Specta
@@ -92,7 +90,6 @@ SPEC CHECKSUMS:
   HexColors: 6ad3947c3447a055a3aa8efa859def096351fe5f
   INTULocationManager: c27483113e1bbc5952ead6417f9b39824a240ebb
   iOS-GPX-Framework: 7297860335a923bb5ea62b29b2691e803226da09
-  KeychainAccess: 3a21b6944b4f2a22653f091d770cf10374961a94
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
   PSTAlertController: cb21afcfa76c3229feec7db044afd4f60dab5892
@@ -101,6 +98,6 @@ SPEC CHECKSUMS:
   TBXML: 9f9dadb239f2f2af1dadb87fe43a0ce6e479379a
   TSMessages: 6e403b790139636c15ab4f51946537095e03e79c
 
-PODFILE CHECKSUM: dc824901f38be6d8f6a4b860eac82473ff8eb68f
+PODFILE CHECKSUM: 22bf908a83db6ea26ae9007b6067a5d50427bde6
 
 COCOAPODS: 1.0.1
