@@ -94,6 +94,10 @@
     
     return cell;
 }
+    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 65.0;
+}
 
 #pragma mark - DZNEmptyDataSetSource
 - (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView{
