@@ -174,7 +174,7 @@
     
     [self.settings persist];
 
-//    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"GeofencesNav"] animated:YES completion:nil];
+    [(UITabBarController *)[[UIApplication sharedApplication].delegate.window rootViewController] setSelectedIndex:0];
 }
 
 - (IBAction)toggleHttpBasicAuth:(id)sender {

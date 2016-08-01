@@ -1350,7 +1350,7 @@
         <scene sceneID="aYq-Tz-aQy">
             <objects>
                 <navigationController storyboardIdentifier="SettingsNav" definesPresentationContext="YES" id="Tnb-Wg-cg0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="h7L-Gv-Ll2"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings-tabbar" id="h7L-Gv-Ll2"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="K9O-3j-JY0">
@@ -1392,7 +1392,7 @@
         <scene sceneID="Vrp-wg-bKB">
             <objects>
                 <navigationController storyboardIdentifier="GeofencesNav" definesPresentationContext="YES" id="2fj-Vr-QZd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Geofences" id="bYJ-7U-uW5"/>
+                    <tabBarItem key="tabBarItem" title="Geofences" image="geofences-tabbar" id="bYJ-7U-uW5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="qpB-Lc-wKt">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1413,7 +1413,7 @@
         <scene sceneID="Fbp-xH-GdM">
             <objects>
                 <navigationController id="w4y-F6-YYz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Info" id="ExW-mv-vM1"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="info-tabbar" id="ExW-mv-vM1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aHo-om-f4z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1428,7 +1428,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="geofences-tabbar" width="50" height="50"/>
+        <image name="info-tabbar" width="50" height="50"/>
         <image name="onepassword-button" width="27" height="27"/>
+        <image name="settings-tabbar" width="50" height="50"/>
     </resources>
     <color key="tintColor" red="0.094117647060000004" green="0.66274509800000003" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
