@@ -35,7 +35,6 @@
     [super viewDidLoad];
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.geocoder = [[CLGeocoder alloc] init];
-    self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)viewWillAppear:(BOOL)animated
