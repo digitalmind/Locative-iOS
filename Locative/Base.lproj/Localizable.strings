@@ -65,8 +65,6 @@
 "This will open up Facebook. Ready?" = "This will open up Facebook. Ready?";
 "This will open up %@. Ready?" = "This will open up %@. Ready?";
 
-"Please make sure to enable \"Background App Fetch\" inside your Device's Settings. This is required for the App to work flawlessly." = "Please make sure to enable \"Background App Fetch\" inside your Device's Settings. This is required for the App to work flawlessly.";
-
 // Cloud Signup ViewController
 "Your account has been created successfully! You have been logged in automatically." = "Your account has been created successfully! You have been logged in automatically.";
 "Your account has been created successfully! You may now sign in using the prvoided credentials." = "Your account has been created successfully! You may now sign in using the prvoided credentials.";

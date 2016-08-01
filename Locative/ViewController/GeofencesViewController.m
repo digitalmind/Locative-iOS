@@ -56,15 +56,6 @@
     if(self.viewDidAppear) {
         [self.tableView reloadData];
     }
-    
-    if (![self.config backgroundFetchMessageShown]) {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Note", nil)
-                                    message:NSLocalizedString(@"Please make sure to enable \"Background App Fetch\" inside your Device's Settings. This is required for the App to work flawlessly.", nil)
-                                   delegate:nil
-                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                          otherButtonTitles:nil, nil] show];
-        [self.config setBackgroundFetchMessageShown:YES];
-    }
 
     self.viewDidAppear = YES;
 }
