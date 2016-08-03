@@ -44,13 +44,13 @@ public class CoreDataStack: NSObject {
 private extension CoreDataStack {
     private func legacyDatabasePath() -> String? {
         guard let url = coreDataManager.applicationSupportDirectory()
-            .URLByAppendingPathComponent("Geofancy.sqlite") else { return nil }
+            .URLByAppendingPathComponent("Geofancy.sqlite") as? NSURL else { return nil }
         return url.path
     }
     
     private func databasePath() -> String? {
         guard let url = coreDataManager.applicationSupportDirectory()
-            .URLByAppendingPathComponent("Locative.sqlite") else { return nil }
+            .URLByAppendingPathComponent("Locative.sqlite") as? NSURL else { return nil }
         return url.path
     }
 }

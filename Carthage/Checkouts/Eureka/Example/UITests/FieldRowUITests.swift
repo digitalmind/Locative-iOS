@@ -62,8 +62,6 @@ class FieldRowUITests: XCTestCase {
         
         
         // check that delete keyboard worlks properly
-        let table = app.tables.elementBoundByIndex(0)
-        table.scrollToElement(tablesQuery.cells.containingType(.StaticText, identifier:"DecimalRow").element)
         decimalRowTextFieldElement.tap()
         let deleteKey = app.keyboards.keys["Delete"]
         deleteKey.tap()
@@ -98,8 +96,6 @@ class FieldRowUITests: XCTestCase {
         // chack initial value
         XCTAssertEqual(textField.value as? String, intFormatter.stringForObjectValue(Int(2015)), "Initial Int Row value is wrong, should be 2,015 or 2.015")
         
-        let table = app.tables.elementBoundByIndex(0)
-        table.scrollToElement(tablesQuery.cells.containingType(.StaticText, identifier:"IntRow").element)
         textField.tap()
         // should be 2015
         XCTAssertEqual(textField.value as? String, "2015", "Editing Initial Int Row value is wrong, should be 2015")
@@ -107,7 +103,7 @@ class FieldRowUITests: XCTestCase {
         let deleteKey = app.keyboards.keys["Delete"]
         
         deleteKey.tap()
-        // should be 201
+        // sould be 201
         XCTAssertEqual(textField.value as? String, intFormatter.stringForObjectValue(Int(201)), "Int Row value is wrong, should be 201")
         
         deleteKey.tap()
@@ -152,31 +148,5 @@ class FieldRowUITests: XCTestCase {
         return numberFormatter
     }()
 
-    
-}
-
-extension XCUIElement {
-    func forceTap() {
-        if self.hittable {
-            self.tap()
-        } else {
-            let coordinate: XCUICoordinate = self.coordinateWithNormalizedOffset(CGVectorMake(0.0, 0.0))
-            coordinate.tap()
-        }
-    }
-}
-
-extension XCUIElement {
-    
-    func scrollToElement(element: XCUIElement) {
-        while !element.visible() {
-            swipeUp()
-        }
-    }
-    
-    func visible() -> Bool {
-        guard self.exists && !CGRectIsEmpty(self.frame) else { return false }
-        return CGRectContainsRect(XCUIApplication().windows.elementBoundByIndex(0).frame, self.frame)
-    }
     
 }

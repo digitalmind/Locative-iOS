@@ -1,4 +1,4 @@
-github "xmartlabs/Eureka" "b8f35699244c9f7c9ff4c8355fc8542a16a731bc"
-github "kishikawakatsumi/KeychainAccess" "90f3e11fe37cdaea27ac4b82dcf4560b2c90ad07"
+github "xmartlabs/Eureka" "1.7.0"
+github "kishikawakatsumi/KeychainAccess" "v2.3.6"
 github "SwiftyBeaver/SwiftyBeaver" "0.6.5"
 github "vtourraine/VTAcknowledgementsViewController" "1.1"
