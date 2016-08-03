@@ -54,13 +54,15 @@
 {
     self.loading = YES;
     self.tableView.tableFooterView = [[UIView alloc] init];
+    __weak typeof(self) weakSelf = self;
     [self.appDelegate.cloudManager loadGeofences:^(NSError *error, NSArray *geofences) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         if (error) {
             return;
         }
-        self.geofences = [NSArray arrayWithArray:geofences];
-        self.loading = NO;
-        [self.tableView reloadData];
+        strongSelf.geofences = [NSArray arrayWithArray:geofences];
+        strongSelf.loading = NO;
+        [strongSelf.tableView reloadData];
         strongSelf.tableView.tableFooterView = nil;
     }];
 }
