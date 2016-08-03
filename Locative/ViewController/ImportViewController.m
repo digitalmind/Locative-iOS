@@ -35,6 +35,7 @@
     [super viewDidLoad];
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.geocoder = [[CLGeocoder alloc] init];
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -52,6 +53,7 @@
 - (void)loadGeofences
 {
     self.loading = YES;
+    self.tableView.tableFooterView = [[UIView alloc] init];
     [self.appDelegate.cloudManager loadGeofences:^(NSError *error, NSArray *geofences) {
         if (error) {
             return;
@@ -59,6 +61,7 @@
         self.geofences = [NSArray arrayWithArray:geofences];
         self.loading = NO;
         [self.tableView reloadData];
+        strongSelf.tableView.tableFooterView = nil;
     }];
 }
 
