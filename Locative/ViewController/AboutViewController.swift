@@ -34,7 +34,7 @@ class AboutViewController: FormViewController {
                 }
         }
             
-        +++ Section(NSLocalizedString("Software licenses", comment: "Licenses header"))
+        +++ Section(NSLocalizedString("Licenses", comment: "Licenses header"))
             <<< ButtonRow {
                 $0.title = NSLocalizedString("Open Source", comment: "Open Source licenses button")
                 $0.onCellSelection { [weak self] cell, row in
@@ -45,22 +45,7 @@ class AboutViewController: FormViewController {
                     }
                 }
             }
-            
-        +++ Section(NSLocalizedString("Artwork licenses", comment: "Artwork license header"))
-            <<< ButtonRow {
-                $0.title = "CC BY 3.0"
-                $0.onCellSelection { cell, row in
-                    UIApplication.sharedApplication().openURL(NSURL(string: "https://creativecommons.org/licenses/by/3.0/")!)
-                }
-            }
-            
-            <<< ButtonRow {
-                $0.title = "UITabBar Icons by Icons Design"
-                $0.onCellSelection { cell, row in
-                    UIApplication.sharedApplication().openURL(NSURL(string: "https://www.iconfinder.com/dreamer0810")!)
-                }
-            }
-        
+
         +++ Section(footer: versionString())
     }
 }
