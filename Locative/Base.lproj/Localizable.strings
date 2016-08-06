@@ -65,8 +65,6 @@
 "This will open up Facebook. Ready?" = "This will open up Facebook. Ready?";
 "This will open up %@. Ready?" = "This will open up %@. Ready?";
 
-"Please make sure to enable \"Background App Fetch\" inside your Device's Settings. This is required for the App to work flawlessly." = "Please make sure to enable \"Background App Fetch\" inside your Device's Settings. This is required for the App to work flawlessly.";
-
 // Cloud Signup ViewController
 "Your account has been created successfully! You have been logged in automatically." = "Your account has been created successfully! You have been logged in automatically.";
 "Your account has been created successfully! You may now sign in using the prvoided credentials." = "Your account has been created successfully! You may now sign in using the prvoided credentials.";
@@ -81,13 +79,13 @@
 
 // Backup
 "My Locative Backup" = "My Locative Backup";
-"You need to setup an Email account. Go to your device's settings into the mail section." = "You need to setup an Email account. Go to your device's settings into the mail section.";
 "Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default." = "Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default.";
 "Would you like to keep your existing Geofences?" = "Would you like to keep your existing Geofences?";
 "An error occured when trying to open our GPX file, maybe it's damaged?" = "An error occured when trying to open our GPX file, maybe it's damaged?";
 "Your GPX file has been sucessfully imported." = "Your GPX file has been sucessfully imported.";
 "There's a maximum limit of 20 Geofences per App, please remove some Geofences before adding new ones." = "There's a maximum limit of 20 Geofences per App, please remove some Geofences before adding new ones.";
 "Only %1$d of the %2$d Geofences could be imported due to the 20 Geofences limit." = "Only %1$d of the %2$d Geofences could be imported due to the 20 Geofences limit.";
+"Something went wrong when exporting your Geofences." = "Something went wrong when exporting your Geofences.";
 
 // Deletion
 "Really delete this Entry?" = "Really delete this Entry?";
@@ -104,3 +102,10 @@
 "Backup" = "Backup";
 "An error occured when backing up your Geofence, please try again." = "An error occured when backing up your Geofence, please try again.";
 "Your Geofence has been backed up successfully." = "Your Geofence has been backed up successfully.";
+
+// Info
+"Get in touch" = "Get in touch";
+"Support" = "Support";
+"Support request" = "Support request";
+"Licenses" = "Licenses";
+"Open Source" = "Open Source";

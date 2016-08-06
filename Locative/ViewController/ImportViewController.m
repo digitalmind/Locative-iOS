@@ -35,7 +35,7 @@
     [super viewDidLoad];
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.geocoder = [[CLGeocoder alloc] init];
-    self.tableView.tableFooterView = [UIView new];
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -53,13 +53,17 @@
 - (void)loadGeofences
 {
     self.loading = YES;
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    __weak typeof(self) weakSelf = self;
     [self.appDelegate.cloudManager loadGeofences:^(NSError *error, NSArray *geofences) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         if (error) {
             return;
         }
-        self.geofences = [NSArray arrayWithArray:geofences];
-        self.loading = NO;
-        [self.tableView reloadData];
+        strongSelf.geofences = [NSArray arrayWithArray:geofences];
+        strongSelf.loading = NO;
+        [strongSelf.tableView reloadData];
+        strongSelf.tableView.tableFooterView = nil;
     }];
 }
 
@@ -94,6 +98,10 @@
     [cell.detailTextLabel setAttributedText:string];
     
     return cell;
+}
+    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 65.0;
 }
 
 #pragma mark - DZNEmptyDataSetSource

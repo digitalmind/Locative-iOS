@@ -62,7 +62,11 @@ public class Settings: NSObject, NSCoding {
         guard let httpBasicAuthUsername = httpBasicAuthUsername else { return }
         
         if httpBasicAuthUsername.isNotEmpty() {
-            self.basicAuthCredentials[httpBasicAuthUsername] = httpBasicAuthPassword
+            if httpBasicAuthPassword == nil {
+                httpBasicAuthPassword = self.basicAuthCredentials[httpBasicAuthUsername]
+            } else {
+                self.basicAuthCredentials[httpBasicAuthUsername] = httpBasicAuthPassword
+            }
         }
         
     }
@@ -79,8 +83,9 @@ public class Settings: NSObject, NSCoding {
         aCoder.encodeObject(nil, forKey: "httpBasicAuthPassword")
         
         guard let httpBasicAuthUsername = httpBasicAuthUsername else { return }
+        guard let httpBasicAuthPassword = httpBasicAuthPassword else { return }
         
-        httpBasicAuthPassword = basicAuthCredentials[httpBasicAuthUsername]
+        basicAuthCredentials[httpBasicAuthUsername] = httpBasicAuthPassword
     }
     
 }

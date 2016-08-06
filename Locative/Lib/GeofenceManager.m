@@ -10,7 +10,7 @@
 
 @interface GeofenceManager () <CLLocationManagerDelegate>
 
-@property (nonatomic, weak) AppDelegate *appDelegate;
+@property (nonatomic, weak, readonly) AppDelegate *appDelegate;
 @property (nonatomic, copy) void (^locationBlock)(CLLocation *currentLocation);
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;
@@ -35,7 +35,6 @@
 
 - (void) setup
 {
-    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager setDelegate:self];
     
@@ -80,6 +79,10 @@
         _mainQueue = [NSOperationQueue mainQueue];
     }
     return _mainQueue;
+}
+
+- (AppDelegate *)appDelegate {
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 #pragma mark - LocationManager Delegate

@@ -6,7 +6,6 @@
 @import PSTAlertController;
 @import ObjectiveSugar;
 @import ObjectiveRecord;
-@import MSDynamicsDrawerViewController;
 
 @interface GeofencesViewController ()
 
@@ -33,16 +32,9 @@
     [super viewDidLoad];
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[self.appDelegate geofenceManager] cleanup];
-    
     self.config = [[Config alloc] init];
 
-    /*
-     Drawer Menu Shadow
-     */
-    self.parentViewController.view.layer.shadowOpacity = 0.75f;
-    self.parentViewController.view.layer.shadowRadius = 10.0f;
-    self.parentViewController.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    [[self.appDelegate geofenceManager] cleanup];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,15 +55,6 @@
     
     if(self.viewDidAppear) {
         [self.tableView reloadData];
-    }
-    
-    if (![self.config backgroundFetchMessageShown]) {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Note", nil)
-                                    message:NSLocalizedString(@"Please make sure to enable \"Background App Fetch\" inside your Device's Settings. This is required for the App to work flawlessly.", nil)
-                                   delegate:nil
-                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                          otherButtonTitles:nil, nil] show];
-        [self.config setBackgroundFetchMessageShown:YES];
     }
 
     self.viewDidAppear = YES;
@@ -145,6 +128,10 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
+    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 65.0;
+}
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -190,11 +177,6 @@
     
     [self performSegueWithIdentifier:@"AddEvent" sender:self];
     
-}
-
-- (IBAction) toggleMenu:(id)sender
-{
-    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
 }
 
 @end

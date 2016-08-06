@@ -4,19 +4,17 @@ import Crashlytics;
 import Harpy;
 import iOS_GPX_Framework
 import TSMessages;
-import MSDynamicsDrawerViewController
 import PSTAlertController;
 import ObjectiveRecord;
 import SVProgressHUD;
 import SwiftyBeaver;
 
-extension String {
+private extension String {
     static let reloadGeofences = "reloadGeofences"
 }
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var dynamicsDrawerViewController: MSDynamicsDrawerViewController!
     var cloudManager: CloudManager!
     
     let reachabilityManager = AFNetworkReachabilityManager(forDomain: "my.locative.io")
@@ -63,24 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             s.appHasBeenStarted = true
             s.persist()
         }
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        dynamicsDrawerViewController = MSDynamicsDrawerViewController()
-        dynamicsDrawerViewController.paneViewSlideOffAnimationEnabled = false
-        dynamicsDrawerViewController.paneDragRequiresScreenEdgePan = true
-        dynamicsDrawerViewController.addStylersFromArray([
-            MSDynamicsDrawerScaleStyler.styler(),
-            MSDynamicsDrawerFadeStyler.styler()
-            ], forDirection: .Left)
-        dynamicsDrawerViewController.setDrawerViewController(
-            storyboard.instantiateViewControllerWithIdentifier("Menu"),
-            forDirection: .Left
-        )
-        dynamicsDrawerViewController.paneViewController =
-            storyboard.instantiateViewControllerWithIdentifier("GeofencesNav")
-        dynamicsDrawerViewController.gravityMagnitude = 4.0
-        window?.rootViewController = dynamicsDrawerViewController
-        window?.makeKeyAndVisible()
         
         UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(
             UIApplicationBackgroundFetchIntervalMinimum
@@ -159,10 +139,7 @@ private extension AppDelegate {
         SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeClear))
         if let q = url.query where q.rangeOfString("openSettings=true") != nil {
             // open settings
-            dynamicsDrawerViewController.paneViewController =
-                UIStoryboard(name: "Main", bundle: nil)
-                    .instantiateViewControllerWithIdentifier("SettingsNav")
-            return
+            window?.rootViewController?.tabBarController?.selectedIndex = Tabs.Settings.rawValue
         }
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) { [weak self] in
             guard let root = try? GPXParser.parseGPXAtURL(url) else {

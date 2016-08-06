@@ -65,8 +65,6 @@
 "This will open up Facebook. Ready?" = "Facebook wird geöffnet. Bereit?";
 "This will open up %@. Ready?" = "%@ wird geöffnet. Bereit?";
 
-"Please make sure to enable \"Background App Fetch\" inside your Device's Settings. This is required for the App to work flawlessly." = "Bitte achte darauf dass \"Hintergrundaktualisierung\" in deinen Einstellungen unter \"Allgemein\" aktiviert ist!";
-
 // Cloud Signup ViewController
 "Your account has been created successfully! You have been logged in automatically." = "Dein Acount wurde erfolgreich erstell und du wurdest automatisch eingeloggt!";
 "Your account has been created successfully! You may now sign in using the prvoided credentials." = "Dein Account wurde erfolgreich erstellt! Du kannst dich nun mit deinen Zugangsdaten einloggen!";
@@ -81,13 +79,13 @@
 
 // Backup
 "My Locative Backup" = "Mein Locative Backup";
-"You need to setup an Email account. Go to your device's settings into the mail section." = "Bitte lege in den Einstellungen deines Geräts einen Email Account an! Sonst kannst du dir dein Backup nicht zuschicken.";
 "Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default." = "Deine Geofences (keine iBeacons) werden als gewöhnliche GPX Datei exportiert, dabei werden nur Name/UUID sowie Position und Beschreibung gespeichert. Individuelle Einstellungen wie Radius und URLs gehen verloren.";
 "Would you like to keep your existing Geofences?" = "Möchtest du deine bestehenden Geofences behalten?";
 "An error occured when trying to open our GPX file, maybe it's damaged?" = "Ein Fehler ist beim Import deiner GPX Datei aufgetreten, bitte prüfe die Datei.";
 "Your GPX file has been sucessfully imported." = "Deine GPX Datei wurde erfolgreich importiert.";
 "There's a maximum limit of 20 Geofences per App, please remove some Geofences before adding new ones." = "Jede App darf maximal 20 Geofences überwachen, bitte entferne zuerst Geofences bevor du neue anlegst.";
 "Only %1$d of the %2$d Geofences could be imported due to the 20 Geofences limit." = "Es konnten nur %1$d deiner %2$d Geofences importiert werden, da pro App nur 20 Geofenes überwacht werden können.";
+"Something went wrong when exporting your Geofences." = "Beim exportieren der Geofences ist ein Problem aufgetreten.";
 
 // Deletion
 "Really delete this Entry?" = "Eintrag wirklich löschen?";
@@ -104,3 +102,10 @@
 "Backup" = "Sichern";
 "An error occured when backing up your Geofence, please try again." = "Beim Sichern deines Geofences ist ein Fehler aufgetreten, bitte versuche es erneut.";
 "Your Geofence has been backed up successfully." = "Dein Geofence wurde erfolgreich gesichert.";
+
+// Info
+"Get in touch" = "Social Media";
+"Support" = "Support";
+"Support request" = "Supportanfrage";
+"Licenses" = "Lizenzen";
+"Open Source" = "Open Source";

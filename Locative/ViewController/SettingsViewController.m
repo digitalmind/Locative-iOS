@@ -9,7 +9,6 @@
 @import INTULocationManager;
 @import iOS_GPX_Framework;
 @import MessageUI;
-@import MSDynamicsDrawerViewController;
 @import OnePasswordExtension;
 @import ObjectiveRecord;
 @import PSTAlertController;
@@ -175,7 +174,7 @@
     
     [self.settings persist];
 
-    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"GeofencesNav"] animated:YES completion:nil];
+    [(UITabBarController *)[[UIApplication sharedApplication].delegate.window rootViewController] setSelectedIndex:0];
 }
 
 - (IBAction)toggleHttpBasicAuth:(id)sender {
@@ -248,10 +247,6 @@
 	}];
 }
 
-- (IBAction) toggleMenu:(id)sender {
-    [[(AppDelegate *)[[UIApplication sharedApplication] delegate] dynamicsDrawerViewController] setPaneState:MSDynamicsDrawerPaneStateOpen animated:YES allowUserInterruption:YES completion:nil];
-}
-
 - (IBAction) loginToAccount:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     
@@ -302,12 +297,12 @@
                                                                           message:NSLocalizedString(@"Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default.", nil)
                                                                    preferredStyle:PSTAlertControllerStyleAlert];
     [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
-        [self performExportGpx];
+        [self performExportGpx:sender];
     }]];
     [controller showWithSender:sender controller:self animated:YES completion:nil];
 }
 
-- (void) performExportGpx {
+- (void) performExportGpx:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     
     GPXRoot *root = [GPXRoot rootWithCreator:@"Locative"];
@@ -323,26 +318,28 @@
                 [root addWaypoint:waypoint];
             }
         }
-        NSLog(@"GPX String: %@", gpx);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             gpx = [root gpx];
             [SVProgressHUD dismiss];
-            [self sendMailContainingGpxContent:gpx];
+            [self shareGpx:gpx sender:sender];
         });
     });
 }
 
-- (void) sendMailContainingGpxContent:(NSString *)gpx {
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
-        mailViewController.mailComposeDelegate = self;
-        [mailViewController setSubject:NSLocalizedString(@"My Locative Backup", nil)];
-        [mailViewController addAttachmentData:[gpx dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"application/xml" fileName:@"Geofences.gpx"];
-        [self presentViewController:mailViewController animated:YES completion:nil];
+- (NSString *)temporaryFilePath {
+    return [NSTemporaryDirectory() stringByAppendingPathComponent:@"Geofences.gpx"];
+}
+
+- (void)shareGpx:(NSString *)gpx sender:(UIButton *)button {
+    if ([[gpx dataUsingEncoding:NSUTF8StringEncoding] writeToFile:[self temporaryFilePath] atomically:YES]) {
+        NSString *path = [self temporaryFilePath];
+        UIDocumentInteractionController *interactionController =
+        [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:path]];
+        [interactionController presentOptionsMenuFromRect:button.frame inView:self.view animated:YES];
     } else {
-        PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
-                                                                              message:NSLocalizedString(@"You need to setup an Email account. Go to your device's settings into the mail section.", nil)
+        PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+                                                                              message:NSLocalizedString(@"Something went wrong when exporting your Geofences.", nil)
                                                                        preferredStyle:PSTAlertControllerStyleAlert];
         [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:PSTAlertActionStyleDefault handler:nil]];
         [controller showWithSender:nil controller:self animated:YES completion:nil];

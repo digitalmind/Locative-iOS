@@ -3,19 +3,9 @@ import Foundation
 public class Config: NSObject {
     
     private let lastMessageFetchKey = "lastMessageFetch"
-    private let backgroundFetchMessageShownKey = "backgroundFetchMessageShown"
     private let defaults = NSUserDefaults.standardUserDefaults()
     private let bundle = NSBundle.mainBundle()
     
-    var backgroundFetchMessageShown: Bool {
-        get {
-            return defaults.boolForKey(backgroundFetchMessageShownKey)
-        }
-        set {
-            defaults
-                .setBool(newValue, key: backgroundFetchMessageShownKey).synchronize()
-        }
-    }
     var lastMessageFetch: NSDate? {
         get {
             return defaults.objectForKey(lastMessageFetchKey) as? NSDate

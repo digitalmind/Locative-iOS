@@ -1,1 +1,4 @@
 github "SwiftyBeaver/SwiftyBeaver"
+github "xmartlabs/Eureka"
+github "vtourraine/VTAcknowledgementsViewController"
+github "kishikawakatsumi/KeychainAccess"
