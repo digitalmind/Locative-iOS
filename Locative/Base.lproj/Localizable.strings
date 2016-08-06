@@ -79,13 +79,13 @@
 
 // Backup
 "My Locative Backup" = "My Locative Backup";
-"You need to setup an Email account. Go to your device's settings into the mail section." = "You need to setup an Email account. Go to your device's settings into the mail section.";
 "Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default." = "Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default.";
 "Would you like to keep your existing Geofences?" = "Would you like to keep your existing Geofences?";
 "An error occured when trying to open our GPX file, maybe it's damaged?" = "An error occured when trying to open our GPX file, maybe it's damaged?";
 "Your GPX file has been sucessfully imported." = "Your GPX file has been sucessfully imported.";
 "There's a maximum limit of 20 Geofences per App, please remove some Geofences before adding new ones." = "There's a maximum limit of 20 Geofences per App, please remove some Geofences before adding new ones.";
 "Only %1$d of the %2$d Geofences could be imported due to the 20 Geofences limit." = "Only %1$d of the %2$d Geofences could be imported due to the 20 Geofences limit.";
+"Something went wrong when exporting your Geofences." = "Something went wrong when exporting your Geofences.";
 
 // Deletion
 "Really delete this Entry?" = "Really delete this Entry?";
