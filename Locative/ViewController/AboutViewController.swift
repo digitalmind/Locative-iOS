@@ -34,15 +34,21 @@ class AboutViewController: FormViewController {
                 }
         }
             
-        +++ Section(NSLocalizedString("Licenses", comment: "Licenses header"))
+        +++ Section(NSLocalizedString("Acknowledgements", comment: "Acknowledgements header"))
             <<< ButtonRow {
-                $0.title = NSLocalizedString("Open Source", comment: "Open Source licenses button")
+                $0.title = NSLocalizedString("Licenses", comment: "Licenses button")
                 $0.onCellSelection { [weak self] cell, row in
                     if let controller = VTAcknowledgementsViewController(fileNamed: "Acknowledgements") {
                         controller.title = NSLocalizedString("Licenses", comment: "Licenses header")
                         controller.footerText = "Made with ❤️ and Open Source Software"
                         self?.navigationController?.pushViewController(controller, animated: true)
                     }
+                }
+            }
+            <<< ButtonRow() {
+                $0.title = NSLocalizedString("Legal", comment: "Legal button")
+                $0.onCellSelection { cell, row in
+                    UIApplication.sharedApplication().openURL(NSURL(string: "https://my.locative.io/legal")!)
                 }
             }
 
