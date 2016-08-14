@@ -609,6 +609,7 @@
 				ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */,
 				6F9492CAD3730B792314F102 /* [CP] Embed Pods Frameworks */,
 				9554A19967883FCF1E3D6549 /* [CP] Copy Pods Resources */,
+				070858EF1D60418F007D0F8D /* Workaround [CP] Issue (https://github.com/CocoaPods/CocoaPods/issues/4203) */,
 			);
 			buildRules = (
 			);
@@ -768,6 +769,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		070858EF1D60418F007D0F8D /* Workaround [CP] Issue (https://github.com/CocoaPods/CocoaPods/issues/4203) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Workaround [CP] Issue (https://github.com/CocoaPods/CocoaPods/issues/4203)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\n  if [[ -d \"Frameworks\" ]]; then\n  rm -fr Frameworks\nfi";
 		};
 		0793708E1D4F7171008E2831 /* WARNING: XCode 8 b3 Workaround for Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
