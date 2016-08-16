@@ -328,7 +328,8 @@
 }
 
 - (NSString *)temporaryFilePath {
-    return [NSTemporaryDirectory() stringByAppendingPathComponent:@"Geofences.gpx"];
+    return [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+            stringByAppendingPathComponent:@"Geofences.gpx"];
 }
 
 - (void)shareGpx:(NSString *)gpx sender:(UIButton *)button {
