@@ -561,7 +561,6 @@
 				07DF8D2B1CCBA1E4001D858B /* Fabric */,
 				5F766997094B39CF6EA3F669 /* [CP] Embed Pods Frameworks */,
 				0299760BFEB3AD961861FCFA /* [CP] Copy Pods Resources */,
-				0793708E1D4F7171008E2831 /* WARNING: XCode 8 b3 Workaround for Carthage */,
 				07BC81EB1D4B5AD200286073 /* Copy Carthage frameworks */,
 				07BC81EF1D4B5D5A00286073 /* Implement SwiftyBeaver */,
 			);
@@ -609,7 +608,6 @@
 				ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */,
 				6F9492CAD3730B792314F102 /* [CP] Embed Pods Frameworks */,
 				9554A19967883FCF1E3D6549 /* [CP] Copy Pods Resources */,
-				070858EF1D60418F007D0F8D /* Workaround [CP] Issue (https://github.com/CocoaPods/CocoaPods/issues/4203) */,
 			);
 			buildRules = (
 			);
@@ -769,34 +767,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		070858EF1D60418F007D0F8D /* Workaround [CP] Issue (https://github.com/CocoaPods/CocoaPods/issues/4203) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Workaround [CP] Issue (https://github.com/CocoaPods/CocoaPods/issues/4203)";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\n  if [[ -d \"Frameworks\" ]]; then\n  rm -fr Frameworks\nfi";
-		};
-		0793708E1D4F7171008E2831 /* WARNING: XCode 8 b3 Workaround for Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "WARNING: XCode 8 b3 Workaround for Carthage";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$TOOLCHAIN_DIR/usr/bin/swift-stdlib-tool \\\n--copy --verbose --sign ${EXPANDED_CODE_SIGN_IDENTITY} \\\n--scan-executable ${TARGET_BUILD_DIR}/${EXECUTABLE_PATH} \\\n--scan-folder ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH} \\\n--scan-folder ${TARGET_BUILD_DIR}/${PLUGINS_FOLDER_PATH} \\\n--platform ${PLATFORM_NAME} \\\n--toolchain $TOOLCHAIN_DIR \\\n--destination ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH} \\\n--strip-bitcode --resource-destination ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME} \\\n--resource-library libswiftRemoteMirror.dylib";
 		};
 		07BC81EB1D4B5AD200286073 /* Copy Carthage frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
