@@ -7,16 +7,14 @@ static NSString *const TODAY_URL = @"https://my.locative.io/api/today";
 @interface GFTodayViewController () <NCWidgetProviding>
 
 @property (nonatomic, strong) IBOutlet UILabel *label;
-@property (nonatomic, strong) NSUserDefaults *defaults;
+@property (nonatomic, strong, readonly) NSUserDefaults *defaults;
 
 @end
 
 @implementation GFTodayViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    self.defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.marcuskida.Geofancy"];
+- (NSUserDefaults *)defaults {
+    return [[NSUserDefaults alloc] initWithSuiteName:@"group.marcuskida.Geofancy"];
 }
 
 - (NSString *)getSessionId {
