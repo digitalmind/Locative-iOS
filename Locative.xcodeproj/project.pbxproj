@@ -30,6 +30,7 @@
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
 		07E225561CA8D58F00572180 /* GeofenceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225551CA8D58F00572180 /* GeofenceAnnotation.swift */; };
+		07E846991D64423300ECC717 /* UIDevice+Locative.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E846981D64423300ECC717 /* UIDevice+Locative.m */; };
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
 		2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* SettingsViewController.m */; };
 		2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24C18057C0100AC1708 /* NSString+URLEncode.m */; };
@@ -152,6 +153,8 @@
 		07E225511CA8D38C00572180 /* NSString+Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Paths.swift"; sourceTree = "<group>"; };
 		07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefault+Locative.swift"; sourceTree = "<group>"; };
 		07E225551CA8D58F00572180 /* GeofenceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceAnnotation.swift; sourceTree = "<group>"; };
+		07E846971D64423300ECC717 /* UIDevice+Locative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Locative.h"; sourceTree = "<group>"; };
+		07E846981D64423300ECC717 /* UIDevice+Locative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Locative.m"; sourceTree = "<group>"; };
 		07E8A9A86F05B3D9DB13F986 /* Pods_LocativeWidget_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A04A5941849F1D300D9B485 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		2A27D24818056CB000AC1708 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 				2A2BF5251853735800D5DD98 /* NSString+Hashes.m */,
 				EC24859B1AF8D01400A1A041 /* UILocalNotification+Locative.h */,
 				EC24859C1AF8D01400A1A041 /* UILocalNotification+Locative.m */,
+				07E846971D64423300ECC717 /* UIDevice+Locative.h */,
+				07E846981D64423300ECC717 /* UIDevice+Locative.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -623,7 +628,7 @@
 		2A8E9D8B17FD51DD00F4A805 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = GF;
+				CLASSPREFIX = "";
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0800;
@@ -984,6 +989,7 @@
 				0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */,
 				EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */,
 				2A2BF520185371B800D5DD98 /* CloudManager.m in Sources */,
+				07E846991D64423300ECC717 /* UIDevice+Locative.m in Sources */,
 				07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */,
 				2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */,
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,

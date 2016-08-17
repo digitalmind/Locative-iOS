@@ -1,6 +1,7 @@
 #import "Locative-Swift.h"
 #import "GeofenceManager.h"
 #import "HttpRequest.h"
+#import "UIDevice+Locative.h"
 
 #define WHICH_METHOD(number) ([number intValue] == 0)?@"POST":@"GET"
 
@@ -156,6 +157,8 @@
         NSDictionary *parameters = @{@"id":eventId,
                                      @"trigger":trigger,
                                      @"device":deviceId,
+                                     @"device_type": @"iOS",
+                                     @"device_model": [UIDevice locative_deviceModel],
                                      @"latitude":[NSNumber numberWithDouble:location.coordinate.latitude],
                                      @"longitude":[NSNumber numberWithDouble:location.coordinate.longitude],
                                      @"timestamp": [NSString stringWithFormat:@"%f", [timestamp timeIntervalSince1970]]};

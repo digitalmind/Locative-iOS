@@ -4,6 +4,7 @@
 #import "Geofence.h"
 #import "GeofencesViewController.h"
 #import "HttpRequest.h"
+#import "UIDevice+Locative.h"
 
 @import AFNetworking;
 @import INTULocationManager;
@@ -203,6 +204,8 @@
          NSDictionary *parameters = @{@"id":eventId,
                                       @"trigger":@"test",
                                       @"device":deviceId,
+                                      @"device_type": [[UIDevice currentDevice] model],
+                                      @"device_model": [UIDevice locative_deviceModel],
                                       @"latitude":currentLocation?[NSNumber numberWithFloat:currentLocation.coordinate.latitude]:@123.00,
                                       @"longitude":currentLocation?[NSNumber numberWithFloat:currentLocation.coordinate.longitude]:@123.0f,
                                       @"timestamp": [NSString stringWithFormat:@"%f", [timestamp timeIntervalSince1970]]};
