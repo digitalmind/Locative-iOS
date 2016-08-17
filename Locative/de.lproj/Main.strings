@@ -123,7 +123,7 @@
 "btJ-22-JKg.text" = "Benachrichtigung bei Fehler";
 
 /* Class = "UINavigationItem"; title = "About Locative"; ObjectID = "cT3-CL-J9z"; */
-"cT3-CL-J9z.title" = "Über Locative";
+"cT3-CL-J9z.title" = "Info";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "czE-RA-CWx"; */
 "czE-RA-CWx.normalTitle" = "Login";

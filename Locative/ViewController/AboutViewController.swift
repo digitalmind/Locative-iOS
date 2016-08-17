@@ -12,7 +12,18 @@ class AboutViewController: FormViewController {
         super.viewDidLoad()
         let social = Social(viewController: self)
     
-        form +++ Section(NSLocalizedString("Get in touch", comment: "Get in touch"))
+        form
+            
+        +++ Section(NSLocalizedString("HTTP Webhooks", comment: "HTTP Webhooks section in info"))
+            <<< ButtonRow {
+                $0.title = NSLocalizedString("View pending and failed", comment: "View pending and failed webhooks")
+                $0.onCellSelection { [weak self] cell, row in
+                    self?.navigationController?
+                        .pushViewController(WebhookViewController(), animated: true)
+                }
+            }
+            
+        +++ Section(NSLocalizedString("Get in touch", comment: "Get in touch"))
             <<< ButtonRow {
                 $0.title = "Facebook"
                 $0.onCellSelection { cell, row in

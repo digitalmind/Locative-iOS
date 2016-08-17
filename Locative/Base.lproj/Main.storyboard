@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About Locative" id="cT3-CL-J9z"/>
+                    <navigationItem key="navigationItem" title="Info" id="cT3-CL-J9z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6l-al-bOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
