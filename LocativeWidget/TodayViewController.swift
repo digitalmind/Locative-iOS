@@ -6,7 +6,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, NSURLSessionDele
     @IBOutlet weak var label: UILabel!
     private let defaults = NSUserDefaults(suiteName: "group.marcuskida.Geofancy")
 
-    var sessonId: String? {
+    var sessionId: String? {
         get {
             return defaults?.stringForKey("sessionId")
         }
@@ -14,11 +14,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, NSURLSessionDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     func widgetPerformUpdateWithCompletionHandler(completionHandler: (NCUpdateResult) -> Void) {
-        guard let sId = sessonId else {
+        guard let sId = sessionId else {
             return completionHandler(.NoData)
         }
         
@@ -26,7 +25,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, NSURLSessionDele
         let task = session.dataTaskWithURL(
             NSURL(string: "https://my.locative.io/api/today\(["sessionId": sId].queryString())")!
         ) { [weak self] data, response, error in
-            guard let _ = error else {
+            if let _ = error {
                 self?.updateLabel(nil)
                 return completionHandler(.NewData)
             }
@@ -51,7 +50,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, NSURLSessionDele
                 return completionHandler(.NewData)
             }
             self?.updateLabel(
-                NSLocalizedString("You last visited", comment: "You last visited").stringByAppendingString(" \(locationId)")
+                NSLocalizedString("You last visited", comment: "You last visited").stringByAppendingString(" \(locationId).")
             )
         }
         task.resume()
@@ -59,28 +58,34 @@ class TodayViewController: UIViewController, NCWidgetProviding, NSURLSessionDele
     
     private func updateLabel(string: String?) {
         guard let s = string else { return label.text = nil }
-        label.text = s.characters.count > 0 ? s : NSLocalizedString(
-            "Please login using the Locative App by tapping here.",
-            comment: "Login text for widget"
-        )
+        main { [weak self] in
+            self?.label.text = s.characters.count > 0 ? s : NSLocalizedString(
+                "Please login using the Locative App by tapping here.",
+                comment: "Login text for widget"
+            )
+        }
     }
     
     private func showNoVisits() {
-        label.text = NSLocalizedString(
-            "You have not visited any locations.",
-            comment: "You have not visited any locations."
-        )
+        main { [weak self] in
+            self?.label.text = NSLocalizedString(
+                "You have not visited any locations.",
+                comment: "You have not visited any locations."
+            )
+        }
     }
     
     private func showGenericError() {
-        label.text = NSLocalizedString(
-            "Error updating last visited location.",
-            comment: "Error updating last visited location."
-        )
+        main { [weak self] in
+            self?.label.text = NSLocalizedString(
+                "Error updating last visited location.",
+                comment: "Error updating last visited location."
+            )
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        guard let _ = sessonId else {
+        guard let _ = sessionId else {
             extensionContext?.openURL(
                 NSURL(string: "locative://open?ref=todaywidget&openSettings=true")!,
                 completionHandler: nil
@@ -90,6 +95,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, NSURLSessionDele
         extensionContext?.openURL(
             NSURL(string: "locative://open?ref=todaywidget")!,
             completionHandler: nil)
+    }
+}
+
+private extension TodayViewController {
+    func main(closure:()->Void) {
+        dispatch_async(dispatch_get_main_queue(), closure)
     }
 }
 
