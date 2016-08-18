@@ -19,7 +19,6 @@
 		07BC81E61D48C34E00286073 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E51D48C34E00286073 /* Config.swift */; };
 		07BC81E81D48C72F00286073 /* BackgroundBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */; };
 		07BC81EA1D48C92500286073 /* SecureCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E91D48C92500286073 /* SecureCredentials.swift */; };
-		07BC81EE1D4B5B1200286073 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */; };
 		07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F01D4B5DBF00286073 /* Environment.swift */; };
 		07BC81F31D4B5FA600286073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F21D4B5FA600286073 /* AppDelegate.swift */; };
 		07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F41D4CC29200286073 /* HttpRequestManager.swift */; };
@@ -142,7 +141,6 @@
 		07BC81E51D48C34E00286073 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundBlockOperation.swift; sourceTree = "<group>"; };
 		07BC81E91D48C92500286073 /* SecureCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureCredentials.swift; sourceTree = "<group>"; };
-		07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		07BC81F01D4B5DBF00286073 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		07BC81F21D4B5FA600286073 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07BC81F41D4CC29200286073 /* HttpRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestManager.swift; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 				0793708C1D4F690E008E2831 /* KeychainAccess.framework in Frameworks */,
 				070568111D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework in Frameworks */,
 				070568091D4DDAEB005C5E9A /* Eureka.framework in Frameworks */,
-				07BC81EE1D4B5B1200286073 /* SwiftyBeaver.framework in Frameworks */,
 				2A7D40B5186475F000F9A61A /* MessageUI.framework in Frameworks */,
 				2A521A87183627C9001F3669 /* QuartzCore.framework in Frameworks */,
 				2A74C2DA180B13F9008A13B9 /* Security.framework in Frameworks */,
@@ -392,7 +389,6 @@
 				0793708B1D4F690E008E2831 /* KeychainAccess.framework */,
 				070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */,
 				070568081D4DDAEB005C5E9A /* Eureka.framework */,
-				07BC81EC1D4B5AFE00286073 /* SwiftyBeaver.framework */,
 				ECE802771C0CEA9500B1B28C /* libSpecta.a */,
 				ECE802751C0CEA8D00B1B28C /* libExpecta.a */,
 				ECDCB03A1ADE5245008988C5 /* libPods-Locative.a */,
@@ -581,7 +577,6 @@
 				5F766997094B39CF6EA3F669 /* [CP] Embed Pods Frameworks */,
 				0299760BFEB3AD961861FCFA /* [CP] Copy Pods Resources */,
 				07BC81EB1D4B5AD200286073 /* Copy Carthage frameworks */,
-				07BC81EF1D4B5D5A00286073 /* Implement SwiftyBeaver */,
 			);
 			buildRules = (
 			);
@@ -804,20 +799,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		07BC81EF1D4B5D5A00286073 /* Implement SwiftyBeaver */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Implement SwiftyBeaver";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/swiftybeaver.sh\"";
 		};
 		07DF8D2B1CCBA1E4001D858B /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
