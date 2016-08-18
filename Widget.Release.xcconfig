@@ -1,4 +1,2 @@
-#include "Pods/Target Support Files/Pods-LocativeWidget/Pods-LocativeWidget.release.xcconfig"
-
 BUNDLE_IDENTIFIER = com.marcuskida.Geofancy
 VERSION = 2.0.1

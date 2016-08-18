@@ -32,6 +32,7 @@
 		07E846991D64423300ECC717 /* UIDevice+Locative.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E846981D64423300ECC717 /* UIDevice+Locative.m */; };
 		07E8469B1D64466B00ECC717 /* WebhookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8469A1D64466B00ECC717 /* WebhookViewController.swift */; };
 		07E8469E1D644D0600ECC717 /* WebhookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E8469D1D644D0600ECC717 /* WebhookCell.xib */; };
+		07E846A01D65A8BA00ECC717 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8469F1D65A8BA00ECC717 /* TodayViewController.swift */; };
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
 		2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* SettingsViewController.m */; };
 		2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24C18057C0100AC1708 /* NSString+URLEncode.m */; };
@@ -75,11 +76,9 @@
 		2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE7D801914F99C00460861 /* iBeaconPresets.plist */; };
 		2B6B255EC6E6FCF3756FD146 /* Pods_LocativeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */; };
 		B5FF87B6381EDA94460A963C /* Pods_Locative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DCE64809809285D7A6941B /* Pods_Locative.framework */; };
-		E77730C2DC8A06B54FE9CA11 /* Pods_LocativeWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E74C7E70352C766CF546839F /* Pods_LocativeWidget.framework */; };
 		EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */ = {isa = PBXBuildFile; fileRef = EC24859C1AF8D01400A1A041 /* UILocalNotification+Locative.m */; };
 		EC28B7A719B72913009E5427 /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28B7A619B72913009E5427 /* ImportViewController.m */; };
 		EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
-		EC37383C1BDE2A0900C7DA0C /* GFTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37383B1BDE2A0900C7DA0C /* GFTodayViewController.m */; };
 		EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */; };
 		EC3C13E719B178CF0093F139 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3C13E619B178CF0093F139 /* NotificationCenter.framework */; };
 		EC3C13EE19B178CF0093F139 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3C13ED19B178CF0093F139 /* MainInterface.storyboard */; };
@@ -157,6 +156,7 @@
 		07E846981D64423300ECC717 /* UIDevice+Locative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Locative.m"; sourceTree = "<group>"; };
 		07E8469A1D64466B00ECC717 /* WebhookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebhookViewController.swift; sourceTree = "<group>"; };
 		07E8469D1D644D0600ECC717 /* WebhookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebhookCell.xib; sourceTree = "<group>"; };
+		07E8469F1D65A8BA00ECC717 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		07E8A9A86F05B3D9DB13F986 /* Pods_LocativeWidget_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A04A5941849F1D300D9B485 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		2A27D24818056CB000AC1708 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -242,8 +242,6 @@
 		EC30D0531ADE4B16009C2734 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EC34CB5A199590D7004479D2 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		EC34CB5C199592C7004479D2 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		EC37383A1BDE2A0900C7DA0C /* GFTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFTodayViewController.h; sourceTree = "<group>"; };
-		EC37383B1BDE2A0900C7DA0C /* GFTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFTodayViewController.m; sourceTree = "<group>"; };
 		EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		EC3C13E519B178CF0093F139 /* Locative.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Locative.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3C13E619B178CF0093F139 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -301,7 +299,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3C13E719B178CF0093F139 /* NotificationCenter.framework in Frameworks */,
-				E77730C2DC8A06B54FE9CA11 /* Pods_LocativeWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,8 +541,7 @@
 				ECCBD31D19CEE8F20009399B /* Localizable.strings */,
 				EC30993619B1D18300845430 /* WidgetObjcBridge.h */,
 				EC3C13FA19B17A780093F139 /* LocativeWidget.entitlements */,
-				EC37383A1BDE2A0900C7DA0C /* GFTodayViewController.h */,
-				EC37383B1BDE2A0900C7DA0C /* GFTodayViewController.m */,
+				07E8469F1D65A8BA00ECC717 /* TodayViewController.swift */,
 				EC3C13ED19B178CF0093F139 /* MainInterface.storyboard */,
 				EC3C13E919B178CF0093F139 /* Supporting Files */,
 			);
@@ -614,13 +610,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC3C13F419B178CF0093F139 /* Build configuration list for PBXNativeTarget "LocativeWidget" */;
 			buildPhases = (
-				D9E64DA8B9275515F8B3DC61 /* [CP] Check Pods Manifest.lock */,
 				ECCCABA91B04EA4F0040FED2 /* Increment Build */,
 				EC3C13E119B178CF0093F139 /* Sources */,
 				EC3C13E219B178CF0093F139 /* Frameworks */,
 				EC3C13E319B178CF0093F139 /* Resources */,
-				ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */,
-				9554A19967883FCF1E3D6549 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -903,50 +896,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeTests/Pods-LocativeTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9554A19967883FCF1E3D6549 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocativeWidget/Pods-LocativeWidget-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D9E64DA8B9275515F8B3DC61 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		ECC803751BEF49D400314FE5 /* Fix disallowed 'Frameworks' */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Fix disallowed 'Frameworks'";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then\nrm -fr Frameworks\nfi";
-		};
 		ECCCABA91B04EA4F0040FED2 /* Increment Build */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1023,7 +972,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC37383C1BDE2A0900C7DA0C /* GFTodayViewController.m in Sources */,
+				07E846A01D65A8BA00ECC717 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1190,6 +1139,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1214,6 +1164,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1271,12 +1222,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC11C7681ADE53C2003DC18D /* Widget.Debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcuskida.Geofancy.GeofancyWidget;
 				PRODUCT_NAME = Locative;
@@ -1290,12 +1243,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC11C7691ADE53C2003DC18D /* Widget.Release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Prefix.pch";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcuskida.Geofancy.GeofancyWidget;
 				PRODUCT_NAME = Locative;
