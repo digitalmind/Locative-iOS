@@ -316,14 +316,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		07E8469C1D644CEF00ECC717 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				07E8469D1D644D0600ECC717 /* WebhookCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		2A4B2B2D17FD7E17002ECE72 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,7 +411,6 @@
 		2A8E9D9C17FD51DD00F4A805 /* Locative */ = {
 			isa = PBXGroup;
 			children = (
-				07E8469C1D644CEF00ECC717 /* View */,
 				0746F27F1CA62C7F009F03D7 /* Extension */,
 				EC3C13F919B17A280093F139 /* Locative.entitlements */,
 				EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */,
@@ -497,7 +488,6 @@
 			isa = PBXGroup;
 			children = (
 				070568061D4DDA0B005C5E9A /* AboutViewController.swift */,
-				07E8469A1D64466B00ECC717 /* WebhookViewController.swift */,
 				2A8E9E0117FD5AA500F4A805 /* GeofencesViewController.h */,
 				2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */,
 				2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */,
@@ -728,7 +718,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8E9DAF17FD51DD00F4A805 /* Images.xcassets in Resources */,
-				07E8469E1D644D0600ECC717 /* WebhookCell.xib in Resources */,
 				2A8E9DA117FD51DD00F4A805 /* InfoPlist.strings in Resources */,
 				2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */,
 				2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */,
@@ -937,7 +926,6 @@
 				07E846991D64423300ECC717 /* UIDevice+Locative.m in Sources */,
 				07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */,
 				2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */,
-				07E8469B1D64466B00ECC717 /* WebhookViewController.swift in Sources */,
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
 				2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */,
 				07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */,

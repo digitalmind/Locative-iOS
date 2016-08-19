@@ -66,6 +66,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplicationBackgroundFetchIntervalMinimum
         )
         
+        // Remove all pending http requests
+        // TODO: Don't do this once were intentially caching all pending reqs
+        HttpRequest.deleteAll()
+        
         // Setup Harpy
         harpy.appID = "725198453"
         #if DEBUG

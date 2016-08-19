@@ -2,8 +2,6 @@ import AFNetworking
 import SwiftyBeaver
 
 class HttpRequestManager: NSObject {
-    static let maxFailCount = 3
-    
     static let sharedManager = HttpRequestManager()
     private let queue = NSOperationQueue()
     
@@ -35,19 +33,28 @@ extension HttpRequestManager {
         (HttpRequest.all() as! [HttpRequest]).forEach { [weak self] req in
             guard let this = self else { return }
             guard let uuid = req.uuid else { return }
-            
-            // Don't retry in case failcount reaches threshold
-            if let fc = req.failCount where fc.integerValue < HttpRequestManager.maxFailCount && !this.lastRequestIds.contains(uuid) {
+            if let fc = req.failCount where fc.intValue >= 3 || this.lastRequestIds.contains(uuid) {
+                // Delete request in case failCount reaches 3
+                req.delete()
+            } else {
                 if uuid.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
                     this.lastRequestIds.append(uuid)
+
                 }
                 if this.appDelegate.reachabilityManager.reachable {
                     // Only try to send request if device is reachable via WWAN or WiFi
                     operation = NSBlockOperation {
                         this.dispatch(req) { success in
-                            this.main {
-                                guard let idx = this.lastRequestIds.indexOf(uuid) else { return }
-                                this.lastRequestIds.removeAtIndex(idx)
+                            if success {
+                                return req.delete()
+                            }
+                            // Increase failcount on error
+                            // perform check for fault and returns nil if object doesn't exist anymore
+                            // e.g. if request has already been fulfilled/removed
+                            // fixes https://fabric.io/locative/ios/apps/com.marcuskida.geofancy/issues/573d92aaffcdc04250123a23
+                            let o = try? req.managedObjectContext?.existingObjectWithID(req.objectID) as! HttpRequest
+                            if let object = o, fc = req.failCount {
+                                object.failCount = NSNumber(int: fc.intValue + 1)
                             }
                             
                         }
@@ -80,33 +87,10 @@ extension HttpRequestManager {
     }
 }
 
-private extension HttpRequestManager {
-    func main(closure:()->Void) {
-        dispatch_async(dispatch_get_main_queue(), closure)
-    }
-}
-
 //MARK: - Private
-extension HttpRequestManager {
+private extension HttpRequestManager {
     func dispatch(request: HttpRequest, completion: (success: Bool)->()) {
 
-        func handleRequest(req: HttpRequest, success: Bool) {
-            self.main {
-                if success {
-                    return req.delete()
-                }
-                // Increase failcount on error
-                // perform check for fault and returns nil if object doesn't exist anymore
-                // e.g. if request has already been fulfilled/removed
-                // fixes https://fabric.io/locative/ios/apps/com.marcuskida.geofancy/issues/573d92aaffcdc04250123a23
-                let o = try? req.managedObjectContext?.existingObjectWithID(req.objectID) as! HttpRequest
-                if let object = o, fc = req.failCount {
-                    object.failCount = NSNumber(int: fc.intValue + 1)
-                    object.save()
-                }
-            }
-        }
-        
         let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.requestSerializer = AFHTTPRequestSerializer()
@@ -126,7 +110,6 @@ extension HttpRequestManager {
         if let m = request.method where isPostMethod(m) {
             manager.POST(url, parameters: request.parameters, success: { [weak self] op, r in
                 SwiftyBeaver.debug("HTTP request completion: \(r)")
-                handleRequest(request, success: true)
                 self?.dispatchFencelog(
                     true,
                     request: request,
@@ -136,7 +119,6 @@ extension HttpRequestManager {
                     completion: completion
                 )
                 }, failure: { [weak self] op, e in
-                    handleRequest(request, success: false)
                     self?.dispatchFencelog(
                         false,
                         request: request,
@@ -149,7 +131,6 @@ extension HttpRequestManager {
         } else {
             manager.GET(url, parameters: request.parameters, success: { [weak self] op, r in
                 SwiftyBeaver.debug("HTTP request completion: \(r)")
-                handleRequest(request, success: true)
                 self?.dispatchFencelog(
                     true,
                     request: request,
@@ -159,7 +140,6 @@ extension HttpRequestManager {
                     completion: completion
                 )
                 }, failure: { [weak self] op, e in
-                    handleRequest(request, success: false)
                     self?.dispatchFencelog(
                         false,
                         request: request,
