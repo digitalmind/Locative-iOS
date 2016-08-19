@@ -30,8 +30,6 @@
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
 		07E225561CA8D58F00572180 /* GeofenceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225551CA8D58F00572180 /* GeofenceAnnotation.swift */; };
 		07E846991D64423300ECC717 /* UIDevice+Locative.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E846981D64423300ECC717 /* UIDevice+Locative.m */; };
-		07E8469B1D64466B00ECC717 /* WebhookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8469A1D64466B00ECC717 /* WebhookViewController.swift */; };
-		07E8469E1D644D0600ECC717 /* WebhookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E8469D1D644D0600ECC717 /* WebhookCell.xib */; };
 		07E846A01D65A8BA00ECC717 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E8469F1D65A8BA00ECC717 /* TodayViewController.swift */; };
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
 		2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27D24918056CB000AC1708 /* SettingsViewController.m */; };
@@ -154,8 +152,6 @@
 		07E225551CA8D58F00572180 /* GeofenceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceAnnotation.swift; sourceTree = "<group>"; };
 		07E846971D64423300ECC717 /* UIDevice+Locative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Locative.h"; sourceTree = "<group>"; };
 		07E846981D64423300ECC717 /* UIDevice+Locative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Locative.m"; sourceTree = "<group>"; };
-		07E8469A1D64466B00ECC717 /* WebhookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebhookViewController.swift; sourceTree = "<group>"; };
-		07E8469D1D644D0600ECC717 /* WebhookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebhookCell.xib; sourceTree = "<group>"; };
 		07E8469F1D65A8BA00ECC717 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		07E8A9A86F05B3D9DB13F986 /* Pods_LocativeWidget_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A04A5941849F1D300D9B485 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
