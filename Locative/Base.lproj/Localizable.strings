@@ -110,3 +110,10 @@
 "Acknowledgements" = "Acknowledgements";
 "Licenses" = "Licenses";
 "Legal" = "Legal";
+
+// Fencelog-only notification
+"%@ has been %@." = "%@ has been %@.";
+"entered" = "entered";
+"left" = "left";
+"triggered" = "triggered";
+

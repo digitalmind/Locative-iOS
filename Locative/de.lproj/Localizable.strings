@@ -110,3 +110,10 @@
 "Acknowledgements" = "Hinweise";
 "Licenses" = "Lizenzen";
 "Legal" = "Nutzungsbedingungen";
+
+// Fencelog-only notification
+"%@ has been %@." = "%@ wurde %@.";
+"entered" = "betreten";
+"left" = "verlassen";
+"triggered" = "ausgelöst";
+
