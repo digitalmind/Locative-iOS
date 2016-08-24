@@ -2,6 +2,8 @@
 #import "GeofenceManager.h"
 #import "HttpRequest.h"
 #import "UIDevice+Locative.h"
+#import "Fencelog.h"
+#import "UILocalNotification+Locative.h"
 
 #define WHICH_METHOD(number) ([number intValue] == 0)?@"POST":@"GET"
 
@@ -130,13 +132,11 @@
     [self performBackgroundTaskForRegion:region withTrigger:GFExit];
 }
 
-- (void) performUrlRequestForRegion:(CLRegion *)region withTrigger:(NSString *)trigger
-{
+- (void) performUrlRequestForRegion:(CLRegion *)region withTrigger:(NSString *)trigger {
     Geofence *event = [Geofence where:[NSString stringWithFormat:@"uuid == '%@'", region.identifier]].first;
     NSLog(@"uuid == '%@'", region.identifier);
     
-    if(event)
-    {
+    if(event) {
         CLLocation *location = [[CLLocation alloc] initWithLatitude:[event.latitude doubleValue] longitude:[event.longitude doubleValue]];
         NSLog(@"got location update: %@", location);
         if ([trigger isEqualToString:GFEnter] && !([event.triggers integerValue] & TriggerOnEnter)) {
@@ -163,8 +163,7 @@
                                      @"longitude":[NSNumber numberWithDouble:location.coordinate.longitude],
                                      @"timestamp": [NSString stringWithFormat:@"%f", [timestamp timeIntervalSince1970]]};
 
-        if([url length] > 0)
-        {
+        if([url length] > 0) {
             [self.mainQueue addOperationWithBlock:^{
                 HttpRequest *httpRequest = [HttpRequest create];
                 httpRequest.url = url;
@@ -191,8 +190,30 @@
                 [httpRequest save];
                 [self.appDelegate.requestManager flushWithCompletion:nil];
             }];
+        } else {
+            Fencelog *fencelog = [[Fencelog alloc] init];
+            fencelog.locationId = eventId;
+            fencelog.latitude = @(location.coordinate.latitude);
+            fencelog.longitude = @(location.coordinate.longitude);
+            fencelog.eventType = trigger;
+            fencelog.fenceType = event.type.intValue == 0 ? @"geofence" : @"ibeacon";
+            fencelog.httpResponse = @"<No HTTP request has been performed>";
+            [self.appDelegate.requestManager dispatchFencelog:fencelog];
+            [self.appDelegate.requestManager presentLocalNotification:
+             [NSString stringWithFormat:NSLocalizedString(@"%@ has been %@.", @"Fencelog-only notification string"),
+              eventId, [self localizedTriggerString:trigger]] success:YES];
         }
     }
+}
+
+- (NSString *)localizedTriggerString:(NSString *)event {
+    if ([event isEqualToString:@"enter"]) {
+        return NSLocalizedString(@"entered", "Fencelog notification entered");
+    }
+    if ([event isEqualToString:@"exit"]) {
+        return NSLocalizedString(@"left", @"Fencelog notification left");
+    }
+    return NSLocalizedString(@"triggered", @"Fencelog notification triggered");
 }
 
 #pragma mark - Public Methods
