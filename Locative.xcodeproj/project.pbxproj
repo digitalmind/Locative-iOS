@@ -13,6 +13,7 @@
 		070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 070568141D4DF623005C5E9A /* Acknowledgements.plist */; };
 		0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
+		0778269B1DA209F7006F1CB8 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0778269A1DA209F7006F1CB8 /* silence.caf */; };
 		0793708C1D4F690E008E2831 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0793708B1D4F690E008E2831 /* KeychainAccess.framework */; };
 		07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E11D48BAEA00286073 /* CoreDataStack.swift */; };
 		07BC81E41D48BEAF00286073 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E31D48BEAF00286073 /* Synchronized.swift */; };
@@ -131,6 +132,7 @@
 		070568141D4DF623005C5E9A /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
+		0778269A1DA209F7006F1CB8 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
 		0793708B1D4F690E008E2831 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		07BC81E11D48BAEA00286073 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -315,7 +317,6 @@
 		07E8469C1D644CEF00ECC717 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				07E8469D1D644D0600ECC717 /* WebhookCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -441,6 +442,7 @@
 				070568141D4DF623005C5E9A /* Acknowledgements.plist */,
 				2A8D852518AE3ED000CF2693 /* whatsup.caf */,
 				2A04A5941849F1D300D9B485 /* notification.caf */,
+				0778269A1DA209F7006F1CB8 /* silence.caf */,
 				2A8E9D9E17FD51DD00F4A805 /* Locative-Info.plist */,
 				2A8E9D9F17FD51DD00F4A805 /* InfoPlist.strings */,
 				2A8E9DA217FD51DD00F4A805 /* main.m */,
@@ -493,7 +495,6 @@
 			isa = PBXGroup;
 			children = (
 				070568061D4DDA0B005C5E9A /* AboutViewController.swift */,
-				07E8469A1D64466B00ECC717 /* WebhookViewController.swift */,
 				2A8E9E0117FD5AA500F4A805 /* GeofencesViewController.h */,
 				2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */,
 				2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */,
@@ -724,10 +725,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8E9DAF17FD51DD00F4A805 /* Images.xcassets in Resources */,
-				07E8469E1D644D0600ECC717 /* WebhookCell.xib in Resources */,
 				2A8E9DA117FD51DD00F4A805 /* InfoPlist.strings in Resources */,
 				2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */,
 				2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */,
+				0778269B1DA209F7006F1CB8 /* silence.caf in Resources */,
 				EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */,
 				2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */,
 				070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */,
@@ -777,7 +778,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/VTAcknowledgementsViewController.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
@@ -933,7 +933,6 @@
 				07E846991D64423300ECC717 /* UIDevice+Locative.m in Sources */,
 				07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */,
 				2AD67FB318817BD5003840C8 /* HttpRequest.m in Sources */,
-				07E8469B1D64466B00ECC717 /* WebhookViewController.swift in Sources */,
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
 				2A27D24D18057C0100AC1708 /* NSString+URLEncode.m in Sources */,
 				07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */,
@@ -1147,7 +1146,7 @@
 				PRODUCT_NAME = Locative;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1172,7 +1171,7 @@
 				PRODUCT_NAME = Locative;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/Locative-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1192,7 +1191,7 @@
 				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME)-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marcuskida.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Locative;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1208,7 +1207,7 @@
 				INFOPLIST_FILE = "$(TARGET_NAME)/$(TARGET_NAME)-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.marcuskida.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Locative;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1231,7 +1230,7 @@
 				PRODUCT_NAME = Locative;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1251,7 +1250,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcuskida.Geofancy.GeofancyWidget;
 				PRODUCT_NAME = Locative;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

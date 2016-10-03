@@ -1,18 +1,17 @@
 import AFNetworking
-import SwiftyBeaver
 
 class HttpRequestManager: NSObject {
     static let maxFailCount = 3
     
     static let sharedManager = HttpRequestManager()
-    private let queue = NSOperationQueue()
+    fileprivate let queue = OperationQueue()
     
-    private var currentlyFlushing = false
-    private var lastRequestIds = [String]()
+    fileprivate var currentlyFlushing = false
+    fileprivate var lastRequestIds = [String]()
     
-    private var appDelegate: AppDelegate {
+    fileprivate var appDelegate: AppDelegate {
         get {
-            return UIApplication.sharedApplication().delegate as! AppDelegate
+            return UIApplication.shared.delegate as! AppDelegate
         }
     }
     
@@ -20,7 +19,7 @@ class HttpRequestManager: NSObject {
 
 //MARK: - Internal
 extension HttpRequestManager {
-    func flushWithCompletion(completion: (()->())?) {
+    func flushWithCompletion(_ completion: (()->())?) {
         if currentlyFlushing {
             return
         }
@@ -30,24 +29,24 @@ extension HttpRequestManager {
             lastRequestIds.removeAll()
         }
         
-        var operation: NSOperation!
-        var previousOperation: NSOperation?
+        var operation: Operation!
+        var previousOperation: Operation?
         (HttpRequest.all() as! [HttpRequest]).forEach { [weak self] req in
             guard let this = self else { return }
             guard let uuid = req.uuid else { return }
             
             // Don't retry in case failcount reaches threshold
-            if let fc = req.failCount where fc.integerValue < HttpRequestManager.maxFailCount && !this.lastRequestIds.contains(uuid) {
-                if uuid.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+            if let fc = req.failCount , fc.intValue < HttpRequestManager.maxFailCount && !this.lastRequestIds.contains(uuid) {
+                if uuid.lengthOfBytes(using: String.Encoding.utf8) > 0 {
                     this.lastRequestIds.append(uuid)
                 }
-                if this.appDelegate.reachabilityManager.reachable {
+                if this.appDelegate.reachabilityManager.isReachable {
                     // Only try to send request if device is reachable via WWAN or WiFi
-                    operation = NSBlockOperation {
+                    operation = BlockOperation {
                         this.dispatch(req) { success in
                             this.main {
-                                guard let idx = this.lastRequestIds.indexOf(uuid) else { return }
-                                this.lastRequestIds.removeAtIndex(idx)
+                                guard let idx = this.lastRequestIds.index(of: uuid) else { return }
+                                this.lastRequestIds.remove(at: idx)
                             }
                             
                         }
@@ -60,7 +59,7 @@ extension HttpRequestManager {
                 }
             }
         }
-        operation = NSBlockOperation { [weak self] in
+        operation = BlockOperation { [weak self] in
             self?.currentlyFlushing = false
             if let cb = completion {
                 cb()
@@ -72,25 +71,25 @@ extension HttpRequestManager {
         queue.addOperation(operation)
     }
     
-    func dispatchFencelog(fencelog: Fencelog) {
+    func dispatchFencelog(_ fencelog: Fencelog) {
         if let s = appDelegate.settings,
-            a = s.apiToken where a.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 {
+            let a = s.apiToken , a.lengthOfBytes(using: String.Encoding.utf8) > 0 {
             appDelegate.cloudManager.dispatchCloudFencelog(fencelog, onFinish: nil)
         }
     }
 }
 
 private extension HttpRequestManager {
-    func main(closure:()->Void) {
-        dispatch_async(dispatch_get_main_queue(), closure)
+    func main(_ closure:@escaping ()->Void) {
+        DispatchQueue.main.async(execute: closure)
     }
 }
 
 //MARK: - Private
 extension HttpRequestManager {
-    func dispatch(request: HttpRequest, completion: (success: Bool)->()) {
+    func dispatch(_ request: HttpRequest, completion: @escaping (_ success: Bool)->()) {
 
-        func handleRequest(req: HttpRequest, success: Bool) {
+        func handleRequest(_ req: HttpRequest, success: Bool) {
             self.main {
                 if success {
                     return req.delete()
@@ -99,9 +98,9 @@ extension HttpRequestManager {
                 // perform check for fault and returns nil if object doesn't exist anymore
                 // e.g. if request has already been fulfilled/removed
                 // fixes https://fabric.io/locative/ios/apps/com.marcuskida.geofancy/issues/573d92aaffcdc04250123a23
-                let o = try? req.managedObjectContext?.existingObjectWithID(req.objectID) as! HttpRequest
-                if let object = o, fc = req.failCount {
-                    object.failCount = NSNumber(int: fc.intValue + 1)
+                let o = try? req.managedObjectContext?.existingObject(with: req.objectID) as! HttpRequest
+                if let object = o, let fc = req.failCount {
+                    object.failCount = NSNumber(value: fc.int32Value + 1 as Int32)
                     object.save()
                 }
             }
@@ -113,8 +112,8 @@ extension HttpRequestManager {
         manager.securityPolicy = .locativePolicy
         
         if let h = request.httpAuth,
-            u = request.httpAuthUsername,
-            p = request.httpAuthPassword where h.boolValue {
+            let u = request.httpAuthUsername,
+            let p = request.httpAuthPassword , h.boolValue {
             manager.requestSerializer.setAuthorizationHeaderFieldWithUsername(
                 u,
                 password: p
@@ -123,14 +122,13 @@ extension HttpRequestManager {
         
         // bail out in case no url is present in request
         guard let url = request.url else { return }
-        if let m = request.method where isPostMethod(m) {
-            manager.POST(url, parameters: request.parameters, success: { [weak self] op, r in
-                SwiftyBeaver.debug("HTTP request completion: \(r)")
+        if let m = request.method , isPostMethod(m) {
+            manager.post(url, parameters: request.parameters, success: { [weak self] op, r in
                 handleRequest(request, success: true)
                 self?.dispatchFencelog(
                     true,
                     request: request,
-                    responseObject: r,
+                    responseObject: r as AnyObject?,
                     responseStatus: op.response?.statusCode,
                     error: nil,
                     completion: completion
@@ -142,18 +140,17 @@ extension HttpRequestManager {
                         request: request,
                         responseObject: nil,
                         responseStatus: op?.response?.statusCode,
-                        error: e,
+                        error: e as NSError?,
                         completion: completion
                     )
                 })
         } else {
-            manager.GET(url, parameters: request.parameters, success: { [weak self] op, r in
-                SwiftyBeaver.debug("HTTP request completion: \(r)")
+            manager.get(url, parameters: request.parameters, success: { [weak self] op, r in
                 handleRequest(request, success: true)
                 self?.dispatchFencelog(
                     true,
                     request: request,
-                    responseObject: r,
+                    responseObject: r as AnyObject?,
                     responseStatus: op.response?.statusCode,
                     error: nil,
                     completion: completion
@@ -165,45 +162,45 @@ extension HttpRequestManager {
                         request: request,
                         responseObject: nil,
                         responseStatus: op?.response?.statusCode,
-                        error: e,
+                        error: e as NSError?,
                         completion: completion
                     )
                 })
         }
     }
     
-    func dispatchFencelog(success: Bool,
+    func dispatchFencelog(_ success: Bool,
                           request: HttpRequest,
                           responseObject: AnyObject?,
                           responseStatus: Int?,
                           error: NSError?,
-                          completion: (success: Bool)->()) {
+                          completion: @escaping (_ success: Bool)->()) {
         
         //TODO: This can be simplified a lot, DO IT!
         if let s = appDelegate.settings {
-            if let method = request.method, n = s.notifyOnSuccess where n.boolValue && success{
+            if let method = request.method, let n = s.notifyOnSuccess , n.boolValue && success{
                 // notify on success
-                if let data = responseObject as? NSData, string = String(data: data, encoding: NSUTF8StringEncoding) {
+                if let data = responseObject as? Data, let string = String(data: data, encoding: String.Encoding.utf8) {
                     presentLocalNotification(
-                        (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).stringByAppendingFormat("%@", string),
+                        (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).appendingFormat("%@", string),
                         success: true
                     )
                 } else {
                     presentLocalNotification(
-                        (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).stringByAppendingFormat("%@", "No readable response received."),
+                        (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).appendingFormat("%@", "No readable response received."),
                         success: true
                     )
                 }
-            } else if let method = request.method, n = s.notifyOnFailure where n.boolValue && !success {
+            } else if let method = request.method, let n = s.notifyOnFailure , n.boolValue && !success {
                 // notify on failure
-                if let data = responseObject as? NSData, string = String(data: data, encoding: NSUTF8StringEncoding) {
+                if let data = responseObject as? Data, let string = String(data: data, encoding: String.Encoding.utf8) {
                     presentLocalNotification(
-                        (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Failure text")).stringByAppendingFormat("%@", string),
+                        (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Failure text")).appendingFormat("%@", string),
                         success: true
                     )
                 } else {
                     presentLocalNotification(
-                        (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Success text")).stringByAppendingFormat("%@", "No readable response received."),
+                        (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Success text")).appendingFormat("%@", "No readable response received."),
                         success: true
                     )
                 }
@@ -228,42 +225,42 @@ extension HttpRequestManager {
         }
         
         if let eventType = request.eventType {
-            fencelog.fenceType = eventType.intValue == 0 ? "geofence" : "ibeacon"
+            fencelog.fenceType = eventType.int32Value == 0 ? "geofence" : "ibeacon"
         }
 
         fencelog.httpUrl = request.url
         fencelog.httpMethod = request.method
         
         if let s = responseStatus {
-            fencelog.httpResponseCode = NSNumber(long: s)
+            fencelog.httpResponseCode = NSNumber(value: s as Int)
         }
-        if let r = responseObject as? NSData {
-            fencelog.httpResponse = String(data: r, encoding: NSUTF8StringEncoding)
+        if let r = responseObject as? Data {
+            fencelog.httpResponse = String(data: r, encoding: String.Encoding.utf8)
         } else {
             fencelog.httpResponse = "<See error code>"
         }
         
         dispatchFencelog(fencelog)
-        dispatch_async(dispatch_get_main_queue()) { 
-            completion(success: success)
+        DispatchQueue.main.async { 
+            completion(success)
         }
         
     }
     
-    func presentLocalNotification(text: String, success: Bool) {
+    func presentLocalNotification(_ text: String, success: Bool) {
         //TODO: this is rediculously complicated... FIX IT
         var sound: String? = "notification.caf"
-        if let s = appDelegate.settings?.soundOnNotification where s.boolValue == false {
+        if let s = appDelegate.settings?.soundOnNotification , s.boolValue == false {
             sound = nil
         }
 
-        UILocalNotification.presentLocalNotificationWithSoundName(
-            sound,
+        UILocalNotification.present(
+            withSoundName: sound,
             alertBody: text,
             userInfo: ["success": success])
     }
     
-    func isPostMethod(method: String) -> Bool {
+    func isPostMethod(_ method: String) -> Bool {
         return method == "POST"
     }
 }

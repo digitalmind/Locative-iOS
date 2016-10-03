@@ -32,7 +32,7 @@ class AboutViewController: FormViewController {
             <<< ButtonRow {
                 $0.title = NSLocalizedString("Support request", comment: "Support request button")
                 $0.onCellSelection { cell, row in
-                    UIApplication.sharedApplication().openURL(NSURL(string: "https://my.locative.io/support")!)
+                    UIApplication.shared.openURL(NSURL(string: "https://my.locative.io/support")! as URL)
                 }
         }
             
@@ -50,7 +50,7 @@ class AboutViewController: FormViewController {
             <<< ButtonRow() {
                 $0.title = NSLocalizedString("Legal", comment: "Legal button")
                 $0.onCellSelection { cell, row in
-                    UIApplication.sharedApplication().openURL(NSURL(string: "https://my.locative.io/legal")!)
+                    UIApplication.shared.openURL(NSURL(string: "https://my.locative.io/legal")! as URL)
                 }
             }
 
@@ -60,10 +60,10 @@ class AboutViewController: FormViewController {
 
 private extension AboutViewController {
     func versionString() -> String {
-        guard let infoDict = NSBundle.mainBundle().infoDictionary else {
+        guard let infoDict = Bundle.main.infoDictionary else {
             return "Unknown Version"
         }
-        return "Version".stringByAppendingFormat(
+        return "Version".appendingFormat(
             " %@ (%@)",
             infoDict[.shortVersionString] as! String,
             infoDict[.shortVersion] as! String

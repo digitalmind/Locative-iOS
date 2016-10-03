@@ -7,7 +7,6 @@ import TSMessages;
 import PSTAlertController;
 import ObjectiveRecord;
 import SVProgressHUD;
-import SwiftyBeaver;
 
 private extension String {
     static let reloadGeofences = "reloadGeofences"
@@ -18,32 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var cloudManager: CloudManager!
     
     let reachabilityManager = AFNetworkReachabilityManager(forDomain: "my.locative.io")
-    let geofenceManager = GeofenceManager.sharedManager()
+    let geofenceManager = GeofenceManager.shared()
     let requestManager = HttpRequestManager.sharedManager
     let settings = Settings().restoredSettings()
     let coreDataStack = CoreDataStack(model: "Model")
     let harpy = Harpy.sharedInstance()
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.window?.backgroundColor = UIColor.blackColor()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.window?.backgroundColor = UIColor.black
         
-        // SwiftyBeaver
-        if let id = Environment.SwiftyBeaver.appId,
-            secret = Environment.SwiftyBeaver.appSecret,
-            key = Environment.SwiftyBeaver.encryptionKey where
-            Environment.SwiftyBeaver.enabled {
-            
-            let console = ConsoleDestination()  // log to Xcode Console
-            let file = FileDestination()  // log to default swiftybeaver.log file
-            let cloud = SBPlatformDestination(appID: id,
-                                              appSecret: secret,
-                                              encryptionKey: key) // to cloud
-            SwiftyBeaver.addDestination(console)
-            SwiftyBeaver.addDestination(file)
-            SwiftyBeaver.addDestination(cloud)
-            SwiftyBeaver.info("SwiftyBeaver enabled!")
-        }
-
         // CloudManager
         cloudManager = CloudManager(settings: settings)
         
@@ -52,93 +34,91 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Reachability
         reachabilityManager.startMonitoring()
-        reachabilityManager.setReachabilityStatusChangeBlock { status in
+        reachabilityManager.setReachabilityStatusChange { status in
             print(AFStringFromNetworkReachabilityStatus(status))
         }
         
         // Initial setup (if app has not been yet started)
-        if let s = settings, st = s.appHasBeenStarted where !st.boolValue {
+        if let s = settings, let st = s.appHasBeenStarted , !st.boolValue {
             s.appHasBeenStarted = true
             s.persist()
         }
         
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(
+        UIApplication.shared.setMinimumBackgroundFetchInterval(
             UIApplicationBackgroundFetchIntervalMinimum
         )
         
         // Setup Harpy
-        harpy.appID = "725198453"
+        harpy?.appID = "725198453"
         #if DEBUG
             harpy.debugEnabled = true
         #endif
-        harpy.presentingViewController = window?.rootViewController
-        harpy.alertType = .Skip
+        harpy?.presentingViewController = window?.rootViewController
+        harpy?.alertType = .skip
         
-        SwiftyBeaver.verbose("App finished launching")
         return true
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.cancelAllLocalNotifications()
         cloudManager.validateSession()
-        harpy.checkVersionDaily()
-        SwiftyBeaver.verbose("App became active")
+        harpy?.checkVersionDaily()
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        SwiftyBeaver.debug("Open url: \(url)")
-        if !url.isFileReferenceURL() { return false }
-        if let ext = url.pathExtension where ext != "gpx" { return false }
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if !(url as NSURL).isFileReferenceURL() { return false }
+        guard url.pathExtension == "gpx" else { return false }
         print("Opening GPX file at \(url.absoluteString)")
         importGpx(url)
         return true
     }
     
-    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        SwiftyBeaver.debug("Perform background fetch")
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         requestManager.flushWithCompletion {
-            completionHandler(.NewData)
+            completionHandler(.newData)
         }
     }
     
-    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        SwiftyBeaver.debug("Did receive local notification")
-        var type = TSMessageNotificationType.Message;
-        if let userInfo = notification.userInfo, success = userInfo["success"] as? Bool  {
-            type = success ? TSMessageNotificationType.Success : TSMessageNotificationType.Error;
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        var type = TSMessageNotificationType.message;
+        if let userInfo = notification.userInfo, let success = userInfo["success"] as? Bool  {
+            type = success ? TSMessageNotificationType.success : TSMessageNotificationType.error;
         }
-        TSMessage.showNotificationWithTitle(notification.alertBody, type: type)
+        TSMessage.showNotification(withTitle: notification.alertBody, type: type)
     }
 }
 
 //MARK: GPX Import
 private extension AppDelegate {
-    func importGpx(url: NSURL) {
+    static let queueLabel = "io.locative.backgroundQueue"
+    
+    func importGpx(_ url: URL) {
         let controller = PSTAlertController(
             title: NSLocalizedString("Note", comment: "Alert title when importing GPX"),
             message: NSLocalizedString("Would you like to keep your existing Geofences?", comment: "Alert message when importing GPX"),
-            preferredStyle: .Alert)
-        controller.addAction(
-            PSTAlertAction(title: NSLocalizedString("No", comment: "No don't keep Geofences when importing GPX"), style: .Default, handler: { [weak self] action in
+            preferredStyle: .alert)
+        controller?.addAction(
+            PSTAlertAction(title: NSLocalizedString("No", comment: "No don't keep Geofences when importing GPX"), style: .default, handler: { [weak self] action in
                 Geofence.deleteAll()
                 self?.importGpx(url, keep: false)
             })
         )
-        controller.addAction(
-            PSTAlertAction(title: NSLocalizedString("Yes", comment: "Yes keep Geofences when importing GPX"), style: .Default, handler: { [weak self] action in
+        controller?.addAction(
+            PSTAlertAction(title: NSLocalizedString("Yes", comment: "Yes keep Geofences when importing GPX"), style: .default, handler: { [weak self] action in
                 self?.importGpx(url, keep: true)
             })
         )
     }
     
-    func importGpx(url: NSURL, keep: Bool) {
-        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeClear))
-        if let q = url.query where q.rangeOfString("openSettings=true") != nil {
+    func importGpx(_ url: URL, keep: Bool) {
+        SVProgressHUD.show(withMaskType: UInt(SVProgressHUDMaskTypeClear))
+        if let q = url.query , q.range(of: "openSettings=true") != nil {
             // open settings
-            window?.rootViewController?.tabBarController?.selectedIndex = Tabs.Settings.rawValue
+            window?.rootViewController?.tabBarController?.selectedIndex = Tabs.settings.rawValue
         }
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) { [weak self] in
-            guard let root = try? GPXParser.parseGPXAtURL(url) else {
+
+        DispatchQueue(label: AppDelegate.queueLabel).async { [weak self] in
+            guard let root = try? GPXParser.parseGPX(at: url) else {
                 self?.showAlert(true, limitExceeded: false, maxLimit: 0, overall: 0)
                 return
             }
@@ -152,27 +132,27 @@ private extension AppDelegate {
             }
             print("maxLimit: \(max), maxImportLimitExceed: \(maxImportLimitExceeded)")
             let count = maxImportLimitExceeded ? max : root.waypoints.count
-            for (index, _) in [0...count].enumerate() {
-                dispatch_async(dispatch_get_main_queue(), { [weak self] in
+            for (index, _) in [0...count].enumerated() {
+                DispatchQueue.main.async(execute: { [weak self] in
                     let waypoint = root.waypoints[index]
                     let geofence = Geofence.create() as! Geofence
-                    geofence.type = NSNumber(unsignedInt: GeofenceTypeGeofence.rawValue)
-                    geofence.name = waypoint.comment
-                    geofence.uuid = NSUUID().UUIDString
-                    geofence.customId = waypoint.name
-                    geofence.latitude = waypoint.latitude
-                    geofence.longitude = waypoint.longitude
+                    geofence.type = NSNumber(value: GeofenceTypeGeofence.rawValue as UInt32)
+                    geofence.name = (waypoint as AnyObject).comment
+                    geofence.uuid = UUID().uuidString
+                    geofence.customId = (waypoint as AnyObject).name
+                    geofence.latitude = (waypoint as AnyObject).latitude
+                    geofence.longitude = (waypoint as AnyObject).longitude
                     geofence.radius = 50
-                    geofence.triggers = NSNumber(unsignedInt: UInt32(TriggerOnEnter.rawValue | TriggerOnExit.rawValue))
+                    geofence.triggers = NSNumber(value: UInt32(TriggerOnEnter.rawValue | TriggerOnExit.rawValue) as UInt32)
                     geofence.save()
-                    self?.geofenceManager.startMonitoringEvent(geofence)
+                    self?.geofenceManager?.startMonitoringEvent(geofence)
                     print("Imported and started \(geofence)")
                 })
             }
-            dispatch_async(dispatch_get_main_queue(), { [weak self] in
-                self?.geofenceManager.cleanup
-                NSNotificationCenter.defaultCenter().postNotificationName(
-                    .reloadGeofences, object: nil
+            DispatchQueue.main.async(execute: { [weak self] in
+                self?.geofenceManager?.cleanup()
+                NotificationCenter.default.post(
+                    name: Notification.Name(rawValue: .reloadGeofences), object: nil
                 )
                 SVProgressHUD.dismiss()
                 self?.showAlert(false, limitExceeded: maxImportLimitExceeded, maxLimit: max, overall: overallWaypoints)
@@ -183,10 +163,10 @@ private extension AppDelegate {
 
 //MARK: - Alert
 private extension AppDelegate {
-    func showAlert(errored: Bool, limitExceeded: Bool, maxLimit: Int, overall: Int) {
-        func message(errored: Bool, limitExceeded: Bool, maxLimit: Int, overall: Int) -> String {
+    func showAlert(_ errored: Bool, limitExceeded: Bool, maxLimit: Int, overall: Int) {
+        func message(_ errored: Bool, limitExceeded: Bool, maxLimit: Int, overall: Int) -> String {
             if !errored && limitExceeded {
-                return "".stringByAppendingFormat(
+                return "".appendingFormat(
                     NSLocalizedString("Only %1$d of the %2$d Geofences could be imported due to the 20 Geofences limit.", comment: ""), maxLimit, overall
                 )
             }
@@ -199,11 +179,11 @@ private extension AppDelegate {
         let alert = PSTAlertController(
             title: errored ? NSLocalizedString("Error", comment: "GPX import error title") : NSLocalizedString("Note", comment: "GPX import note title"),
             message: message(errored, limitExceeded: limitExceeded, maxLimit: maxLimit, overall: overall),
-            preferredStyle: .Alert
+            preferredStyle: .alert
         )
-        alert.addAction(
-            PSTAlertAction(title: NSLocalizedString("OK", comment: "GPX import alert ok"), style: .Default, handler: nil)
+        alert?.addAction(
+            PSTAlertAction(title: NSLocalizedString("OK", comment: "GPX import alert ok"), style: .default, handler: nil)
         )
-        alert.showWithSender(self, controller: nil, animated: true, completion: nil)
+        alert?.showWithSender(self, controller: nil, animated: true, completion: nil)
     }
 }

@@ -1,14 +1,14 @@
 import Foundation
 
-public class Settings: NSObject, NSCoding {
+open class Settings: NSObject, NSCoding {
 
-    var globalUrl: NSURL?
-    var appHasBeenStarted: NSNumber? = NSNumber(bool: false)
-    var globalHttpMethod: NSNumber? = NSNumber(integer: 0)
-    var notifyOnSuccess: NSNumber? = NSNumber(bool: true)
-    var notifyOnFailure: NSNumber? = NSNumber(bool: true)
-    var soundOnNotification: NSNumber? = NSNumber(bool: true)
-    var httpBasicAuthEnabled: NSNumber? = NSNumber(bool: false)
+    var globalUrl: URL?
+    var appHasBeenStarted: NSNumber? = NSNumber(value: false as Bool)
+    var globalHttpMethod: NSNumber? = NSNumber(value: 0 as Int)
+    var notifyOnSuccess: NSNumber? = NSNumber(value: true as Bool)
+    var notifyOnFailure: NSNumber? = NSNumber(value: true as Bool)
+    var soundOnNotification: NSNumber? = NSNumber(value: true as Bool)
+    var httpBasicAuthEnabled: NSNumber? = NSNumber(value: false as Bool)
     var httpBasicAuthUsername: String?
     var httpBasicAuthPassword: String?
     
@@ -20,7 +20,7 @@ public class Settings: NSObject, NSCoding {
     var apiToken: String? {
         get {
             self.migrateApiToken()
-            if let old = old_apiToken() where old.characters.count > 0 {
+            if let old = old_apiToken() , old.characters.count > 0 {
                 self.apiCredentials[cloudSession] = old
                 self.old_removeApiToken()
             }
@@ -31,8 +31,8 @@ public class Settings: NSObject, NSCoding {
             guard let new = newValue else {
                 return removeApiToken()
             }
-            if let old = old_apiToken() where old.characters.count > 0 {
-                defaults().removeObjectForKey(cloudSession)
+            if let old = old_apiToken() , old.characters.count > 0 {
+                defaults().removeObject(forKey: cloudSession)
                 defaults().synchronize()
             }
             self.apiCredentials[cloudSession] = new
@@ -40,8 +40,8 @@ public class Settings: NSObject, NSCoding {
         }
     }
 
-    private func defaults() -> NSUserDefaults {
-        return NSUserDefaults.standardUserDefaults()
+    fileprivate func defaults() -> UserDefaults {
+        return UserDefaults.standard
     }
     
     override init() {
@@ -49,15 +49,15 @@ public class Settings: NSObject, NSCoding {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        globalUrl = aDecoder.decodeObjectForKey("globalUrl") as? NSURL
-        appHasBeenStarted = aDecoder.decodeObjectForKey("appHasBeenStarted") as? NSNumber
-        globalHttpMethod = aDecoder.decodeObjectForKey("globalHttpMethod") as? NSNumber
-        notifyOnSuccess = aDecoder.decodeObjectForKey("notifyOnSuccess") as? NSNumber
-        notifyOnFailure = aDecoder.decodeObjectForKey("notifyOnFailure") as? NSNumber
-        soundOnNotification = aDecoder.decodeObjectForKey("soundOnNotification") as? NSNumber
-        httpBasicAuthEnabled = aDecoder.decodeObjectForKey("httpBasicAuthEnabled") as? NSNumber
-        httpBasicAuthUsername = aDecoder.decodeObjectForKey("httpBasicAuthUsername") as? String
-        httpBasicAuthPassword = aDecoder.decodeObjectForKey("httpBasicAuthPassword") as? String
+        globalUrl = aDecoder.decodeObject(forKey: "globalUrl") as? URL
+        appHasBeenStarted = aDecoder.decodeObject(forKey: "appHasBeenStarted") as? NSNumber
+        globalHttpMethod = aDecoder.decodeObject(forKey: "globalHttpMethod") as? NSNumber
+        notifyOnSuccess = aDecoder.decodeObject(forKey: "notifyOnSuccess") as? NSNumber
+        notifyOnFailure = aDecoder.decodeObject(forKey: "notifyOnFailure") as? NSNumber
+        soundOnNotification = aDecoder.decodeObject(forKey: "soundOnNotification") as? NSNumber
+        httpBasicAuthEnabled = aDecoder.decodeObject(forKey: "httpBasicAuthEnabled") as? NSNumber
+        httpBasicAuthUsername = aDecoder.decodeObject(forKey: "httpBasicAuthUsername") as? String
+        httpBasicAuthPassword = aDecoder.decodeObject(forKey: "httpBasicAuthPassword") as? String
         
         guard let httpBasicAuthUsername = httpBasicAuthUsername else { return }
         
@@ -71,16 +71,16 @@ public class Settings: NSObject, NSCoding {
         
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(globalUrl, forKey: "globalUrl")
-        aCoder.encodeObject(appHasBeenStarted, forKey: "appHasBeenStarted")
-        aCoder.encodeObject(globalHttpMethod, forKey: "globalHttpMethod")
-        aCoder.encodeObject(notifyOnSuccess, forKey: "notifyOnSuccess")
-        aCoder.encodeObject(notifyOnFailure, forKey: "notifyOnFailure")
-        aCoder.encodeObject(soundOnNotification, forKey: "soundOnNotification")
-        aCoder.encodeObject(httpBasicAuthEnabled, forKey: "httpBasicAuthEnabled")
-        aCoder.encodeObject(httpBasicAuthUsername, forKey: "httpBasicAuthUsername")
-        aCoder.encodeObject(nil, forKey: "httpBasicAuthPassword")
+    open func encode(with aCoder: NSCoder) {
+        aCoder.encode(globalUrl, forKey: "globalUrl")
+        aCoder.encode(appHasBeenStarted, forKey: "appHasBeenStarted")
+        aCoder.encode(globalHttpMethod, forKey: "globalHttpMethod")
+        aCoder.encode(notifyOnSuccess, forKey: "notifyOnSuccess")
+        aCoder.encode(notifyOnFailure, forKey: "notifyOnFailure")
+        aCoder.encode(soundOnNotification, forKey: "soundOnNotification")
+        aCoder.encode(httpBasicAuthEnabled, forKey: "httpBasicAuthEnabled")
+        aCoder.encode(httpBasicAuthUsername, forKey: "httpBasicAuthUsername")
+        aCoder.encode(nil, forKey: "httpBasicAuthPassword")
         
         guard let httpBasicAuthUsername = httpBasicAuthUsername else { return }
         guard let httpBasicAuthPassword = httpBasicAuthPassword else { return }
@@ -94,18 +94,18 @@ public class Settings: NSObject, NSCoding {
 extension Settings {
     func restoredSettings() -> Settings? {
         if let oldSettingsPath = NSString.oldSettingsPath(),
-            newSettingsPath = NSString.settingsPath() {
-            if NSFileManager.defaultManager().fileExistsAtPath(oldSettingsPath) {
-                try! NSFileManager.defaultManager().moveItemAtPath(oldSettingsPath, toPath: newSettingsPath)
+            let newSettingsPath = NSString.settingsPath() {
+            if FileManager.default.fileExists(atPath: oldSettingsPath) {
+                try! FileManager.default.moveItem(atPath: oldSettingsPath, toPath: newSettingsPath)
             }
         }
         guard let new = NSString.settingsPath() else {
             return nil
         }
         // important: otherwise we can't restore from original settings
-        NSKeyedUnarchiver.setClass(self.dynamicType, forClassName: "GFSettings")
+        NSKeyedUnarchiver.setClass(type(of: self), forClassName: "GFSettings")
         // in case we don't have any setttings, let's just return a fresh settings instance
-        guard let restored = NSKeyedUnarchiver.unarchiveObjectWithFile(new) as? Settings else {
+        guard let restored = NSKeyedUnarchiver.unarchiveObject(withFile: new) as? Settings else {
             return Settings()
         }
         return restored
@@ -116,11 +116,11 @@ extension Settings {
 extension Settings {
     //MARK: - Legacy
     func old_apiToken() -> String? {
-        return defaults().stringForKey(cloudSession)
+        return defaults().string(forKey: cloudSession)
     }
     
     func old_removeApiToken() {
-        defaults().removeObjectForKey(cloudSession)
+        defaults().removeObject(forKey: cloudSession)
         defaults().synchronize()
     }
     
@@ -130,8 +130,8 @@ extension Settings {
         removeApiTokenFromContainer()
     }
     
-    private func migrateApiToken() {
-        if let old = old_apiToken() where !old.isEmpty {
+    fileprivate func migrateApiToken() {
+        if let old = old_apiToken() , !old.isEmpty {
             apiToken = old
             old_removeApiToken()
         }
@@ -146,13 +146,13 @@ extension Settings {
     }
     
     //MARK: - Shared suite
-    func setApiTokenForContainer(apiToken: String) {
-        NSUserDefaults.sharedSuite()?.setObject(apiToken, forKey: "sessionId")
-        NSUserDefaults.sharedSuite()?.synchronize()
+    func setApiTokenForContainer(_ apiToken: String) {
+        UserDefaults.sharedSuite()?.set(apiToken, forKey: "sessionId")
+        UserDefaults.sharedSuite()?.synchronize()
     }
     
     func removeApiTokenFromContainer() {
-        NSUserDefaults.sharedSuite()?.removeObjectForKey("sessionId")
-        NSUserDefaults.sharedSuite()?.synchronize()
+        UserDefaults.sharedSuite()?.removeObject(forKey: "sessionId")
+        UserDefaults.sharedSuite()?.synchronize()
     }
 }

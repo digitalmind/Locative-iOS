@@ -1,4 +1,4 @@
 enum Tabs: Int {
-    case Geofences = 0, Settings = 1, Info = 2
+    case geofences = 0, settings = 1, info = 2
     
 }

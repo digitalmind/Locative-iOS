@@ -1,7 +1,7 @@
 import Foundation
 
-extension NSUserDefaults {
-    static func sharedSuite() -> NSUserDefaults? {
-        return NSUserDefaults(suiteName: "group.marcuskida.Geofancy")
+extension UserDefaults {
+    static func sharedSuite() -> UserDefaults? {
+        return UserDefaults(suiteName: "group.marcuskida.Geofancy")
     }
 }

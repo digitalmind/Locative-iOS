@@ -1,35 +1,35 @@
 import Foundation
 import ObjectiveRecord
 
-public class CoreDataStack: NSObject {
-    let coreDataManager = CoreDataManager.sharedManager()
+open class CoreDataStack: NSObject {
+    let coreDataManager = CoreDataManager.shared()
         
     public init(model: String) {
         super.init()
-        coreDataManager.modelName = model
-        coreDataManager.bundle = NSBundle(forClass: self.dynamicType)
+        coreDataManager?.modelName = model
+        coreDataManager?.bundle = Bundle(for: type(of: self))
         migrateDatabase()
         migrateCredentials()
     }
     
-    private func migrateDatabase() {
-        let fileManager = NSFileManager.defaultManager()
+    fileprivate func migrateDatabase() {
+        let fileManager = FileManager.default
         if let legacyPath = legacyDatabasePath(),
-            path = databasePath()
-            where fileManager.fileExistsAtPath(path) {
+            let path = databasePath()
+            , fileManager.fileExists(atPath: path) {
             do {
-                try fileManager.copyItemAtPath(legacyPath, toPath: path)
-                try fileManager.removeItemAtPath(legacyPath)
+                try fileManager.copyItem(atPath: legacyPath, toPath: path)
+                try fileManager.removeItem(atPath: legacyPath)
             } catch _ {} // TODO: Implement loggin here
         }
     }
     
-    private func migrateCredentials() {
+    fileprivate func migrateCredentials() {
         synchronized(self) {
             let geofences = Geofence.all() as! [Geofence]
             geofences.forEach { geofence in
                 guard let user = geofence.httpUser,
-                    uuid = geofence.uuid else {
+                    let uuid = geofence.uuid else {
                     return
                 }
                 let credentials = SecureCredentials(service: uuid)
@@ -42,15 +42,15 @@ public class CoreDataStack: NSObject {
 }
 
 private extension CoreDataStack {
-    private func legacyDatabasePath() -> String? {
-        guard let url = coreDataManager.applicationSupportDirectory()
-            .URLByAppendingPathComponent("Geofancy.sqlite") as? NSURL else { return nil }
+    func legacyDatabasePath() -> String? {
+        guard let url = coreDataManager?.applicationSupportDirectory()
+            .appendingPathComponent("Geofancy.sqlite") else { return nil }
         return url.path
     }
     
-    private func databasePath() -> String? {
-        guard let url = coreDataManager.applicationSupportDirectory()
-            .URLByAppendingPathComponent("Locative.sqlite") as? NSURL else { return nil }
+    func databasePath() -> String? {
+        guard let url = coreDataManager?.applicationSupportDirectory()
+            .appendingPathComponent("Locative.sqlite") else { return nil }
         return url.path
     }
 }

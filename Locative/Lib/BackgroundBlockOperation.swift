@@ -1,29 +1,29 @@
 import Foundation
 
-public class BackgroundBlockOperation: NSBlockOperation {
+open class BackgroundBlockOperation: BlockOperation {
     var automaticallyEndsBackgroundTask = true
     var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
     
     func startBackgroundTask() {
-        backgroundTaskIdentifier = UIApplication.sharedApplication()
-            .beginBackgroundTaskWithExpirationHandler { [weak self] in
+        backgroundTaskIdentifier = UIApplication.shared
+            .beginBackgroundTask (expirationHandler: { [weak self] in
                 self?.endBackgroundTask()
-        }
+        })
     }
     
     func endBackgroundTask() {
-        if let identifier = backgroundTaskIdentifier where
+        if let identifier = backgroundTaskIdentifier ,
             identifier != UIBackgroundTaskInvalid {
-            UIApplication.sharedApplication().endBackgroundTask(identifier)
+            UIApplication.shared.endBackgroundTask(identifier)
             backgroundTaskIdentifier = UIBackgroundTaskInvalid
         }
     }
     
-    override public func addExecutionBlock(block: ()->()) {
+    override open func addExecutionBlock(_ block: @escaping ()->()) {
         super.addExecutionBlock { [weak self] in
             self?.startBackgroundTask()
             block()
-            if let this = self where this.automaticallyEndsBackgroundTask {
+            if let this = self , this.automaticallyEndsBackgroundTask {
                 self?.endBackgroundTask()
             }
         }

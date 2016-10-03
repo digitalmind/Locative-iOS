@@ -8,7 +8,7 @@ class SecureCredentials: NSObject {
     
     required init(service: String) {
         keychain = Keychain(service: "\(UIApplication.bundleIdentifier()).\(service)")
-            .accessibility(.AfterFirstUnlock)
+            .accessibility(.afterFirstUnlock)
             .synchronizable(true)
         super.init()
     }

@@ -15,7 +15,7 @@ static NSString *const GFExit = @"exit";
 @interface GeofenceManager : NSObject
 
 #pragma mark - Initialization
-+ (id) sharedManager;
++ (instancetype) sharedManager;
 - (void) cleanup;
 
 #pragma mark - Accessors

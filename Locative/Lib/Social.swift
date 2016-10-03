@@ -2,19 +2,19 @@ import UIKit
 import PSTAlertController
 
 enum SocialType {
-    case Facebook, Twitter
+    case facebook, twitter
     func readable() -> String {
         switch self {
-        case .Facebook:
+        case .facebook:
             return "Facebook"
-        case .Twitter:
+        case .twitter:
             return "Twitter"
         }
     }
 }
 
 class Social: NSObject {
-    let app = UIApplication.sharedApplication()
+    let app = UIApplication.shared
     let viewController: UIViewController
     
     init(viewController: UIViewController) {
@@ -23,49 +23,49 @@ class Social: NSObject {
     }
     
     func openTwitter() {
-        askToOpenSocial(.Twitter) { [weak self] allowed in
+        askToOpenSocial(.twitter) { [weak self] allowed in
             guard let this = self else { return }
             if allowed {
-                if this.app.canOpenURL(NSURL(string: "twitter://")!) {
-                    this.app.openURL(NSURL(string: "twitter://user?screen_name=LocativeHQ")!)
+                if this.app.canOpenURL(URL(string: "twitter://")!) {
+                    this.app.openURL(URL(string: "twitter://user?screen_name=LocativeHQ")!)
                     return
                 }
-                this.app.openURL(NSURL(string: "http://twitter.com/LocativeHQ")!)
+                this.app.openURL(URL(string: "http://twitter.com/LocativeHQ")!)
             }
         }
     }
     
     func openFacebook() {
-        askToOpenSocial(.Facebook) { [weak self] allowed in
+        askToOpenSocial(.facebook) { [weak self] allowed in
             guard let this = self else { return }
             if allowed {
-                if this.app.canOpenURL(NSURL(string: "fb://")!) {
-                    this.app.openURL(NSURL(string: "fb://profile/329978570476013")!)
+                if this.app.canOpenURL(URL(string: "fb://")!) {
+                    this.app.openURL(URL(string: "fb://profile/329978570476013")!)
                     return
                 }
-                this.app.openURL((NSURL(string: "http://facebook.com/LocativeHQ")!))
+                this.app.openURL((URL(string: "http://facebook.com/LocativeHQ")!))
             }
         }
     }
 }
 
 private extension Social {
-    func askToOpenSocial(type: SocialType, completion:(allowed: Bool)->()) {
+    func askToOpenSocial(_ type: SocialType, completion:@escaping (_ allowed: Bool)->()) {
         let controller = PSTAlertController(
             title: NSLocalizedString("Note", comment: "Social alert title"),
             message: String(format: NSLocalizedString("This will open up %@. Ready?", comment: "Open social link alert test"), type.readable()),
-            preferredStyle: .Alert
+            preferredStyle: .alert
         )
-        controller.addAction(
-            PSTAlertAction(title: NSLocalizedString("No", comment: "Social alert no button"), style: .Cancel, handler: { action in
-                completion(allowed: false)
+        controller?.addAction(
+            PSTAlertAction(title: NSLocalizedString("No", comment: "Social alert no button"), style: .cancel, handler: { action in
+                completion(false)
             })
         )
-        controller.addAction(
-            PSTAlertAction(title: NSLocalizedString("Yes", comment: "Social alert yes button"), style: .Default, handler: { action in
-                completion(allowed: true)
+        controller?.addAction(
+            PSTAlertAction(title: NSLocalizedString("Yes", comment: "Social alert yes button"), style: .default, handler: { action in
+                completion(true)
             })
         )
-        controller.showWithSender(self, controller: viewController, animated: true) {}
+        controller?.showWithSender(self, controller: viewController, animated: true) {}
     }
 }
