@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) dispatchCloudFencelog:(Fencelog *)fencelog onFinish:(nullable void(^)(NSError *__nullable error))finish;
 - (void) validateSessionWithCallback:(nullable void(^)(BOOL valid))cb;
 - (void) validateSession;
-- (void) updateSessionWithSessionId:(NSString *)sessionId apnsToken:(NSString *)apnsToken onFinish:(void (^)(NSError *))finish;
+- (void) updateSessionWithSessionId:(NSString *)sessionId apnsToken:(NSString *)apnsToken onFinish:(void (^)( NSError * __nullable error))finish;
 - (void) loadGeofences:(nullable void(^)(NSError *__nullable error, NSArray *__nullable geofences))completion;
 - (void) uploadGeofence:(Geofence *)geofence onFinish:(nullable void(^)(NSError *__nullable error))finish;
 
