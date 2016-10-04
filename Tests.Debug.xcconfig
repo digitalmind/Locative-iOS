@@ -2,4 +2,4 @@
 
 BUNDLE_IDENTIFIER = io.kida.Geofancy
 BACKEND_PROTOCOL = https
-BACKEND_HOST = my.locative.io
+BACKEND_HOST = stage-my.locative.io
