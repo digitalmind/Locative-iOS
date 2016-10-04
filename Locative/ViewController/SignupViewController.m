@@ -49,14 +49,18 @@
         
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 
-        [[_appDelegate cloudManager] signupAccountWithUsername:[self.usernameTextField text] andEmail:[self.emailTextField text] andPassword:[self.passwordTextField text] onFinish:^(NSError *error, CloudManagerSignupError gfcError) {
+        CloudCredentials *credentials = [[CloudCredentials alloc] initWithUsername:[self.usernameTextField text]
+                                                                             email:[self.emailTextField text]
+                                                                          password:[self.passwordTextField text]];
+        
+        [[_appDelegate cloudManager] signupAccountWithCredentials:credentials onFinish:^(NSError *error, CloudManagerSignupError gfcError) {
             
             [SVProgressHUD dismiss];
             
             if (!error) {
                 // Account created successfully!
                 
-                [[_appDelegate cloudManager] loginToAccountWithUsername:[self.usernameTextField text] andPassword:[self.passwordTextField text] onFinish:^(NSError *error, NSString *sessionId) {
+                [[_appDelegate cloudManager] loginToAccountWithCredentials:credentials onFinish:^(NSError *error, NSString *sessionId) {
                     if (!error) {
                         [self.appDelegate.settings setApiToken:sessionId];
                         [self.appDelegate.settings persist];

@@ -1,5 +1,9 @@
 import Foundation
 
+private extension String {
+    static let apnsToken = "apnsToken"
+}
+
 open class Settings: NSObject, NSCoding {
 
     var globalUrl: URL?
@@ -37,6 +41,16 @@ open class Settings: NSObject, NSCoding {
             }
             self.apiCredentials[cloudSession] = new
             self.setApiTokenForContainer(new)
+        }
+    }
+    
+    var apnsToken: String? {
+        get {
+            return defaults().string(forKey: .apnsToken)
+        }
+        set {
+            defaults().set(newValue, forKey: .apnsToken)
+            defaults().synchronize()
         }
     }
 
@@ -114,6 +128,7 @@ extension Settings {
 
 //MARK: - API Token
 extension Settings {
+    
     //MARK: - Legacy
     func old_apiToken() -> String? {
         return defaults().string(forKey: cloudSession)

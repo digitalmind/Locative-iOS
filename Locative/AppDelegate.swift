@@ -86,6 +86,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         TSMessage.showNotification(withTitle: notification.alertBody, type: type)
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        settings?.apnsToken = deviceTokenString
+        guard let token = settings?.apiToken else { return }
+        cloudManager.updateSession(withSessionId: token, apnsToken: deviceTokenString) { error in
+            print("Updated session: \(error)")
+        }
+    }
 }
 
 //MARK: GPX Import

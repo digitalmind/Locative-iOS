@@ -13,18 +13,30 @@ typedef enum {
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface CloudCredentials : NSObject
+
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSString *apnsToken;
+
+- (instancetype) initWithUsername:(NSString *)username email:(NSString *)email password:(NSString *)password;
+
+@end
+
 @interface CloudManager : NSObject
 
 - ( instancetype)init __attribute__((unavailable("Please use `initWithSettings:` instead")));
 - (instancetype)initWithSettings:(Settings * __nullable)settings;
 
-- (void) signupAccountWithUsername:(NSString *)username andEmail:(NSString *)email andPassword:(NSString *)password onFinish:(nullable void(^)(NSError *__nullable error, CloudManagerSignupError gfcError))finish;
-- (void) loginToAccountWithUsername:(NSString *)username andPassword:(NSString *)password onFinish:(nullable void(^)(NSError *__nullable error, NSString *__nullable sessionId))finish;
+- (void) signupAccountWithCredentials:(CloudCredentials *)credentials onFinish:(nullable void(^)(NSError *__nullable error, CloudManagerSignupError gfcError))finish;
+- (void) loginToAccountWithCredentials:(CloudCredentials *)credentials onFinish:(nullable void(^)(NSError *__nullable error, NSString *__nullable sessionId))finish;
 - (void) checkSessionWithSessionId:(NSString *)sessionId onFinish:(nullable void(^)(NSError *__nullable error))finish;
 
 - (void) dispatchCloudFencelog:(Fencelog *)fencelog onFinish:(nullable void(^)(NSError *__nullable error))finish;
 - (void) validateSessionWithCallback:(nullable void(^)(BOOL valid))cb;
 - (void) validateSession;
+- (void) updateSessionWithSessionId:(NSString *)sessionId apnsToken:(NSString *)apnsToken onFinish:(void (^)(NSError *))finish;
 - (void) loadGeofences:(nullable void(^)(NSError *__nullable error, NSArray *__nullable geofences))completion;
 - (void) uploadGeofence:(Geofence *)geofence onFinish:(nullable void(^)(NSError *__nullable error))finish;
 

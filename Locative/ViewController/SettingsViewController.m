@@ -110,6 +110,7 @@
     UIUserNotificationType types = (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert);
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -253,7 +254,11 @@
 - (IBAction) loginToAccount:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     
-    [[self.appDelegate cloudManager] loginToAccountWithUsername:[self.myGfUsername text] andPassword:[self.myGfPassword text] onFinish:^(NSError *error, NSString *sessionId) {
+    CloudCredentials *credentials = [[CloudCredentials alloc] initWithUsername:[self.myGfUsername text]
+                                                                         email:nil
+                                                                      password:[self.myGfPassword text]];
+    
+    [[self.appDelegate cloudManager] loginToAccountWithCredentials:credentials onFinish:^(NSError *error, NSString *sessionId) {
         
         [SVProgressHUD dismiss];
         

@@ -18,6 +18,21 @@
 
 @end
 
+@implementation CloudCredentials
+
+- (instancetype) initWithUsername:(NSString *)username email:(NSString *)email password:(NSString *)password{
+    self = [super init];
+    if (self) {
+        _username = username;
+        _email = email;
+        _password = password;
+        _apnsToken = [[[Settings alloc] init] restoredSettings].apnsToken;
+    }
+    return self;
+}
+
+@end
+
 @implementation CloudManager
 
 - (instancetype)initWithSettings:(Settings *)settings {
@@ -37,14 +52,14 @@
     return policy;
 }
 
-- (void) signupAccountWithUsername:(NSString *)username andEmail:(NSString *)email andPassword:(NSString *)password onFinish:(void (^)(NSError *, CloudManagerSignupError))finish
+- (void) signupAccountWithCredentials:(CloudCredentials *)credentials onFinish:(void (^)(NSError *, CloudManagerSignupError))finish
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setSecurityPolicy:[self commonPolicy]];
-    NSDictionary *params = @{@"username": username,
-                             @"email": email,
-                             @"password": password,
-                             @"token": [[NSString stringWithFormat:@"%@:%@%%%@", username, password, email] sha1]
+    NSDictionary *params = @{@"username": credentials.username,
+                             @"email": credentials.email,
+                             @"password": credentials.password,
+                             @"token": [[NSString stringWithFormat:@"%@:%@%%%@", credentials.username, credentials.password, credentials.email] sha1]
                              };
     [manager POST:[kMyGeofancyBackend stringByAppendingString:@"/api/signup"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // Request succeeded
@@ -65,13 +80,20 @@
     }];
 }
 
-- (void) loginToAccountWithUsername:(NSString *)username andPassword:(NSString *)password onFinish:(void (^)(NSError *, NSString *))finish
+- (void) loginToAccountWithCredentials:(CloudCredentials *)credentials onFinish:(void (^)(NSError *, NSString *))finish
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setSecurityPolicy:[self commonPolicy]];
-    NSDictionary *params = @{@"username": username,
-                             @"password": password,
-                             @"origin": [self originString]};
+    NSMutableDictionary *params = [@{@"username": credentials.username,
+                             @"password": credentials.password,
+                             @"origin": [self originString]
+                             } mutableCopy];
+    if (credentials.apnsToken.length > 0) {
+        params[@"apns"] = credentials.apnsToken;
+#ifdef DEBUG
+        params[@"sandbox"] = @"true";
+#endif
+    }
     [manager GET:[kMyGeofancyBackend stringByAppendingString:@"/api/session"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // Request succeeded
         if (finish) {
@@ -91,6 +113,31 @@
     [manager setSecurityPolicy:[self commonPolicy]];
     NSDictionary *params = @{@"origin": [self originString]};
     [manager GET:[NSString stringWithFormat:@"%@/api/session/%@", kMyGeofancyBackend, sessionId] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (finish) {
+            finish(nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (finish) {
+            finish(error);
+        }
+    }];
+}
+
+- (void) updateSessionWithSessionId:(NSString *)sessionId apnsToken:(NSString *)apnsToken onFinish:(void (^)(NSError *))finish
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setSecurityPolicy:[self commonPolicy]];
+    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+    NSMutableDictionary *params = [@{@"origin": [self originString]} mutableCopy];
+    if (apnsToken.length > 0) {
+        params[@"apns"] = @{
+                @"token": apnsToken
+#ifdef DEBUG
+                , @"sandbox": @"true"
+#endif
+        };
+    }
+    [manager PUT:[NSString stringWithFormat:@"%@/api/session/%@", kMyGeofancyBackend, sessionId] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (finish) {
             finish(nil);
         }

@@ -2,5 +2,5 @@
 
 BUNDLE_IDENTIFIER = io.kida.Geofancy
 VERSION = 2.1.1
-BACKEND_PROTOCOL = https
-BACKEND_HOST = my.locative.io
+BACKEND_PROTOCOL = http
+BACKEND_HOST = localhost:3000
