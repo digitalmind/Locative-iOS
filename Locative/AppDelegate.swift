@@ -95,6 +95,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Updated session: \(error)")
         }
     }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("failed to register for remote notifications: \(error)")
+    }
 }
 
 //MARK: GPX Import
