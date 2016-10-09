@@ -20,7 +20,6 @@
     notification.soundName = soundName;
     notification.userInfo = userInfo;
     notification.alertBody = alertBody;
-    notification.soundName = @"notification.caf";
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
