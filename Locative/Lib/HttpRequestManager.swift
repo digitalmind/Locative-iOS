@@ -248,14 +248,8 @@ extension HttpRequestManager {
     }
     
     func presentLocalNotification(_ text: String, success: Bool) {
-        //TODO: this is rediculously complicated... FIX IT
-        var sound: String? = "notification.caf"
-        if let s = appDelegate.settings?.soundOnNotification , s.boolValue == false {
-            sound = nil
-        }
-
         UILocalNotification.present(
-            withSoundName: sound,
+            withSoundName: (appDelegate.settings?.soundOnNotification?.boolValue == true) ? "notification.caf" : nil,
             alertBody: text,
             userInfo: ["success": success])
     }
