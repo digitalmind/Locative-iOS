@@ -88,8 +88,7 @@
 }
 
 #pragma mark - LocationManager Delegate
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status == kCLAuthorizationStatusDenied) {
         if (self.locationBlock) {
             return self.locationBlock(nil);
@@ -97,8 +96,7 @@
     }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     NSLog(@"%@", locations);
     
     [self setCurrentLocation:(CLLocation *)[locations first]];
@@ -112,8 +110,7 @@
     [self.locationManager stopUpdatingLocation];
 }
 
-- (void) performBackgroundTaskForRegion:(CLRegion *)region withTrigger:(NSString *)trigger
-{
+- (void) performBackgroundTaskForRegion:(CLRegion *)region withTrigger:(NSString *)trigger {
     NSLog(@"CLRegion: %@, Trigger: %@", region, trigger);
 
     [self.dispatchQueue addOperation:[BackgroundBlockOperation blockOperationWithBlock:^{
@@ -121,14 +118,12 @@
     }]];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
-{
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     [self performBackgroundTaskForRegion:region withTrigger:GFEnter];
     [self cleanup];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
-{
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
     [self performBackgroundTaskForRegion:region withTrigger:GFExit];
     [self cleanup];
 }
@@ -220,31 +215,27 @@
 }
 
 #pragma mark - Public Methods
-- (NSArray *) geofences
-{
+- (NSArray<__kindof CLRegion*>*) geofences {
     return [[self.locationManager monitoredRegions] allObjects];
 }
 
-- (void) startMonitoringForRegion:(CLRegion *)region
-{
+- (void) startMonitoringForRegion:(CLRegion *)region {
     [[self locationManager] startMonitoringForRegion:region];
 }
 
-- (void) stopMonitoringForRegion:(CLRegion *)region
-{
+- (void) stopMonitoringForRegion:(CLRegion *)region {
     [[self locationManager] stopMonitoringForRegion:region];
 }
 
-- (void) stopMonitoringEvent:(Geofence *)event
-{
-    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake([event.latitude doubleValue], [event.longitude doubleValue])
-                                                                 radius:[event.radius doubleValue]
-                                                             identifier:event.uuid];
-    [self stopMonitoringForRegion:region];
+- (void) stopMonitoringEvent:(Geofence *)event {
+    [self.geofences enumerateObjectsUsingBlock:^(__kindof CLRegion * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.identifier isEqualToString:event.uuid]) {
+            [self stopMonitoringForRegion:obj];
+        }
+    }];
 }
 
-- (void) startMonitoringEvent:(Geofence *)event
-{
+- (void) startMonitoringEvent:(Geofence *)event {
     if ([event.type intValue] == GeofenceTypeGeofence) {
         CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake([event.latitude doubleValue], [event.longitude doubleValue])
                                                                      radius:[event.radius doubleValue]
@@ -260,8 +251,7 @@
 }
 
 #pragma mark - Current Location
-- (void) performAfterRetrievingCurrentLocation:(void (^)(CLLocation *currentLocation))block
-{
+- (void) performAfterRetrievingCurrentLocation:(void (^)(CLLocation *currentLocation))block {
     self.locationBlock = block;
     __weak typeof (self) weakSelf = self;
     [[INTULocationManager sharedInstance] requestLocationWithDesiredAccuracy:INTULocationAccuracyRoom

@@ -19,7 +19,7 @@ static NSString *const GFExit = @"exit";
 - (void) cleanup;
 
 #pragma mark - Accessors
-- (NSArray *) geofences;
+- (NSArray<__kindof CLRegion*>*) geofences;
 
 #pragma mark - Region Monitoring
 - (void) startMonitoringForRegion:(CLRegion *)region;
