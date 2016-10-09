@@ -199,9 +199,11 @@
             fencelog.fenceType = event.type.intValue == 0 ? @"geofence" : @"ibeacon";
             fencelog.httpResponse = @"<No HTTP request has been performed>";
             [self.appDelegate.requestManager dispatchFencelog:fencelog];
-            [self.appDelegate.requestManager presentLocalNotification:
-             [NSString stringWithFormat:NSLocalizedString(@"%@ has been %@.", @"Fencelog-only notification string"),
-              eventId, [self localizedTriggerString:trigger]] success:YES];
+            if (self.appDelegate.settings.notifyOnSuccess.boolValue) {
+                [self.appDelegate.requestManager presentLocalNotification:
+                 [NSString stringWithFormat:NSLocalizedString(@"%@ has been %@.", @"Fencelog-only notification string"),
+                  eventId, [self localizedTriggerString:trigger]] success:YES];
+            }
         }
     }
 }
