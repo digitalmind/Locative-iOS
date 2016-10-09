@@ -110,13 +110,13 @@ private extension AppDelegate {
             title: NSLocalizedString("Note", comment: "Alert title when importing GPX"),
             message: NSLocalizedString("Would you like to keep your existing Geofences?", comment: "Alert message when importing GPX"),
             preferredStyle: .alert)
-        controller?.addAction(
+        controller.addAction(
             PSTAlertAction(title: NSLocalizedString("No", comment: "No don't keep Geofences when importing GPX"), style: .default, handler: { [weak self] action in
                 Geofence.deleteAll()
                 self?.importGpx(url, keep: false)
             })
         )
-        controller?.addAction(
+        controller.addAction(
             PSTAlertAction(title: NSLocalizedString("Yes", comment: "Yes keep Geofences when importing GPX"), style: .default, handler: { [weak self] action in
                 self?.importGpx(url, keep: true)
             })
@@ -194,9 +194,9 @@ private extension AppDelegate {
             message: message(errored, limitExceeded: limitExceeded, maxLimit: maxLimit, overall: overall),
             preferredStyle: .alert
         )
-        alert?.addAction(
+        alert.addAction(
             PSTAlertAction(title: NSLocalizedString("OK", comment: "GPX import alert ok"), style: .default, handler: nil)
         )
-        alert?.showWithSender(self, controller: nil, animated: true, completion: nil)
+        alert.showWithSender(self, controller: nil, animated: true, completion: nil)
     }
 }

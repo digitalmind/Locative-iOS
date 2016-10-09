@@ -382,16 +382,36 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     }];
 }
 
-- (IBAction)locationButtonTapped:(id)sender
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Enter Address", @"Enter Geofences Address dialog title")
-                                                        message:nil
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
-                                              otherButtonTitles:NSLocalizedString(@"Use", @"Use Address Button title"), nil];
-    alertView.tag = AlertViewTypeLocationEnter;
-    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alertView show];
+- (IBAction)locationButtonTapped:(id)sender {
+    __weak typeof(self) weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Enter Address", @"Enter Geofences Address dialog title")
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:nil];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Use", @"Use Address Button title") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        NSString *address = [alertController.textFields[0] text];
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+        [_geocoder cancelGeocode];
+        [_geocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
+            CLPlacemark *placemark = [placemarks firstObject];
+            if (placemark) {
+                _location = placemark.location;
+                [self setupLocation:placemark.location];
+                [_locationButton setTitle:[self addressFromPlacemark:placemark] forState:UIControlStateNormal];
+            } else {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
+                                                                               message:NSLocalizedString(@"No location found. Please refine your query.", @"No location according to the entered address was found")
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+                [strongSelf presentViewController:alert animated:YES completion:nil];
+            }
+            [SVProgressHUD dismiss];
+        }];
+    }]];
+
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)deleteClicked:(id)sender
@@ -444,32 +464,6 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
                                                                    preferredStyle:PSTAlertControllerStyleAlert];
     [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:PSTAlertActionStyleDefault handler:nil]];
     [controller showWithSender:nil controller:self animated:YES completion:nil];
-}
-#pragma mark - UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.tag == AlertViewTypeLocationEnter) {
-        if (buttonIndex == 1) {
-            NSString *address = [[alertView textFieldAtIndex:0] text];
-            [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
-            [_geocoder cancelGeocode];
-            [_geocoder geocodeAddressString:address completionHandler:^(NSArray *placemarks, NSError *error) {
-                CLPlacemark *placemark = [placemarks firstObject];
-                if (placemark) {
-                    _location = placemark.location;
-                    [self setupLocation:placemark.location];
-                    [_locationButton setTitle:[self addressFromPlacemark:placemark] forState:UIControlStateNormal];
-                } else {
-                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Note", nil)
-                                                message:NSLocalizedString(@"No location found. Please refine your query.", @"No location according to the entered address was found")
-                                               delegate:nil
-                                      cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                                      otherButtonTitles:nil, nil] show];
-                }
-                [SVProgressHUD dismiss];
-            }];
-        }
-    }
 }
 
 #pragma mark - Geofence Actions
@@ -533,12 +527,12 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     if (_geofenceType == GeofenceTypeIbeacon) {
         if ([[self.majorMinorFormatter numberFromString:_iBeaconMajorTextField.text] intValue] > UINT16_MAX ||
             [[self.majorMinorFormatter numberFromString:_iBeaconMinorTextField.text] intValue] > UINT16_MAX) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-                                        message:[NSString stringWithFormat:NSLocalizedString(@"Minor / Major value must not exceed: %d. Please change your Values.", nil), UINT16_MAX]
-                                       delegate:nil
-                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                              otherButtonTitles:nil, nil] show];
-            return;
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+                                                                           message:[NSString stringWithFormat:NSLocalizedString(@"Minor / Major value must not exceed: %d. Please change your Values.", nil), UINT16_MAX]
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+            
+            return [self presentViewController:alert animated:YES completion:nil];
         }
     }
     

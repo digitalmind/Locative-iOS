@@ -20,7 +20,7 @@
 
 @implementation CloudCredentials
 
-- (instancetype) initWithUsername:(NSString *)username email:(NSString *)email password:(NSString *)password{
+- (instancetype) initWithUsername:(NSString *)username email:(NSString *)email password:(NSString *)password {
     self = [super init];
     if (self) {
         _username = username;

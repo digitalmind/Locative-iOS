@@ -34,7 +34,7 @@ PODS:
   - ObjectiveRecord (1.5.0):
     - ObjectiveSugar
   - ObjectiveSugar (1.1.0)
-  - PSTAlertController (1.1.0)
+  - PSTAlertController (1.2.0)
   - Specta (0.2.1)
   - SVProgressHUD (1.0)
   - TBXML (1.5)
@@ -52,7 +52,7 @@ DEPENDENCIES:
   - INTULocationManager (~> 3.0.1)
   - iOS-GPX-Framework (from `https://github.com/kimar/iOS-GPX-Framework`, commit `cb2b563`)
   - ObjectiveRecord (from `https://github.com/kimar/ObjectiveRecord`, commit `d1fbb19`)
-  - PSTAlertController (~> 1.1.0)
+  - PSTAlertController (~> 1.2.0)
   - Specta
   - SVProgressHUD (~> 1.0)
   - TSMessages (from `https://github.com/KrauseFx/TSMessages`, commit `e63f233`)
@@ -92,12 +92,12 @@ SPEC CHECKSUMS:
   iOS-GPX-Framework: 7297860335a923bb5ea62b29b2691e803226da09
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
-  PSTAlertController: cb21afcfa76c3229feec7db044afd4f60dab5892
+  PSTAlertController: 9b802dfbda54fee2683bfd6dda7023a6de895d5b
   Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
   SVProgressHUD: 46088807596a795cbcb4affd92cf3f13b6ab3dda
   TBXML: 9f9dadb239f2f2af1dadb87fe43a0ce6e479379a
   TSMessages: 6e403b790139636c15ab4f51946537095e03e79c
 
-PODFILE CHECKSUM: fdcd06fafcb2158712b2c79afb58858292e4734e
+PODFILE CHECKSUM: 8c4165a3e5a3361bd89aeb568c4f2226f5093d9e
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.0.1

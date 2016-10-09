@@ -56,16 +56,16 @@ private extension Social {
             message: String(format: NSLocalizedString("This will open up %@. Ready?", comment: "Open social link alert test"), type.readable()),
             preferredStyle: .alert
         )
-        controller?.addAction(
+        controller.addAction(
             PSTAlertAction(title: NSLocalizedString("No", comment: "Social alert no button"), style: .cancel, handler: { action in
                 completion(false)
             })
         )
-        controller?.addAction(
+        controller.addAction(
             PSTAlertAction(title: NSLocalizedString("Yes", comment: "Social alert yes button"), style: .default, handler: { action in
                 completion(true)
             })
         )
-        controller?.showWithSender(self, controller: viewController, animated: true) {}
+        controller.showWithSender(self, controller: viewController, animated: true) {}
     }
 }
