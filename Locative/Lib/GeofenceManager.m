@@ -25,8 +25,7 @@
 
 @implementation GeofenceManager
 
-+ (id) sharedManager
-{
++ (id) sharedManager {
     static GeofenceManager *geofenceManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -36,8 +35,7 @@
     return geofenceManager;
 }
 
-- (void) setup
-{
+- (void) setup {
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager setDelegate:self];
     
@@ -49,24 +47,25 @@
     [self.locationManager startMonitoringSignificantLocationChanges];
 }
 
-- (void) cleanup
-{
-    [[self geofences] each:^(CLRegion *fence) {
-        __block BOOL found = NO;
-        [[Geofence all] each:^(Geofence *event) {
-            if([event.uuid isEqualToString:fence.identifier]) {
-                found = YES;
+- (void) cleanup {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[self geofences] each:^(CLRegion *fence) {
+            __block BOOL found = NO;
+            [[Geofence all] each:^(Geofence *event) {
+                if([event.uuid isEqualToString:fence.identifier]) {
+                    found = YES;
+                }
+                
+            }];
+            if(!found) {
+                [self stopMonitoringForRegion:fence];
             }
-            
         }];
-        if(!found) {
-            [self stopMonitoringForRegion:fence];
-        }
-    }];
-    
-    [[Geofence all] each:^(Geofence *event) {
-        [self startMonitoringEvent:event];
-    }];
+        
+        [[Geofence all] each:^(Geofence *event) {
+            [self startMonitoringEvent:event];
+        }];
+    });
 }
 
 #pragma mark - Accessors
@@ -125,11 +124,13 @@
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
     [self performBackgroundTaskForRegion:region withTrigger:GFEnter];
+    [self cleanup];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
 {
     [self performBackgroundTaskForRegion:region withTrigger:GFExit];
+    [self cleanup];
 }
 
 - (void) performUrlRequestForRegion:(CLRegion *)region withTrigger:(NSString *)trigger {
