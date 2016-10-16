@@ -16,11 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CloudCredentials : NSObject
 
 @property (nonatomic, strong) NSString *username;
-@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong, nullable) NSString *email;
 @property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) NSString *apnsToken;
+@property (nonatomic, assign, getter=isRegisterable, readonly) BOOL registerable;
 
-- (instancetype) initWithUsername:(NSString *)username email:(NSString *)email password:(NSString *)password;
+- (instancetype) initWithUsername:(NSString *)username email:(nullable NSString *)email password:(NSString *)password;
 
 @end
 

@@ -31,6 +31,10 @@
     return self;
 }
 
+- (BOOL)isRegisterable {
+    return self.email.length > 0;
+}
+
 @end
 
 @implementation CloudManager
