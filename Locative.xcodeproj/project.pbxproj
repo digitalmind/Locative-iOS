@@ -79,6 +79,10 @@
 		EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */; };
 		EC3C13E719B178CF0093F139 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3C13E619B178CF0093F139 /* NotificationCenter.framework */; };
 		EC3C13EE19B178CF0093F139 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3C13ED19B178CF0093F139 /* MainInterface.storyboard */; };
+		EC7770DB1DB6C14400AD1648 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770D71DB6C14400AD1648 /* AsyncDisplayKit.framework */; };
+		EC7770DC1DB6C14400AD1648 /* NMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770D81DB6C14400AD1648 /* NMessenger.framework */; };
+		EC7770DD1DB6C14400AD1648 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770D91DB6C14400AD1648 /* PINCache.framework */; };
+		EC7770DE1DB6C14400AD1648 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770DA1DB6C14400AD1648 /* PINRemoteImage.framework */; };
 		ECCBD31119CEE02A0009399B /* Locative.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC3C13E519B178CF0093F139 /* Locative.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECCBD31F19CEE8F20009399B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCBD31D19CEE8F20009399B /* Localizable.strings */; };
 		ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
@@ -243,6 +247,10 @@
 		EC3C13F919B17A280093F139 /* Locative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Locative.entitlements; sourceTree = "<group>"; };
 		EC3C13FA19B17A780093F139 /* LocativeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocativeWidget.entitlements; sourceTree = "<group>"; };
 		EC6FECA519D6C5D300D9E746 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		EC7770D71DB6C14400AD1648 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
+		EC7770D81DB6C14400AD1648 /* NMessenger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMessenger.framework; path = Carthage/Build/iOS/NMessenger.framework; sourceTree = "<group>"; };
+		EC7770D91DB6C14400AD1648 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
+		EC7770DA1DB6C14400AD1648 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		ECCBD31E19CEE8F20009399B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECCBD32019CEE8F60009399B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECDCB0381ADE4CE5008988C5 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/Pods-LocativeWidget/AFNetworking.framework"; sourceTree = "<group>"; };
@@ -256,6 +264,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7770DB1DB6C14400AD1648 /* AsyncDisplayKit.framework in Frameworks */,
+				EC7770DC1DB6C14400AD1648 /* NMessenger.framework in Frameworks */,
+				EC7770DD1DB6C14400AD1648 /* PINCache.framework in Frameworks */,
+				EC7770DE1DB6C14400AD1648 /* PINRemoteImage.framework in Frameworks */,
 				0793708C1D4F690E008E2831 /* KeychainAccess.framework in Frameworks */,
 				070568111D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework in Frameworks */,
 				070568091D4DDAEB005C5E9A /* Eureka.framework in Frameworks */,
@@ -373,6 +385,10 @@
 		2A8E9D9517FD51DD00F4A805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC7770D71DB6C14400AD1648 /* AsyncDisplayKit.framework */,
+				EC7770D81DB6C14400AD1648 /* NMessenger.framework */,
+				EC7770D91DB6C14400AD1648 /* PINCache.framework */,
+				EC7770DA1DB6C14400AD1648 /* PINRemoteImage.framework */,
 				0793708B1D4F690E008E2831 /* KeychainAccess.framework */,
 				070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */,
 				070568081D4DDAEB005C5E9A /* Eureka.framework */,
@@ -775,6 +791,10 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/VTAcknowledgementsViewController.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NMessenger.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
 			);
 			name = "Copy Carthage frameworks";
 			outputPaths = (

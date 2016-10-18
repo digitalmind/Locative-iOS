@@ -1,3 +1,7 @@
 github "xmartlabs/Eureka" "2.0.0-beta.1"
-github "kishikawakatsumi/KeychainAccess" "v3.0.0"
+github "kishikawakatsumi/KeychainAccess" "v3.0.1"
+github "pinterest/PINCache" "2.3"
 github "vtourraine/VTAcknowledgementsViewController" "1.1"
+github "pinterest/PINRemoteImage" "3.0.0-beta.2"
+github "facebook/AsyncDisplayKit" "1.9.90"
+github "ebay/NMessenger" "40045d24f828fa290c1522ffe2c962007bd1dd5c"
