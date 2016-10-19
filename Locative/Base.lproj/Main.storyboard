@@ -1379,7 +1379,7 @@
         <scene sceneID="TBX-R9-f3J">
             <objects>
                 <navigationController id="s4b-2P-aML" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" id="Afz-re-lcx"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="notifications-tabbar" id="Afz-re-lcx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="y52-x2-25f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1416,6 +1416,7 @@
     <resources>
         <image name="geofences-tabbar" width="35" height="35"/>
         <image name="info-tabbar" width="35" height="35"/>
+        <image name="notifications-tabbar" width="35" height="35"/>
         <image name="onepassword-button" width="27" height="27"/>
         <image name="settings-tabbar" width="35" height="35"/>
     </resources>

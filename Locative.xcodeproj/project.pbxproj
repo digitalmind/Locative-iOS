@@ -13,7 +13,6 @@
 		070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 070568141D4DF623005C5E9A /* Acknowledgements.plist */; };
 		0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
-		0768791E1DB7546300D33747 /* NotificationsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0768791D1DB7546300D33747 /* NotificationsEmptyView.xib */; };
 		076879201DB7553500D33747 /* NotificationsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */; };
 		076879221DB767C500D33747 /* CloudConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076879211DB767C500D33747 /* CloudConnect.swift */; };
 		0793708C1D4F690E008E2831 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0793708B1D4F690E008E2831 /* KeychainAccess.framework */; };
@@ -88,6 +87,7 @@
 		EC7770DD1DB6C14400AD1648 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770D91DB6C14400AD1648 /* PINCache.framework */; };
 		EC7770DE1DB6C14400AD1648 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770DA1DB6C14400AD1648 /* PINRemoteImage.framework */; };
 		EC7770E01DB6CEA500AD1648 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7770DF1DB6CEA500AD1648 /* NotificationsViewController.swift */; };
+		EC7770E11DB814A700AD1648 /* NotificationsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7770E31DB814A700AD1648 /* NotificationsEmptyView.xib */; };
 		ECCBD31119CEE02A0009399B /* Locative.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC3C13E519B178CF0093F139 /* Locative.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ECCBD31F19CEE8F20009399B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCBD31D19CEE8F20009399B /* Localizable.strings */; };
 		ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
@@ -139,7 +139,6 @@
 		070568141D4DF623005C5E9A /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
-		0768791D1DB7546300D33747 /* NotificationsEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsEmptyView.xib; sourceTree = "<group>"; };
 		0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsEmptyView.swift; sourceTree = "<group>"; };
 		076879211DB767C500D33747 /* CloudConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudConnect.swift; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -261,6 +260,8 @@
 		EC7770D91DB6C14400AD1648 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		EC7770DA1DB6C14400AD1648 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		EC7770DF1DB6CEA500AD1648 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		EC7770E21DB814A700AD1648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationsEmptyView.xib; sourceTree = "<group>"; };
+		EC7770E51DB814AA00AD1648 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/NotificationsEmptyView.strings; sourceTree = "<group>"; };
 		ECCBD31E19CEE8F20009399B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECCBD32019CEE8F60009399B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECDCB0381ADE4CE5008988C5 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/Pods-LocativeWidget/AFNetworking.framework"; sourceTree = "<group>"; };
@@ -335,7 +336,7 @@
 		07E8469C1D644CEF00ECC717 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0768791D1DB7546300D33747 /* NotificationsEmptyView.xib */,
+				EC7770E31DB814A700AD1648 /* NotificationsEmptyView.xib */,
 				0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */,
 			);
 			path = View;
@@ -755,7 +756,7 @@
 				2A8E9DA117FD51DD00F4A805 /* InfoPlist.strings in Resources */,
 				2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */,
 				2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */,
-				0768791E1DB7546300D33747 /* NotificationsEmptyView.xib in Resources */,
+				EC7770E11DB814A700AD1648 /* NotificationsEmptyView.xib in Resources */,
 				EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */,
 				2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */,
 				070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */,
@@ -1059,6 +1060,15 @@
 				2A9C1DF818096A3B00F84B5C /* de */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		EC7770E31DB814A700AD1648 /* NotificationsEmptyView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC7770E21DB814A700AD1648 /* Base */,
+				EC7770E51DB814AA00AD1648 /* de */,
+			);
+			name = NotificationsEmptyView.xib;
 			sourceTree = "<group>";
 		};
 		ECCBD31D19CEE8F20009399B /* Localizable.strings */ = {
