@@ -82,6 +82,7 @@ class NotificationsViewController: UIViewController {
         )
         let newMessage = MessageNode(content: textContent)
         newMessage.isIncomingMessage = true
+        newMessage.cellPadding = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         messengerView.addMessage(newMessage, scrollsToMessage: true)
     }
 }
