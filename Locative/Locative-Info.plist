@@ -55,7 +55,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>380</string>
+	<string>381</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -85,6 +85,8 @@
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This App makes use of Location Services for Geofencing purposes.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Select photos and attach them to notifications.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
