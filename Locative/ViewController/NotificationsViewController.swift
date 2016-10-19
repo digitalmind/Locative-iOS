@@ -62,10 +62,14 @@ class NotificationsViewController: UIViewController {
         cloudConnect.getLastMessages { [unowned self] messages in
             self.hideTypingIndicator()
             guard let msgs = messages else {
-                return self.addMessage(text: "Messages currently unavailable.")
+                return self.addMessage(
+                    text: NSLocalizedString("Notifications currently unavailable.", comment: "Notifications currently unavailable.")
+                )
             }
             guard !msgs.isEmpty else {
-                return self.addMessage(text: "You have no messages.")
+                return self.addMessage(
+                    text: NSLocalizedString("You have no notifications.", comment: "You have no notifications.")
+                )
 
             }
             msgs.forEach {

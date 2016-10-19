@@ -117,3 +117,8 @@
 "left" = "verlassen";
 "triggered" = "ausgelöst";
 
+// Notifications
+"Notifications currently unavailable." = "Notifications momentan nicht verfügbar.";
+"You have no notifications." = "Du hast keine Notifications.";
+
+
