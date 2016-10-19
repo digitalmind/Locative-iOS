@@ -8,6 +8,7 @@ class NotificationsViewController: UIViewController {
     
     var emptyView: NotificationsEmptyView!
     var messengerView: NMessenger!
+    var typingIndicator: GeneralMessengerCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,17 +42,31 @@ class NotificationsViewController: UIViewController {
         reloadMessages()
     }
     
+    private func showTypingIndicator() {
+        let typing = TypingIndicatorContent(bubbleConfiguration: self.bubbleConfiguration)
+        typingIndicator = MessageNode(content: typing)
+        messengerView.addTypingIndicator(typingIndicator!, scrollsToLast: false, animated: true, completion: nil)
+    }
+    
+    private func hideTypingIndicator() {
+        guard let indicator = typingIndicator else { return }
+        messengerView.removeTypingIndicator(indicator, scrollsToLast: false, animated: true)
+    }
+    
     func reloadMessages() {
         guard settings.isLoggedIn else {
             return
         }
         messengerView.removeMessages(messengerView.allMessages(), animation: .automatic)
+        showTypingIndicator()
         cloudConnect.getLastMessages { [unowned self] messages in
+            self.hideTypingIndicator()
             guard let msgs = messages else {
-                return self.addMessage(text: "No messages available.")
+                return self.addMessage(text: "Messages currently unavailable.")
             }
             guard !msgs.isEmpty else {
                 return self.addMessage(text: "You have no messages.")
+
             }
             msgs.forEach {
                 self.addMessage(text: $0.text)
