@@ -13,6 +13,9 @@
 		070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 070568141D4DF623005C5E9A /* Acknowledgements.plist */; };
 		0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
+		0768791E1DB7546300D33747 /* NotificationsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0768791D1DB7546300D33747 /* NotificationsEmptyView.xib */; };
+		076879201DB7553500D33747 /* NotificationsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */; };
+		076879221DB767C500D33747 /* CloudConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076879211DB767C500D33747 /* CloudConnect.swift */; };
 		0793708C1D4F690E008E2831 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0793708B1D4F690E008E2831 /* KeychainAccess.framework */; };
 		07BC81E21D48BAEA00286073 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E11D48BAEA00286073 /* CoreDataStack.swift */; };
 		07BC81E41D48BEAF00286073 /* Synchronized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81E31D48BEAF00286073 /* Synchronized.swift */; };
@@ -23,8 +26,9 @@
 		07BC81F31D4B5FA600286073 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F21D4B5FA600286073 /* AppDelegate.swift */; };
 		07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F41D4CC29200286073 /* HttpRequestManager.swift */; };
 		07BC81F71D4D913E00286073 /* AFSecurityPolicy+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */; };
-		07BC82021D4D974C00286073 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82011D4D974C00286073 /* Enums.swift */; };
+		07BC82021D4D974C00286073 /* Ints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82011D4D974C00286073 /* Ints.swift */; };
 		07BC82041D4D97EC00286073 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82031D4D97EC00286073 /* Social.swift */; };
+		07C965141DB769BA009C0ECE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C965131DB769B9009C0ECE /* Alamofire.framework */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
@@ -135,6 +139,9 @@
 		070568141D4DF623005C5E9A /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
+		0768791D1DB7546300D33747 /* NotificationsEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsEmptyView.xib; sourceTree = "<group>"; };
+		0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsEmptyView.swift; sourceTree = "<group>"; };
+		076879211DB767C500D33747 /* CloudConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudConnect.swift; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
 		0793708B1D4F690E008E2831 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		07BC81E11D48BAEA00286073 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -146,8 +153,9 @@
 		07BC81F21D4B5FA600286073 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07BC81F41D4CC29200286073 /* HttpRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestManager.swift; sourceTree = "<group>"; };
 		07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AFSecurityPolicy+Locative.swift"; sourceTree = "<group>"; };
-		07BC82011D4D974C00286073 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		07BC82011D4D974C00286073 /* Ints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ints.swift; sourceTree = "<group>"; };
 		07BC82031D4D97EC00286073 /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
+		07C965131DB769B9009C0ECE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
 		07E2254F1CA77B0500572180 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -266,6 +274,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C965141DB769BA009C0ECE /* Alamofire.framework in Frameworks */,
 				EC7770DB1DB6C14400AD1648 /* AsyncDisplayKit.framework in Frameworks */,
 				EC7770DC1DB6C14400AD1648 /* NMessenger.framework in Frameworks */,
 				EC7770DD1DB6C14400AD1648 /* PINCache.framework in Frameworks */,
@@ -326,6 +335,8 @@
 		07E8469C1D644CEF00ECC717 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0768791D1DB7546300D33747 /* NotificationsEmptyView.xib */,
+				0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -387,6 +398,7 @@
 		2A8E9D9517FD51DD00F4A805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07C965131DB769B9009C0ECE /* Alamofire.framework */,
 				EC7770D71DB6C14400AD1648 /* AsyncDisplayKit.framework */,
 				EC7770D81DB6C14400AD1648 /* NMessenger.framework */,
 				EC7770D91DB6C14400AD1648 /* PINCache.framework */,
@@ -488,6 +500,7 @@
 				2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */,
 				2A2BF51E185371B800D5DD98 /* CloudManager.h */,
 				2A2BF51F185371B800D5DD98 /* CloudManager.m */,
+				076879211DB767C500D33747 /* CloudConnect.swift */,
 				07BC81F41D4CC29200286073 /* HttpRequestManager.swift */,
 				07BC81E91D48C92500286073 /* SecureCredentials.swift */,
 				07BC81E71D48C72F00286073 /* BackgroundBlockOperation.swift */,
@@ -495,7 +508,7 @@
 				07BC81E31D48BEAF00286073 /* Synchronized.swift */,
 				07BC81E51D48C34E00286073 /* Config.swift */,
 				07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */,
-				07BC82011D4D974C00286073 /* Enums.swift */,
+				07BC82011D4D974C00286073 /* Ints.swift */,
 				07BC82031D4D97EC00286073 /* Social.swift */,
 			);
 			path = Lib;
@@ -742,6 +755,7 @@
 				2A8E9DA117FD51DD00F4A805 /* InfoPlist.strings in Resources */,
 				2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */,
 				2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */,
+				0768791E1DB7546300D33747 /* NotificationsEmptyView.xib in Resources */,
 				EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */,
 				2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */,
 				070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */,
@@ -798,6 +812,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/NMessenger.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			name = "Copy Carthage frameworks";
 			outputPaths = (
@@ -941,7 +956,7 @@
 				EC28B7A719B72913009E5427 /* ImportViewController.m in Sources */,
 				07BC81F31D4B5FA600286073 /* AppDelegate.swift in Sources */,
 				07E225561CA8D58F00572180 /* GeofenceAnnotation.swift in Sources */,
-				07BC82021D4D974C00286073 /* Enums.swift in Sources */,
+				07BC82021D4D974C00286073 /* Ints.swift in Sources */,
 				2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */,
 				07BC81F71D4D913E00286073 /* AFSecurityPolicy+Locative.swift in Sources */,
 				2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */,
@@ -958,6 +973,8 @@
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
 				07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */,
 				070568071D4DDA0B005C5E9A /* AboutViewController.swift in Sources */,
+				076879221DB767C500D33747 /* CloudConnect.swift in Sources */,
+				076879201DB7553500D33747 /* NotificationsEmptyView.swift in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
 				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,
 				2A27D24A18056CB000AC1708 /* SettingsViewController.m in Sources */,

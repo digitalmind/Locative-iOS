@@ -127,7 +127,7 @@ private extension AppDelegate {
         SVProgressHUD.show(withMaskType: UInt(SVProgressHUDMaskTypeClear))
         if let q = url.query , q.range(of: "openSettings=true") != nil {
             // open settings
-            window?.rootViewController?.tabBarController?.selectedIndex = Tabs.settings.rawValue
+            window?.rootViewController?.tabBarController?.selectedIndex = .settingsIndex
         }
 
         DispatchQueue(label: AppDelegate.queueLabel).async { [weak self] in
