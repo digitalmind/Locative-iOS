@@ -31,19 +31,22 @@ class NotificationsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if !settings.isLoggedIn {
-            view.addSubviewIfNotAdded(emptyView)
-        } else {
-            emptyView.removeFromSuperviewIfAdded(view)
-        }
-        reloadButton?.isEnabled = settings.isLoggedIn
-
+        updateEmptyState()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         reloadMessages()
+    }
+    
+    private func updateEmptyState() {
+        if !settings.isLoggedIn {
+            view.superview?.addSubviewIfNotAdded(emptyView)
+        } else {
+            guard let superview = view.superview else { return }
+            emptyView.removeFromSuperviewIfAdded(superview)
+        }
+        reloadButton?.isEnabled = settings.isLoggedIn
     }
     
     private func showTypingIndicator() {
@@ -92,19 +95,5 @@ class NotificationsViewController: UIViewController {
         newMessage.isIncomingMessage = true
         newMessage.cellPadding = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         messengerView.addMessage(newMessage, scrollsToMessage: true)
-    }
-}
-
-fileprivate extension UIView {
-    func addSubviewIfNotAdded(_ subview: UIView) {
-        if !subview.isDescendant(of: self) {
-            self.addSubview(subview)
-        }
-    }
-    
-    func removeFromSuperviewIfAdded(_ to: UIView) {
-        if self.isDescendant(of: to) {
-            self.removeFromSuperview()
-        }
     }
 }

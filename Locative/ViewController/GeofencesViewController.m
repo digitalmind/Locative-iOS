@@ -2,6 +2,7 @@
 #import "GeofencesViewController.h"
 #import "AddEditGeofenceViewController.h"
 #import "GeofenceManager.h"
+#import "Locative-Swift.h"
 
 @import PSTAlertController;
 @import ObjectiveSugar;
@@ -13,6 +14,7 @@
 @property (nonatomic, strong) Geofence *selectedEvent;
 @property (nonatomic, strong) Config *config;
 @property (nonatomic, assign) BOOL viewDidAppear;
+@property (nonatomic, strong) GeofencesEmptyView *emptyView;
 
 @end
 
@@ -31,6 +33,10 @@
 {
     [super viewDidLoad];
     
+    self.emptyView = [[[NSBundle mainBundle] loadNibNamed:@"GeofencesEmptyView" owner:self options:nil] objectAtIndex:0];
+    self.emptyView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.emptyView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.config = [[Config alloc] init];
 
@@ -43,16 +49,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)updateEmptyState {
+    if ([Geofence all].count == 0) {
+        [self.emptyView removeFromSuperview];
+        return [self.view.superview addSubview:self.emptyView];
+    }
+    [self.emptyView removeFromSuperview];
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    [self updateEmptyState];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadGeofences) name:kReloadGeofences object:nil];
-    
-    if(!self.viewDidAppear && [[Geofence all] count] == 0) {
-        [self performSegueWithIdentifier:@"AddEvent" sender:self];
-    }
-    
+
     if(self.viewDidAppear) {
         [self.tableView reloadData];
     }
@@ -75,6 +86,7 @@
 - (void) reloadGeofences
 {
     [self.tableView reloadData];
+    [self updateEmptyState];
 }
 
 #pragma mark - Table view data source
@@ -132,6 +144,7 @@
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+    [self updateEmptyState];
 }
     
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
