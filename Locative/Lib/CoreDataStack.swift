@@ -33,7 +33,9 @@ open class CoreDataStack: NSObject {
                     return
                 }
                 let credentials = SecureCredentials(service: uuid)
-                credentials[user] = geofence.httpPassword
+                if let password = geofence.httpPassword {
+                    credentials[user] = password
+                }
                 geofence.save()
             }
             
