@@ -8,27 +8,27 @@ typedef enum NSUInteger {
 
 @interface Geofence : NSManagedObject
 
-@property (nonatomic, retain) NSString * customId;
-@property (nonatomic, retain) NSNumber * enterMethod;
-@property (nonatomic, retain) NSString * enterUrl;
-@property (nonatomic, retain) NSNumber * exitMethod;
-@property (nonatomic, retain) NSString * exitUrl;
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * radius;
-@property (nonatomic, retain) NSNumber * triggers;
-@property (nonatomic, retain) NSNumber * type;
-@property (nonatomic, retain) NSString * uuid;
-@property (nonatomic, retain) NSNumber * httpAuth;
-@property (nonatomic, retain) NSString * httpPassword;
-@property (nonatomic, retain) NSString * httpPasswordSecure;
-@property (nonatomic, retain) NSString * httpUser;
+@property (nonatomic, retain, nullable) NSString * customId;
+@property (nonatomic, retain, nullable) NSNumber * enterMethod;
+@property (nonatomic, retain, nullable) NSString * enterUrl;
+@property (nonatomic, retain, nullable) NSNumber * exitMethod;
+@property (nonatomic, retain, nullable) NSString * exitUrl;
+@property (nonatomic, retain, nullable) NSNumber * latitude;
+@property (nonatomic, retain, nullable) NSNumber * longitude;
+@property (nonatomic, retain, nullable) NSString * name;
+@property (nonatomic, retain, nullable) NSNumber * radius;
+@property (nonatomic, retain, nullable) NSNumber * triggers;
+@property (nonatomic, retain, nullable) NSNumber * type;
+@property (nonatomic, retain, nullable) NSString * uuid;
+@property (nonatomic, retain, nullable) NSNumber * httpAuth;
+@property (nonatomic, retain, nullable) NSString * httpPassword;
+@property (nonatomic, retain, nullable) NSString * httpPasswordSecure;
+@property (nonatomic, retain, nullable) NSString * httpUser;
 
-@property (nonatomic, retain) NSString * iBeaconUuid;
-@property (nonatomic, retain) NSNumber * iBeaconMajor;
-@property (nonatomic, retain) NSNumber * iBeaconMinor;
+@property (nonatomic, retain, nullable) NSString * iBeaconUuid;
+@property (nonatomic, retain, nullable) NSNumber * iBeaconMajor;
+@property (nonatomic, retain, nullable) NSNumber * iBeaconMinor;
 
-+ (BOOL)maximumReachedShowingAlert:(BOOL)alert viewController:(UIViewController *)vc;
++ (BOOL)maximumReachedShowingAlert:(BOOL)alert viewController:(nonnull UIViewController *)vc;
 
 @end
