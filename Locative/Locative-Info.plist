@@ -70,6 +70,10 @@
 			</dict>
 		</array>
 	</dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<true/>
+	<key>ITSEncryptionExportComplianceCode</key>
+	<string>a1077fc1-d1b2-46dc-aaf0-4adf989b6308</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>org-appextension-feature-password-management</string>
