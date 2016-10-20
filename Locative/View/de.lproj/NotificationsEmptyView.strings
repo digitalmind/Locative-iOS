@@ -1,0 +1,6 @@
+
+/* Class = "UIButton"; normalTitle = "Go to Settings"; ObjectID = "Cvw-fl-wS9"; */
+"Cvw-fl-wS9.normalTitle" = "Zu den Einstellungen";
+
+/* Class = "UILabel"; text = "Not logged in. You need to log in to see your Notifications."; ObjectID = "Szv-rs-nOc"; */
+"Szv-rs-nOc.text" = "Du bist nicht eingeloggt. Um deine Benachrichtigungen zu sehen musst du dich zuerst einloggen.";

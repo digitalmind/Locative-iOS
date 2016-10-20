@@ -1,3 +1,6 @@
 github "xmartlabs/Eureka" "2.0.0-beta.1"
 github "vtourraine/VTAcknowledgementsViewController"
 github "kishikawakatsumi/KeychainAccess"
+github "ebay/NMessenger" "master"
+github "Alamofire/Alamofire"
+

@@ -117,3 +117,7 @@
 "left" = "left";
 "triggered" = "triggered";
 
+// Notifications
+"Notifications currently unavailable." = "Notifications currently unavailable.";
+"You have no notifications." = "You have no notifications.";
+

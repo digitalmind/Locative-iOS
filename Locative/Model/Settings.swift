@@ -44,6 +44,15 @@ open class Settings: NSObject, NSCoding {
         }
     }
     
+    var isLoggedIn: Bool {
+        get {
+            guard let token = apiToken else {
+                return false
+            }
+            return token.isNotEmpty()
+        }
+    }
+    
     var apnsToken: String? {
         get {
             return defaults().string(forKey: .apnsToken)
@@ -53,7 +62,7 @@ open class Settings: NSObject, NSCoding {
             defaults().synchronize()
         }
     }
-
+    
     fileprivate func defaults() -> UserDefaults {
         return UserDefaults.standard
     }
