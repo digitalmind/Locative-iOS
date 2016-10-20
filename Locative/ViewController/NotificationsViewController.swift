@@ -10,6 +10,8 @@ class NotificationsViewController: UIViewController {
     var messengerView: NMessenger!
     var typingIndicator: GeneralMessengerCell?
     
+    @IBOutlet weak var reloadButton: UIBarButtonItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +37,8 @@ class NotificationsViewController: UIViewController {
         } else {
             emptyView.removeFromSuperviewIfAdded(view)
         }
+        reloadButton?.isEnabled = settings.isLoggedIn
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +57,7 @@ class NotificationsViewController: UIViewController {
         messengerView.removeTypingIndicator(indicator, scrollsToLast: false, animated: true)
     }
     
-    func reloadMessages() {
+    @IBAction func reloadMessages() {
         guard settings.isLoggedIn else {
             return
         }
