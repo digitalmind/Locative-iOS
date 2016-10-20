@@ -29,6 +29,9 @@ typedef enum NSUInteger {
 @property (nonatomic, retain, nullable) NSNumber * iBeaconMajor;
 @property (nonatomic, retain, nullable) NSNumber * iBeaconMinor;
 
+@property (nonatomic, retain, nullable) NSDate * lastTriggered;
+
 + (BOOL)maximumReachedShowingAlert:(BOOL)alert viewController:(nonnull UIViewController *)vc;
+- (BOOL)triggeredWithinThreshold;
 
 @end

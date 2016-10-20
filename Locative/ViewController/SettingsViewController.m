@@ -40,6 +40,8 @@
 @property (nonatomic, strong) Settings *settings;
 @property (nonatomic, weak) AppDelegate *appDelegate;
 
+@property (nonatomic, weak) IBOutlet UISwitch *overrideTriggerThresholdSwitch;
+
 @end
 
 @implementation SettingsViewController
@@ -94,6 +96,8 @@
     self.notifyOnFailureSwitch.on = [self.settings notifyOnFailure].boolValue;
     self.soundOnNotificationSwitch.on = [self.settings soundOnNotification].boolValue;
 
+    self.overrideTriggerThresholdSwitch.on = self.settings.overrideTriggerThreshold.boolValue;
+    
     [[self.appDelegate cloudManager] validateSessionWithCallback:^(BOOL valid) {
         if (valid) {
             self.myGfCreateAccountButton.hidden = YES;
@@ -299,6 +303,10 @@
         [self performExportGpx:sender];
     }]];
     [controller showWithSender:sender controller:self animated:YES completion:nil];
+}
+
+- (IBAction)overrideTriggerThresholdToggled:(UISwitch *)sender {
+    [self.appDelegate.settings setOverrideTriggerThreshold:@(sender.isOn)];
 }
 
 - (void) performExportGpx:(id)sender {

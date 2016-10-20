@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A320" minimumToolsVersion="Xcode 4.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Geofence" representedClassName="Geofence" elementID="GFEvent" syncable="YES">
+        <attribute name="customId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="enterMethod" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="enterUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exitMethod" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="exitUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="httpAuth" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="httpPassword" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="httpUser" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iBeaconMajor" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="iBeaconMinor" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="iBeaconUuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastTriggered" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="radius" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="triggers" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="HttpRequest" representedClassName="HttpRequest" syncable="YES">
+        <attribute name="eventType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="failCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="httpAuth" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="httpAuthPassword" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="httpAuthUsername" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="method" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parameters" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Geofence" positionX="0" positionY="0" width="128" height="330"/>
+        <element name="HttpRequest" positionX="0" positionY="0" width="128" height="195"/>
+    </elements>
+</model>

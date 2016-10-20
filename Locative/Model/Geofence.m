@@ -27,6 +27,10 @@
 @dynamic iBeaconMajor;
 @dynamic iBeaconMinor;
 
+@dynamic lastTriggered;
+
+#define kTriggerThreshold 3
+
 + (BOOL)maximumReachedShowingAlert:(BOOL)alert viewController:(UIViewController *)vc
 {
     if ([[Geofence all] count] >= 20) {
@@ -55,6 +59,16 @@
 
 - (SecureCredentials *)credentials {
     return [[SecureCredentials alloc] initWithService:self.uuid];
+}
+
+- (BOOL)triggeredWithinThreshold {
+    if (!self.lastTriggered) {
+        return NO;
+    }
+    if ([NSDate timeIntervalSinceReferenceDate] > ([self.lastTriggered timeIntervalSinceReferenceDate] + kTriggerThreshold)) {
+        return NO;
+    }
+    return YES;
 }
 
 @end
