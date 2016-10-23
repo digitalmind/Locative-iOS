@@ -1,4 +1,6 @@
 import Eureka
+import OnePasswordExtension
+import SVProgressHUD
 
 fileprivate extension String {
     static let globalHttpSettings = NSLocalizedString("Global HTTP Settings", comment: "Global HTTP Settings")
@@ -23,7 +25,7 @@ fileprivate extension String {
     static let accountSignup = NSLocalizedString("Signup new Account", comment: "Signup new Account")
     static let accountRecover = NSLocalizedString("Recover lost password", comment: "Recover lost password")
     static let accountLogout = NSLocalizedString("Logout", comment: "Logout")
-    
+
     static let backup = NSLocalizedString("Backup", comment: "Backup")
     static let exportGpx = NSLocalizedString("Export Geofences as GPX", comment: "Export Geofences as GPX")
 }
@@ -46,6 +48,65 @@ class SettingsVc: FormViewController {
         +++ backupSection()
     }
     
+    fileprivate func usernameRow() -> TextRow? {
+        return form.rowBy(tag: .accountUsernameRow) as? TextRow
+    }
+    
+    fileprivate func passwordRow() -> TextRow? {
+        return form.rowBy(tag: .accountPasswordRow) as? TextRow
+    }
+    
+    func onePasswordButton(_ frame: CGRect = CGRect(x: 0, y: 0, width: 25, height: 25)) -> UIButton {
+        let url = Bundle(for: OnePasswordExtension.self)
+            .url(forResource: "OnePasswordExtensionResources", withExtension: "bundle")
+        let bundle = Bundle(url: url!)
+        let image = UIImage(named: "onepassword-button", in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        let button = UIButton(type: .custom)
+        button.frame = frame
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(SettingsVc.loginUsingOnePassword), for: .touchUpInside)
+        button.tintColor = .black
+        return button
+    }
+    
+    func loginUsingOnePassword(_ sender: Any?) {
+        OnePasswordExtension.shared().findLogin(forURLString: "https://my.locative.io", for: self, sender: sender) { [weak self] loginDictionary, error in
+            guard let credentials = loginDictionary, credentials.count > 0 else { return }
+            self?.usernameRow()?.value = credentials[AppExtensionUsernameKey] as? String
+            self?.passwordRow()?.value = credentials[AppExtensionPasswordKey] as? String
+            self?.login()
+        }
+    }
+    
+    func login() {
+        SVProgressHUD.show(withMaskType: UInt(SVProgressHUDMaskTypeClear))
+        guard let username = usernameRow()?.value, let password = passwordRow()?.value else {
+            return SVProgressHUD.dismiss()
+        }
+        let credentials = CloudCredentials(username: username, email: nil, password: password)
+        appDelegate.cloudManager.loginToAccount(with: credentials) { [weak self] error, sessionId in
+            SVProgressHUD.dismiss()
+            
+            if error == nil {
+                self?.appDelegate.settings?.apiToken = sessionId
+                self?.appDelegate.settings?.persist()
+                self?.form.allRows.forEach { $0.evaluateHidden() }
+            }
+            
+            let alert = UIAlertController(
+                title: error == nil ? NSLocalizedString("Success", comment: "Success") : NSLocalizedString("Error", comment: "Error"),
+                message: error == nil ? NSLocalizedString("Login successful! Your triggered geofences will now be visible in you Account at http://my.locative.io!", comment: "") : NSLocalizedString("There has been a problem with your login, please try again!", comment: ""),
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func logout() {
+        appDelegate.settings?.removeApiToken()
+        form.allRows.forEach { $0.evaluateHidden() }
+    }
+    
     @IBAction func saveSettings(sender: UIBarButtonItem) {
         
     }
@@ -62,6 +123,8 @@ fileprivate extension SettingsVc {
                 row.placeholder = .urlPlaceholder
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
+                    cell.textField.autocorrectionType = .no
+                    cell.textField.autocapitalizationType = .none
             }
             <<< SegmentedRow<String>() { row in
                 row.options = [.post, .get]
@@ -81,13 +144,18 @@ fileprivate extension SettingsVc {
                 row.hidden = SettingsVc.globalHttpAuthCondition
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
-            }            <<< TextRow() { row in
+                    cell.textField.autocorrectionType = .no
+                    cell.textField.autocapitalizationType = .none
+            }
+            <<< TextRow() { row in
                 row.title = .httpPassword
                 row.placeholder = "Appleseed"
                 row.hidden = SettingsVc.globalHttpAuthCondition
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
                     cell.textField.isSecureTextEntry = true
+                    cell.textField.autocorrectionType = .no
+                    cell.textField.autocapitalizationType = .none
             }
             <<< ButtonRow() { row in
                 row.title = .testRequest
@@ -121,6 +189,12 @@ fileprivate extension SettingsVc {
     }
 }
 
+fileprivate extension String {
+    static let accountUsernameRow = "acountUsernameRow"
+    static let accountPasswordRow = "accountPasswordRow"
+    static let accountSectionTag = "accountSection"
+}
+
 fileprivate extension SettingsVc {
     func isLoggedIn() -> Bool {
         guard let token = appDelegate.settings?.apiToken else {
@@ -139,27 +213,39 @@ fileprivate extension SettingsVc {
         }
     }
     func accountSection() -> Section {
-        return Section(.account)
-            <<< TextRow() { row in
+        return Section(.account) { section in
+                section.tag = .accountSectionTag
+            }
+            <<< TextRow(.accountUsernameRow) { row in
                 row.title = .accountUsername
                 row.placeholder = "Johnny"
                 row.hidden = loginCondition()
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
+                    cell.textField.autocorrectionType = .no
+                    cell.textField.autocapitalizationType = .none
         }
-            <<< TextRow() { row in
+            <<< TextRow(.accountPasswordRow) { row in
                 row.title = .accountPassword
                 row.placeholder = "Appleseed"
                 row.hidden = loginCondition()
-                }.cellSetup { cell, row in
+                }.cellSetup { [unowned self] cell, row in
                     cell.tintColor = .locativeColor
+                    if OnePasswordExtension.shared().isAppExtensionAvailable() {
+                        cell.accessoryView = self.onePasswordButton()
+                    }
+                    cell.textField.isSecureTextEntry = true
+                    cell.textField.autocorrectionType = .no
+                    cell.textField.autocapitalizationType = .none
         }
             <<< ButtonRow() { row in
                 row.title = .accountLogin
                 row.hidden = loginCondition()
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
-        }
+                }.onCellSelection { [weak self] cell, row in
+                    self?.login()
+            }
             <<< ButtonRow() { row in
                 row.title = .accountSignup
                 row.hidden = loginCondition()
@@ -177,6 +263,8 @@ fileprivate extension SettingsVc {
                 row.hidden = logoutCondition()
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
+                }.onCellSelection { [weak self] cell, row in
+                    self?.logout()
         }
     }
 }
