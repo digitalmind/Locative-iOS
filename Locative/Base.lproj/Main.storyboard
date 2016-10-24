@@ -83,13 +83,7 @@
         <scene sceneID="paY-O2-EwB">
             <objects>
                 <tableViewController storyboardIdentifier="Settings" id="Yno-41-G6i" customClass="SettingsVc" customModule="Locative" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Settings" id="ayv-na-ABx">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="lGw-of-CTn">
-                            <connections>
-                                <action selector="saveSettings:" destination="Yno-41-G6i" id="hdD-zA-Do7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="ayv-na-ABx"/>
                     <connections>
                         <segue destination="q8q-fg-zPq" kind="show" identifier="Signup" id="rbV-tn-EyU"/>
                     </connections>

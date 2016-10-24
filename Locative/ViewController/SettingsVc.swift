@@ -125,8 +125,8 @@ class SettingsVc: FormViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func saveSettings(sender: UIBarButtonItem) {
-        
+    func saveSettings() {
+        appDelegate.settings?.persist()
     }
 }
 
@@ -136,25 +136,45 @@ fileprivate extension SettingsVc {
     }
     func globalHttpSection() -> Section {
         return Section(.globalHttpSettings)
-            <<< TextRow() { row in
+            <<< TextRow() { [weak self] row in
                 row.title = .url
                 row.placeholder = .urlPlaceholder
+                row.value = self?.appDelegate.settings?.globalUrl?.absoluteString
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
                     cell.textField.autocorrectionType = .no
                     cell.textField.autocapitalizationType = .none
+                }.onChange { [weak self] row in
+                    guard let url = row.value else {
+                        self?.appDelegate.settings?.globalUrl = nil
+                        return
+                    }
+                    self?.appDelegate.settings?.globalUrl = URL(string: url)
+                    self?.saveSettings()
             }
             <<< SegmentedRow<String>() { row in
                 row.options = [.post, .get]
-                }.cellSetup { cell, row in
+                }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
-                    cell.segmentedControl.selectedSegmentIndex = 0
+                    guard let selected = self?.appDelegate.settings?.globalHttpMethod?.intValue else {
+                        return
+                    }
+                    row.value = row.options[selected]
+                }.onChange { [weak self] row in
+                    self?.appDelegate.settings?.globalHttpMethod =
+                        NSNumber(value: row.value == "POST" ? 0 : 1)
+                    self?.appDelegate.settings?.persist()
             }
-            <<< SwitchRow("globalHttpAuth") { row in
+            <<< SwitchRow("globalHttpAuth") { [weak self] row in
                 row.title = .httpBasicAuth
+                    row.value = self?.appDelegate.settings?.httpBasicAuthEnabled?.boolValue
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
                     cell.switchControl?.onTintColor = .locativeColor
+                }.onChange { [weak self] row in
+                    self?.appDelegate.settings?.httpBasicAuthEnabled
+                        = NSNumber(booleanLiteral: row.value!)
+                    self?.appDelegate.settings?.persist()
             }
             <<< TextRow() { row in
                 row.title = .httpUsername
