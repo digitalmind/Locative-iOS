@@ -107,6 +107,24 @@ class SettingsVc: FormViewController {
         form.allRows.forEach { $0.evaluateHidden() }
     }
     
+    func lostPassword() {
+        let alert = UIAlertController(
+            title: NSLocalizedString("Note", comment: ""),
+            message: NSLocalizedString("This will open up Safari and lead you to the password recovery website. Sure?", comment: ""),
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: NSLocalizedString("No", comment: ""),
+            style: .cancel,
+            handler: nil))
+        alert.addAction(UIAlertAction(
+            title: NSLocalizedString("Yes", comment: ""),
+            style: .default) { action in
+                UIApplication.shared.openURL(URL(string: "https://my.locative.io/youforgot")!)
+        })
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func saveSettings(sender: UIBarButtonItem) {
         
     }
@@ -251,12 +269,16 @@ fileprivate extension SettingsVc {
                 row.hidden = loginCondition()
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
+                }.onCellSelection { [weak self] cell, row in
+                    self?.performSegue(withIdentifier: "Signup", sender: self)
         }
             <<< ButtonRow() { row in
                 row.title = .accountRecover
                 row.hidden = loginCondition()
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
+                }.onCellSelection { [weak self] cell, row in
+                    self?.lostPassword()
         }
             <<< ButtonRow() { row in
                 row.title = .accountLogout
