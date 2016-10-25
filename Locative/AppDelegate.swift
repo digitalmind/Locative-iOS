@@ -65,6 +65,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         harpy?.checkVersionDaily()
     }
     
+    func applicationWillResignActive(_ application: UIApplication) {
+        settings?.persist()
+    }
+    
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         if !(url as NSURL).isFileReferenceURL() { return false }
         guard url.pathExtension == "gpx" else { return false }

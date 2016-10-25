@@ -17,6 +17,7 @@
 		076879221DB767C500D33747 /* CloudConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076879211DB767C500D33747 /* CloudConnect.swift */; };
 		0793708C1D4F690E008E2831 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0793708B1D4F690E008E2831 /* KeychainAccess.framework */; };
 		079412E11DBC31FB001EA0E4 /* SettingsVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079412E01DBC31FB001EA0E4 /* SettingsVc.swift */; };
+		079412E51DBF311B001EA0E4 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079412E41DBF311B001EA0E4 /* Debouncer.swift */; };
 		07AA1B031DB8D6040090009D /* UIView+UIViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA1B021DB8D6040090009D /* UIView+UIViewLoading.swift */; };
 		07AA1B051DB8D6190090009D /* GeofencesEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA1B041DB8D6190090009D /* GeofencesEmptyView.swift */; };
 		07AA1B091DB8D64C0090009D /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA1B081DB8D64C0090009D /* EmptyView.swift */; };
@@ -150,6 +151,7 @@
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
 		0793708B1D4F690E008E2831 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		079412E01DBC31FB001EA0E4 /* SettingsVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVc.swift; sourceTree = "<group>"; };
+		079412E41DBF311B001EA0E4 /* Debouncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		07AA1B021DB8D6040090009D /* UIView+UIViewLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+UIViewLoading.swift"; sourceTree = "<group>"; };
 		07AA1B041DB8D6190090009D /* GeofencesEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencesEmptyView.swift; sourceTree = "<group>"; };
 		07AA1B081DB8D64C0090009D /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 				07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */,
 				07BC82011D4D974C00286073 /* Ints.swift */,
 				07BC82031D4D97EC00286073 /* Social.swift */,
+				079412E41DBF311B001EA0E4 /* Debouncer.swift */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 				2A8E9DA317FD51DD00F4A805 /* main.m in Sources */,
 				07BC81F11D4B5DBF00286073 /* Environment.swift in Sources */,
 				2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */,
+				079412E51DBF311B001EA0E4 /* Debouncer.swift in Sources */,
 				07BC82041D4D97EC00286073 /* Social.swift in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
 				07AA1B031DB8D6040090009D /* UIView+UIViewLoading.swift in Sources */,

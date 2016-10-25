@@ -37,6 +37,7 @@ fileprivate extension UIColor {
 class SettingsVc: FormViewController {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var debouncer: Debouncer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,15 @@ class SettingsVc: FormViewController {
     
     fileprivate func passwordRow() -> TextRow? {
         return form.rowBy(tag: .accountPasswordRow) as? TextRow
+    }
+    
+    fileprivate func persistSettings() {
+        if let debouncer = debouncer, debouncer.isValid {
+            debouncer.cancel()
+        }
+        debouncer = Debouncer({ [weak self] in
+            self?.appDelegate.settings?.persist()
+        })
     }
     
     func onePasswordButton(_ frame: CGRect = CGRect(x: 0, y: 0, width: 25, height: 25)) -> UIButton {
@@ -89,7 +99,7 @@ class SettingsVc: FormViewController {
             
             if error == nil {
                 self?.appDelegate.settings?.apiToken = sessionId
-                self?.appDelegate.settings?.persist()
+                self?.persistSettings()
                 self?.form.allRows.forEach { $0.evaluateHidden() }
             }
             
@@ -124,10 +134,6 @@ class SettingsVc: FormViewController {
         })
         present(alert, animated: true, completion: nil)
     }
-    
-    func saveSettings() {
-        appDelegate.settings?.persist()
-    }
 }
 
 fileprivate extension SettingsVc {
@@ -150,7 +156,7 @@ fileprivate extension SettingsVc {
                         return
                     }
                     self?.appDelegate.settings?.globalUrl = URL(string: url)
-                    self?.saveSettings()
+                    self?.persistSettings()
             }
             <<< SegmentedRow<String>() { row in
                 row.options = [.post, .get]
@@ -163,7 +169,7 @@ fileprivate extension SettingsVc {
                 }.onChange { [weak self] row in
                     self?.appDelegate.settings?.globalHttpMethod =
                         NSNumber(value: row.value == "POST" ? 0 : 1)
-                    self?.appDelegate.settings?.persist()
+                    self?.persistSettings()
             }
             <<< SwitchRow("globalHttpAuth") { [weak self] row in
                 row.title = .httpBasicAuth
@@ -174,26 +180,34 @@ fileprivate extension SettingsVc {
                 }.onChange { [weak self] row in
                     self?.appDelegate.settings?.httpBasicAuthEnabled
                         = NSNumber(booleanLiteral: row.value!)
-                    self?.appDelegate.settings?.persist()
+                    self?.persistSettings()
             }
             <<< TextRow() { row in
                 row.title = .httpUsername
                 row.placeholder = "Johnny"
                 row.hidden = SettingsVc.globalHttpAuthCondition
-                }.cellSetup { cell, row in
+                }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.textField.autocorrectionType = .no
                     cell.textField.autocapitalizationType = .none
+                    row.value = self?.appDelegate.settings?.httpBasicAuthUsername
+                }.onChange { [weak self] row in
+                    self?.appDelegate.settings?.httpBasicAuthUsername = row.value
+                    self?.persistSettings()
             }
             <<< TextRow() { row in
                 row.title = .httpPassword
                 row.placeholder = "Appleseed"
                 row.hidden = SettingsVc.globalHttpAuthCondition
-                }.cellSetup { cell, row in
+                }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.textField.isSecureTextEntry = true
                     cell.textField.autocorrectionType = .no
                     cell.textField.autocapitalizationType = .none
+                    row.value = self?.appDelegate.settings?.httpBasicAuthPassword
+                }.onChange { [weak self] row in
+                    self?.appDelegate.settings?.httpBasicAuthPassword = row.value
+                    self?.persistSettings()
             }
             <<< ButtonRow() { row in
                 row.title = .testRequest
