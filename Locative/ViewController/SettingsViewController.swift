@@ -36,7 +36,7 @@ fileprivate extension UIColor {
     static let locativeColor = UIColor(red: 24.0/255.0, green: 169.0/255.0, blue: 228.0/255.0, alpha: 1.0)
 }
 
-class SettingsVc: FormViewController {
+class SettingsViewController: FormViewController {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var debouncer: Debouncer?
@@ -76,7 +76,7 @@ class SettingsVc: FormViewController {
         let button = UIButton(type: .custom)
         button.frame = frame
         button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(SettingsVc.loginUsingOnePassword), for: .touchUpInside)
+        button.addTarget(self, action: #selector(SettingsViewController.loginUsingOnePassword), for: .touchUpInside)
         button.tintColor = .black
         return button
     }
@@ -245,7 +245,7 @@ class SettingsVc: FormViewController {
     }
 }
 
-fileprivate extension SettingsVc {
+fileprivate extension SettingsViewController {
     static let globalHttpAuthCondition = Condition.function(["globalHttpAuth"]) { form in
         return !((form.rowBy(tag: "globalHttpAuth") as? SwitchRow)?.value ?? false)
     }
@@ -294,7 +294,7 @@ fileprivate extension SettingsVc {
             <<< TextRow() { row in
                 row.title = .httpUsername
                 row.placeholder = "Johnny"
-                row.hidden = SettingsVc.globalHttpAuthCondition
+                row.hidden = SettingsViewController.globalHttpAuthCondition
                 }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.textField.autocorrectionType = .no
@@ -307,7 +307,7 @@ fileprivate extension SettingsVc {
             <<< TextRow() { row in
                 row.title = .httpPassword
                 row.placeholder = "Appleseed"
-                row.hidden = SettingsVc.globalHttpAuthCondition
+                row.hidden = SettingsViewController.globalHttpAuthCondition
                 }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.textField.isSecureTextEntry = true
@@ -328,7 +328,7 @@ fileprivate extension SettingsVc {
     }
 }
 
-fileprivate extension SettingsVc {
+fileprivate extension SettingsViewController {
     func notificationsSection() -> Section {
         return Section(.notifications)
             <<< SwitchRow() { row in
@@ -373,7 +373,7 @@ fileprivate extension String {
     static let accountSectionTag = "accountSection"
 }
 
-fileprivate extension SettingsVc {
+fileprivate extension SettingsViewController {
     func isLoggedIn() -> Bool {
         guard let token = appDelegate.settings?.apiToken else {
             return false
@@ -451,7 +451,7 @@ fileprivate extension SettingsVc {
     }
 }
 
-fileprivate extension SettingsVc {
+fileprivate extension SettingsViewController {
     func backupSection() -> Section {
         return Section(.backup)
             <<< ButtonRow() { row in

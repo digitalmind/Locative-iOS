@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eNS-OQ-Neh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eNS-OQ-Neh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -82,7 +82,7 @@
         <!--Settings-->
         <scene sceneID="paY-O2-EwB">
             <objects>
-                <tableViewController storyboardIdentifier="Settings" id="Yno-41-G6i" customClass="SettingsVc" customModule="Locative" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Settings" id="Yno-41-G6i" customClass="SettingsViewController" customModule="Locative" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Settings" id="ayv-na-ABx"/>
                     <connections>
                         <segue destination="q8q-fg-zPq" kind="show" identifier="Signup" id="rbV-tn-EyU"/>
