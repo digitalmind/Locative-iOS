@@ -2,11 +2,6 @@ import Eureka
 import VTAcknowledgementsViewController
 import SafariServices
 
-private extension String {
-    static let shortVersionString = "CFBundleShortVersionString"
-    static let shortVersion = "CFBundleVersion"
-}
-
 class AboutViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,19 +49,6 @@ class AboutViewController: FormViewController {
                 }
             }
 
-        +++ Section(footer: versionString())
-    }
-}
-
-private extension AboutViewController {
-    func versionString() -> String {
-        guard let infoDict = Bundle.main.infoDictionary else {
-            return "Unknown Version"
-        }
-        return "Version".appendingFormat(
-            " %@ (%@)",
-            infoDict[.shortVersionString] as! String,
-            infoDict[.shortVersion] as! String
-        )
+        +++ Section(footer: Bundle.main.versionString())
     }
 }

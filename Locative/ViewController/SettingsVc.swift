@@ -1,6 +1,8 @@
 import Eureka
 import OnePasswordExtension
 import SVProgressHUD
+import INTULocationManager
+import iOS_GPX_Framework
 
 fileprivate extension String {
     static let globalHttpSettings = NSLocalizedString("Global HTTP Settings", comment: "Global HTTP Settings")
@@ -134,6 +136,113 @@ class SettingsVc: FormViewController {
         })
         present(alert, animated: true, completion: nil)
     }
+    
+    func testRequest() {
+        INTULocationManager.sharedInstance().requestLocation(withDesiredAccuracy: .block, timeout: 10.0, delayUntilAuthorized: true) {
+            [weak self] (location, accuracy, status) in
+            let coordinate = location?.coordinate
+            let timestamp = Date()
+            let parameters = [
+                "trigger": "test",
+                "device": UIDevice.current.identifierForVendor?.uuidString ?? "unknown",
+                "device_type": UIDevice.current.model,
+                "device_model": UIDevice.locative_deviceModel(),
+                "latitude": coordinate != nil ? Double(coordinate!.latitude) : 123.0,
+                "longitude": coordinate != nil ? Double(coordinate!.longitude) : 123.0,
+                "timestamp": Int(timestamp.timeIntervalSince1970)
+            ] as [String: Any]
+            
+            let request = HttpRequest.create() as! HttpRequest
+            request.url = self?.appDelegate.settings?.globalUrl?.absoluteString
+            request.method = self?.appDelegate.settings?.globalHttpMethod == 0 ? "POST" : "GET"
+            request.parameters = parameters
+            request.eventType = NSNumber(integerLiteral: 0)
+            request.timestamp = timestamp
+            request.uuid = NSUUID().uuidString
+            
+            if let auth = self?.appDelegate.settings?.httpBasicAuthEnabled, auth == true {
+                request.httpAuth = NSNumber(booleanLiteral: true)
+                request.httpAuthUsername = self?.appDelegate.settings?.httpBasicAuthUsername
+                request.httpAuthPassword = self?.appDelegate.settings?.httpBasicAuthPassword
+            }
+            
+            request.save()
+            self?.appDelegate.requestManager.flushWithCompletion {
+                let alert = UIAlertController(
+                    title: NSLocalizedString("Note", comment: "Note"),
+                    message: NSLocalizedString("A Test-Request has been sent. The result will be displayed as soon as it's succeeded / failed.", comment: "A Test-Request has been sent. The result will be displayed as soon as it's succeeded / failed."),
+                    preferredStyle: .alert
+                )
+                alert.addAction(UIAlertAction(
+                    title: NSLocalizedString("OK", comment: "OK"),
+                    style: .default,
+                    handler: nil)
+                )
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func exportGpx(inView: UIView) {
+        
+        func gpxCreator() -> String {
+            return "Locative iOS - \(Bundle.main.versionString())"
+        }
+        
+        func temporaryPath() -> URL {
+            return NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("Geofences.gpx")!
+        }
+        
+        func share(gpx: String, view: UIView) {
+            if let _ = try? gpx.data(using: String.Encoding.utf8)?.write(to: temporaryPath()) {
+                let controller = UIDocumentInteractionController(url: temporaryPath())
+                controller.presentOptionsMenu(from: view.frame, in: view, animated: true)
+                return
+            }
+            
+            let alert = UIAlertController(
+                title: NSLocalizedString("Error", comment: "Error"),
+                message: NSLocalizedString("Something went wrong when exporting your Geofences.", comment: "Something went wrong when exporting your Geofences."),
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        func createGpx(inView: UIView) {
+            SVProgressHUD.show(withMaskType: UInt(SVProgressHUDMaskTypeClear))
+            let root = GPXRoot(creator: gpxCreator())!
+            
+            DispatchQueue(label: "io.locative.iOS.gpx").async {
+                let geofences = Geofence.all() as! [Geofence]
+                let waypoints = geofences
+                    .filter { $0.latitude != nil }
+                    .filter { $0.longitude != nil }
+                    .map({ (geofence) -> GPXWaypoint in
+                    let waypoint = GPXWaypoint(latitude: CGFloat(geofence.latitude!.floatValue), longitude: CGFloat(geofence.longitude!.floatValue))!
+                    waypoint.name = geofence.customId ?? geofence.uuid
+                    waypoint.comment = geofence.name
+                    return waypoint
+                }).filter { $0 != nil }
+                
+                root.addWaypoints(waypoints)
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    share(gpx: root.gpx(), view: inView)
+                }
+            }
+        }
+        
+        let alert = UIAlertController(
+            title: NSLocalizedString("Note", comment: "Note"),
+            message: NSLocalizedString("Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default.", comment: "Your Geofences (no iBeacons) will be exported as an ordinary GPX file, only location and UUID/Name as well as Description will be exported. Custom settings like radius and URLs will fall back to default."),
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default) { _ in
+            createGpx(inView: inView)
+        })
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 fileprivate extension SettingsVc {
@@ -213,6 +322,8 @@ fileprivate extension SettingsVc {
                 row.title = .testRequest
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
+                }.onCellSelection { [weak self] cell, row in
+                    self?.testRequest()
         }
     }
 }
@@ -222,21 +333,36 @@ fileprivate extension SettingsVc {
         return Section(.notifications)
             <<< SwitchRow() { row in
                 row.title = .notificationOnSuccess
-                }.cellSetup { cell, row in
+                }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.switchControl?.onTintColor = .locativeColor
-        }
+                    row.value = self?.appDelegate.settings?.notifyOnSuccess?.boolValue
+                }.onChange { [weak self] row in
+                    let value = row.value ?? false
+                    self?.appDelegate.settings?.notifyOnSuccess = NSNumber(booleanLiteral: value)
+                    self?.persistSettings()
+            }
             <<< SwitchRow() { row in
                 row.title = .notificationOnFailure
-                }.cellSetup { cell, row in
+                }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.switchControl?.onTintColor = .locativeColor
-        }
+                    row.value = self?.appDelegate.settings?.notifyOnFailure?.boolValue
+                }.onChange { [weak self] row in
+                    let value = row.value ?? false
+                    self?.appDelegate.settings?.notifyOnFailure = NSNumber(booleanLiteral: value)
+                    self?.persistSettings()
+            }
             <<< SwitchRow() { row in
                 row.title = .soundOnNotification
-                }.cellSetup { cell, row in
+                }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.switchControl?.onTintColor = .locativeColor
+                    row.value = self?.appDelegate.settings?.soundOnNotification?.boolValue
+                }.onChange { [weak self] row in
+                    let value = row.value ?? false
+                    self?.appDelegate.settings?.soundOnNotification = NSNumber(booleanLiteral: value)
+                    self?.persistSettings()
         }
     }
 }
@@ -332,6 +458,8 @@ fileprivate extension SettingsVc {
                 row.title = .exportGpx
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
+                }.onCellSelection { [weak self] cell, row in
+                    self?.exportGpx(inView: cell)
         }
     }
 }

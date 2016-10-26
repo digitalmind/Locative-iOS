@@ -10,3 +10,4 @@
 #import "CloudManager.h"
 #import "HttpRequest.h"
 #import "UILocalNotification+Locative.h"
+#import "UIDevice+Locative.h"

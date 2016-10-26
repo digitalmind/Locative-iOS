@@ -83,6 +83,7 @@
 		2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ADE7D801914F99C00460861 /* iBeaconPresets.plist */; };
 		2B6B255EC6E6FCF3756FD146 /* Pods_LocativeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */; };
 		B5FF87B6381EDA94460A963C /* Pods_Locative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DCE64809809285D7A6941B /* Pods_Locative.framework */; };
+		EC016D7D1DC18F9B006CB5E2 /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC016D7C1DC18F9B006CB5E2 /* Bundle+Version.swift */; };
 		EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */ = {isa = PBXBuildFile; fileRef = EC24859C1AF8D01400A1A041 /* UILocalNotification+Locative.m */; };
 		EC28B7A719B72913009E5427 /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28B7A619B72913009E5427 /* ImportViewController.m */; };
 		EC30D0541ADE4B16009C2734 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */; };
@@ -241,6 +242,7 @@
 		A102061E165C036F8DA76957 /* Pods_LocativeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0DCE64809809285D7A6941B /* Pods_Locative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Locative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74C7E70352C766CF546839F /* Pods_LocativeWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocativeWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC016D7C1DC18F9B006CB5E2 /* Bundle+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Version.swift"; sourceTree = "<group>"; };
 		EC11C7681ADE53C2003DC18D /* Widget.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Widget.Debug.xcconfig; sourceTree = "<group>"; };
 		EC11C7691ADE53C2003DC18D /* Widget.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Widget.Release.xcconfig; sourceTree = "<group>"; };
 		EC24859B1AF8D01400A1A041 /* UILocalNotification+Locative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILocalNotification+Locative.h"; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */,
 				07AA1B021DB8D6040090009D /* UIView+UIViewLoading.swift */,
 				07AA1B0A1DB8D8900090009D /* UIView+AddSubview.swift */,
+				EC016D7C1DC18F9B006CB5E2 /* Bundle+Version.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 			files = (
 				07BC81EA1D48C92500286073 /* SecureCredentials.swift in Sources */,
 				2A8E9DF917FD5A5800F4A805 /* GeofenceManager.m in Sources */,
+				EC016D7D1DC18F9B006CB5E2 /* Bundle+Version.swift in Sources */,
 				07BC81E61D48C34E00286073 /* Config.swift in Sources */,
 				07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */,
 				07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */,
