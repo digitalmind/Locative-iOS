@@ -6,7 +6,6 @@
 #import "MKMapView+ZoomLevel.h"
 
 @import MapKit;
-@import PSTAlertController;
 @import SVProgressHUD;
 @import ObjectiveRecord;
 
@@ -421,11 +420,11 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         return;
     }
     
-    PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                           message:NSLocalizedString(@"Really delete this Entry?", @"Confirmation when deleting Gefoence/iBeacon")
-                                                                   preferredStyle:PSTAlertControllerStyleAlert];
-    [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:PSTAlertActionStyleCancel handler:nil]];
-    [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Delete", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Delete", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self.event delete];
         if (self.event.managedObjectContext) {
             [self.event save];
@@ -433,16 +432,16 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         [[_appDelegate geofenceManager] stopMonitoringEvent:self.event];
         [self.navigationController popViewControllerAnimated:YES];
     }]];
-    [controller showWithSender:sender controller:self animated:YES completion:nil];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (IBAction)backupClicked:(id)sender
 {
-    PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                           message:NSLocalizedString(@"This Geofence will be sent to your my.locative.io Account, you may then use it on any other Device. Would you like to do this?", @"Confirmation when uploading Geofence to my.locative.io")
-                                                                   preferredStyle:PSTAlertControllerStyleAlert];
-    [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:PSTAlertActionStyleDefault handler:nil]];
-    [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Backup", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleDefault handler:nil]];
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Backup", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
         [_appDelegate.cloudManager uploadGeofence:self.event onFinish:^(NSError *error) {
             [SVProgressHUD dismiss];
@@ -454,16 +453,16 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
                              message:NSLocalizedString(@"Your Geofence has been backed up successfully.", nil)];
         }];
     }]];
-    [controller showWithSender:sender controller:self animated:YES completion:nil];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message
 {
-    PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:title
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:title
                                                                           message:message
-                                                                   preferredStyle:PSTAlertControllerStyleAlert];
-    [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:PSTAlertActionStyleDefault handler:nil]];
-    [controller showWithSender:nil controller:self animated:YES completion:nil];
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - Geofence Actions
@@ -663,16 +662,16 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 }
 
 - (void)selectMethodForButton:(UIButton *)button sender:(id)sender {
-    PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Select http-method", nil)
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Select http-method", nil)
                                                                           message:NSLocalizedString(@"Please chose the method which shall be used", nil)
-                                                                   preferredStyle:PSTAlertControllerStyleAlert];
-    [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"GET", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"GET", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [button setTitle:@"GET" forState:UIControlStateNormal];
     }]];
-    [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"POST", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
+    [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"POST", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [button setTitle:@"POST" forState:UIControlStateNormal];
     }]];
-    [controller showWithSender:sender controller:self animated:YES completion:nil];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - UIPickerViewDataSource

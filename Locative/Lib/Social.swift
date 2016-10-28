@@ -1,5 +1,4 @@
 import UIKit
-import PSTAlertController
 
 enum SocialType {
     case facebook, twitter
@@ -51,21 +50,21 @@ class Social: NSObject {
 
 private extension Social {
     func askToOpenSocial(_ type: SocialType, completion:@escaping (_ allowed: Bool)->()) {
-        let controller = PSTAlertController(
+        let controller = UIAlertController(
             title: NSLocalizedString("Note", comment: "Social alert title"),
             message: String(format: NSLocalizedString("This will open up %@. Ready?", comment: "Open social link alert test"), type.readable()),
             preferredStyle: .alert
         )
         controller.addAction(
-            PSTAlertAction(title: NSLocalizedString("No", comment: "Social alert no button"), style: .cancel, handler: { action in
+            UIAlertAction(title: NSLocalizedString("No", comment: "Social alert no button"), style: .cancel, handler: { action in
                 completion(false)
             })
         )
         controller.addAction(
-            PSTAlertAction(title: NSLocalizedString("Yes", comment: "Social alert yes button"), style: .default, handler: { action in
+            UIAlertAction(title: NSLocalizedString("Yes", comment: "Social alert yes button"), style: .default, handler: { action in
                 completion(true)
             })
         )
-        controller.showWithSender(self, controller: viewController, animated: true) {}
+        viewController.present(controller, animated: true, completion: nil)
     }
 }

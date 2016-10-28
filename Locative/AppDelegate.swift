@@ -4,7 +4,6 @@ import Crashlytics;
 import Harpy;
 import iOS_GPX_Framework
 import TSMessages;
-import PSTAlertController;
 import ObjectiveRecord;
 import SVProgressHUD;
 
@@ -110,21 +109,22 @@ private extension AppDelegate {
     static let queueLabel = "io.locative.backgroundQueue"
     
     func importGpx(_ url: URL) {
-        let controller = PSTAlertController(
+        let controller = UIAlertController(
             title: NSLocalizedString("Note", comment: "Alert title when importing GPX"),
             message: NSLocalizedString("Would you like to keep your existing Geofences?", comment: "Alert message when importing GPX"),
             preferredStyle: .alert)
         controller.addAction(
-            PSTAlertAction(title: NSLocalizedString("No", comment: "No don't keep Geofences when importing GPX"), style: .default, handler: { [weak self] action in
+            UIAlertAction(title: NSLocalizedString("No", comment: "No don't keep Geofences when importing GPX"), style: .default, handler: { [weak self] action in
                 Geofence.deleteAll()
                 self?.importGpx(url, keep: false)
             })
         )
         controller.addAction(
-            PSTAlertAction(title: NSLocalizedString("Yes", comment: "Yes keep Geofences when importing GPX"), style: .default, handler: { [weak self] action in
+            UIAlertAction(title: NSLocalizedString("Yes", comment: "Yes keep Geofences when importing GPX"), style: .default, handler: { [weak self] action in
                 self?.importGpx(url, keep: true)
             })
         )
+        window?.rootViewController?.present(controller, animated: true, completion: nil)
     }
     
     func importGpx(_ url: URL, keep: Bool) {
@@ -193,14 +193,14 @@ private extension AppDelegate {
             return NSLocalizedString("Your GPX file has been sucessfully imported.", comment: "GPX import success message")
         }
         
-        let alert = PSTAlertController(
+        let alert = UIAlertController(
             title: errored ? NSLocalizedString("Error", comment: "GPX import error title") : NSLocalizedString("Note", comment: "GPX import note title"),
             message: message(errored, limitExceeded: limitExceeded, maxLimit: maxLimit, overall: overall),
             preferredStyle: .alert
         )
         alert.addAction(
-            PSTAlertAction(title: NSLocalizedString("OK", comment: "GPX import alert ok"), style: .default, handler: nil)
+            UIAlertAction(title: NSLocalizedString("OK", comment: "GPX import alert ok"), style: .default, handler: nil)
         )
-        alert.showWithSender(self, controller: nil, animated: true, completion: nil)
+        window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }

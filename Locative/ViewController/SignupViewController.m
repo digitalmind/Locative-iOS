@@ -2,7 +2,6 @@
 #import "CloudManager.h"
 #import "SignupViewController.h"
 
-@import PSTAlertController;
 @import SVProgressHUD;
 
 @interface SignupViewController ()
@@ -64,53 +63,53 @@
                     if (!error) {
                         [self.appDelegate.settings setApiToken:sessionId];
                         [self.appDelegate.settings persist];
-                        PSTAlertController *alertController = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
+                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                                                    message:NSLocalizedString(@"Your account has been created successfully! You have been logged in automatically.", nil)
-                                                                                            preferredStyle:PSTAlertControllerStyleAlert];
-                        [alertController addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) handler:^(PSTAlertAction *action) {
+                                                                                            preferredStyle:UIAlertControllerStyleAlert];
+                        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             [[self navigationController] popViewControllerAnimated:YES];
                         }]];
-                        [alertController showWithSender:sender controller:self animated:YES completion:nil];
+                        [self presentViewController:alertController animated:YES completion:nil];
                         
                     } else {
-                        PSTAlertController *alertController = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
+                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                                                    message:NSLocalizedString(@"Your account has been created successfully! You may now sign in using the prvoided credentials.", nil)
-                                                                                            preferredStyle:PSTAlertControllerStyleAlert];
-                        [alertController addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) handler:^(PSTAlertAction *action) {
+                                                                                            preferredStyle:UIAlertControllerStyleAlert];
+                        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                             [[self navigationController] popViewControllerAnimated:YES];
                         }]];
-                        [alertController showWithSender:sender controller:self animated:YES completion:nil];
+                        [self presentViewController:alertController animated:YES completion:nil];
                     }
                 }];
                 
                 
             } else if (gfcError == CloudManagerSignupErrorUserExisting) {
                 // User already existing
-                PSTAlertController *alertController = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
                                                                                            message:NSLocalizedString(@"A user with the same Username / E-Mail address ist already existing. Please choose another one..", nil)
-                                                                                    preferredStyle:PSTAlertControllerStyleAlert];
-                [alertController addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) handler:nil]];
-                [alertController showWithSender:sender controller:self animated:YES completion:nil];
+                                                                                    preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
+                [self presentViewController:alertController animated:YES completion:nil];
             }
         }];
     } else {
-        PSTAlertController *alertController = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                                    message:NSLocalizedString(@"Please enter a Username and a Password which have a minimum of 5 chars.", nil)
-                                                                            preferredStyle:PSTAlertControllerStyleAlert];
-        [alertController addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) handler:nil]];
-        [alertController showWithSender:sender controller:self animated:YES completion:nil];
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
 - (IBAction) readTos:(id)sender {
-    PSTAlertController *alertController = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                                message:NSLocalizedString(@"This will open up Safari and lead to our TOS. Sure?", nil)
-                                                                        preferredStyle:PSTAlertControllerStyleAlert];
-    [alertController addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"No", nil) style:PSTAlertActionStyleCancel handler:nil]];
-    [alertController addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Yes", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"No", nil) style:UIAlertActionStyleCancel handler:nil]];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Yes", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://my.locative.io/tos"]];
     }]];
-    [alertController showWithSender:sender controller:self animated:YES completion:nil];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

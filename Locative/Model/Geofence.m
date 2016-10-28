@@ -1,7 +1,6 @@
 #import "Geofence.h"
 #import "Locative-Swift.h"
 
-@import PSTAlertController;
 @import ObjectiveSugar;
 @import ObjectiveRecord;
 
@@ -31,11 +30,11 @@
 {
     if ([[Geofence all] count] >= 20) {
         if (alert) {
-            PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
+            UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Note", nil)
                                                                                   message:NSLocalizedString(@"There's a maximum limit of 20 Geofences per App, please remove some Geofences before adding new ones.", nil)
-                                                                           preferredStyle:PSTAlertControllerStyleAlert];
-            [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:PSTAlertActionStyleCancel handler:nil]];
-            [controller showWithSender:nil controller:vc animated:YES completion:nil];
+                                                                           preferredStyle:UIAlertControllerStyleAlert];
+            [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+            [vc presentViewController:controller animated:true completion:nil];
         }
         return YES;
     }

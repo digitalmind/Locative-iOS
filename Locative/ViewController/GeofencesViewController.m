@@ -4,7 +4,6 @@
 #import "GeofenceManager.h"
 #import "Locative-Swift.h"
 
-@import PSTAlertController;
 @import ObjectiveSugar;
 @import ObjectiveRecord;
 
@@ -179,17 +178,17 @@
     
     if ([self.appDelegate.settings apiToken].length > 0) {
         // User is logged in, ask wether to import Geofence
-        PSTAlertController *controller = [PSTAlertController alertControllerWithTitle:NSLocalizedString(@"Would you like to add a new Geofence locally or import it from my.locative.io?", nil)
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Would you like to add a new Geofence locally or import it from my.locative.io?", nil)
                                                                               message:nil
-                                                                       preferredStyle:PSTAlertControllerStyleActionSheet];
-        [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:PSTAlertActionStyleCancel handler:nil]];
-        [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Add locally", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
+                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Add locally", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self performSegueWithIdentifier:@"AddEvent" sender:self];
         }]];
-        [controller addAction:[PSTAlertAction actionWithTitle:NSLocalizedString(@"Import", nil) style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
+        [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Import", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self performSegueWithIdentifier:@"Import" sender:self];
         }]];
-        [controller showWithSender:self.view controller:self animated:YES completion:nil];
+        [self presentViewController:controller animated:YES completion:nil];
         return;
     }
     
