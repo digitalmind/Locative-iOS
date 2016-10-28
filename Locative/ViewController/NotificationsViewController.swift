@@ -3,12 +3,13 @@ import NMessenger
 class NotificationsViewController: UIViewController {
     
     let bubbleConfiguration = StandardBubbleConfiguration()
-    let settings = Settings()
+    let settings = (UIApplication.shared.delegate as? AppDelegate)?.settings
     let cloudConnect = CloudConnect()
     
     var emptyView: NotificationsEmptyView!
     var messengerView: NMessenger!
     var typingIndicator: GeneralMessengerCell?
+    var isReloading = false
     
     @IBOutlet weak var reloadButton: UIBarButtonItem?
     
@@ -40,13 +41,15 @@ class NotificationsViewController: UIViewController {
     }
     
     private func updateEmptyState() {
-        if !settings.isLoggedIn {
+        if let s = settings?.isLoggedIn, !s {
             view.superview?.addSubviewIfNotAdded(emptyView)
         } else {
             guard let superview = view.superview else { return }
             emptyView.removeFromSuperviewIfAdded(superview)
         }
-        reloadButton?.isEnabled = settings.isLoggedIn
+        if let s = settings {
+            reloadButton?.isEnabled = s.isLoggedIn
+        }
     }
     
     private func showTypingIndicator() {
@@ -61,13 +64,18 @@ class NotificationsViewController: UIViewController {
     }
     
     @IBAction func reloadMessages() {
-        guard settings.isLoggedIn else {
+        guard let s = settings, s.isLoggedIn else {
             return
         }
+        guard !isReloading else {
+            return
+        }
+        isReloading = true
         messengerView.removeMessages(messengerView.allMessages(), animation: .automatic)
         showTypingIndicator()
         cloudConnect.getLastMessages { [unowned self] messages in
             self.hideTypingIndicator()
+            self.isReloading = false
             guard let msgs = messages else {
                 return self.addMessage(
                     text: NSLocalizedString("Notifications currently unavailable.", comment: "Notifications currently unavailable.")
