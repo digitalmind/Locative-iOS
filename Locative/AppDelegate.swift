@@ -69,6 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if url.absoluteString == "locative://debug" {
+            settings?.toggleDebug()
+        }
         if !(url as NSURL).isFileReferenceURL() { return false }
         guard url.pathExtension == "gpx" else { return false }
         print("Opening GPX file at \(url.absoluteString)")

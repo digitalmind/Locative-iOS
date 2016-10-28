@@ -35,6 +35,7 @@
 		07BC82021D4D974C00286073 /* Ints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82011D4D974C00286073 /* Ints.swift */; };
 		07BC82041D4D97EC00286073 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82031D4D97EC00286073 /* Social.swift */; };
 		07C965141DB769BA009C0ECE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C965131DB769B9009C0ECE /* Alamofire.framework */; };
+		07DB1D141DC40A7600E90040 /* DebuggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB1D131DC40A7500E90040 /* DebuggerViewController.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
 		07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */; };
@@ -172,6 +173,7 @@
 		07C965131DB769B9009C0ECE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
+		07DB1D131DC40A7500E90040 /* DebuggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebuggerViewController.swift; sourceTree = "<group>"; };
 		07E2254F1CA77B0500572180 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		07E225511CA8D38C00572180 /* NSString+Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Paths.swift"; sourceTree = "<group>"; };
 		07E225531CA8D44000572180 /* NSUserDefault+Locative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefault+Locative.swift"; sourceTree = "<group>"; };
@@ -541,6 +543,8 @@
 			children = (
 				070568061D4DDA0B005C5E9A /* AboutViewController.swift */,
 				079412E01DBC31FB001EA0E4 /* SettingsViewController.swift */,
+				07DB1D131DC40A7500E90040 /* DebuggerViewController.swift */,
+				EC7770DF1DB6CEA500AD1648 /* NotificationsViewController.swift */,
 				2A8E9E0117FD5AA500F4A805 /* GeofencesViewController.h */,
 				2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */,
 				2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */,
@@ -549,7 +553,6 @@
 				2A2BF52E18537ED400D5DD98 /* SignupViewController.m */,
 				EC28B7A519B72913009E5427 /* ImportViewController.h */,
 				EC28B7A619B72913009E5427 /* ImportViewController.m */,
-				EC7770DF1DB6CEA500AD1648 /* NotificationsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1006,6 +1009,7 @@
 				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,
 				07BC81E41D48BEAF00286073 /* Synchronized.swift in Sources */,
 				2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */,
+				07DB1D141DC40A7600E90040 /* DebuggerViewController.swift in Sources */,
 				07AA1B091DB8D64C0090009D /* EmptyView.swift in Sources */,
 				2AB31B7E18055C6400FC839B /* Geofence.m in Sources */,
 				07BC81E81D48C72F00286073 /* BackgroundBlockOperation.swift in Sources */,

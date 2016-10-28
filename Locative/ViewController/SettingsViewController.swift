@@ -30,6 +30,9 @@ fileprivate extension String {
 
     static let backup = NSLocalizedString("Backup", comment: "Backup")
     static let exportGpx = NSLocalizedString("Export Geofences as GPX", comment: "Export Geofences as GPX")
+    
+    static let debugging = NSLocalizedString("Debugging", comment: "Debugging")
+    static let openDebugger = NSLocalizedString("Open Debugger", comment: "Open Debugger")
 }
 
 fileprivate extension UIColor {
@@ -49,8 +52,14 @@ class SettingsViewController: FormViewController {
             +++ notificationsSection()
             +++ globalHttpSection()
             +++ backupSection()
+            +++ debugSection()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
+        form.sectionBy(tag: .debugging)?.evaluateHidden()
+    }
+
     fileprivate func usernameRow() -> TextRow? {
         return form.rowBy(tag: .accountUsernameRow) as? TextRow
     }
@@ -460,6 +469,27 @@ fileprivate extension SettingsViewController {
                     cell.tintColor = .locativeColor
                 }.onCellSelection { [weak self] cell, row in
                     self?.exportGpx(inView: cell)
+        }
+    }
+}
+
+fileprivate extension SettingsViewController {
+    func debugSection() -> Section {
+        return Section(.debugging) { section in
+            section.tag = .debugging
+            section.hidden = Condition.function([]) { [weak self] form in
+                guard let e = self?.appDelegate.settings?.debugEnabled else {
+                    return true
+                }
+                return !e.boolValue
+                }
+            }
+            <<< ButtonRow() { row in
+                row.title = .openDebugger
+                }.cellSetup { cell, row in
+                    cell.tintColor = .locativeColor
+                }.onCellSelection { [weak self] cell, row in
+                    self?.navigationController?.pushViewController(DebuggerViewController(), animated: true)
         }
     }
 }
