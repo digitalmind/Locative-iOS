@@ -45,10 +45,10 @@ class SettingsViewController: FormViewController {
         super.viewDidLoad()
 
         form
-        +++ globalHttpSection()
-        +++ notificationsSection()
-        +++ accountSection()
-        +++ backupSection()
+            +++ accountSection()
+            +++ notificationsSection()
+            +++ globalHttpSection()
+            +++ backupSection()
     }
     
     fileprivate func usernameRow() -> TextRow? {
