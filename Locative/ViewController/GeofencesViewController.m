@@ -113,7 +113,7 @@
     
     if ([event.type intValue] == GeofenceTypeGeofence) {
         cell.imageView.image = [UIImage imageNamed:@"icon-geofence"];
-    } else if ([event.type intValue] == GeofenceTypeIbeacon) {
+    } else if ([event.type intValue] == GeofenceTypeIBeacon) {
         cell.imageView.image = [UIImage imageNamed:@"icon-ibeacon"];
     } else {
         cell.imageView.image = nil;
@@ -172,7 +172,7 @@
 #pragma mark - IBActions
 - (IBAction) addGeofence:(id)sender
 {
-    if ([Geofence maximumReachedShowingAlert:YES viewController:self]) {
+    if ([Geofence showMaximumGeofencesReachedWithAlert:YES viewController:self]) {
         return;
     }
     

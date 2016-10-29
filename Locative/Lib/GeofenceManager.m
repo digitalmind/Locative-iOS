@@ -1,6 +1,5 @@
 #import "Locative-Swift.h"
 #import "GeofenceManager.h"
-#import "HttpRequest.h"
 #import "UIDevice+Locative.h"
 #import "Fencelog.h"
 #import "UILocalNotification+Locative.h"

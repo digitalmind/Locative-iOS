@@ -1,6 +1,5 @@
 #import "Locative-Swift.h"
 #import "CloudManager.h"
-#import "Geofence.h"
 #import "GeofenceManager.h"
 #import "ImportViewController.h"
 
@@ -71,10 +70,10 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if ([Geofence maximumReachedShowingAlert:YES viewController:self]) {
+    if ([Geofence showMaximumGeofencesReachedWithAlert:YES viewController:self]) {
         return;
     }
-    
+
     // Add Geofences
     self.selectedGeofence = self.geofences[indexPath.row];
     [self importSelectedGeofence];

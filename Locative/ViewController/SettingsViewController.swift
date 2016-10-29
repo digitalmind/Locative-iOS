@@ -159,14 +159,14 @@ class SettingsViewController: FormViewController {
                 "latitude": coordinate != nil ? Double(coordinate!.latitude) : 123.0,
                 "longitude": coordinate != nil ? Double(coordinate!.longitude) : 123.0,
                 "timestamp": Int(timestamp.timeIntervalSince1970)
-            ] as [String: Any]
+            ] as NSDictionary
             
             let request = HttpRequest.create() as! HttpRequest
             request.url = self?.appDelegate.settings?.globalUrl?.absoluteString
             request.method = self?.appDelegate.settings?.globalHttpMethod == 0 ? "POST" : "GET"
             request.parameters = parameters
             request.eventType = NSNumber(integerLiteral: 0)
-            request.timestamp = timestamp
+            request.timestamp = timestamp as NSDate
             request.uuid = NSUUID().uuidString
             
             if let auth = self?.appDelegate.settings?.httpBasicAuthEnabled, auth == true {

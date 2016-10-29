@@ -1,7 +1,6 @@
 #import "Locative-Swift.h"
 #import "AddEditGeofenceViewController.h"
 #import "CloudManager.h"
-#import "Geofence.h"
 #import "GeofenceManager.h"
 #import "MKMapView+ZoomLevel.h"
 
@@ -262,11 +261,11 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
             return 0.0f;
         }
     } else if (indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5) {
-        if (_geofenceType == GeofenceTypeIbeacon) {
+        if (_geofenceType == GeofenceTypeIBeacon) {
             return 0.0f;
         }
     } else if (indexPath.section == 7) {
-        if (_geofenceType == GeofenceTypeIbeacon) {
+        if (_geofenceType == GeofenceTypeIBeacon) {
             return 0.0f;
         }
         if ([_appDelegate.settings apiToken].length == 0) {
@@ -284,7 +283,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
             return 0.0f;
         }
     } else if (section == 3 || section == 4 || section == 5) {
-        if (_geofenceType == GeofenceTypeIbeacon) {
+        if (_geofenceType == GeofenceTypeIBeacon) {
             return 0.0f;
         }
     }
@@ -365,7 +364,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 - (IBAction) toggleType:(UISegmentedControl *)sgControl
 {
     if(sgControl.selectedSegmentIndex == 1) {
-        _geofenceType = GeofenceTypeIbeacon;
+        _geofenceType = GeofenceTypeIBeacon;
     } else {
         _geofenceType = GeofenceTypeGeofence;
     }
@@ -375,9 +374,9 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:(NSRange){1,4}] withRowAnimation:UITableViewRowAnimationNone];
     
     [UIView animateWithDuration:.25f animations:^{
-        _iBeaconPicker.alpha = (_geofenceType == GeofenceTypeIbeacon) ? 1.0f : 0.0f;
+        _iBeaconPicker.alpha = (_geofenceType == GeofenceTypeIBeacon) ? 1.0f : 0.0f;
     } completion:^(BOOL finished) {
-        _iBeaconPicker.hidden = !(_geofenceType == GeofenceTypeIbeacon);
+        _iBeaconPicker.hidden = !(_geofenceType == GeofenceTypeIBeacon);
     }];
 }
 
@@ -523,7 +522,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 - (IBAction)saveEvent:(id)sender
 {
     // iBeacon: Check if exceeding uint16
-    if (_geofenceType == GeofenceTypeIbeacon) {
+    if (_geofenceType == GeofenceTypeIBeacon) {
         if ([[self.majorMinorFormatter numberFromString:_iBeaconMajorTextField.text] intValue] > UINT16_MAX ||
             [[self.majorMinorFormatter numberFromString:_iBeaconMinorTextField.text] intValue] > UINT16_MAX) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
@@ -602,7 +601,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     }
     
     // iBeacon
-    if (_geofenceType == GeofenceTypeIbeacon) {
+    if (_geofenceType == GeofenceTypeIBeacon) {
         self.event.iBeaconUuid = _iBeaconUuidTextField.text;
         self.event.iBeaconMajor = [self.majorMinorFormatter numberFromString:_iBeaconMajorTextField.text];//@([_iBeaconMajorTextField.text longLongValue]);
         self.event.iBeaconMinor = [self.majorMinorFormatter numberFromString:_iBeaconMinorTextField.text];//@([_iBeaconMinorTextField.text longLongValue]);

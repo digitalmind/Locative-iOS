@@ -1,5 +1,4 @@
 #import "CloudManager.h"
-#import "Geofence.h"
 #import "Fencelog.h"
 #import "NSString+Hashes.h"
 #import "GeofenceManager.h"

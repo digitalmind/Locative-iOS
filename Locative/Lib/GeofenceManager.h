@@ -1,8 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-#import "Geofence.h"
-//#import "CloudManager.h"
+@class Geofence;
 
 typedef enum : NSUInteger {
     TriggerOnEnter = (0x1 << 0), // => 0x00000001

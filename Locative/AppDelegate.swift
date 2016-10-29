@@ -156,7 +156,7 @@ private extension AppDelegate {
                 DispatchQueue.main.async(execute: { [weak self] in
                     let waypoint = root.waypoints[index]
                     let geofence = Geofence.create() as! Geofence
-                    geofence.type = NSNumber(value: GeofenceTypeGeofence.rawValue as UInt32)
+                    geofence.type = NSNumber(value: GeofenceType.geofence.rawValue)
                     geofence.name = (waypoint as AnyObject).comment
                     geofence.uuid = UUID().uuidString
                     geofence.customId = (waypoint as AnyObject).name

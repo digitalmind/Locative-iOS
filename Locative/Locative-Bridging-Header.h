@@ -5,9 +5,7 @@
 @import UIKit;
 
 #import "Fencelog.h"
-#import "Geofence.h"
 #import "GeofenceManager.h"
 #import "CloudManager.h"
-#import "HttpRequest.h"
 #import "UILocalNotification+Locative.h"
 #import "UIDevice+Locative.h"
