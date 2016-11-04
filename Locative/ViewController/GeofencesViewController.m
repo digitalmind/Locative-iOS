@@ -188,6 +188,9 @@
         [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Import", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self performSegueWithIdentifier:@"Import" sender:self];
         }]];
+        if (controller.popoverPresentationController) {
+            controller.popoverPresentationController.barButtonItem = sender;
+        }
         [self presentViewController:controller animated:YES completion:nil];
         return;
     }
