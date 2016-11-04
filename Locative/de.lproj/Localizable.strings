@@ -121,4 +121,27 @@
 "Notifications currently unavailable." = "Benachrichtigungen momentan nicht verfügbar.";
 "You have no notifications." = "Du hast keine Benachrichtigungen.";
 
-
+// SettingsViewController
+"Global HTTP Settings" = "Globale HTTP Einstellungen";
+"URL" = "URL";
+"http://yourserver.com/event.php" = "http://yourserver.com/event.php";
+"POST" = "POST";
+"GET" = "GET";
+"HTTP Basic Authentication" = "HTTP Basic Authentifizierung";
+"Username" = "Benutzername";
+"Password" = "Passwort";
+"Send Test-Request" = "Test-Request senden";
+"Notifications" = "Benachrichtigungen";
+"Notification on Success" = "Benachrichtigung bei Erfolg";
+"Notification on Failure" = "Benachrichtigung bei Fehler";
+"Sound on Notification" = "Ton bei Benachrichtigung";
+"My Locative Account" = "My Locative Account";
+"Login" = "Login";
+"Signup new Account" = "Neuen Account erstellen";
+"Recover lost password" = "Password vergessen";
+"Logout" = "Abmelden";
+"Backup" = "Backup";
+"Export Geofences as GPX" = "Geofences als GPX exportieren";
+"Debugging" = "Debugging";
+"Open Debugger" = "Debugger öffnen";
+"A Test-Request has been sent. The result will be displayed as soon as it's succeeded / failed." = "Ein Test-Request wurde gesendet. Das Ergebnis erscheint via Benachrichtigunge sobald der Request beendet wurde.";

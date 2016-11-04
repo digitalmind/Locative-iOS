@@ -121,3 +121,27 @@
 "Notifications currently unavailable." = "Notifications currently unavailable.";
 "You have no notifications." = "You have no notifications.";
 
+// SettingsViewController
+"Global HTTP Settings" = "Global HTTP Settings";
+"URL" = "URL";
+"http://yourserver.com/event.php" = "http://yourserver.com/event.php";
+"POST" = "POST";
+"GET" = "GET";
+"HTTP Basic Authentication" = "HTTP Basic Authentication";
+"Username" = "Username";
+"Password" = "Password";
+"Send Test-Request" = "Send Test-Request";
+"Notifications" = "Notifications";
+"Notification on Success" = "Notification on Success";
+"Notification on Failure" = "Notification on Failure";
+"Sound on Notification" = "Sound on Notification";
+"My Locative Account" = "My Locative Account";
+"Login" = "Login";
+"Signup new Account" = "Signup new Account";
+"Recover lost password" = "Recover lost password";
+"Logout" = "Logout";
+"Backup" = "Backup";
+"Export Geofences as GPX" = "Export Geofences as GPX";
+"Debugging" = "Debugging";
+"Open Debugger" = "Open Debugger";
+"A Test-Request has been sent. The result will be displayed as soon as it's succeeded / failed." = "A Test-Request has been sent. The result will be displayed as soon as it's succeeded / failed.";
