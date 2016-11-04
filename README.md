@@ -28,6 +28,7 @@ The following commands will clone this repository and spin up the dev environmen
 git clone https://github.com/LocativeHQ/Locative-iOS
 cd Locative-iOS
 bundle install
+bundle exec rake setup
 bundle exec rake dev
 ```
 
