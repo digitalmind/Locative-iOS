@@ -144,7 +144,8 @@
             return; // bailing out due to no circular region...
         }
         CLLocationCoordinate2D theLocationCoordinate = managerLocation.coordinate;
-        if (![(CLCircularRegion *)region containsCoordinate:theLocationCoordinate]) { // bail out as we're not exactly in the Geofence's region
+        if (![(CLCircularRegion *)region containsCoordinate:theLocationCoordinate]
+            && [trigger isEqualToString:GFEnter]) { // bail out as we're not exactly in the Geofence's region
             return;
         }
         
