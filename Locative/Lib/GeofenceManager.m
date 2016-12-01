@@ -109,96 +109,113 @@
     [self.locationManager stopUpdatingLocation];
 }
 
-- (void) performBackgroundTaskForRegion:(CLRegion *)region withTrigger:(NSString *)trigger {
+- (void) performBackgroundTaskForRegion:(CLRegion *)region withTrigger:(NSString *)trigger managerLocation:(CLLocation *)managerLocation {
     NSLog(@"CLRegion: %@, Trigger: %@", region, trigger);
 
     [self.dispatchQueue addOperation:[BackgroundBlockOperation blockOperationWithBlock:^{
-        [self performUrlRequestForRegion:region withTrigger:trigger];
+        [self performUrlRequestForRegion:region withTrigger:trigger managerLocation:managerLocation];
     }]];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    [self performBackgroundTaskForRegion:region withTrigger:GFEnter];
+    [self performBackgroundTaskForRegion:region withTrigger:GFEnter managerLocation:manager.location];
     [self cleanup];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    [self performBackgroundTaskForRegion:region withTrigger:GFExit];
+    [self performBackgroundTaskForRegion:region withTrigger:GFExit managerLocation:manager.location];
     [self cleanup];
 }
 
-- (void) performUrlRequestForRegion:(CLRegion *)region withTrigger:(NSString *)trigger {
+- (void) performUrlRequestForRegion:(CLRegion *)region withTrigger:(NSString *)trigger managerLocation:(CLLocation *)managerLocation {
     Geofence *event = [Geofence where:[NSString stringWithFormat:@"uuid == '%@'", region.identifier]].first;
     NSLog(@"uuid == '%@'", region.identifier);
     
-    if(event) {
-        CLLocation *location = [[CLLocation alloc] initWithLatitude:[event.latitude doubleValue] longitude:[event.longitude doubleValue]];
-        NSLog(@"got location update: %@", location);
-        if ([trigger isEqualToString:GFEnter] && !([event.triggers integerValue] & TriggerOnEnter)) {
+    if(!event) {
+        return;
+    }
+    
+    // fix for multiple request b/c iOS locationManager fires them like crazy
+    if (event.type.intValue == 0) {// Geofence
+        if (!managerLocation) { // bail out as we can't compare region
+            return;
+        }
+        if (![region isKindOfClass:CLCircularRegion.class]) {
+            return; // bailing out due to no circular region...
+        }
+        CLLocationCoordinate2D theLocationCoordinate = managerLocation.coordinate;
+        if (![(CLCircularRegion *)region containsCoordinate:theLocationCoordinate]) { // bail out as we're not exactly in the Geofence's region
             return;
         }
         
-        if ([trigger isEqualToString:GFExit] && !([event.triggers integerValue] & TriggerOnExit)) {
-            return;
-        }
-        
-        NSString *relevantUrl = ([trigger isEqualToString:GFEnter])?[event enterUrl]:[event exitUrl];
-        NSString *url = ([relevantUrl length] > 0)?relevantUrl:[[self.appDelegate.settings globalUrl] absoluteString];
-        BOOL useGlobalUrl = ([relevantUrl length] == 0);
-        NSString *eventId = ([[event customId] length] > 0)?[event customId]:[event uuid];
-        NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-        NSDate *timestamp = [NSDate date];
-        
-        NSDictionary *parameters = @{@"id":eventId,
-                                     @"trigger":trigger,
-                                     @"device":deviceId,
-                                     @"device_type": @"iOS",
-                                     @"device_model": [UIDevice locative_deviceModel],
-                                     @"latitude":[NSNumber numberWithDouble:location.coordinate.latitude],
-                                     @"longitude":[NSNumber numberWithDouble:location.coordinate.longitude],
-                                     @"timestamp": [NSString stringWithFormat:@"%f", [timestamp timeIntervalSince1970]]};
+    }
+    
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:[event.latitude doubleValue] longitude:[event.longitude doubleValue]];
+    NSLog(@"got location update: %@", location);
+    if ([trigger isEqualToString:GFEnter] && !([event.triggers integerValue] & TriggerOnEnter)) {
+        return;
+    }
+    
+    if ([trigger isEqualToString:GFExit] && !([event.triggers integerValue] & TriggerOnExit)) {
+        return;
+    }
+    
+    NSString *relevantUrl = ([trigger isEqualToString:GFEnter])?[event enterUrl]:[event exitUrl];
+    NSString *url = ([relevantUrl length] > 0)?relevantUrl:[[self.appDelegate.settings globalUrl] absoluteString];
+    BOOL useGlobalUrl = ([relevantUrl length] == 0);
+    NSString *eventId = ([[event customId] length] > 0)?[event customId]:[event uuid];
+    NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSDate *timestamp = [NSDate date];
+    
+    NSDictionary *parameters = @{@"id":eventId,
+                                 @"trigger":trigger,
+                                 @"device":deviceId,
+                                 @"device_type": @"iOS",
+                                 @"device_model": [UIDevice locative_deviceModel],
+                                 @"latitude":[NSNumber numberWithDouble:location.coordinate.latitude],
+                                 @"longitude":[NSNumber numberWithDouble:location.coordinate.longitude],
+                                 @"timestamp": [NSString stringWithFormat:@"%f", [timestamp timeIntervalSince1970]]};
 
-        if([url length] > 0) {
-            [self.mainQueue addOperationWithBlock:^{
-                HttpRequest *httpRequest = [HttpRequest create];
-                httpRequest.url = url;
-                httpRequest.method = WHICH_METHOD([event enterMethod]);
-                httpRequest.parameters = parameters;
-                httpRequest.eventType = event.type;
-                httpRequest.timestamp = timestamp;
-                httpRequest.uuid = [[NSUUID UUID] UUIDString];
-                
-                if (useGlobalUrl) {
-                    if ([self.appDelegate.settings httpBasicAuthEnabled]) {
-                        httpRequest.httpAuth = [NSNumber numberWithBool:YES];
-                        httpRequest.httpAuthUsername = [self.appDelegate.settings httpBasicAuthUsername];
-                        httpRequest.httpAuthPassword = [self.appDelegate.settings httpBasicAuthPassword];
-                    }
-                } else {
-                    if ([event.httpAuth boolValue]) {
-                        httpRequest.httpAuth = [NSNumber numberWithBool:YES];
-                        httpRequest.httpAuthUsername = event.httpUser;
-                        httpRequest.httpAuthPassword = event.httpPasswordSecure;
-                    }
+    if([url length] > 0) {
+        [self.mainQueue addOperationWithBlock:^{
+            HttpRequest *httpRequest = [HttpRequest create];
+            httpRequest.url = url;
+            httpRequest.method = WHICH_METHOD([event enterMethod]);
+            httpRequest.parameters = parameters;
+            httpRequest.eventType = event.type;
+            httpRequest.timestamp = timestamp;
+            httpRequest.uuid = [[NSUUID UUID] UUIDString];
+            
+            if (useGlobalUrl) {
+                if ([self.appDelegate.settings httpBasicAuthEnabled]) {
+                    httpRequest.httpAuth = [NSNumber numberWithBool:YES];
+                    httpRequest.httpAuthUsername = [self.appDelegate.settings httpBasicAuthUsername];
+                    httpRequest.httpAuthPassword = [self.appDelegate.settings httpBasicAuthPassword];
                 }
-                
-                [httpRequest save];
-                [self.appDelegate.requestManager flushWithCompletion:nil];
-            }];
-        } else {
-            Fencelog *fencelog = [[Fencelog alloc] init];
-            fencelog.locationId = eventId;
-            fencelog.latitude = @(location.coordinate.latitude);
-            fencelog.longitude = @(location.coordinate.longitude);
-            fencelog.eventType = trigger;
-            fencelog.fenceType = event.type.intValue == 0 ? @"geofence" : @"ibeacon";
-            fencelog.httpResponse = @"<No HTTP request has been performed>";
-            [self.appDelegate.requestManager dispatchFencelog:fencelog];
-            if (self.appDelegate.settings.notifyOnSuccess.boolValue) {
-                [self.appDelegate.requestManager presentLocalNotification:
-                 [NSString stringWithFormat:NSLocalizedString(@"%@ has been %@.", @"Fencelog-only notification string"),
-                  eventId, [self localizedTriggerString:trigger]] success:YES];
+            } else {
+                if ([event.httpAuth boolValue]) {
+                    httpRequest.httpAuth = [NSNumber numberWithBool:YES];
+                    httpRequest.httpAuthUsername = event.httpUser;
+                    httpRequest.httpAuthPassword = event.httpPasswordSecure;
+                }
             }
+            
+            [httpRequest save];
+            [self.appDelegate.requestManager flushWithCompletion:nil];
+        }];
+    } else {
+        Fencelog *fencelog = [[Fencelog alloc] init];
+        fencelog.locationId = eventId;
+        fencelog.latitude = @(location.coordinate.latitude);
+        fencelog.longitude = @(location.coordinate.longitude);
+        fencelog.eventType = trigger;
+        fencelog.fenceType = event.type.intValue == 0 ? @"geofence" : @"ibeacon";
+        fencelog.httpResponse = @"<No HTTP request has been performed>";
+        [self.appDelegate.requestManager dispatchFencelog:fencelog];
+        if (self.appDelegate.settings.notifyOnSuccess.boolValue) {
+            [self.appDelegate.requestManager presentLocalNotification:
+             [NSString stringWithFormat:NSLocalizedString(@"%@ has been %@.", @"Fencelog-only notification string"),
+              eventId, [self localizedTriggerString:trigger]] success:YES];
         }
     }
 }
