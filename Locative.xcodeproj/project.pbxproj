@@ -148,6 +148,7 @@
 		0705680F1D4DE388005C5E9A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VTAcknowledgementsViewController.framework; path = Carthage/Build/iOS/VTAcknowledgementsViewController.framework; sourceTree = "<group>"; };
 		070568141D4DF623005C5E9A /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
+		0734A6511DF23BAB00FD65A4 /* Model 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 11.xcdatamodel"; sourceTree = "<group>"; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
 		0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsEmptyView.swift; sourceTree = "<group>"; };
@@ -1392,6 +1393,7 @@
 		EC30D0491ADE4B16009C2734 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0734A6511DF23BAB00FD65A4 /* Model 11.xcdatamodel */,
 				EC30D04A1ADE4B16009C2734 /* Model 10.xcdatamodel */,
 				EC30D04B1ADE4B16009C2734 /* Model 2.xcdatamodel */,
 				EC30D04C1ADE4B16009C2734 /* Model 3.xcdatamodel */,
@@ -1403,7 +1405,7 @@
 				EC30D0521ADE4B16009C2734 /* Model 9.xcdatamodel */,
 				EC30D0531ADE4B16009C2734 /* Model.xcdatamodel */,
 			);
-			currentVersion = EC30D04A1ADE4B16009C2734 /* Model 10.xcdatamodel */;
+			currentVersion = 0734A6511DF23BAB00FD65A4 /* Model 11.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

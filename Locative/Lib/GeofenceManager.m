@@ -136,21 +136,21 @@
     }
     
     // fix for multiple request b/c iOS locationManager fires them like crazy
-    if (event.type.intValue == 0) {// Geofence
-        if (!managerLocation) { // bail out as we can't compare region
-            return;
-        }
-        if (![region isKindOfClass:CLCircularRegion.class]) {
-            return; // bailing out due to no circular region...
-        }
-        CLLocationCoordinate2D theLocationCoordinate = managerLocation.coordinate;
-        if (![(CLCircularRegion *)region containsCoordinate:theLocationCoordinate]
+    if (managerLocation && event.isGeofence && [region isKindOfClass:CLCircularRegion.class]) {
+        CLLocationCoordinate2D aLocationCoordinate = managerLocation.coordinate;
+        if (![(CLCircularRegion *)region containsCoordinate:aLocationCoordinate]
             && [trigger isEqualToString:GFEnter]) { // bail out as we're not exactly in the Geofence's region
             return;
+        } else if ([(CLCircularRegion *)region containsCoordinate:aLocationCoordinate]
+                   && [trigger isEqualToString:GFExit]) { // bail out as we're still in the location during the exit
+            return;
         }
-        
     }
     
+    if (![event shouldTrigger]) {
+        return NSLog("Omitting trigger due to unmet requirements (e.g. threshold)!");
+    }
+        
     CLLocation *location = [[CLLocation alloc] initWithLatitude:[event.latitude doubleValue] longitude:[event.longitude doubleValue]];
     NSLog(@"got location update: %@", location);
     if ([trigger isEqualToString:GFEnter] && !([event.triggers integerValue] & TriggerOnEnter)) {
@@ -219,6 +219,9 @@
               eventId, [self localizedTriggerString:trigger]] success:YES];
         }
     }
+    
+    event.triggeredAt = [NSDate date];
+    [event save];
 }
 
 - (NSString *)localizedTriggerString:(NSString *)event {

@@ -5,6 +5,10 @@ import ObjectiveRecord
     case geofence = 0, iBeacon = 1
 }
 
+fileprivate extension TimeInterval {
+    static let geolocationTriggerThreshold = 30
+}
+
 extension Geofence {
     public var httpPasswordSecure: String? {
         set {
@@ -19,7 +23,7 @@ extension Geofence {
         }
     }
     
-    @objc class func showMaximumGeofencesReached(alert: Bool, viewController: UIViewController) -> Bool {
+    class func showMaximumGeofencesReached(alert: Bool, viewController: UIViewController) -> Bool {
         guard Geofence.all().count >= 20 else {
             return false
         }
@@ -31,4 +35,31 @@ extension Geofence {
         viewController.present(alert, animated: true, completion: nil)
         return true
     }
+    
+    func isWithinThreshold() -> Bool {
+        guard let date = triggeredAt else { return false }
+        if Date().compare(
+            date.addingTimeInterval(120)
+        ) == .orderedDescending {
+            return false // current date is larger than triggeredAt + threshold
+        }
+        return true // triggeredAt + threshold is bigger than current date
+    }
+    
+    func shouldTrigger() -> Bool {
+        guard let type = type else { return true }
+        guard
+            let s = Settings().restoredSettings(),
+            !s.overrideTriggerThreshold.boolValue
+        else { return true }
+        if type == 0 {
+            return !isWithinThreshold()
+        }
+        return false
+    }
+    
+    func isGeofence() -> Bool {
+        return type?.intValue == 0
+    }
+
 }

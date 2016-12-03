@@ -2,6 +2,7 @@ import Eureka
 import CoreLocation
 
 fileprivate extension String {
+    static let overrides = NSLocalizedString("Overrides", comment: "")
     static let monitoredRegions = NSLocalizedString("Monitored Regions", comment: "")
     static let rangedRegions = NSLocalizedString("Ranged Regions", comment: "")
 }
@@ -9,12 +10,23 @@ fileprivate extension String {
 class DebuggerViewController: FormViewController {
     
     let locationManager = CLLocationManager()
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("Debugger", comment: "Debugger")
         
         form
+            +++ Section(.overrides) { section in
+                section.tag = .overrides
+            }
+            <<< SwitchRow() { [unowned self] row in
+                row.title = "Override trigger threshold"
+                row.value = self.appDelegate.settings?.overrideTriggerThreshold.boolValue
+            }.onChange { [unowned self] row in
+                self.appDelegate.settings?.overrideTriggerThreshold = NSNumber(booleanLiteral: row.value ?? false)
+                self.appDelegate.settings?.persist()
+            }
             +++ Section(.monitoredRegions) { section in
                 section.tag = .monitoredRegions
         }

@@ -26,5 +26,6 @@ extension Geofence {
     @NSManaged public var triggers: NSNumber?
     @NSManaged public var type: NSNumber?
     @NSManaged public var uuid: String?
+    @NSManaged public var triggeredAt: Date?
 
 }
