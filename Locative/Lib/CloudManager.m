@@ -163,7 +163,6 @@
                              @"httpUrl": StringOrEmpty(fencelog.httpUrl),
                              @"httpMethod": StringOrEmpty(fencelog.httpMethod),
                              @"httpResponseCode": StringOrEmpty(fencelog.httpResponseCode),
-                             @"httpResponse": StringOrEmpty(fencelog.httpResponse),
                              @"eventType": StringOrEmpty(fencelog.eventType),
                              @"fenceType": StringOrEmpty(fencelog.fenceType),
                              @"origin": [self originString]

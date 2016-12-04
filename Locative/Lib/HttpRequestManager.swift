@@ -234,12 +234,7 @@ extension HttpRequestManager {
         if let s = responseStatus {
             fencelog.httpResponseCode = NSNumber(value: s as Int)
         }
-        if let r = responseObject as? Data {
-            fencelog.httpResponse = String(data: r, encoding: String.Encoding.utf8)
-        } else {
-            fencelog.httpResponse = "<See error code>"
-        }
-        
+
         dispatchFencelog(fencelog)
         DispatchQueue.main.async { 
             completion(success)

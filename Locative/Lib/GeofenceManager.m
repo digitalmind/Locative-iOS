@@ -211,7 +211,6 @@
         fencelog.longitude = @(location.coordinate.longitude);
         fencelog.eventType = trigger;
         fencelog.fenceType = event.type.intValue == 0 ? @"geofence" : @"ibeacon";
-        fencelog.httpResponse = @"<No HTTP request has been performed>";
         [self.appDelegate.requestManager dispatchFencelog:fencelog];
         if (self.appDelegate.settings.notifyOnSuccess.boolValue) {
             [self.appDelegate.requestManager presentLocalNotification:
