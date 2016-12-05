@@ -2,7 +2,7 @@ import Eureka
 import CoreLocation
 
 fileprivate extension String {
-    static let overrides = NSLocalizedString("Overrides", comment: "")
+    static let experimental = NSLocalizedString("Experimental", comment: "")
     static let monitoredRegions = NSLocalizedString("Monitored Regions", comment: "")
     static let rangedRegions = NSLocalizedString("Ranged Regions", comment: "")
 }
@@ -17,8 +17,8 @@ class DebuggerViewController: FormViewController {
         title = NSLocalizedString("Debugger", comment: "Debugger")
         
         form
-            +++ Section(.overrides) { section in
-                section.tag = .overrides
+            +++ Section(.experimental) { section in
+                section.tag = .experimental
             }
             <<< SwitchRow() { [unowned self] row in
                 row.title = "Override trigger threshold"

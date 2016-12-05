@@ -16,7 +16,7 @@ open class Settings: NSObject, NSCoding {
     var httpBasicAuthUsername: String?
     var httpBasicAuthPassword: String?
     var debugEnabled: NSNumber = NSNumber(value: false as Bool)
-    var overrideTriggerThreshold: NSNumber = NSNumber(booleanLiteral: false)
+    var overrideTriggerThreshold: NSNumber = NSNumber(booleanLiteral: true)
     
     let cloudSession = "cloudSession"
     
@@ -84,7 +84,7 @@ open class Settings: NSObject, NSCoding {
         httpBasicAuthUsername = aDecoder.decodeObject(forKey: "httpBasicAuthUsername") as? String
         httpBasicAuthPassword = aDecoder.decodeObject(forKey: "httpBasicAuthPassword") as? String
         debugEnabled = aDecoder.decodeObject(forKey: "debugEnabled") as? NSNumber ?? NSNumber(booleanLiteral: false)
-        overrideTriggerThreshold = aDecoder.decodeObject(forKey: "overrideTriggerThreshold") as? NSNumber ?? NSNumber(booleanLiteral: false)
+        overrideTriggerThreshold = aDecoder.decodeObject(forKey: "overrideTriggerThreshold") as? NSNumber ?? NSNumber(booleanLiteral: true)
         guard let httpBasicAuthUsername = httpBasicAuthUsername else { return }
         
         if httpBasicAuthUsername.isNotEmpty() {
