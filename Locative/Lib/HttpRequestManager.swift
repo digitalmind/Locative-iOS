@@ -106,7 +106,9 @@ extension HttpRequestManager {
             }
         }
         
-        let manager = AFHTTPRequestOperationManager()
+        let identifier = request.uuid ?? UUID().uuidString
+        let configuration = URLSessionConfiguration.background(withIdentifier: identifier)
+        let manager = AFHTTPSessionManager(sessionConfiguration: configuration)
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.requestSerializer = AFHTTPRequestSerializer()
         manager.securityPolicy = .locativePolicy
@@ -129,8 +131,8 @@ extension HttpRequestManager {
                     true,
                     request: request,
                     responseObject: r as AnyObject?,
-                    responseStatus: op.response?.statusCode,
-                    error: nil,
+                    responseStatus: (op.response as? HTTPURLResponse)?.statusCode ?? 0,
+                    error: nil, 
                     completion: completion
                 )
                 }, failure: { [weak self] op, e in
@@ -139,7 +141,7 @@ extension HttpRequestManager {
                         false,
                         request: request,
                         responseObject: nil,
-                        responseStatus: op?.response?.statusCode,
+                        responseStatus: (op?.response as? HTTPURLResponse)?.statusCode ?? 0,
                         error: e as NSError?,
                         completion: completion
                     )
@@ -151,7 +153,7 @@ extension HttpRequestManager {
                     true,
                     request: request,
                     responseObject: r as AnyObject?,
-                    responseStatus: op.response?.statusCode,
+                    responseStatus: (op.response as? HTTPURLResponse)?.statusCode ?? 0,
                     error: nil,
                     completion: completion
                 )
@@ -161,7 +163,7 @@ extension HttpRequestManager {
                         false,
                         request: request,
                         responseObject: nil,
-                        responseStatus: op?.response?.statusCode,
+                        responseStatus: (op?.response as? HTTPURLResponse)?.statusCode ?? 0,
                         error: e as NSError?,
                         completion: completion
                     )

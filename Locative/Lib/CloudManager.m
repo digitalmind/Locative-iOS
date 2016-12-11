@@ -154,7 +154,9 @@
 - (void) dispatchCloudFencelog:(Fencelog *)fencelog onFinish:(void (^)(NSError *))finish
 {
     NSLog(@"dispatchCloudFencelog");
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration
+                                                backgroundSessionConfigurationWithIdentifier:[NSUUID new].UUIDString];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     [manager setSecurityPolicy:[self commonPolicy]];
     NSDictionary *params = @{@"longitude": NumberOrZeroFloat(fencelog.longitude),
@@ -167,18 +169,27 @@
                              @"fenceType": StringOrEmpty(fencelog.fenceType),
                              @"origin": [self originString]
                              };
-    [manager POST:[NSString stringWithFormat:@"%@/api/fencelogs/%@", kMyGeofancyBackend, [self.settings apiToken]] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // Request succeeded
-        if (finish) {
-            finish(nil);
+    
+    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST"
+                                                                          URLString:[NSString stringWithFormat:@"%@/api/fencelogs/%@", kMyGeofancyBackend, [self.settings apiToken]] parameters:params error:nil];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:
+                                      ^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (!error) {
+            // Request succeeded
+            if (finish) {
+                finish(nil);
+            }
+            return;
+
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // Request failed
         NSLog(@"dispatchCloudFencelog Failed: %@", error);
         if (finish) {
             finish(error);
         }
     }];
+    [dataTask resume];
 }
 
 - (void) validateSessionWithCallback:(void(^)(BOOL valid))cb
