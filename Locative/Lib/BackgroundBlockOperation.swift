@@ -5,6 +5,7 @@ open class BackgroundBlockOperation: BlockOperation {
     var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
     
     func startBackgroundTask() {
+        qualityOfService = .background
         backgroundTaskIdentifier = UIApplication.shared
             .beginBackgroundTask (expirationHandler: { [weak self] in
                 self?.endBackgroundTask()
