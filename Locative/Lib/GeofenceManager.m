@@ -168,11 +168,11 @@
     NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     NSDate *timestamp = [NSDate date];
     
-    NSDictionary *parameters = @{@"id":eventId,
-                                 @"trigger":trigger,
-                                 @"device":deviceId,
+    NSDictionary *parameters = @{@"id":eventId ?: @"unknown",
+                                 @"trigger":trigger ?: @"unknown",
+                                 @"device":deviceId ?: @"unknown",
                                  @"device_type": @"iOS",
-                                 @"device_model": [UIDevice locative_deviceModel],
+                                 @"device_model": [UIDevice locative_deviceModel] ?: @"unknown",
                                  @"latitude":[NSNumber numberWithDouble:location.coordinate.latitude],
                                  @"longitude":[NSNumber numberWithDouble:location.coordinate.longitude],
                                  @"timestamp": [NSString stringWithFormat:@"%f", [timestamp timeIntervalSince1970]]};
