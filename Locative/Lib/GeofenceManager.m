@@ -201,7 +201,7 @@
                 }
             }
             
-            [httpRequest save];
+//            [httpRequest save];
             [self.appDelegate.requestManager flushWithCompletion:nil];
         }];
     } else {
