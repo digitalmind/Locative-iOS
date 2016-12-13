@@ -79,12 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        requestManager.flushWithCompletion {
-            completionHandler(.newData)
-        }
-    }
-    
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         var type = TSMessageNotificationType.message;
         if let userInfo = notification.userInfo, let success = userInfo["success"] as? Bool  {

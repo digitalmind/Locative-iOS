@@ -179,7 +179,7 @@
 
     if([url length] > 0) {
         [self.mainQueue addOperationWithBlock:^{
-            HttpRequest *httpRequest = [HttpRequest create];
+            HttpRequest *httpRequest = [[HttpRequest alloc] init];
             httpRequest.url = url;
             httpRequest.method = WHICH_METHOD([event enterMethod]);
             httpRequest.parameters = parameters;
@@ -201,8 +201,7 @@
                 }
             }
             
-//            [httpRequest save];
-            [self.appDelegate.requestManager flushWithCompletion:nil];
+            [self.appDelegate.requestManager dispatch:httpRequest completion:nil];
         }];
     } else {
         Fencelog *fencelog = [[Fencelog alloc] init];

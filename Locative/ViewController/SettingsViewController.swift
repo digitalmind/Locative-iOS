@@ -161,7 +161,7 @@ class SettingsViewController: FormViewController {
                 "timestamp": Int(timestamp.timeIntervalSince1970)
             ] as NSDictionary
             
-            let request = HttpRequest.create() as! HttpRequest
+            let request = HttpRequest()
             request.url = self?.appDelegate.settings?.globalUrl?.absoluteString
             request.method = self?.appDelegate.settings?.globalHttpMethod == 0 ? "POST" : "GET"
             request.parameters = parameters
@@ -175,8 +175,7 @@ class SettingsViewController: FormViewController {
                 request.httpAuthPassword = self?.appDelegate.settings?.httpBasicAuthPassword
             }
             
-            request.save()
-            self?.appDelegate.requestManager.flushWithCompletion {
+            self?.appDelegate.requestManager.dispatch(request) { success in
                 let alert = UIAlertController(
                     title: NSLocalizedString("Note", comment: "Note"),
                     message: NSLocalizedString("A Test-Request has been sent. The result will be displayed as soon as it's succeeded / failed.", comment: "A Test-Request has been sent. The result will be displayed as soon as it's succeeded / failed."),
