@@ -14,11 +14,11 @@ class HttpRequestManager: NSObject {
             return UIApplication.shared.delegate as! AppDelegate
         }
     }
-    public func dispatch(_ request: HttpRequest, completion: ((_ success: Bool) -> Void)?) {
+    public func dispatch(_ request: HttpRequest, completion: ((_ success: Bool) -> Void)? = nil) {
         dispatch(request, retry: 0, completion: completion)
     }
     
-    public func dispatch(_ request: HttpRequest, retry: Int, completion: ((_ success: Bool) -> Void)?) {
+    public func dispatch(_ request: HttpRequest, retry: Int, completion: ((_ success: Bool) -> Void)? = nil) {
         
         let identifier = request.uuid ?? UUID().uuidString
         let configuration = URLSessionConfiguration.background(withIdentifier: identifier)
