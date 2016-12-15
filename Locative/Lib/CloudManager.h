@@ -1,7 +1,5 @@
 #import <Foundation/Foundation.h>
 
-#import "Fencelog.h"
-
 typedef enum {
     CloudManagerSignupErrorNoError = 0,
     CloudManagerSignupErrorUserExisting,
@@ -10,6 +8,7 @@ typedef enum {
 
 @class Geofence;
 @class Settings;
+@class Fencelog;
 
 NS_ASSUME_NONNULL_BEGIN
 

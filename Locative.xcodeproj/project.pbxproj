@@ -13,6 +13,7 @@
 		070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 070568141D4DF623005C5E9A /* Acknowledgements.plist */; };
 		0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
+		074EDDB61E0288B4000DF959 /* Fencelog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EDDB51E0288B4000DF959 /* Fencelog.swift */; };
 		076879201DB7553500D33747 /* NotificationsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */; };
 		076879221DB767C500D33747 /* CloudConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076879211DB767C500D33747 /* CloudConnect.swift */; };
 		0769C7301DC548880085D02E /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769C72C1DC548880085D02E /* HttpRequest.swift */; };
@@ -49,7 +50,6 @@
 		2A04A5951849F1D300D9B485 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A04A5941849F1D300D9B485 /* notification.caf */; };
 		2A2BF520185371B800D5DD98 /* CloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF51F185371B800D5DD98 /* CloudManager.m */; };
 		2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF5251853735800D5DD98 /* NSString+Hashes.m */; };
-		2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF5281853748F00D5DD98 /* Fencelog.m */; };
 		2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF52E18537ED400D5DD98 /* SignupViewController.m */; };
 		2A4805191807E3A60063BA82 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4805181807E3A60063BA82 /* libz.dylib */; };
 		2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2B2F17FD7E28002ECE72 /* MKMapView+ZoomLevel.m */; };
@@ -150,6 +150,7 @@
 		0734A6511DF23BAB00FD65A4 /* Model 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 11.xcdatamodel"; sourceTree = "<group>"; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
+		074EDDB51E0288B4000DF959 /* Fencelog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fencelog.swift; sourceTree = "<group>"; };
 		0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsEmptyView.swift; sourceTree = "<group>"; };
 		076879211DB767C500D33747 /* CloudConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudConnect.swift; sourceTree = "<group>"; };
 		0769C72C1DC548880085D02E /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
@@ -196,8 +197,6 @@
 		2A2BF51F185371B800D5DD98 /* CloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudManager.m; sourceTree = "<group>"; };
 		2A2BF5241853735800D5DD98 /* NSString+Hashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hashes.h"; sourceTree = "<group>"; };
 		2A2BF5251853735800D5DD98 /* NSString+Hashes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hashes.m"; sourceTree = "<group>"; };
-		2A2BF5271853748F00D5DD98 /* Fencelog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fencelog.h; sourceTree = "<group>"; };
-		2A2BF5281853748F00D5DD98 /* Fencelog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fencelog.m; sourceTree = "<group>"; };
 		2A2BF52D18537ED400D5DD98 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		2A2BF52E18537ED400D5DD98 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		2A4805181807E3A60063BA82 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -569,8 +568,7 @@
 				0769C7331DC54EA50085D02E /* Geofence+HumanCode.swift */,
 				07E225551CA8D58F00572180 /* GeofenceAnnotation.swift */,
 				07E2254F1CA77B0500572180 /* Settings.swift */,
-				2A2BF5271853748F00D5DD98 /* Fencelog.h */,
-				2A2BF5281853748F00D5DD98 /* Fencelog.m */,
+				074EDDB51E0288B4000DF959 /* Fencelog.swift */,
 				0769C72C1DC548880085D02E /* HttpRequest.swift */,
 				07BC81F01D4B5DBF00286073 /* Environment.swift */,
 			);
@@ -1007,13 +1005,13 @@
 				079412E51DBF311B001EA0E4 /* Debouncer.swift in Sources */,
 				07BC82041D4D97EC00286073 /* Social.swift in Sources */,
 				07E225501CA77B0500572180 /* Settings.swift in Sources */,
+				074EDDB61E0288B4000DF959 /* Fencelog.swift in Sources */,
 				07AA1B031DB8D6040090009D /* UIView+UIViewLoading.swift in Sources */,
 				07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */,
 				070568071D4DDA0B005C5E9A /* AboutViewController.swift in Sources */,
 				076879221DB767C500D33747 /* CloudConnect.swift in Sources */,
 				076879201DB7553500D33747 /* NotificationsEmptyView.swift in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
-				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,
 				07BC81E41D48BEAF00286073 /* Synchronized.swift in Sources */,
 				2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */,
 				07DB1D141DC40A7600E90040 /* DebuggerViewController.swift in Sources */,
