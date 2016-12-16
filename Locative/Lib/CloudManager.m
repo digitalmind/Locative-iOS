@@ -153,12 +153,6 @@
 
 - (void) dispatchCloudFencelog:(Fencelog *)fencelog onFinish:(void (^)(NSError *))finish
 {
-    UIApplication *application = [UIApplication sharedApplication];
-    __block UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithName:@"io.locative.dispatch_fencelog_task" expirationHandler:^{
-        [application endBackgroundTask:task];
-        task = UIBackgroundTaskInvalid;
-    }];
-    
     NSLog(@"dispatchCloudFencelog");
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration
                                                 backgroundSessionConfigurationWithIdentifier:[NSUUID new].UUIDString];
@@ -179,16 +173,12 @@
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST"
                                                                           URLString:[NSString stringWithFormat:@"%@/api/fencelogs/%@", kMyGeofancyBackend, [self.settings apiToken]] parameters:params error:nil];
     
-    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:
+                                      ^(NSURLResponse *response, id responseObject, NSError *error) {
         if (!error) {
             // Request succeeded
             if (finish) {
                 finish(nil);
-            }
-            
-            if (task != UIBackgroundTaskInvalid) {
-                [application endBackgroundTask:task];
-                task = UIBackgroundTaskInvalid;
             }
             return;
 
@@ -198,12 +188,6 @@
         if (finish) {
             finish(error);
         }
-        
-        if (task != UIBackgroundTaskInvalid) {
-            [application endBackgroundTask:task];
-            task = UIBackgroundTaskInvalid;
-        }
-            
     }];
     [dataTask resume];
 }

@@ -20,27 +20,13 @@ class HttpRequestManager: NSObject {
     
     public func dispatch(_ request: HttpRequest, retry: Int, completion: ((_ success: Bool) -> Void)? = nil) {
         
-        let application = UIApplication.shared
         let identifier = request.uuid ?? UUID().uuidString
         let configuration = URLSessionConfiguration.background(withIdentifier: identifier)
-        var task = UIBackgroundTaskInvalid
-        task = application.beginBackgroundTask { handler in
-            application.endBackgroundTask(task)
-            task = UIBackgroundTaskInvalid
-        }
-        
-        func endBackgroundTask() {
-            if task != UIBackgroundTaskInvalid {
-                application.endBackgroundTask(task)
-                task = UIBackgroundTaskInvalid
-            }
-        }
-        
         let manager = AFHTTPSessionManager(sessionConfiguration: configuration)
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.requestSerializer = AFHTTPRequestSerializer()
         manager.securityPolicy = .locativePolicy
-
+        
         if let h = request.httpAuth,
             let u = request.httpAuthUsername,
             let p = request.httpAuthPassword , h.boolValue {
@@ -62,7 +48,6 @@ class HttpRequestManager: NSObject {
                     error: nil,
                     completion: completion
                 )
-                endBackgroundTask()
                 }, failure: { [weak self] op, e in
                     guard let this = self else { return }
                     if retry < this.maxRetryCount {
@@ -76,7 +61,6 @@ class HttpRequestManager: NSObject {
                         error: e as NSError?,
                         completion: completion
                     )
-                    endBackgroundTask()
             })
         } else {
             manager.get(url, parameters: request.parameters, success: { [weak self] op, r in
@@ -88,7 +72,6 @@ class HttpRequestManager: NSObject {
                     error: nil,
                     completion: completion
                 )
-                endBackgroundTask()
                 }, failure: { [weak self] op, e in
                     guard let this = self else { return }
                     if retry < this.maxRetryCount {
@@ -102,7 +85,6 @@ class HttpRequestManager: NSObject {
                         error: e as NSError?,
                         completion: completion
                     )
-                    endBackgroundTask()
             })
         }
     }
