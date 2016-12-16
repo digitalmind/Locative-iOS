@@ -167,10 +167,10 @@ extension HttpRequestManager {
         if let parameters = request.parameters {
             
             if let l = parameters["latitude"] as? NSNumber {
-                fencelog.latitude = NSNumber(value: l.doubleValue)
+                fencelog.latitude = l
             }
             if let l = parameters["longitude"] as? NSNumber {
-                fencelog.longitude = NSNumber(value: l.doubleValue)
+                fencelog.longitude = l
             }
             if let i = parameters["id"] as? String {
                 fencelog.locationId = i
@@ -186,7 +186,7 @@ extension HttpRequestManager {
         fencelog.httpMethod = request.method
         
         if let s = responseStatus {
-            fencelog.httpResponseCode = NSNumber(integerLiteral: s as Int)
+            fencelog.httpResponseCode = NSNumber(value: s as Int)
         }
 
         dispatchFencelog(fencelog)

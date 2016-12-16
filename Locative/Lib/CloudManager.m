@@ -1,4 +1,5 @@
 #import "CloudManager.h"
+#import "Fencelog.h"
 #import "NSString+Hashes.h"
 #import "GeofenceManager.h"
 #import "Locative-Swift.h"

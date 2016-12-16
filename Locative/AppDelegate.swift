@@ -147,21 +147,21 @@ private extension AppDelegate {
             print("maxLimit: \(max), maxImportLimitExceed: \(maxImportLimitExceeded)")
             let count = maxImportLimitExceeded ? max : root.waypoints.count
             for (index, _) in [0...count].enumerated() {
-                DispatchQueue.main.async {
-                    let waypoint = root.waypoints[index] as? GPXWaypoint
+                DispatchQueue.main.async(execute: { [weak self] in
+                    let waypoint = root.waypoints[index]
                     let geofence = Geofence.create() as! Geofence
                     geofence.type = NSNumber(value: GeofenceType.geofence.rawValue)
-                    geofence.name = waypoint?.comment
+                    geofence.name = (waypoint as AnyObject).comment
                     geofence.uuid = UUID().uuidString
-                    geofence.customId = waypoint?.name
-                    geofence.latitude = NSNumber(value: Double(waypoint?.latitude ?? 0))
-                    geofence.longitude = NSNumber(value: Double(waypoint?.longitude ?? 0))
+                    geofence.customId = (waypoint as AnyObject).name
+                    geofence.latitude = (waypoint as AnyObject).latitude
+                    geofence.longitude = (waypoint as AnyObject).longitude
                     geofence.radius = 50
                     geofence.triggers = NSNumber(value: UInt32(TriggerOnEnter.rawValue | TriggerOnExit.rawValue) as UInt32)
                     geofence.save()
                     self?.geofenceManager?.startMonitoringEvent(geofence)
                     print("Imported and started \(geofence)")
-                }
+                })
             }
             DispatchQueue.main.async(execute: { [weak self] in
                 self?.geofenceManager?.cleanup()
