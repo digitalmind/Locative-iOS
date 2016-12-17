@@ -173,6 +173,12 @@ private extension AppDelegate {
             })
         }
     }
+    
+    private func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler:
+        @escaping (UIBackgroundFetchResult) -> Void) {
+        geofenceManager.cleanup()
+        completionHandler(.newData)
+    }
 }
 
 //MARK: - Alert
