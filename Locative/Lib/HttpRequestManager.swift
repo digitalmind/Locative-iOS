@@ -3,7 +3,6 @@ import AFNetworking
 class HttpRequestManager: NSObject {
     let maxRetryCount = 3
     
-    static let sharedManager = HttpRequestManager()
     fileprivate let queue = OperationQueue()
     
     fileprivate var currentlyFlushing = false
