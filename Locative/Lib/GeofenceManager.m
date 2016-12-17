@@ -24,16 +24,6 @@
 
 @implementation GeofenceManager
 
-+ (id) sharedManager {
-    static GeofenceManager *geofenceManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        geofenceManager = [[GeofenceManager alloc] init];
-        [geofenceManager setup];
-    });
-    return geofenceManager;
-}
-
 - (void) setup {
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager setDelegate:self];

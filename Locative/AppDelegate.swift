@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var cloudManager: CloudManager!
     
     let reachabilityManager = AFNetworkReachabilityManager(forDomain: "my.locative.io")
-    let geofenceManager = GeofenceManager.shared()
+    let geofenceManager = GeofenceManager()
     let requestManager = HttpRequestManager()
     let settings = Settings().restoredSettings()
     let coreDataStack = CoreDataStack(model: "Model")
@@ -159,12 +159,12 @@ private extension AppDelegate {
                     geofence.radius = 50
                     geofence.triggers = NSNumber(value: UInt32(TriggerOnEnter.rawValue | TriggerOnExit.rawValue) as UInt32)
                     geofence.save()
-                    self?.geofenceManager?.startMonitoringEvent(geofence)
+                    self?.geofenceManager.startMonitoringEvent(geofence)
                     print("Imported and started \(geofence)")
                 })
             }
             DispatchQueue.main.async(execute: { [weak self] in
-                self?.geofenceManager?.cleanup()
+                self?.geofenceManager.cleanup()
                 NotificationCenter.default.post(
                     name: Notification.Name(rawValue: .reloadGeofences), object: nil
                 )
