@@ -24,6 +24,14 @@
 
 @implementation GeofenceManager
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
 - (void) setup {
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager setDelegate:self];
