@@ -45,24 +45,22 @@
 }
 
 - (void) cleanup {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[self geofences] each:^(CLRegion *fence) {
-            __block BOOL found = NO;
-            [[Geofence all] each:^(Geofence *event) {
-                if([event.uuid isEqualToString:fence.identifier]) {
-                    found = YES;
-                }
-                
-            }];
-            if(!found) {
-                [self stopMonitoringForRegion:fence];
-            }
-        }];
-        
+    [[self geofences] each:^(CLRegion *fence) {
+        __block BOOL found = NO;
         [[Geofence all] each:^(Geofence *event) {
-            [self startMonitoringEvent:event];
+            if([event.uuid isEqualToString:fence.identifier]) {
+                found = YES;
+            }
+            
         }];
-    });
+        if(!found) {
+            [self stopMonitoringForRegion:fence];
+        }
+    }];
+    
+    [[Geofence all] each:^(Geofence *event) {
+        [self startMonitoringEvent:event];
+    }];
 }
 
 #pragma mark - Accessors
@@ -218,6 +216,7 @@
     
     event.triggeredAt = [NSDate date];
     [event save];
+    [self cleanup];
 }
 
 - (NSString *)localizedTriggerString:(NSString *)event {

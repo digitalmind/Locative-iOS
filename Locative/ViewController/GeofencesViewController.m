@@ -49,6 +49,7 @@
 }
 
 - (void)updateEmptyState {
+    [self.appDelegate.geofenceManager cleanup];
     if ([Geofence all].count == 0) {
         [self.emptyView removeFromSuperview];
         return [self.view.superview addSubview:self.emptyView];
