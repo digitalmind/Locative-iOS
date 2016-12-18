@@ -207,6 +207,8 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         return;
     }
     
+    _viewAppeared = YES;
+
     if(self.event) {
         return;
     }
@@ -225,8 +227,6 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         
         [SVProgressHUD dismiss];
     }];
-    
-    _viewAppeared = YES;
 }
 
 - (void)setupLocation:(CLLocation *)currentLocation
