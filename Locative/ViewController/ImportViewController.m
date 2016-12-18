@@ -177,8 +177,7 @@
     return eventName;
 }
 
-- (void) saveEventWithEventName:(NSString *)eventName andUuid:(NSString *)uuid
-{
+- (void) saveEventWithEventName:(NSString *)eventName andUuid:(NSString *)uuid {
     NSNumber *triggers = [NSNumber numberWithInt:(TriggerEnter | TriggerExit)];
     BOOL enterSwitchOn = [self.selectedGeofence[@"triggerOnArrival"][@"enabled"] boolValue];
     BOOL exitSwitchOn = [self.selectedGeofence[@"triggerOnLeave"][@"enabled"] boolValue];
@@ -197,7 +196,7 @@
     }
     
     self.event = [Geofence create];
-    self.event.uuid = self.selectedGeofence[@"uuid"];
+    self.event.uuid = [Geofence where:@"uuid == %@", self.selectedGeofence[@"uuid"]].count == 0 ? self.selectedGeofence[@"uuid"] : uuid;
     
     self.event.name = eventName;
     self.event.triggers = triggers;
