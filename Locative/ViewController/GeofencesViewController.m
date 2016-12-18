@@ -132,7 +132,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[[Geofence all] objectAtIndex:indexPath.row] delete];
+        Geofence *event = [[Geofence all] objectAtIndex:indexPath.row];
+        [event delete];
+        if (event.managedObjectContext) {
+            [event save];
+        }
         [[self.appDelegate geofenceManager] syncMonitoredRegions];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
