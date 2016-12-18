@@ -95,6 +95,7 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
             request.eventType = location.type
             request.timestamp = timestamp
             request.uuid = location.uuid
+            request.eventId = location.readableId()
             
             if let auth = location.httpAuth, auth.boolValue {
                 // Authenticate using Events HTTP credentials

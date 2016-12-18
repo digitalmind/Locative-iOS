@@ -113,30 +113,43 @@ extension HttpRequestManager {
                           error: NSError?,
                           completion: ((_ success: Bool) -> Void)?) {
         
-        //TODO: This can be simplified a lot, DO IT!
-        if let method = request.method, let n = appDelegate.settings.notifyOnSuccess , n.boolValue && success{
+        if let method = request.method, let n = appDelegate.settings.notifyOnSuccess , n.boolValue && success {
+
+            var message = isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")
+
+            if let id = request.eventId {
+                message = "[\(id)] ".appending(message)
+            }
+            
             // notify on success
             if let data = responseObject as? Data, let string = String(data: data, encoding: String.Encoding.utf8) {
                 presentLocalNotification(
-                    (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).appendingFormat("%@", string),
+                    message.appendingFormat(" %@", string),
                     success: true
                 )
             } else {
                 presentLocalNotification(
-                    (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).appendingFormat("%@", "No readable response received."),
+                    message.appendingFormat(" %@", "No readable response received."),
                     success: true
                 )
             }
         } else if let method = request.method, let n = appDelegate.settings.notifyOnFailure , n.boolValue && !success {
+            
+            var message = (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Failure text"))
+            
+            if let id = request.eventId {
+                message = "[\(id)] ".appending(message)
+            }
+            
             // notify on failure
             if let data = responseObject as? Data, let string = String(data: data, encoding: String.Encoding.utf8) {
                 presentLocalNotification(
-                    (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Failure text")).appendingFormat("%@", string),
+                    message.appendingFormat(" %@", string),
                     success: true
                 )
             } else {
                 presentLocalNotification(
-                    (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Success text")).appendingFormat("%@", "No readable response received."),
+                    message.appendingFormat(" %@", "No readable response received."),
                     success: true
                 )
             }

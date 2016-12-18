@@ -36,29 +36,18 @@ extension Geofence {
         return true
     }
     
-    func isWithinThreshold() -> Bool {
-        guard let date = triggeredAt else { return false }
-        if Date().compare(
-            date.addingTimeInterval(120)
-        ) == .orderedDescending {
-            return false // current date is larger than triggeredAt + threshold
-        }
-        return true // triggeredAt + threshold is bigger than current date
-    }
-    
-    func shouldTrigger() -> Bool {
-        guard let type = type else { return true }
-        guard
-            !Settings().restoredSettings().overrideTriggerThreshold.boolValue
-        else { return true }
-        if type == 0 {
-            return !isWithinThreshold()
-        }
-        return false
-    }
-    
     func isGeofence() -> Bool {
         return type?.intValue == 0
+    }
+    
+    func readableId() -> String? {
+        if let id = customId, !id.isEmpty {
+            return id
+        }
+        if let uuid = uuid, !uuid.isEmpty {
+            return uuid
+        }
+        return nil
     }
 
 }

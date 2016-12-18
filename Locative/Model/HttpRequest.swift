@@ -14,5 +14,6 @@ class HttpRequest: NSObject {
     public var timestamp: NSDate?
     public var url: String?
     public var uuid: String?
-
+    public var eventId: String?
+    
 }
