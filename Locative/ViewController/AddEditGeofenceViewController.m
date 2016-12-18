@@ -55,17 +55,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 
 @implementation AddEditGeofenceViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     // Fixes UI glitch which leads to UISegmentedControl being shown slightly above map when editing exiting Geofence/iBeacon
@@ -79,8 +69,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     [self setupBeaconPresets];
 }
 
-- (void)setupBeaconPresets
-{
+- (void)setupBeaconPresets {
     _iBeaconPresets = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"iBeaconPresets" ofType:@"plist"]];
     [_iBeaconPresets sortUsingComparator:^NSComparisonResult(NSDictionary *obj1, NSDictionary *obj2) {
         return [obj1[@"name"] caseInsensitiveCompare:obj2[@"name"]];
@@ -88,103 +77,97 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     [_iBeaconPresets insertObject:@{@"name": NSLocalizedString(@"No iBeacon Preset", @"No iBeacon Preset at UIPickerView")} atIndex:0];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void) viewWillAppear:(BOOL)animated
-{
+- (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if(!_viewAppeared)
+    if(_viewAppeared) {
+        return;
+    }
+    
+    if(self.event)
     {
-        if(self.event)
+        _geofenceType = [self.event.type intValue];
+        
+        if (_geofenceType == GeofenceTypeGeofence) {
+            _location = [[CLLocation alloc] initWithLatitude:[self.event.latitude doubleValue] longitude:[self.event.longitude doubleValue]];
+
+            NSLog(@"RADIUS: %f", [self.event.radius doubleValue]);
+            _radiusSlider.value = [self.event.radius doubleValue];
+            _customLocationId.text = [self.event customId];
+            
+            [self setupLocation:_location];
+            [_locationButton setTitle:self.event.name forState:UIControlStateNormal];
+            [self reverseGeocodeForNearestPlacemark:^(CLPlacemark *placemark) {
+                [_locationButton setTitle:[self addressFromPlacemark:placemark] forState:UIControlStateNormal];
+                _gotCurrentLocation = YES;
+            }];
+
+        } else {
+            _iBeaconUuidTextField.text = self.event.iBeaconUuid;
+            _iBeaconCustomId.text = self.event.customId;
+            _iBeaconMajorTextField.text = [NSString stringWithFormat:@"%lld", [self.event.iBeaconMajor longLongValue]];
+            _iBeaconMinorTextField.text = [NSString stringWithFormat:@"%lld", [self.event.iBeaconMinor longLongValue]];
+            _iBeaconPicker.hidden = NO;
+            _typeSegmentedControl.hidden = YES;
+        }
+        
+        _enterSwitch.on = ([self.event.triggers intValue] & TriggerEnter);
+        _exitSwitch.on = ([self.event.triggers intValue] & TriggerExit);
+        
+        _enterUrlTextField.text = self.event.enterUrl;
+        _exitUrlTextField.text = self.event.exitUrl;
+        
+        [_enterMethod setTitle:([self.event.enterMethod intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
+        [_exitMethod setTitle:([self.event.exitMethod intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
+        
+        
+        /*
+         HTTP Basic Auth
+         */
+        _httpAuthSwitch.on = [self.event.httpAuth boolValue];
+        [_httpUsernameTextField setEnabled:_httpAuthSwitch.on];
+        [_httpPasswordTextField setEnabled:_httpAuthSwitch.on];
+        _httpUsernameTextField.text = [self.event httpUser];
+        _httpPasswordTextField.text = [self.event httpPasswordSecure];
+        
+        [self setTitle:self.event.name];
+    }
+    else
+    {
+        [self setTitle:NSLocalizedString(@"New Fence", @"Title for new Geofence Screen.")];
+        
+        [_enterMethod setTitle:([_appDelegate.settings globalHttpMethod] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
+        [_exitMethod setTitle:([_appDelegate.settings globalHttpMethod] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
+        
+        _iBeaconUuidTextField.text = [[NSUUID UUID] UUIDString];
+        _typeSegmentedControl.hidden = NO;
+    }
+    
+    if([[_enterUrlTextField text] length] == 0)
+    {
+        if([[[_appDelegate.settings globalUrl] absoluteString] length] > 0)
         {
-            _geofenceType = [self.event.type intValue];
-            
-            if (_geofenceType == GeofenceTypeGeofence) {
-                _location = [[CLLocation alloc] initWithLatitude:[self.event.latitude doubleValue] longitude:[self.event.longitude doubleValue]];
-
-                NSLog(@"RADIUS: %f", [self.event.radius doubleValue]);
-                _radiusSlider.value = [self.event.radius doubleValue];
-                _customLocationId.text = [self.event customId];
-                
-                [self setupLocation:_location];
-                [_locationButton setTitle:self.event.name forState:UIControlStateNormal];
-                [self reverseGeocodeForNearestPlacemark:^(CLPlacemark *placemark) {
-                    [_locationButton setTitle:[self addressFromPlacemark:placemark] forState:UIControlStateNormal];
-                    _gotCurrentLocation = YES;
-                }];
-
-            } else {
-                _iBeaconUuidTextField.text = self.event.iBeaconUuid;
-                _iBeaconCustomId.text = self.event.customId;
-                _iBeaconMajorTextField.text = [NSString stringWithFormat:@"%lld", [self.event.iBeaconMajor longLongValue]];
-                _iBeaconMinorTextField.text = [NSString stringWithFormat:@"%lld", [self.event.iBeaconMinor longLongValue]];
-                _iBeaconPicker.hidden = NO;
-                _typeSegmentedControl.hidden = YES;
-            }
-            
-            _enterSwitch.on = ([self.event.triggers intValue] & TriggerEnter);
-            _exitSwitch.on = ([self.event.triggers intValue] & TriggerExit);
-            
-            _enterUrlTextField.text = self.event.enterUrl;
-            _exitUrlTextField.text = self.event.exitUrl;
-            
-            [_enterMethod setTitle:([self.event.enterMethod intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
-            [_exitMethod setTitle:([self.event.exitMethod intValue] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
-            
-            
-            /*
-             HTTP Basic Auth
-             */
-            _httpAuthSwitch.on = [self.event.httpAuth boolValue];
-            [_httpUsernameTextField setEnabled:_httpAuthSwitch.on];
-            [_httpPasswordTextField setEnabled:_httpAuthSwitch.on];
-            _httpUsernameTextField.text = [self.event httpUser];
-            _httpPasswordTextField.text = [self.event httpPasswordSecure];
-            
-            [self setTitle:self.event.name];
+            _enterUrlTextField.placeholder = [_appDelegate.settings globalUrl].absoluteString;
         }
         else
         {
-            [self setTitle:NSLocalizedString(@"New Fence", @"Title for new Geofence Screen.")];
-            
-            [_enterMethod setTitle:([_appDelegate.settings globalHttpMethod] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
-            [_exitMethod setTitle:([_appDelegate.settings globalHttpMethod] == 0)?@"POST":@"GET" forState:UIControlStateNormal];
-            
-            _iBeaconUuidTextField.text = [[NSUUID UUID] UUIDString];
-            _typeSegmentedControl.hidden = NO;
+            _enterUrlTextField.placeholder = NSLocalizedString(@"Please configure your global url", nil);
         }
-        
-        if([[_enterUrlTextField text] length] == 0)
-        {
-            if([[[_appDelegate.settings globalUrl] absoluteString] length] > 0)
-            {
-                _enterUrlTextField.placeholder = [_appDelegate.settings globalUrl].absoluteString;
-            }
-            else
-            {
-                _enterUrlTextField.placeholder = NSLocalizedString(@"Please configure your global url", nil);
-            }
-        }
-        
-        if([[_exitUrlTextField text] length] == 0)
-        {
-            if([[[_appDelegate.settings globalUrl] absoluteString] length] > 0)
-            {
-                _exitUrlTextField.placeholder = [_appDelegate.settings globalUrl].absoluteString;
-            }
-            else
-            {
-                _exitUrlTextField.placeholder = NSLocalizedString(@"Please configure your global url", nil);
-            }
-        }
-        
-        [self determineWetherToShowBackupButton];
     }
+    
+    if([[_exitUrlTextField text] length] == 0)
+    {
+        if([[[_appDelegate.settings globalUrl] absoluteString] length] > 0)
+        {
+            _exitUrlTextField.placeholder = [_appDelegate.settings globalUrl].absoluteString;
+        }
+        else
+        {
+            _exitUrlTextField.placeholder = NSLocalizedString(@"Please configure your global url", nil);
+        }
+    }
+    
+    [self determineWetherToShowBackupButton];
 }
 
 - (void)determineWetherToShowBackupButton
@@ -429,7 +412,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         if (self.event.managedObjectContext) {
             [self.event save];
         }
-        [[_appDelegate geofenceManager] stopMonitoringWithEvent:self.event];
+        [_appDelegate.geofenceManager syncMonitoredRegions];
         [self.navigationController popViewControllerAnimated:YES];
     }]];
     [self presentViewController:controller animated:YES completion:nil];

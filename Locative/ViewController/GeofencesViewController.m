@@ -37,6 +37,7 @@
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.config = [[Config alloc] init];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,13 +132,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Geofence *event = [[Geofence all] objectAtIndex:indexPath.row];
-        [event delete];
-        if (event.managedObjectContext) {
-            [event save];
-        }
-        [[self.appDelegate geofenceManager] stopMonitoringWithEvent:event];
-        
+        [[[Geofence all] objectAtIndex:indexPath.row] delete];
+        [[self.appDelegate geofenceManager] syncMonitoredRegions];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     [self updateEmptyState];

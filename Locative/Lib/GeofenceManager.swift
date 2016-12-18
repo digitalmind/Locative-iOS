@@ -28,9 +28,10 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
         self.settings = settings
         self.requestManager = requestManager
         super.init()
-        self.locationManager.delegate = self
-        self.authorize()
-        self.startMonitoring()
+        locationManager.delegate = self
+        authorize()
+        startMonitoring()
+        syncMonitoredRegions()
     }
     
     private func authorize() {
@@ -44,17 +45,18 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
         locationManager.startMonitoringSignificantLocationChanges()
     }
     
-    private func syncMonitoredRegions() {
-        // stop monitoring for all regions regions
-        locationManager.monitoredRegions.forEach { locationManager.stopMonitoring(for: $0) }
-        
-        // start monitoring for all existing regions
-        geofences.forEach { startMonitoring(event: $0) }
-    }
-    
     func triggerLocationEvent(_ manager: CLLocationManager, trigger: Trigger, region: CLRegion) {
         guard let location = geofences.filter({ region.identifier == $0.uuid }).first else {
-            return assertionFailure("Monitored region not found in Geofences")
+            return syncMonitoredRegions()
+        }
+        
+        // Do nothing in case we don't want to trigger an enter event
+        if trigger == .enter && (location.triggers!.uintValue & UInt(Trigger.enter.rawValue) == 0) {
+            return
+        }
+        // Do nothing in case we don't want to trigger an exit event
+        if trigger == .exit && (location.triggers!.uintValue & UInt(Trigger.exit.rawValue) == 0) {
+            return
         }
         
         backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
@@ -86,7 +88,9 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
             // Got an URL, let's try to dispatch to it
             let request = HttpRequest()
             request.url = url
-            request.method = location.enterMethod!.intValue == 0 ? "POST": "GET"
+            request.method = {
+                return ((trigger == .enter ? location.enterMethod! : location.exitMethod!)).intValue == 0 ? "POST": "GET"
+            }()
             request.parameters = parameters
             request.eventType = location.type
             request.timestamp = timestamp
@@ -145,10 +149,18 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func stopMonitoring(event: Geofence) {
-        locationManager.monitoredRegions.filter {
-            event.uuid == $0.identifier
-        }.forEach { locationManager.stopMonitoring(for: $0) }
+    func syncMonitoredRegions() {
+        // stop monitoring for all regions regions
+        locationManager.monitoredRegions.forEach { region in
+            print("Stopping region \(region)")
+            locationManager.stopMonitoring(for: region)
+        }
+        
+        // start monitoring for all existing regions
+        geofences.forEach { geofence in
+            print("Starting geofence \(geofence)")
+            startMonitoring(event: geofence)
+        }
     }
     
     func performAfterRetrievingCurrentLocation(completion: @escaping OnLocationUpdated) {
