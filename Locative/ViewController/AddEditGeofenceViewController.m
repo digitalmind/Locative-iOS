@@ -1,7 +1,6 @@
 #import "Locative-Swift.h"
 #import "AddEditGeofenceViewController.h"
 #import "CloudManager.h"
-#import "GeofenceManager.h"
 #import "MKMapView+ZoomLevel.h"
 
 @import MapKit;
@@ -128,8 +127,8 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
                 _typeSegmentedControl.hidden = YES;
             }
             
-            _enterSwitch.on = ([self.event.triggers intValue] & TriggerOnEnter);
-            _exitSwitch.on = ([self.event.triggers intValue] & TriggerOnExit);
+            _enterSwitch.on = ([self.event.triggers intValue] & TriggerEnter);
+            _exitSwitch.on = ([self.event.triggers intValue] & TriggerExit);
             
             _enterUrlTextField.text = self.event.enterUrl;
             _exitUrlTextField.text = self.event.exitUrl;
@@ -204,26 +203,28 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 {
     [super viewDidAppear:animated];
     
-    if(!_viewAppeared)
-    {
-        if(!self.event)
-        {
-            [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
-            
-            [[_appDelegate geofenceManager] performAfterRetrievingCurrentLocation:^(CLLocation *currentLocation) {
-                _location = currentLocation;
-                
-                [self setupLocation:currentLocation];
-                
-                [self reverseGeocodeForNearestPlacemark:^(CLPlacemark *placemark) {
-                    [_locationButton setTitle:[self addressFromPlacemark:placemark] forState:UIControlStateNormal];
-                    _gotCurrentLocation = YES;
-                }];
-                
-                [SVProgressHUD dismiss];
-            }];
-        }
+    if (_viewAppeared) {
+        return;
     }
+    
+    if(self.event) {
+        return;
+    }
+    
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+    
+    [_appDelegate.geofenceManager performAfterRetrievingCurrentLocationWithCompletion:^(CLLocation * _Nullable currentLocation) {
+        _location = currentLocation;
+        
+        [self setupLocation:currentLocation];
+        
+        [self reverseGeocodeForNearestPlacemark:^(CLPlacemark *placemark) {
+            [_locationButton setTitle:[self addressFromPlacemark:placemark] forState:UIControlStateNormal];
+            _gotCurrentLocation = YES;
+        }];
+        
+        [SVProgressHUD dismiss];
+    }];
     
     _viewAppeared = YES;
 }
@@ -428,7 +429,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         if (self.event.managedObjectContext) {
             [self.event save];
         }
-        [[_appDelegate geofenceManager] stopMonitoringEvent:self.event];
+        [[_appDelegate geofenceManager] stopMonitoringWithEvent:self.event];
         [self.navigationController popViewControllerAnimated:YES];
     }]];
     [self presentViewController:controller animated:YES completion:nil];
@@ -568,14 +569,14 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 
 - (void) saveEventWithEventName:(NSString *)eventName andUuid:(NSString *)uuid
 {
-    NSNumber *triggers = [NSNumber numberWithInt:(TriggerOnEnter | TriggerOnExit)];
+    NSNumber *triggers = [NSNumber numberWithInt:(TriggerEnter | TriggerExit)];
     if(!_enterSwitch.on && _exitSwitch.on)
     {
-        triggers = [NSNumber numberWithInt:(TriggerOnExit)];
+        triggers = [NSNumber numberWithInt:(TriggerExit)];
     }
     else if(_enterSwitch.on && !_exitSwitch.on)
     {
-        triggers = [NSNumber numberWithInt:(TriggerOnEnter)];
+        triggers = [NSNumber numberWithInt:(TriggerEnter)];
     }
     else if(!_enterSwitch.on && !_exitSwitch.on)
     {
@@ -637,7 +638,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     self.event.httpUser = _httpUsernameTextField.text;
     self.event.httpPasswordSecure = _httpPasswordTextField.text;
     
-    [[_appDelegate geofenceManager] startMonitoringEvent:self.event];
+    [[_appDelegate geofenceManager] startMonitoringWithEvent:self.event];
     [self.event save];
     
     [SVProgressHUD dismiss];

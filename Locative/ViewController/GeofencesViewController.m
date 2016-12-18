@@ -1,7 +1,6 @@
 #import "Locative-Swift.h"
 #import "GeofencesViewController.h"
 #import "AddEditGeofenceViewController.h"
-#import "GeofenceManager.h"
 #import "Locative-Swift.h"
 
 @import ObjectiveSugar;
@@ -38,8 +37,6 @@
     
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.config = [[Config alloc] init];
-
-    [[self.appDelegate geofenceManager] cleanup];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +46,6 @@
 }
 
 - (void)updateEmptyState {
-    [self.appDelegate.geofenceManager cleanup];
     if ([Geofence all].count == 0) {
         [self.emptyView removeFromSuperview];
         return [self.view.superview addSubview:self.emptyView];
@@ -140,7 +136,7 @@
         if (event.managedObjectContext) {
             [event save];
         }
-        [[self.appDelegate geofenceManager] stopMonitoringEvent:event];
+        [[self.appDelegate geofenceManager] stopMonitoringWithEvent:event];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }

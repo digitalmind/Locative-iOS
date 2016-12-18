@@ -11,6 +11,8 @@
 		070568091D4DDAEB005C5E9A /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070568081D4DDAEB005C5E9A /* Eureka.framework */; };
 		070568111D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */; };
 		070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 070568141D4DF623005C5E9A /* Acknowledgements.plist */; };
+		0717BDEC1E05E3E000AC9380 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717BDEB1E05E3E000AC9380 /* GeofenceManager.swift */; };
+		0717BDEE1E06228300AC9380 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717BDED1E06228300AC9380 /* LocationManager.swift */; };
 		0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
 		076879201DB7553500D33747 /* NotificationsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */; };
@@ -74,7 +76,6 @@
 		2A8E9DC017FD51DD00F4A805 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9DBE17FD51DD00F4A805 /* InfoPlist.strings */; };
 		2A8E9DEF17FD540D00F4A805 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9DEE17FD540D00F4A805 /* CoreData.framework */; };
 		2A8E9DF117FD556900F4A805 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9DF017FD556900F4A805 /* CoreLocation.framework */; };
-		2A8E9DF917FD5A5800F4A805 /* GeofenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */; };
 		2A8E9E0317FD5AA500F4A805 /* GeofencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */; };
 		2A8E9E2D17FD6EFE00F4A805 /* AddEditGeofenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E9E2C17FD6EFE00F4A805 /* AddEditGeofenceViewController.m */; };
 		2A8E9E2F17FD6F7D00F4A805 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E2E17FD6F7D00F4A805 /* SystemConfiguration.framework */; };
@@ -147,6 +148,8 @@
 		0705680F1D4DE388005C5E9A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VTAcknowledgementsViewController.framework; path = Carthage/Build/iOS/VTAcknowledgementsViewController.framework; sourceTree = "<group>"; };
 		070568141D4DF623005C5E9A /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
+		0717BDEB1E05E3E000AC9380 /* GeofenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
+		0717BDED1E06228300AC9380 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0734A6511DF23BAB00FD65A4 /* Model 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 11.xcdatamodel"; sourceTree = "<group>"; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
@@ -229,8 +232,6 @@
 		2A8E9DBF17FD51DD00F4A805 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A8E9DEE17FD540D00F4A805 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A8E9DF017FD556900F4A805 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2A8E9DF617FD5A5800F4A805 /* GeofenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeofenceManager.h; sourceTree = "<group>"; };
-		2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeofenceManager.m; sourceTree = "<group>"; };
 		2A8E9E0117FD5AA500F4A805 /* GeofencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeofencesViewController.h; sourceTree = "<group>"; };
 		2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeofencesViewController.m; sourceTree = "<group>"; };
 		2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditGeofenceViewController.h; sourceTree = "<group>"; };
@@ -523,8 +524,8 @@
 		2A8E9DF517FD5A5800F4A805 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				2A8E9DF617FD5A5800F4A805 /* GeofenceManager.h */,
-				2A8E9DF717FD5A5800F4A805 /* GeofenceManager.m */,
+				0717BDED1E06228300AC9380 /* LocationManager.swift */,
+				0717BDEB1E05E3E000AC9380 /* GeofenceManager.swift */,
 				2A2BF51E185371B800D5DD98 /* CloudManager.h */,
 				2A2BF51F185371B800D5DD98 /* CloudManager.m */,
 				076879211DB767C500D33747 /* CloudConnect.swift */,
@@ -974,11 +975,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0717BDEE1E06228300AC9380 /* LocationManager.swift in Sources */,
 				07BC81EA1D48C92500286073 /* SecureCredentials.swift in Sources */,
 				0769C7341DC54EA50085D02E /* Geofence+HumanCode.swift in Sources */,
-				2A8E9DF917FD5A5800F4A805 /* GeofenceManager.m in Sources */,
 				EC016D7D1DC18F9B006CB5E2 /* Bundle+Version.swift in Sources */,
 				07BC81E61D48C34E00286073 /* Config.swift in Sources */,
+				0717BDEC1E05E3E000AC9380 /* GeofenceManager.swift in Sources */,
 				07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */,
 				07E225541CA8D44000572180 /* NSUserDefault+Locative.swift in Sources */,
 				EC7770E01DB6CEA500AD1648 /* NotificationsViewController.swift in Sources */,

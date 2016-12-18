@@ -49,8 +49,7 @@ extension Geofence {
     func shouldTrigger() -> Bool {
         guard let type = type else { return true }
         guard
-            let s = Settings().restoredSettings(),
-            !s.overrideTriggerThreshold.boolValue
+            !Settings().restoredSettings().overrideTriggerThreshold.boolValue
         else { return true }
         if type == 0 {
             return !isWithinThreshold()

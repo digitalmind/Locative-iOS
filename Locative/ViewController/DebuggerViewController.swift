@@ -22,10 +22,10 @@ class DebuggerViewController: FormViewController {
             }
             <<< SwitchRow() { [unowned self] row in
                 row.title = "Override trigger threshold"
-                row.value = self.appDelegate.settings?.overrideTriggerThreshold.boolValue
+                row.value = self.appDelegate.settings.overrideTriggerThreshold.boolValue
             }.onChange { [unowned self] row in
-                self.appDelegate.settings?.overrideTriggerThreshold = NSNumber(booleanLiteral: row.value ?? false)
-                self.appDelegate.settings?.persist()
+                self.appDelegate.settings.overrideTriggerThreshold = NSNumber(booleanLiteral: row.value ?? false)
+                self.appDelegate.settings.persist()
             }
             +++ Section(.monitoredRegions) { section in
                 section.tag = .monitoredRegions

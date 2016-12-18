@@ -1,7 +1,6 @@
 #import "CloudManager.h"
 #import "Fencelog.h"
 #import "NSString+Hashes.h"
-#import "GeofenceManager.h"
 #import "Locative-Swift.h"
 
 #define StringOrEmpty(arg) (arg ? arg : @"")
@@ -242,10 +241,10 @@
                              @"lon": geofence.longitude,
                              @"lat": geofence.latitude,
                              @"radius": geofence.radius,
-                             @"triggerOnArrival": (geofence.triggers.integerValue & TriggerOnEnter) ? @1 : @0,
+                             @"triggerOnArrival": (geofence.triggers.integerValue & TriggerEnter) ? @1 : @0,
                              @"triggerOnArrivalMethod" : geofence.enterMethod,
                              @"triggerOnArrivalUrl" : geofence.enterUrl ? geofence.enterUrl : @"",
-                             @"triggerOnLeave": (geofence.triggers.integerValue & TriggerOnExit) ? @1 : @0,
+                             @"triggerOnLeave": (geofence.triggers.integerValue & TriggerExit) ? @1 : @0,
                              @"triggerOnLeaveMethod": geofence.exitMethod,
                              @"triggerOnLeaveUrl": geofence.exitUrl ? geofence.exitUrl : @"",
                              @"basicAuth": geofence.httpAuth ? @1 : @0,

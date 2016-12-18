@@ -19,8 +19,9 @@ class HttpRequestManager: NSObject {
     
     public func dispatch(_ request: HttpRequest, retry: Int, completion: ((_ success: Bool) -> Void)? = nil) {
         
-        let identifier = request.uuid ?? UUID().uuidString
-        let configuration = URLSessionConfiguration.background(withIdentifier: identifier)
+        print("Dispatch request: \(request)")
+        
+        let configuration = URLSessionConfiguration.default
         let manager = AFHTTPSessionManager(sessionConfiguration: configuration)
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.requestSerializer = AFHTTPRequestSerializer()
@@ -36,10 +37,11 @@ class HttpRequestManager: NSObject {
         }
         
         // bail out in case no url is present in request
-        guard let url = request.url else { return }
+        guard let url = request.url else { return print("bailing out due to no url") }
         if let m = request.method , isPostMethod(m) {
             manager.post(url, parameters: request.parameters, success: { [weak self] op, r in
-                self?.dispatchFencelog(
+                guard let this = self else { return print("bailing out due to no self") }
+                this.dispatchFencelog(
                     true,
                     request: request,
                     responseObject: r as AnyObject?,
@@ -48,7 +50,7 @@ class HttpRequestManager: NSObject {
                     completion: completion
                 )
                 }, failure: { [weak self] op, e in
-                    guard let this = self else { return }
+                    guard let this = self else { return print("bailing out due to no self") }
                     if retry < this.maxRetryCount {
                         return this.dispatch(request, retry: retry + 1, completion: completion)
                     }
@@ -63,7 +65,8 @@ class HttpRequestManager: NSObject {
             })
         } else {
             manager.get(url, parameters: request.parameters, success: { [weak self] op, r in
-                self?.dispatchFencelog(
+                guard let this = self else { return print("bailing out due to no self") }
+                this.dispatchFencelog(
                     true,
                     request: request,
                     responseObject: r as AnyObject?,
@@ -72,7 +75,7 @@ class HttpRequestManager: NSObject {
                     completion: completion
                 )
                 }, failure: { [weak self] op, e in
-                    guard let this = self else { return }
+                    guard let this = self else { return print("bailing out due to no self") }
                     if retry < this.maxRetryCount {
                         return this.dispatch(request, retry: retry + 1, completion: completion)
                     }
@@ -98,8 +101,7 @@ private extension HttpRequestManager {
 //MARK: - Private
 extension HttpRequestManager {
     func dispatchFencelog(_ fencelog: Fencelog) {
-        if let s = appDelegate.settings,
-            let a = s.apiToken , a.lengthOfBytes(using: String.Encoding.utf8) > 0 {
+        if let a = appDelegate.settings.apiToken , a.lengthOfBytes(using: String.Encoding.utf8) > 0 {
             appDelegate.cloudManager.dispatchCloudFencelog(fencelog, onFinish: nil)
         }
     }
@@ -112,33 +114,31 @@ extension HttpRequestManager {
                           completion: ((_ success: Bool) -> Void)?) {
         
         //TODO: This can be simplified a lot, DO IT!
-        if let s = appDelegate.settings {
-            if let method = request.method, let n = s.notifyOnSuccess , n.boolValue && success{
-                // notify on success
-                if let data = responseObject as? Data, let string = String(data: data, encoding: String.Encoding.utf8) {
-                    presentLocalNotification(
-                        (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).appendingFormat("%@", string),
-                        success: true
-                    )
-                } else {
-                    presentLocalNotification(
-                        (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).appendingFormat("%@", "No readable response received."),
-                        success: true
-                    )
-                }
-            } else if let method = request.method, let n = s.notifyOnFailure , n.boolValue && !success {
-                // notify on failure
-                if let data = responseObject as? Data, let string = String(data: data, encoding: String.Encoding.utf8) {
-                    presentLocalNotification(
-                        (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Failure text")).appendingFormat("%@", string),
-                        success: true
-                    )
-                } else {
-                    presentLocalNotification(
-                        (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Success text")).appendingFormat("%@", "No readable response received."),
-                        success: true
-                    )
-                }
+        if let method = request.method, let n = appDelegate.settings.notifyOnSuccess , n.boolValue && success{
+            // notify on success
+            if let data = responseObject as? Data, let string = String(data: data, encoding: String.Encoding.utf8) {
+                presentLocalNotification(
+                    (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).appendingFormat("%@", string),
+                    success: true
+                )
+            } else {
+                presentLocalNotification(
+                    (isPostMethod(method) ? NSLocalizedString("POST Success:", comment: "POST Success text") : NSLocalizedString("GET Success:", comment: "GET Success text")).appendingFormat("%@", "No readable response received."),
+                    success: true
+                )
+            }
+        } else if let method = request.method, let n = appDelegate.settings.notifyOnFailure , n.boolValue && !success {
+            // notify on failure
+            if let data = responseObject as? Data, let string = String(data: data, encoding: String.Encoding.utf8) {
+                presentLocalNotification(
+                    (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Failure text")).appendingFormat("%@", string),
+                    success: true
+                )
+            } else {
+                presentLocalNotification(
+                    (isPostMethod(method) ? NSLocalizedString("POST Failure:", comment: "POST Failure text") : NSLocalizedString("GET Failure:", comment: "GET Success text")).appendingFormat("%@", "No readable response received."),
+                    success: true
+                )
             }
         }
         
@@ -179,7 +179,7 @@ extension HttpRequestManager {
     
     func presentLocalNotification(_ text: String, success: Bool) {
         UILocalNotification.present(
-            withSoundName: (appDelegate.settings?.soundOnNotification?.boolValue == true) ? "notification.caf" : nil,
+            withSoundName: (appDelegate.settings.soundOnNotification?.boolValue == true) ? "notification.caf" : nil,
             alertBody: text,
             userInfo: ["success": success])
     }

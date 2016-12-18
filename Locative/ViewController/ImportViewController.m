@@ -1,6 +1,5 @@
 #import "Locative-Swift.h"
 #import "CloudManager.h"
-#import "GeofenceManager.h"
 #import "ImportViewController.h"
 
 @import ObjectiveRecord;
@@ -180,17 +179,17 @@
 
 - (void) saveEventWithEventName:(NSString *)eventName andUuid:(NSString *)uuid
 {
-    NSNumber *triggers = [NSNumber numberWithInt:(TriggerOnEnter | TriggerOnExit)];
+    NSNumber *triggers = [NSNumber numberWithInt:(TriggerEnter | TriggerExit)];
     BOOL enterSwitchOn = [self.selectedGeofence[@"triggerOnArrival"][@"enabled"] boolValue];
     BOOL exitSwitchOn = [self.selectedGeofence[@"triggerOnLeave"][@"enabled"] boolValue];
     
     if(!enterSwitchOn && exitSwitchOn)
     {
-        triggers = [NSNumber numberWithInt:(TriggerOnExit)];
+        triggers = [NSNumber numberWithInt:(TriggerExit)];
     }
     else if(enterSwitchOn && !exitSwitchOn)
     {
-        triggers = [NSNumber numberWithInt:(TriggerOnEnter)];
+        triggers = [NSNumber numberWithInt:(TriggerEnter)];
     }
     else if(!exitSwitchOn && !exitSwitchOn)
     {
@@ -240,7 +239,7 @@
     self.event.httpUser = self.selectedGeofence[@"basicAuth"][@"username"];
     self.event.httpPasswordSecure = self.selectedGeofence[@"basicAuth"][@"password"];
     
-    [[_appDelegate geofenceManager] startMonitoringEvent:self.event];
+    [[_appDelegate geofenceManager] startMonitoringWithEvent:self.event];
     [self.event save];
     
     [SVProgressHUD dismiss];

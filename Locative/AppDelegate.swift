@@ -14,16 +14,17 @@ private extension String {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var cloudManager: CloudManager!
+    var geofenceManager: GeofenceManager!
     
     let reachabilityManager = AFNetworkReachabilityManager(forDomain: "my.locative.io")
-    let geofenceManager = GeofenceManager()
     let requestManager = HttpRequestManager()
     let settings = Settings().restoredSettings()
     let coreDataStack = CoreDataStack(model: "Model")
     let harpy = Harpy.sharedInstance()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.window?.backgroundColor = UIColor.black
+        window?.backgroundColor = UIColor.black
+        geofenceManager = GeofenceManager(settings: settings, requestManager: requestManager)
         
         // CloudManager
         cloudManager = CloudManager(settings: settings)
@@ -38,9 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Initial setup (if app has not been yet started)
-        if let s = settings, let st = s.appHasBeenStarted , !st.boolValue {
-            s.appHasBeenStarted = true
-            s.persist()
+        if let st = settings.appHasBeenStarted , !st.boolValue {
+            settings.appHasBeenStarted = true
+            settings.persist()
         }
         
         UIApplication.shared.setMinimumBackgroundFetchInterval(
@@ -65,12 +66,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        settings?.persist()
+        settings.persist()
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         if url.absoluteString == "locative://debug" {
-            settings?.toggleDebug()
+            settings.toggleDebug()
         }
         if !(url as NSURL).isFileReferenceURL() { return false }
         guard url.pathExtension == "gpx" else { return false }
@@ -89,8 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        settings?.apnsToken = deviceTokenString
-        guard let token = settings?.apiToken else { return }
+        settings.apnsToken = deviceTokenString
+        guard let token = settings.apiToken else { return }
         cloudManager.updateSession(withSessionId: token, apnsToken: deviceTokenString) { error in
             print("Updated session: \(error)")
         }
@@ -157,14 +158,13 @@ private extension AppDelegate {
                     geofence.latitude = (waypoint as AnyObject).latitude
                     geofence.longitude = (waypoint as AnyObject).longitude
                     geofence.radius = 50
-                    geofence.triggers = NSNumber(value: UInt32(TriggerOnEnter.rawValue | TriggerOnExit.rawValue) as UInt32)
+                    geofence.triggers = NSNumber(value: UInt32(GeofenceManager.Trigger.enter.rawValue | GeofenceManager.Trigger.enter.rawValue) as UInt32)
                     geofence.save()
-                    self?.geofenceManager.startMonitoringEvent(geofence)
+                    self?.geofenceManager.startMonitoring(event: geofence)
                     print("Imported and started \(geofence)")
                 })
             }
             DispatchQueue.main.async(execute: { [weak self] in
-                self?.geofenceManager.cleanup()
                 NotificationCenter.default.post(
                     name: Notification.Name(rawValue: .reloadGeofences), object: nil
                 )
@@ -172,12 +172,6 @@ private extension AppDelegate {
                 self?.showAlert(false, limitExceeded: maxImportLimitExceeded, maxLimit: max, overall: overallWaypoints)
             })
         }
-    }
-    
-    private func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler:
-        @escaping (UIBackgroundFetchResult) -> Void) {
-        geofenceManager.cleanup()
-        completionHandler(.newData)
     }
 }
 

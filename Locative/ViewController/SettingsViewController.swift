@@ -1,7 +1,6 @@
 import Eureka
 import OnePasswordExtension
 import SVProgressHUD
-import INTULocationManager
 import iOS_GPX_Framework
 
 fileprivate extension String {
@@ -42,7 +41,9 @@ fileprivate extension UIColor {
 class SettingsViewController: FormViewController {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var debouncer: Debouncer?
+    var locationManager: LocationManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,7 @@ class SettingsViewController: FormViewController {
             debouncer.cancel()
         }
         debouncer = Debouncer({ [weak self] in
-            self?.appDelegate.settings?.persist()
+            self?.appDelegate.settings.persist()
         })
     }
     
@@ -109,7 +110,7 @@ class SettingsViewController: FormViewController {
             SVProgressHUD.dismiss()
             
             if error == nil {
-                self?.appDelegate.settings?.apiToken = sessionId
+                self?.appDelegate.settings.apiToken = sessionId
                 self?.persistSettings()
                 self?.form.allRows.forEach { $0.evaluateHidden() }
             }
@@ -124,7 +125,7 @@ class SettingsViewController: FormViewController {
     }
     
     func logout() {
-        appDelegate.settings?.removeApiToken()
+        appDelegate.settings.removeApiToken()
         form.allRows.forEach { $0.evaluateHidden() }
     }
     
@@ -147,8 +148,7 @@ class SettingsViewController: FormViewController {
     }
     
     func testRequest() {
-        INTULocationManager.sharedInstance().requestLocation(withDesiredAccuracy: .block, timeout: 10.0, delayUntilAuthorized: true) {
-            [weak self] (location, accuracy, status) in
+        locationManager = LocationManager { [weak self] location in
             let coordinate = location?.coordinate
             let timestamp = Date()
             let parameters = [
@@ -159,20 +159,20 @@ class SettingsViewController: FormViewController {
                 "latitude": coordinate != nil ? Double(coordinate!.latitude) : 123.0,
                 "longitude": coordinate != nil ? Double(coordinate!.longitude) : 123.0,
                 "timestamp": Int(timestamp.timeIntervalSince1970)
-            ] as NSDictionary
+                ] as NSDictionary
             
             let request = HttpRequest()
-            request.url = self?.appDelegate.settings?.globalUrl?.absoluteString
-            request.method = self?.appDelegate.settings?.globalHttpMethod == 0 ? "POST" : "GET"
+            request.url = self?.appDelegate.settings.globalUrl?.absoluteString
+            request.method = self?.appDelegate.settings.globalHttpMethod == 0 ? "POST" : "GET"
             request.parameters = parameters
             request.eventType = NSNumber(integerLiteral: 0)
             request.timestamp = timestamp as NSDate
             request.uuid = NSUUID().uuidString
             
-            if let auth = self?.appDelegate.settings?.httpBasicAuthEnabled, auth == true {
+            if let auth = self?.appDelegate.settings.httpBasicAuthEnabled, auth == true {
                 request.httpAuth = NSNumber(booleanLiteral: true)
-                request.httpAuthUsername = self?.appDelegate.settings?.httpBasicAuthUsername
-                request.httpAuthPassword = self?.appDelegate.settings?.httpBasicAuthPassword
+                request.httpAuthUsername = self?.appDelegate.settings.httpBasicAuthUsername
+                request.httpAuthPassword = self?.appDelegate.settings.httpBasicAuthPassword
             }
             
             self?.appDelegate.requestManager.dispatch(request)
@@ -262,40 +262,40 @@ fileprivate extension SettingsViewController {
             <<< TextRow() { [weak self] row in
                 row.title = .url
                 row.placeholder = .urlPlaceholder
-                row.value = self?.appDelegate.settings?.globalUrl?.absoluteString
+                row.value = self?.appDelegate.settings.globalUrl?.absoluteString
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
                     cell.textField.autocorrectionType = .no
                     cell.textField.autocapitalizationType = .none
                 }.onChange { [weak self] row in
                     guard let url = row.value else {
-                        self?.appDelegate.settings?.globalUrl = nil
+                        self?.appDelegate.settings.globalUrl = nil
                         return
                     }
-                    self?.appDelegate.settings?.globalUrl = URL(string: url)
+                    self?.appDelegate.settings.globalUrl = URL(string: url)
                     self?.persistSettings()
             }
             <<< SegmentedRow<String>() { row in
                 row.options = [.post, .get]
                 }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
-                    guard let selected = self?.appDelegate.settings?.globalHttpMethod?.intValue else {
+                    guard let selected = self?.appDelegate.settings.globalHttpMethod?.intValue else {
                         return
                     }
                     row.value = row.options[selected]
                 }.onChange { [weak self] row in
-                    self?.appDelegate.settings?.globalHttpMethod =
+                    self?.appDelegate.settings.globalHttpMethod =
                         NSNumber(value: row.value == "POST" ? 0 : 1)
                     self?.persistSettings()
             }
             <<< SwitchRow("globalHttpAuth") { [weak self] row in
                 row.title = .httpBasicAuth
-                    row.value = self?.appDelegate.settings?.httpBasicAuthEnabled?.boolValue
+                    row.value = self?.appDelegate.settings.httpBasicAuthEnabled?.boolValue
                 }.cellSetup { cell, row in
                     cell.tintColor = .locativeColor
                     cell.switchControl?.onTintColor = .locativeColor
                 }.onChange { [weak self] row in
-                    self?.appDelegate.settings?.httpBasicAuthEnabled
+                    self?.appDelegate.settings.httpBasicAuthEnabled
                         = NSNumber(booleanLiteral: row.value!)
                     self?.persistSettings()
             }
@@ -307,9 +307,9 @@ fileprivate extension SettingsViewController {
                     cell.tintColor = .locativeColor
                     cell.textField.autocorrectionType = .no
                     cell.textField.autocapitalizationType = .none
-                    row.value = self?.appDelegate.settings?.httpBasicAuthUsername
+                    row.value = self?.appDelegate.settings.httpBasicAuthUsername
                 }.onChange { [weak self] row in
-                    self?.appDelegate.settings?.httpBasicAuthUsername = row.value
+                    self?.appDelegate.settings.httpBasicAuthUsername = row.value
                     self?.persistSettings()
             }
             <<< TextRow() { row in
@@ -321,9 +321,9 @@ fileprivate extension SettingsViewController {
                     cell.textField.isSecureTextEntry = true
                     cell.textField.autocorrectionType = .no
                     cell.textField.autocapitalizationType = .none
-                    row.value = self?.appDelegate.settings?.httpBasicAuthPassword
+                    row.value = self?.appDelegate.settings.httpBasicAuthPassword
                 }.onChange { [weak self] row in
-                    self?.appDelegate.settings?.httpBasicAuthPassword = row.value
+                    self?.appDelegate.settings.httpBasicAuthPassword = row.value
                     self?.persistSettings()
             }
             <<< ButtonRow() { row in
@@ -344,10 +344,10 @@ fileprivate extension SettingsViewController {
                 }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.switchControl?.onTintColor = .locativeColor
-                    row.value = self?.appDelegate.settings?.notifyOnSuccess?.boolValue
+                    row.value = self?.appDelegate.settings.notifyOnSuccess?.boolValue
                 }.onChange { [weak self] row in
                     let value = row.value ?? false
-                    self?.appDelegate.settings?.notifyOnSuccess = NSNumber(booleanLiteral: value)
+                    self?.appDelegate.settings.notifyOnSuccess = NSNumber(booleanLiteral: value)
                     self?.persistSettings()
             }
             <<< SwitchRow() { row in
@@ -355,10 +355,10 @@ fileprivate extension SettingsViewController {
                 }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.switchControl?.onTintColor = .locativeColor
-                    row.value = self?.appDelegate.settings?.notifyOnFailure?.boolValue
+                    row.value = self?.appDelegate.settings.notifyOnFailure?.boolValue
                 }.onChange { [weak self] row in
                     let value = row.value ?? false
-                    self?.appDelegate.settings?.notifyOnFailure = NSNumber(booleanLiteral: value)
+                    self?.appDelegate.settings.notifyOnFailure = NSNumber(booleanLiteral: value)
                     self?.persistSettings()
             }
             <<< SwitchRow() { row in
@@ -366,10 +366,10 @@ fileprivate extension SettingsViewController {
                 }.cellSetup { [weak self] cell, row in
                     cell.tintColor = .locativeColor
                     cell.switchControl?.onTintColor = .locativeColor
-                    row.value = self?.appDelegate.settings?.soundOnNotification?.boolValue
+                    row.value = self?.appDelegate.settings.soundOnNotification?.boolValue
                 }.onChange { [weak self] row in
                     let value = row.value ?? false
-                    self?.appDelegate.settings?.soundOnNotification = NSNumber(booleanLiteral: value)
+                    self?.appDelegate.settings.soundOnNotification = NSNumber(booleanLiteral: value)
                     self?.persistSettings()
         }
     }
@@ -383,7 +383,7 @@ fileprivate extension String {
 
 fileprivate extension SettingsViewController {
     func isLoggedIn() -> Bool {
-        guard let token = appDelegate.settings?.apiToken else {
+        guard let token = appDelegate.settings.apiToken else {
             return false
         }
         return token.characters.count > 0
@@ -477,7 +477,7 @@ fileprivate extension SettingsViewController {
         return Section(.debugging) { section in
             section.tag = .debugging
             section.hidden = Condition.function([]) { [weak self] form in
-                guard let e = self?.appDelegate.settings?.debugEnabled else {
+                guard let e = self?.appDelegate.settings.debugEnabled else {
                     return true
                 }
                 return !e.boolValue

@@ -1,5 +1,36 @@
 # Change Log
 
+## [Unreleased](https://github.com/LocativeHQ/Locative-iOS/tree/HEAD)
+
+[Full Changelog](https://github.com/LocativeHQ/Locative-iOS/compare/2.0.3...HEAD)
+
+**Implemented enhancements:**
+
+- Drop iOS 8 Support [\#48](https://github.com/LocativeHQ/Locative-iOS/issues/48)
+
+## [2.0.3](https://github.com/LocativeHQ/Locative-iOS/tree/2.0.3) (2016-08-19)
+[Full Changelog](https://github.com/LocativeHQ/Locative-iOS/compare/2.0.2...2.0.3)
+
+## [2.0.2](https://github.com/LocativeHQ/Locative-iOS/tree/2.0.2) (2016-08-18)
+[Full Changelog](https://github.com/LocativeHQ/Locative-iOS/compare/2.0.1...2.0.2)
+
+**Implemented enhancements:**
+
+- Add `device\_model` and `device\_type` to HTTP payload [\#47](https://github.com/LocativeHQ/Locative-iOS/issues/47)
+
+## [2.0.1](https://github.com/LocativeHQ/Locative-iOS/tree/2.0.1) (2016-08-16)
+[Full Changelog](https://github.com/LocativeHQ/Locative-iOS/compare/2.0.0...2.0.1)
+
+## [2.0.0](https://github.com/LocativeHQ/Locative-iOS/tree/2.0.0) (2016-08-14)
+[Full Changelog](https://github.com/LocativeHQ/Locative-iOS/compare/1.11.1...2.0.0)
+
+**Implemented enhancements:**
+
+- Add Bitcode support [\#37](https://github.com/LocativeHQ/Locative-iOS/issues/37)
+
+## [1.11.1](https://github.com/LocativeHQ/Locative-iOS/tree/1.11.1) (2016-05-19)
+[Full Changelog](https://github.com/LocativeHQ/Locative-iOS/compare/1.10.1...1.11.1)
+
 ## [1.10.1](https://github.com/LocativeHQ/Locative-iOS/tree/1.10.1) (2016-02-15)
 [Full Changelog](https://github.com/LocativeHQ/Locative-iOS/compare/1.10.0...1.10.1)
 

@@ -125,7 +125,7 @@ open class Settings: NSObject, NSCoding {
 
 //MARK: - Restoration
 extension Settings {
-    func restoredSettings() -> Settings? {
+    func restoredSettings() -> Settings {
         if let oldSettingsPath = NSString.oldSettingsPath(),
             let newSettingsPath = NSString.settingsPath() {
             if FileManager.default.fileExists(atPath: oldSettingsPath) {
@@ -133,7 +133,7 @@ extension Settings {
             }
         }
         guard let new = NSString.settingsPath() else {
-            return nil
+            return Settings()
         }
         // important: otherwise we can't restore from original settings
         NSKeyedUnarchiver.setClass(type(of: self), forClassName: "GFSettings")
