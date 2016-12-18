@@ -148,7 +148,7 @@ private extension AppDelegate {
             print("maxLimit: \(max), maxImportLimitExceed: \(maxImportLimitExceeded)")
             let count = maxImportLimitExceeded ? max : root.waypoints.count
             for (index, _) in [0...count].enumerated() {
-                DispatchQueue.main.async(execute: { [weak self] in
+                DispatchQueue.main.async(execute: {
                     let waypoint = root.waypoints[index]
                     let geofence = Geofence.create() as! Geofence
                     geofence.type = NSNumber(value: GeofenceType.geofence.rawValue)
@@ -160,11 +160,12 @@ private extension AppDelegate {
                     geofence.radius = 50
                     geofence.triggers = NSNumber(value: UInt32(GeofenceManager.Trigger.enter.rawValue | GeofenceManager.Trigger.enter.rawValue) as UInt32)
                     geofence.save()
-                    self?.geofenceManager.startMonitoring(event: geofence)
-                    print("Imported and started \(geofence)")
+                    print("Imported \(geofence)")
                 })
             }
             DispatchQueue.main.async(execute: { [weak self] in
+                print("Syncing Monitored Regions…")
+                self?.geofenceManager.syncMonitoredRegions()
                 NotificationCenter.default.post(
                     name: Notification.Name(rawValue: .reloadGeofences), object: nil
                 )

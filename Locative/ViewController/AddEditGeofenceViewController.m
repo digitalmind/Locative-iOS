@@ -620,9 +620,9 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
     self.event.httpAuth = [NSNumber numberWithBool:_httpAuthSwitch.on];
     self.event.httpUser = _httpUsernameTextField.text;
     self.event.httpPasswordSecure = _httpPasswordTextField.text;
-    
-    [[_appDelegate geofenceManager] startMonitoringWithEvent:self.event];
     [self.event save];
+    
+    [_appDelegate.geofenceManager syncMonitoredRegions];
     
     [SVProgressHUD dismiss];
     

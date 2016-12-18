@@ -128,7 +128,7 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func startMonitoring(event: Geofence) {
+    private func startMonitoring(event: Geofence) {
         if event.type!.intValue == GeofenceType.geofence.rawValue {
             // Geofence / CircularRegion
             let region = CLCircularRegion(
