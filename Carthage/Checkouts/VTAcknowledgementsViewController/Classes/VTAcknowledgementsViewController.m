@@ -24,7 +24,6 @@
 #import "VTAcknowledgementsViewController.h"
 #import "VTAcknowledgementViewController.h"
 #import "VTAcknowledgementsParser.h"
-#import "VTAcknowledgement.h"
 
 #if !TARGET_OS_TV
 #if __has_feature(modules)

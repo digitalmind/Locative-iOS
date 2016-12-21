@@ -40,6 +40,7 @@
 		07BC81F71D4D913E00286073 /* AFSecurityPolicy+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */; };
 		07BC82021D4D974C00286073 /* Ints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82011D4D974C00286073 /* Ints.swift */; };
 		07BC82041D4D97EC00286073 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82031D4D97EC00286073 /* Social.swift */; };
+		07C07EEF1E0A5FEB00449379 /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C07EEC1E0A5FEB00449379 /* Licenses.plist */; };
 		07C965141DB769BA009C0ECE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C965131DB769B9009C0ECE /* Alamofire.framework */; };
 		07DB1D141DC40A7600E90040 /* DebuggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB1D131DC40A7500E90040 /* DebuggerViewController.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
@@ -180,6 +181,8 @@
 		07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AFSecurityPolicy+Locative.swift"; sourceTree = "<group>"; };
 		07BC82011D4D974C00286073 /* Ints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ints.swift; sourceTree = "<group>"; };
 		07BC82031D4D97EC00286073 /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
+		07C07EEC1E0A5FEB00449379 /* Licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licenses.plist; sourceTree = "<group>"; };
+		07C07EEE1E0A5FEB00449379 /* licenses.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = licenses.sh; sourceTree = "<group>"; };
 		07C965131DB769B9009C0ECE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
@@ -357,6 +360,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		07C07EED1E0A5FEB00449379 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				07C07EEE1E0A5FEB00449379 /* licenses.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		07E8469C1D644CEF00ECC717 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,7 +501,9 @@
 		2A8E9D9D17FD51DD00F4A805 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07C07EED1E0A5FEB00449379 /* Scripts */,
 				070568141D4DF623005C5E9A /* Acknowledgements.plist */,
+				07C07EEC1E0A5FEB00449379 /* Licenses.plist */,
 				2A8D852518AE3ED000CF2693 /* whatsup.caf */,
 				2A04A5941849F1D300D9B485 /* notification.caf */,
 				2A8E9D9E17FD51DD00F4A805 /* Locative-Info.plist */,
@@ -615,6 +628,7 @@
 			buildPhases = (
 				65631DCE165A9C84B29C44B2 /* [CP] Check Pods Manifest.lock */,
 				2A5158BD188185B000DCD8D9 /* Bump Build no. */,
+				07C07EEB1E0A5F0E00449379 /* Generate Carthage Licenses Plist */,
 				2A8E9D8F17FD51DD00F4A805 /* Sources */,
 				2A8E9D9017FD51DD00F4A805 /* Frameworks */,
 				2A8E9D9117FD51DD00F4A805 /* Resources */,
@@ -782,6 +796,7 @@
 			files = (
 				2A8E9DAF17FD51DD00F4A805 /* Images.xcassets in Resources */,
 				2A8E9DA117FD51DD00F4A805 /* InfoPlist.strings in Resources */,
+				07C07EEF1E0A5FEB00449379 /* Licenses.plist in Resources */,
 				07AA1B0C1DB8DF2C0090009D /* GeofencesEmptyView.xib in Resources */,
 				2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */,
 				2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */,
@@ -850,6 +865,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		07C07EEB1E0A5F0E00449379 /* Generate Carthage Licenses Plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Carthage Licenses Plist";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/Locative/Scripts/licenses.sh";
 		};
 		07DF8D2B1CCBA1E4001D858B /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
