@@ -140,13 +140,23 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
             locationManager.startMonitoring(for: region)
         } else {
             // iBeacon
-            let region = CLBeaconRegion(
-                proximityUUID: UUID(uuidString: event.uuid!)!,
-                major: CLBeaconMajorValue(event.iBeaconMajor!.intValue),
-                minor: CLBeaconMinorValue(event.iBeaconMinor!.intValue),
-                identifier: event.uuid!
+            guard let uuid = event.uuid else {
+                return print("Could not start monitoring of CLBeaconRegion because of missing UUID")
+            }
+            guard let major = event.iBeaconMajor, let minor =
+                event.iBeaconMinor else {
+                return locationManager.startMonitoring(for:
+                    CLBeaconRegion(proximityUUID: UUID(uuidString: uuid)!, identifier: uuid)
+                )
+            }
+            locationManager.startMonitoring(for:
+                CLBeaconRegion(
+                    proximityUUID: UUID(uuidString: uuid)!,
+                    major: CLBeaconMajorValue(major.intValue),
+                    minor: CLBeaconMinorValue(minor.intValue),
+                    identifier: event.uuid!
+                )
             )
-            locationManager.startMonitoring(for: region)
         }
     }
     
