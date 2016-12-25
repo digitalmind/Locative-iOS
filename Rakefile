@@ -1,6 +1,6 @@
 desc "Setup dev environment"
 task :setup do
-  sh "carthage bootstrap --platform iOS"
+  sh "carthage bootstrap --platform iOS --no-use-binaries"
 end
 
 desc "Start dev environment"
