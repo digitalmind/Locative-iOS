@@ -1,11 +1,12 @@
 import AFNetworking
-import Fabric;
-import Crashlytics;
-import Harpy;
+import Fabric
+import Crashlytics
+import Harpy
 import iOS_GPX_Framework
-import TSMessages;
-import ObjectiveRecord;
-import SVProgressHUD;
+import TSMessages
+import ObjectiveRecord
+import SVProgressHUD
+import SwiftyBeaver
 
 private extension String {
     static let reloadGeofences = "reloadGeofences"
@@ -55,6 +56,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
         harpy?.presentingViewController = window?.rootViewController
         harpy?.alertType = .skip
+        
+        // SwiftyBeaver
+        if !Environment.SwiftyBeaver.enabled { return true }
+        guard let id = Environment.SwiftyBeaver.appId,
+            let secret = Environment.SwiftyBeaver.appSecret,
+            let key = Environment.SwiftyBeaver.encryptionKey else { return true }
+        let console = ConsoleDestination()  // log to Xcode Console
+        let file = FileDestination()  // log to default swiftybeaver.log file
+        let cloud = SBPlatformDestination(appID: id,
+                                          appSecret: secret,
+                                          encryptionKey: key) // to cloud
+        SwiftyBeaver.addDestination(console)
+        SwiftyBeaver.addDestination(file)
+        SwiftyBeaver.addDestination(cloud)
+        SwiftyBeaver.info("SwiftyBeaver enabled!")
         
         return true
     }

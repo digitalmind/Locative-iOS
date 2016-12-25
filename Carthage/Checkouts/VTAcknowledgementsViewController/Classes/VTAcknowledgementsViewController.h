@@ -27,7 +27,7 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#import "VTAcknowledgement.h"
+@class VTAcknowledgement;
 
 
 /**

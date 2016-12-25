@@ -21,6 +21,7 @@
 		0769C7311DC548880085D02E /* Geofence+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769C72D1DC548880085D02E /* Geofence+CoreDataClass.swift */; };
 		0769C7321DC548880085D02E /* Geofence+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769C72E1DC548880085D02E /* Geofence+CoreDataProperties.swift */; };
 		0769C7341DC54EA50085D02E /* Geofence+HumanCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769C7331DC54EA50085D02E /* Geofence+HumanCode.swift */; };
+		077C14D91E0FEB80006A55EA /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077C14D81E0FEB80006A55EA /* SwiftyBeaver.framework */; };
 		0793708C1D4F690E008E2831 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0793708B1D4F690E008E2831 /* KeychainAccess.framework */; };
 		079412E11DBC31FB001EA0E4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079412E01DBC31FB001EA0E4 /* SettingsViewController.swift */; };
 		079412E51DBF311B001EA0E4 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079412E41DBF311B001EA0E4 /* Debouncer.swift */; };
@@ -160,6 +161,7 @@
 		0769C72D1DC548880085D02E /* Geofence+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geofence+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0769C72E1DC548880085D02E /* Geofence+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geofence+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0769C7331DC54EA50085D02E /* Geofence+HumanCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geofence+HumanCode.swift"; sourceTree = "<group>"; };
+		077C14D81E0FEB80006A55EA /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
 		0793708B1D4F690E008E2831 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		079412E01DBC31FB001EA0E4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				2A8E9D9B17FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9D9717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
 				B5FF87B6381EDA94460A963C /* Pods_Locative.framework in Frameworks */,
+				077C14D91E0FEB80006A55EA /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +440,7 @@
 		2A8E9D9517FD51DD00F4A805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				077C14D81E0FEB80006A55EA /* SwiftyBeaver.framework */,
 				07C965131DB769B9009C0ECE /* Alamofire.framework */,
 				EC7770D71DB6C14400AD1648 /* AsyncDisplayKit.framework */,
 				EC7770D81DB6C14400AD1648 /* NMessenger.framework */,
@@ -626,6 +630,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A8E9DC517FD51DD00F4A805 /* Build configuration list for PBXNativeTarget "Locative" */;
 			buildPhases = (
+				077C14DA1E0FEC85006A55EA /* SwiftyBeaver */,
 				65631DCE165A9C84B29C44B2 /* [CP] Check Pods Manifest.lock */,
 				2A5158BD188185B000DCD8D9 /* Bump Build no. */,
 				07C07EEB1E0A5F0E00449379 /* Generate Carthage Licenses Plist */,
@@ -844,6 +849,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Locative/Pods-Locative-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		077C14DA1E0FEC85006A55EA /* SwiftyBeaver */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftyBeaver;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/swiftybeaver.sh\"";
+		};
 		07BC81EB1D4B5AD200286073 /* Copy Carthage frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -858,6 +877,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
 			);
 			name = "Copy Carthage frameworks";
 			outputPaths = (
