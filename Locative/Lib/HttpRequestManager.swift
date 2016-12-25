@@ -1,4 +1,5 @@
 import AFNetworking
+import SwiftyBeaver
 
 class HttpRequestManager: NSObject {
     let maxRetryCount = 3
@@ -19,7 +20,7 @@ class HttpRequestManager: NSObject {
     
     public func dispatch(_ request: HttpRequest, retry: Int, completion: ((_ success: Bool) -> Void)? = nil) {
         
-        print("Dispatch request: \(request)")
+        SwiftyBeaver.self.debug("Dispatch request: \(request)")
         
         let configuration = URLSessionConfiguration.default
         let manager = AFHTTPSessionManager(sessionConfiguration: configuration)
@@ -37,10 +38,10 @@ class HttpRequestManager: NSObject {
         }
         
         // bail out in case no url is present in request
-        guard let url = request.url else { return print("bailing out due to no url") }
+        guard let url = request.url else { return SwiftyBeaver.self.debug("bailing out due to no url") }
         if let m = request.method , isPostMethod(m) {
             manager.post(url, parameters: request.parameters, success: { [weak self] op, r in
-                guard let this = self else { return print("bailing out due to no self") }
+                guard let this = self else { return SwiftyBeaver.self.debug("bailing out due to no self") }
                 this.dispatchFencelog(
                     true,
                     request: request,
@@ -50,7 +51,7 @@ class HttpRequestManager: NSObject {
                     completion: completion
                 )
                 }, failure: { [weak self] op, e in
-                    guard let this = self else { return print("bailing out due to no self") }
+                    guard let this = self else { return SwiftyBeaver.self.debug("bailing out due to no self") }
                     if retry < this.maxRetryCount {
                         return this.dispatch(request, retry: retry + 1, completion: completion)
                     }
@@ -65,7 +66,7 @@ class HttpRequestManager: NSObject {
             })
         } else {
             manager.get(url, parameters: request.parameters, success: { [weak self] op, r in
-                guard let this = self else { return print("bailing out due to no self") }
+                guard let this = self else { return SwiftyBeaver.self.debug("bailing out due to no self") }
                 this.dispatchFencelog(
                     true,
                     request: request,
@@ -75,7 +76,7 @@ class HttpRequestManager: NSObject {
                     completion: completion
                 )
                 }, failure: { [weak self] op, e in
-                    guard let this = self else { return print("bailing out due to no self") }
+                    guard let this = self else { return SwiftyBeaver.self.debug("bailing out due to no self") }
                     if retry < this.maxRetryCount {
                         return this.dispatch(request, retry: retry + 1, completion: completion)
                     }

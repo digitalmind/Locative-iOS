@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Reachability
         reachabilityManager.startMonitoring()
         reachabilityManager.setReachabilityStatusChange { status in
-            print(AFStringFromNetworkReachabilityStatus(status))
+            SwiftyBeaver.self.info(AFStringFromNetworkReachabilityStatus(status))
         }
         
         // Initial setup (if app has not been yet started)
@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         if !(url as NSURL).isFileReferenceURL() { return false }
         guard url.pathExtension == "gpx" else { return false }
-        print("Opening GPX file at \(url.absoluteString)")
+        SwiftyBeaver.self.debug("Opening GPX file at \(url.absoluteString)")
         importGpx(url)
         return true
     }
@@ -109,12 +109,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         settings.apnsToken = deviceTokenString
         guard let token = settings.apiToken else { return }
         cloudManager.updateSession(withSessionId: token, apnsToken: deviceTokenString) { error in
-            print("Updated session: \(error)")
+            SwiftyBeaver.self.error("Updated session: \(error)")
         }
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("failed to register for remote notifications: \(error)")
+        SwiftyBeaver.self.error("failed to register for remote notifications: \(error)")
     }
 }
 
@@ -161,7 +161,7 @@ private extension AppDelegate {
                 overallWaypoints = root.waypoints.count
                 maxImportLimitExceeded = true
             }
-            print("maxLimit: \(max), maxImportLimitExceed: \(maxImportLimitExceeded)")
+            SwiftyBeaver.self.debug("maxLimit: \(max), maxImportLimitExceed: \(maxImportLimitExceeded)")
             let count = maxImportLimitExceeded ? max : root.waypoints.count
             for (index, _) in [0...count].enumerated() {
                 DispatchQueue.main.async(execute: {
@@ -176,11 +176,11 @@ private extension AppDelegate {
                     geofence.radius = 50
                     geofence.triggers = NSNumber(value: UInt32(GeofenceManager.Trigger.enter.rawValue | GeofenceManager.Trigger.enter.rawValue) as UInt32)
                     geofence.save()
-                    print("Imported \(geofence)")
+                    SwiftyBeaver.self.debug("Imported \(geofence)")
                 })
             }
             DispatchQueue.main.async(execute: { [weak self] in
-                print("Syncing Monitored Regions…")
+                SwiftyBeaver.self.debug("Syncing Monitored Regions…")
                 self?.geofenceManager.syncMonitoredRegions()
                 NotificationCenter.default.post(
                     name: Notification.Name(rawValue: .reloadGeofences), object: nil

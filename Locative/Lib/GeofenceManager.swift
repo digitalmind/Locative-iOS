@@ -1,5 +1,6 @@
 import CoreLocation
 import ObjectiveRecord
+import SwiftyBeaver
 
 public typealias OnLocationUpdated = ((CLLocation?) -> Void)
 
@@ -141,7 +142,7 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
         } else {
             // iBeacon
             guard let uuid = event.uuid else {
-                return print("Could not start monitoring of CLBeaconRegion because of missing UUID")
+                return SwiftyBeaver.self.error("Could not start monitoring of CLBeaconRegion because of missing UUID")
             }
             guard let major = event.iBeaconMajor, let minor =
                 event.iBeaconMinor else {
@@ -163,13 +164,13 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
     func syncMonitoredRegions() {
         // stop monitoring for all regions regions
         locationManager.monitoredRegions.forEach { region in
-            print("Stopping region \(region)")
+            SwiftyBeaver.self.debug("Stopping region \(region)")
             locationManager.stopMonitoring(for: region)
         }
         
         // start monitoring for all existing regions
         geofences.forEach { geofence in
-            print("Starting geofence \(geofence)")
+            SwiftyBeaver.self.debug("Starting geofence \(geofence)")
             startMonitoring(event: geofence)
         }
     }
@@ -190,7 +191,7 @@ extension GeofenceManager {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("didUpdateLocations: \(locations)")
+        SwiftyBeaver.self.debug("didUpdateLocations: \(locations)")
         onLocation?(locations.first)
         onCurrentLocation?(locations.first)
         locationManager.stopUpdatingLocation()
