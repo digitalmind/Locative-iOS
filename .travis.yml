@@ -4,12 +4,13 @@ notifications:
   slack:
     secure: xqPNzGrXt/G3yucuLxFCiywqmMp/IFpJTvXKOUXCbB02a5GCoXr0mczaESQXnuMXKEhQIzL600LJLtadQhqZJLf+WdBuuPE85978pnxp3GYAk7KolG/8rfVDH6GuJ+2lS9+72HNAX3FE71L9+0Ir9x+nKTXtZuTkp9GhzJT+nTUB3TjTipX8SO6FIdD0jH0Uj9sfle6qop+2G2fj8JAXnFzGtzgzYXU+zHJluEyACunS5zD2ebrF+cCpn9A8A877xpdST5LvYF6Z+AyWlJHEdsyCDPPPfs8K0n6he07iG7gNSOWPVl2z6QqZePfoWC9sQHgNFoEmLMIwK7BRQ9bdaTl2zQoSJgojqG0lDZ5ylaSbOxm1C9ItxJdJPUpnj/tSFnBAbR8TGsubP90oQz4nfhvFbUJT4pi1IZs0eeRY7Gly3DtuTRYgoS0iyYw6TM1CXVWJOhVuRmLPgLzC2YDRVMPNawzR5VeHYexbBV/BGMCw4YPxivWWyzGoWfvUeL3TBxinz4pgBgZJ6ADnLMstS5cIHgaxANnEU2VHZRNvvjs2yH42lGEjj2uMVk2Xm8DI6TkO/DB+m1on28ULw+6iFoCN9z6mbLEqP8TebtdOGT2Iu5As7lmRnd62jmiUv/2/Y97o0JTZQy14l98rV1J67AJkdlO5D/edizpn399Nn4E=
 
+before_install:
+  - bundle install
+  - gem install xcpretty
+
 script:
   - set -o pipefail
-  - xcodebuild -workspace Locative.xcworkspace -scheme Locative -destination name="iPhone
-    7" -sdk iphonesimulator CODE_SIGN_ENTITLEMENTS="" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-    ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
-    build test | xcpretty
+  - xcodebuild -workspace Locative.xcworkspace -scheme Locative -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.2' -sdk iphonesimulator CODE_SIGN_ENTITLEMENTS="" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES build test | xcpretty
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
