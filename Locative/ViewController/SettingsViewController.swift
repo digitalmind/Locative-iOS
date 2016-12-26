@@ -58,6 +58,7 @@ class SettingsViewController: FormViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
+        form.allRows.forEach { $0.evaluateHidden() }
         form.sectionBy(tag: .debugging)?.evaluateHidden()
     }
 
