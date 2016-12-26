@@ -13,6 +13,7 @@ before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
   - brew outdated carthage || brew upgrade carthage
+  - carthage version
   - bundle install
   - rake setup
 
