@@ -107,7 +107,7 @@
                                                                         preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"No", nil) style:UIAlertActionStyleCancel handler:nil]];
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Yes", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://my.locative.io/tos"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://my.locative.io/legal"]];
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
 }
