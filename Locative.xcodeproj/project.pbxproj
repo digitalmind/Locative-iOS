@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		070568071D4DDA0B005C5E9A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070568061D4DDA0B005C5E9A /* AboutViewController.swift */; };
-		070568091D4DDAEB005C5E9A /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070568081D4DDAEB005C5E9A /* Eureka.framework */; };
-		070568111D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */; };
-		070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 070568141D4DF623005C5E9A /* Acknowledgements.plist */; };
 		0717BDEC1E05E3E000AC9380 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717BDEB1E05E3E000AC9380 /* GeofenceManager.swift */; };
 		0717BDEE1E06228300AC9380 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717BDED1E06228300AC9380 /* LocationManager.swift */; };
+		07425CF11E1122AB00C32BB4 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07425CF01E1122AB00C32BB4 /* Acknowledgements.plist */; };
 		0746F2811CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */; };
 		0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */; };
 		076879201DB7553500D33747 /* NotificationsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */; };
@@ -21,8 +19,6 @@
 		0769C7311DC548880085D02E /* Geofence+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769C72D1DC548880085D02E /* Geofence+CoreDataClass.swift */; };
 		0769C7321DC548880085D02E /* Geofence+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769C72E1DC548880085D02E /* Geofence+CoreDataProperties.swift */; };
 		0769C7341DC54EA50085D02E /* Geofence+HumanCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769C7331DC54EA50085D02E /* Geofence+HumanCode.swift */; };
-		077C14D91E0FEB80006A55EA /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077C14D81E0FEB80006A55EA /* SwiftyBeaver.framework */; };
-		0793708C1D4F690E008E2831 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0793708B1D4F690E008E2831 /* KeychainAccess.framework */; };
 		079412E11DBC31FB001EA0E4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079412E01DBC31FB001EA0E4 /* SettingsViewController.swift */; };
 		079412E51DBF311B001EA0E4 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079412E41DBF311B001EA0E4 /* Debouncer.swift */; };
 		07AA1B031DB8D6040090009D /* UIView+UIViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA1B021DB8D6040090009D /* UIView+UIViewLoading.swift */; };
@@ -41,8 +37,6 @@
 		07BC81F71D4D913E00286073 /* AFSecurityPolicy+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */; };
 		07BC82021D4D974C00286073 /* Ints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82011D4D974C00286073 /* Ints.swift */; };
 		07BC82041D4D97EC00286073 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC82031D4D97EC00286073 /* Social.swift */; };
-		07C07EEF1E0A5FEB00449379 /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C07EEC1E0A5FEB00449379 /* Licenses.plist */; };
-		07C965141DB769BA009C0ECE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C965131DB769B9009C0ECE /* Alamofire.framework */; };
 		07DB1D141DC40A7600E90040 /* DebuggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB1D131DC40A7500E90040 /* DebuggerViewController.swift */; };
 		07E225501CA77B0500572180 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2254F1CA77B0500572180 /* Settings.swift */; };
 		07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E225511CA8D38C00572180 /* NSString+Paths.swift */; };
@@ -95,10 +89,6 @@
 		EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC38B2391C0C37B2008B9391 /* Launch Screen.storyboard */; };
 		EC3C13E719B178CF0093F139 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3C13E619B178CF0093F139 /* NotificationCenter.framework */; };
 		EC3C13EE19B178CF0093F139 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3C13ED19B178CF0093F139 /* MainInterface.storyboard */; };
-		EC7770DB1DB6C14400AD1648 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770D71DB6C14400AD1648 /* AsyncDisplayKit.framework */; };
-		EC7770DC1DB6C14400AD1648 /* NMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770D81DB6C14400AD1648 /* NMessenger.framework */; };
-		EC7770DD1DB6C14400AD1648 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770D91DB6C14400AD1648 /* PINCache.framework */; };
-		EC7770DE1DB6C14400AD1648 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7770DA1DB6C14400AD1648 /* PINRemoteImage.framework */; };
 		EC7770E01DB6CEA500AD1648 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7770DF1DB6CEA500AD1648 /* NotificationsViewController.swift */; };
 		EC7770E11DB814A700AD1648 /* NotificationsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7770E31DB814A700AD1648 /* NotificationsEmptyView.xib */; };
 		ECCBD31119CEE02A0009399B /* Locative.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EC3C13E519B178CF0093F139 /* Locative.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -146,13 +136,11 @@
 
 /* Begin PBXFileReference section */
 		070568061D4DDA0B005C5E9A /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		070568081D4DDAEB005C5E9A /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		0705680F1D4DE388005C5E9A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VTAcknowledgementsViewController.framework; path = Carthage/Build/iOS/VTAcknowledgementsViewController.framework; sourceTree = "<group>"; };
-		070568141D4DF623005C5E9A /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
 		0717BDEB1E05E3E000AC9380 /* GeofenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
 		0717BDED1E06228300AC9380 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0734A6511DF23BAB00FD65A4 /* Model 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 11.xcdatamodel"; sourceTree = "<group>"; };
+		07425CF01E1122AB00C32BB4 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
 		0746F2801CA62C89009F03D7 /* UIApplication+BundleIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+BundleIdentifier.swift"; sourceTree = "<group>"; };
 		0746F2821CA7711E009F03D7 /* NSString+EmptyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+EmptyString.swift"; sourceTree = "<group>"; };
 		0768791F1DB7553500D33747 /* NotificationsEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsEmptyView.swift; sourceTree = "<group>"; };
@@ -161,9 +149,7 @@
 		0769C72D1DC548880085D02E /* Geofence+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geofence+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0769C72E1DC548880085D02E /* Geofence+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geofence+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0769C7331DC54EA50085D02E /* Geofence+HumanCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geofence+HumanCode.swift"; sourceTree = "<group>"; };
-		077C14D81E0FEB80006A55EA /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		078E79161CA622FC0098380D /* Locative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Locative-Bridging-Header.h"; sourceTree = "<group>"; };
-		0793708B1D4F690E008E2831 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		079412E01DBC31FB001EA0E4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		079412E41DBF311B001EA0E4 /* Debouncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		07AA1B021DB8D6040090009D /* UIView+UIViewLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+UIViewLoading.swift"; sourceTree = "<group>"; };
@@ -183,9 +169,6 @@
 		07BC81F61D4D913E00286073 /* AFSecurityPolicy+Locative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AFSecurityPolicy+Locative.swift"; sourceTree = "<group>"; };
 		07BC82011D4D974C00286073 /* Ints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ints.swift; sourceTree = "<group>"; };
 		07BC82031D4D97EC00286073 /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
-		07C07EEC1E0A5FEB00449379 /* Licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licenses.plist; sourceTree = "<group>"; };
-		07C07EEE1E0A5FEB00449379 /* licenses.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = licenses.sh; sourceTree = "<group>"; };
-		07C965131DB769B9009C0ECE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		07D94EB91D4633C700D085C8 /* Tests.Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Debug.xcconfig; sourceTree = "<group>"; };
 		07D94EBA1D4633C700D085C8 /* Tests.Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.Release.xcconfig; sourceTree = "<group>"; };
 		07DB1D131DC40A7500E90040 /* DebuggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebuggerViewController.swift; sourceTree = "<group>"; };
@@ -281,10 +264,6 @@
 		EC3C13F919B17A280093F139 /* Locative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Locative.entitlements; sourceTree = "<group>"; };
 		EC3C13FA19B17A780093F139 /* LocativeWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocativeWidget.entitlements; sourceTree = "<group>"; };
 		EC6FECA519D6C5D300D9E746 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		EC7770D71DB6C14400AD1648 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
-		EC7770D81DB6C14400AD1648 /* NMessenger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMessenger.framework; path = Carthage/Build/iOS/NMessenger.framework; sourceTree = "<group>"; };
-		EC7770D91DB6C14400AD1648 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
-		EC7770DA1DB6C14400AD1648 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		EC7770DF1DB6CEA500AD1648 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		EC7770E21DB814A700AD1648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotificationsEmptyView.xib; sourceTree = "<group>"; };
 		EC7770E51DB814AA00AD1648 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/NotificationsEmptyView.strings; sourceTree = "<group>"; };
@@ -301,14 +280,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C965141DB769BA009C0ECE /* Alamofire.framework in Frameworks */,
-				EC7770DB1DB6C14400AD1648 /* AsyncDisplayKit.framework in Frameworks */,
-				EC7770DC1DB6C14400AD1648 /* NMessenger.framework in Frameworks */,
-				EC7770DD1DB6C14400AD1648 /* PINCache.framework in Frameworks */,
-				EC7770DE1DB6C14400AD1648 /* PINRemoteImage.framework in Frameworks */,
-				0793708C1D4F690E008E2831 /* KeychainAccess.framework in Frameworks */,
-				070568111D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework in Frameworks */,
-				070568091D4DDAEB005C5E9A /* Eureka.framework in Frameworks */,
 				2A7D40B5186475F000F9A61A /* MessageUI.framework in Frameworks */,
 				2A521A87183627C9001F3669 /* QuartzCore.framework in Frameworks */,
 				2A74C2DA180B13F9008A13B9 /* Security.framework in Frameworks */,
@@ -323,7 +294,6 @@
 				2A8E9D9B17FD51DD00F4A805 /* UIKit.framework in Frameworks */,
 				2A8E9D9717FD51DD00F4A805 /* Foundation.framework in Frameworks */,
 				B5FF87B6381EDA94460A963C /* Pods_Locative.framework in Frameworks */,
-				077C14D91E0FEB80006A55EA /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,14 +331,6 @@
 				EC016D7C1DC18F9B006CB5E2 /* Bundle+Version.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		07C07EED1E0A5FEB00449379 /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				07C07EEE1E0A5FEB00449379 /* licenses.sh */,
-			);
-			path = Scripts;
 			sourceTree = "<group>";
 		};
 		07E8469C1D644CEF00ECC717 /* View */ = {
@@ -423,7 +385,6 @@
 				EC3C13E819B178CF0093F139 /* LocativeWidget */,
 				2A8E9D9517FD51DD00F4A805 /* Frameworks */,
 				2A8E9D9417FD51DD00F4A805 /* Products */,
-				797220C52F9EF4EEFE29DEF3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -440,15 +401,6 @@
 		2A8E9D9517FD51DD00F4A805 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				077C14D81E0FEB80006A55EA /* SwiftyBeaver.framework */,
-				07C965131DB769B9009C0ECE /* Alamofire.framework */,
-				EC7770D71DB6C14400AD1648 /* AsyncDisplayKit.framework */,
-				EC7770D81DB6C14400AD1648 /* NMessenger.framework */,
-				EC7770D91DB6C14400AD1648 /* PINCache.framework */,
-				EC7770DA1DB6C14400AD1648 /* PINRemoteImage.framework */,
-				0793708B1D4F690E008E2831 /* KeychainAccess.framework */,
-				070568101D4DEF59005C5E9A /* VTAcknowledgementsViewController.framework */,
-				070568081D4DDAEB005C5E9A /* Eureka.framework */,
 				ECE802771C0CEA9500B1B28C /* libSpecta.a */,
 				ECE802751C0CEA8D00B1B28C /* libExpecta.a */,
 				ECDCB03A1ADE5245008988C5 /* libPods-Locative.a */,
@@ -505,9 +457,7 @@
 		2A8E9D9D17FD51DD00F4A805 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				07C07EED1E0A5FEB00449379 /* Scripts */,
-				070568141D4DF623005C5E9A /* Acknowledgements.plist */,
-				07C07EEC1E0A5FEB00449379 /* Licenses.plist */,
+				07425CF01E1122AB00C32BB4 /* Acknowledgements.plist */,
 				2A8D852518AE3ED000CF2693 /* whatsup.caf */,
 				2A04A5941849F1D300D9B485 /* notification.caf */,
 				2A8E9D9E17FD51DD00F4A805 /* Locative-Info.plist */,
@@ -595,13 +545,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		797220C52F9EF4EEFE29DEF3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		EC3C13E819B178CF0093F139 /* LocativeWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,7 +576,6 @@
 				077C14DA1E0FEC85006A55EA /* SwiftyBeaver */,
 				65631DCE165A9C84B29C44B2 /* [CP] Check Pods Manifest.lock */,
 				2A5158BD188185B000DCD8D9 /* Bump Build no. */,
-				07C07EEB1E0A5F0E00449379 /* Generate Carthage Licenses Plist */,
 				2A8E9D8F17FD51DD00F4A805 /* Sources */,
 				2A8E9D9017FD51DD00F4A805 /* Frameworks */,
 				2A8E9D9117FD51DD00F4A805 /* Resources */,
@@ -641,7 +583,6 @@
 				07DF8D2B1CCBA1E4001D858B /* Fabric */,
 				5F766997094B39CF6EA3F669 /* [CP] Embed Pods Frameworks */,
 				0299760BFEB3AD961861FCFA /* [CP] Copy Pods Resources */,
-				07BC81EB1D4B5AD200286073 /* Copy Carthage frameworks */,
 			);
 			buildRules = (
 			);
@@ -702,7 +643,7 @@
 				CLASSPREFIX = "";
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Marcus Kida";
 				TargetAttributes = {
 					2A8E9D9217FD51DD00F4A805 = {
@@ -801,16 +742,15 @@
 			files = (
 				2A8E9DAF17FD51DD00F4A805 /* Images.xcassets in Resources */,
 				2A8E9DA117FD51DD00F4A805 /* InfoPlist.strings in Resources */,
-				07C07EEF1E0A5FEB00449379 /* Licenses.plist in Resources */,
 				07AA1B0C1DB8DF2C0090009D /* GeofencesEmptyView.xib in Resources */,
 				2ADE7D811914F99C00460861 /* iBeaconPresets.plist in Resources */,
 				2A8E9DAA17FD51DD00F4A805 /* Main.storyboard in Resources */,
 				EC7770E11DB814A700AD1648 /* NotificationsEmptyView.xib in Resources */,
 				EC38B23A1C0C37B2008B9391 /* Launch Screen.storyboard in Resources */,
 				2A9C1DF4180969F700F84B5C /* Localizable.strings in Resources */,
-				070568151D4DF623005C5E9A /* Acknowledgements.plist in Resources */,
 				2A04A5951849F1D300D9B485 /* notification.caf in Resources */,
 				2A8D852618AE3ED000CF2693 /* whatsup.caf in Resources */,
+				07425CF11E1122AB00C32BB4 /* Acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,43 +802,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/swiftybeaver.sh\"";
-		};
-		07BC81EB1D4B5AD200286073 /* Copy Carthage frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/VTAcknowledgementsViewController.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/NMessenger.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
-			);
-			name = "Copy Carthage frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		07C07EEB1E0A5F0E00449379 /* Generate Carthage Licenses Plist */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate Carthage Licenses Plist";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/Locative/Scripts/licenses.sh";
 		};
 		07DF8D2B1CCBA1E4001D858B /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1277,12 +1180,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5C199592C7004479D2 /* Debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Info.plist";
@@ -1299,12 +1200,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC34CB5A199590D7004479D2 /* Release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/$(TARGET_NAME).entitlements";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Prefix.pch";
 				INFOPLIST_FILE = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Info.plist";

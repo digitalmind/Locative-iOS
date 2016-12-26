@@ -12,6 +12,12 @@ target "Locative" do
   pod '1PasswordExtension', '~> 1.8.2'
   pod 'Fabric', '~> 1.6.7'
   pod 'Crashlytics', '~> 3.7.0'
+  pod 'Eureka', '~> 2.0.0-beta.1'
+  pod 'VTAcknowledgementsViewController', '~> 1.2'
+  pod 'NMessenger', '~> 1.0.79'
+  pod 'Alamofire', '~> 4.2.0'
+  pod 'KeychainAccess', '~> 3.0'
+  pod 'SwiftyBeaver'
 
   post_install do | installer |
     FileUtils.cp_r('Pods/Target Support Files/Pods-Locative/Pods-Locative-Acknowledgements.plist', 'Acknowledgements.plist', :remove_destination => true)

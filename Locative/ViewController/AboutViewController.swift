@@ -37,15 +37,6 @@ class AboutViewController: FormViewController {
                 $0.onCellSelection { [weak self] cell, row in
                     if let controller = VTAcknowledgementsViewController(fileNamed: "Acknowledgements") {
                         controller.title = NSLocalizedString("Licenses", comment: "Licenses header")
-                        if let file = Bundle.main.path(forResource: "Licenses", ofType: "plist"),
-                            let licenses = NSDictionary(contentsOfFile: file)?["licenses"] as? [[String: String]] {
-                            controller.acknowledgements?.append(contentsOf: licenses.map {
-                                return VTAcknowledgement(title: $0["name"]!, text: $0["text"]!, license: "See License Text")
-                            })
-                        }
-                        controller.acknowledgements?.sort {
-                            $0.0.title.compare($0.1.title) == .orderedAscending
-                        }
                         controller.footerText = "Made with ❤️ and Open Source Software"
                         self?.navigationController?.pushViewController(controller, animated: true)
                     }
