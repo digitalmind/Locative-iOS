@@ -35,6 +35,7 @@
 "Unknown Location" = "Unknown Location";
 "No location found. Please refine your query." = "No location found. Please refine your query.";
 "Minor / Major value must not exceed: %d. Please change your Values." = "Minor / Major value must not exceed: %d. Please change your Values.";
+"Invalid UUID, iBeacon UUIDs need to be in valid UUID format to work as expected." = "Invalid UUID, iBeacon UUIDs need to be in valid UUID format to work as expected.";
 
 // GET / POST Requests
 "POST Success:" = "POST Success:";

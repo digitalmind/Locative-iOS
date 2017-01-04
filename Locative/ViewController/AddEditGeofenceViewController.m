@@ -507,6 +507,14 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 {
     // iBeacon: Check if exceeding uint16
     if (_geofenceType == GeofenceTypeIBeacon) {
+        if (![[NSUUID alloc] initWithUUIDString:_iBeaconUuidTextField.text]) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+                                                                           message:[NSString stringWithFormat:NSLocalizedString(@"Invalid UUID, iBeacon UUIDs need to be in valid UUID format to work as expected.", nil), UINT16_MAX]
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil]];
+            
+            return [self presentViewController:alert animated:YES completion:nil];
+        }
         if ([[self.majorMinorFormatter numberFromString:_iBeaconMajorTextField.text] intValue] > UINT16_MAX ||
             [[self.majorMinorFormatter numberFromString:_iBeaconMinorTextField.text] intValue] > UINT16_MAX) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)

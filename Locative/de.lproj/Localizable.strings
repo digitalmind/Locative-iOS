@@ -35,6 +35,7 @@
 "Unknown Location" = "Unbekannte Adresse";
 "No location found. Please refine your query." = "Dieser Ort wurde nicht gefunden. Bitte verfeinere deine Suchanfrage.";
 "Minor / Major value must not exceed: %d. Please change your Values." = "Minor / Major werte dürfen den folgenden Wert nicht überschreiten: %d. Bitte passe deine Werte an.";
+"Invalid UUID, iBeacon UUIDs need to be in valid UUID format to work as expected." = "Ungültige UUID, um einen iBeacon hinzuzufügen musst du eine korrekte UUID eintragen.";
 
 // GET / POST Requests
 "POST Success:" = "POST Erfolg:";
