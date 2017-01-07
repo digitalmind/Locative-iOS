@@ -153,7 +153,8 @@ class SettingsViewController: FormViewController {
             let coordinate = location?.coordinate
             let timestamp = Date()
             let parameters = [
-                "trigger": "test",
+                "trigger": "enter",
+                "id": "test",
                 "device": UIDevice.current.identifierForVendor?.uuidString ?? "unknown",
                 "device_type": UIDevice.current.model,
                 "device_model": UIDevice.locative_deviceModel(),
