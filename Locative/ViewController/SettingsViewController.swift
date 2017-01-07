@@ -143,7 +143,7 @@ class SettingsViewController: FormViewController {
         alert.addAction(UIAlertAction(
             title: NSLocalizedString("Yes", comment: ""),
             style: .default) { action in
-                UIApplication.shared.openURL(URL(string: "https://my.locative.io/youforgot")!)
+                UIApplication.shared.openURL(URL(string: "https://my.locative.io/lostpassword")!)
         })
         present(alert, animated: true, completion: nil)
     }
