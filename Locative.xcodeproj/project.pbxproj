@@ -55,7 +55,6 @@
 		2A521A87183627C9001F3669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A521A86183627C9001F3669 /* QuartzCore.framework */; };
 		2A59CD6418F939670062A0FE /* GFGeofencesViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6318F939670062A0FE /* GFGeofencesViewControllerTests.m */; };
 		2A59CD6A18F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6918F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m */; };
-		2A59CD7018F93E380062A0FE /* GFCloudSignupViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59CD6F18F93E380062A0FE /* GFCloudSignupViewControllerTests.m */; };
 		2A74C2DA180B13F9008A13B9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A74C2D9180B13F9008A13B9 /* Security.framework */; };
 		2A7D40B5186475F000F9A61A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7D40B4186475F000F9A61A /* MessageUI.framework */; };
 		2A8D852618AE3ED000CF2693 /* whatsup.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8D852518AE3ED000CF2693 /* whatsup.caf */; };
@@ -198,7 +197,6 @@
 		2A59CD6318F939670062A0FE /* GFGeofencesViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofencesViewControllerTests.m; sourceTree = "<group>"; };
 		2A59CD6818F93C6B0062A0FE /* LocativeTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocativeTests-Prefix.pch"; sourceTree = "<group>"; };
 		2A59CD6918F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFAddEditGeofenceViewControllerTests.m; sourceTree = "<group>"; };
-		2A59CD6F18F93E380062A0FE /* GFCloudSignupViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCloudSignupViewControllerTests.m; sourceTree = "<group>"; };
 		2A686FD4196BDA1F000C4B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A686FD5196BDA20000C4B62 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A74C2D9180B13F9008A13B9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -366,7 +364,6 @@
 			children = (
 				2A59CD6318F939670062A0FE /* GFGeofencesViewControllerTests.m */,
 				2A59CD6918F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m */,
-				2A59CD6F18F93E380062A0FE /* GFCloudSignupViewControllerTests.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -982,7 +979,6 @@
 			files = (
 				2A59CD6418F939670062A0FE /* GFGeofencesViewControllerTests.m in Sources */,
 				2A59CD6A18F93CA10062A0FE /* GFAddEditGeofenceViewControllerTests.m in Sources */,
-				2A59CD7018F93E380062A0FE /* GFCloudSignupViewControllerTests.m in Sources */,
 				ECE8027A1C0CEC2000B1B28C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
