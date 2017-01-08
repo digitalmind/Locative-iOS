@@ -2,6 +2,7 @@ import Eureka
 import OnePasswordExtension
 import SVProgressHUD
 import iOS_GPX_Framework
+import SafariServices
 
 fileprivate extension String {
     static let globalHttpSettings = NSLocalizedString("Global HTTP Settings", comment: "Global HTTP Settings")
@@ -20,8 +21,6 @@ fileprivate extension String {
     static let soundOnNotification = NSLocalizedString("Sound on Notification", comment: "Sound on Notification")
     
     static let account = NSLocalizedString("My Locative Account", comment: "My Locative Account")
-    static let accountUsername = NSLocalizedString("Username", comment: "Username")
-    static let accountPassword = NSLocalizedString("Password", comment: "Password")
     static let accountLogin = NSLocalizedString("Login", comment: "Login")
     static let accountSignup = NSLocalizedString("Signup new Account", comment: "Signup new Account")
     static let accountRecover = NSLocalizedString("Recover lost password", comment: "Recover lost password")
@@ -32,6 +31,10 @@ fileprivate extension String {
     
     static let debugging = NSLocalizedString("Debugging", comment: "Debugging")
     static let openDebugger = NSLocalizedString("Open Debugger", comment: "Open Debugger")
+    
+    // Account
+    static let usernameRow = "usernameRow"
+    static let emailRow = "emailRow"
 }
 
 fileprivate extension UIColor {
@@ -44,9 +47,24 @@ class SettingsViewController: FormViewController {
     
     var debouncer: Debouncer?
     var locationManager: LocationManager?
+    var safariViewController: SFSafariViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(SettingsViewController.notificationLoginDone),
+            name: .notificationLoginDone,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(SettingsViewController.notificationAccountLoaded),
+            name: .notificationAccountLoaded,
+            object: nil
+        )
 
         form
             +++ accountSection()
@@ -60,16 +78,9 @@ class SettingsViewController: FormViewController {
         super.viewDidAppear(animated);
         form.allRows.forEach { $0.evaluateHidden() }
         form.sectionBy(tag: .debugging)?.evaluateHidden()
+        form.sectionBy(tag: .account)?.forEach { $0.reload() }
     }
 
-    fileprivate func usernameRow() -> TextRow? {
-        return form.rowBy(tag: .accountUsernameRow) as? TextRow
-    }
-    
-    fileprivate func passwordRow() -> TextRow? {
-        return form.rowBy(tag: .accountPasswordRow) as? TextRow
-    }
-    
     fileprivate func persistSettings() {
         if let debouncer = debouncer, debouncer.isValid {
             debouncer.cancel()
@@ -77,6 +88,28 @@ class SettingsViewController: FormViewController {
         debouncer = Debouncer({ [weak self] in
             self?.appDelegate.settings.persist()
         })
+    }
+    
+    @objc fileprivate func notificationLoginDone(notification: Notification) {
+        appDelegate.reloadAccountData()
+        safariViewController?.dismiss(animated: true)
+        form.allRows.forEach { $0.evaluateHidden() }
+    }
+    
+    @objc fileprivate func notificationAccountLoaded(notification: Notification) {
+        reloadAccountRows()
+    }
+    
+    private func reloadAccountRows() {
+        form.setValues([
+            String.usernameRow: appDelegate.settings.accountData?.username ?? "Unknown",
+            String.emailRow: appDelegate.settings.accountData?.email ?? "Unknown"
+        ]);
+        tableView?.reloadData()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func onePasswordButton(_ frame: CGRect = CGRect(x: 0, y: 0, width: 25, height: 25)) -> UIButton {
@@ -95,57 +128,21 @@ class SettingsViewController: FormViewController {
     func loginUsingOnePassword(_ sender: Any?) {
         OnePasswordExtension.shared().findLogin(forURLString: "https://my.locative.io", for: self, sender: sender) { [weak self] loginDictionary, error in
             guard let credentials = loginDictionary, credentials.count > 0 else { return }
-            self?.usernameRow()?.value = credentials[AppExtensionUsernameKey] as? String
-            self?.passwordRow()?.value = credentials[AppExtensionPasswordKey] as? String
             self?.login()
         }
     }
     
     func login() {
-        SVProgressHUD.show(withMaskType: UInt(SVProgressHUDMaskTypeClear))
-        guard let username = usernameRow()?.value, let password = passwordRow()?.value else {
-            return SVProgressHUD.dismiss()
-        }
-        let credentials = CloudCredentials(username: username, email: nil, password: password)
-        appDelegate.cloudManager.loginToAccount(with: credentials) { [weak self] error, sessionId in
-            SVProgressHUD.dismiss()
-            
-            if error == nil {
-                self?.appDelegate.settings.apiToken = sessionId
-                self?.persistSettings()
-                self?.form.allRows.forEach { $0.evaluateHidden() }
-            }
-            
-            let alert = UIAlertController(
-                title: error == nil ? NSLocalizedString("Success", comment: "Success") : NSLocalizedString("Error", comment: "Error"),
-                message: error == nil ? NSLocalizedString("Login successful! Your triggered geofences will now be visible in you Account at http://my.locative.io!", comment: "") : NSLocalizedString("There has been a problem with your login, please try again!", comment: ""),
-                preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
-            self?.present(alert, animated: true, completion: nil)
-        }
+        safariViewController = SFSafariViewController(url: URL(string: "\(CloudConnect.cloudUrl)/mobile-login")!)
+        present(safariViewController!, animated: true)
     }
     
     func logout() {
+//        safariViewController = SFSafariViewController(url: URL(string: "\(CloudConnect.cloudUrl)/logout")!)
+//        present(safariViewController!, animated: true)
         appDelegate.settings.removeApiToken()
+        appDelegate.settings.accountData = nil
         form.allRows.forEach { $0.evaluateHidden() }
-    }
-    
-    func lostPassword() {
-        let alert = UIAlertController(
-            title: NSLocalizedString("Note", comment: ""),
-            message: NSLocalizedString("This will open up Safari and lead you to the password recovery website. Sure?", comment: ""),
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(
-            title: NSLocalizedString("No", comment: ""),
-            style: .cancel,
-            handler: nil))
-        alert.addAction(UIAlertAction(
-            title: NSLocalizedString("Yes", comment: ""),
-            style: .default) { action in
-                UIApplication.shared.openURL(URL(string: "https://my.locative.io/lostpassword")!)
-        })
-        present(alert, animated: true, completion: nil)
     }
     
     func testRequest() {
@@ -269,6 +266,7 @@ fileprivate extension SettingsViewController {
                     cell.tintColor = .locativeColor
                     cell.textField.autocorrectionType = .no
                     cell.textField.autocapitalizationType = .none
+                    cell.textField.clearButtonMode = .whileEditing
                 }.onChange { [weak self] row in
                     guard let url = row.value else {
                         self?.appDelegate.settings.globalUrl = nil
@@ -378,8 +376,6 @@ fileprivate extension SettingsViewController {
 }
 
 fileprivate extension String {
-    static let accountUsernameRow = "acountUsernameRow"
-    static let accountPasswordRow = "accountPasswordRow"
     static let accountSectionTag = "accountSection"
 }
 
@@ -404,59 +400,51 @@ fileprivate extension SettingsViewController {
         return Section(.account) { section in
                 section.tag = .accountSectionTag
             }
-            <<< TextRow(.accountUsernameRow) { row in
-                row.title = .accountUsername
-                row.placeholder = "Johnny"
-                row.hidden = loginCondition()
-                }.cellSetup { cell, row in
-                    cell.tintColor = .locativeColor
-                    cell.textField.autocorrectionType = .no
-                    cell.textField.autocapitalizationType = .none
-        }
-            <<< TextRow(.accountPasswordRow) { row in
-                row.title = .accountPassword
-                row.placeholder = "Appleseed"
-                row.hidden = loginCondition()
-                }.cellSetup { [unowned self] cell, row in
-                    cell.tintColor = .locativeColor
-                    if OnePasswordExtension.shared().isAppExtensionAvailable() {
-                        cell.accessoryView = self.onePasswordButton()
-                    }
-                    cell.textField.isSecureTextEntry = true
-                    cell.textField.autocorrectionType = .no
-                    cell.textField.autocapitalizationType = .none
-        }
             <<< ButtonRow() { row in
                 row.title = .accountLogin
                 row.hidden = loginCondition()
-                }.cellSetup { cell, row in
-                    cell.tintColor = .locativeColor
-                }.onCellSelection { [weak self] cell, row in
-                    self?.login()
+            }.cellSetup { cell, row in
+                cell.tintColor = .locativeColor
+            }.onCellSelection { [weak self] cell, row in
+                self?.login()
             }
             <<< ButtonRow() { row in
                 row.title = .accountSignup
                 row.hidden = loginCondition()
-                }.cellSetup { cell, row in
-                    cell.tintColor = .locativeColor
-                }.onCellSelection { [weak self] cell, row in
-                    self?.performSegue(withIdentifier: "Signup", sender: self)
-        }
+            }.cellSetup { cell, row in
+                cell.tintColor = .locativeColor
+            }.onCellSelection { [weak self] cell, row in
+                guard let this = self else { return }
+                this.safariViewController = SFSafariViewController(url: URL(string: "\(CloudConnect.cloudUrl)/signup")!)
+                this.present(this.safariViewController!, animated: true)
+            }
             <<< ButtonRow() { row in
                 row.title = .accountRecover
                 row.hidden = loginCondition()
-                }.cellSetup { cell, row in
-                    cell.tintColor = .locativeColor
-                }.onCellSelection { [weak self] cell, row in
-                    self?.lostPassword()
-        }
+            }.cellSetup { cell, row in
+                cell.tintColor = .locativeColor
+            }.onCellSelection { [weak self] cell, row in
+                guard let this = self else { return }
+                this.safariViewController = SFSafariViewController(url: URL(string: "\(CloudConnect.cloudUrl)/lostpassword")!)
+                this.present(this.safariViewController!, animated: true)
+            }
+            <<< LabelRow(.usernameRow) { row in
+                row.title = "Username".localized()
+                row.value = appDelegate.settings.accountData?.username ?? "Loading…".localized()
+                row.hidden = logoutCondition()
+            }
+            <<< LabelRow(.emailRow) { row in
+                row.title = "E-Mail".localized()
+                row.value = appDelegate.settings.accountData?.email ?? "Loading…".localized()
+                row.hidden = logoutCondition()
+            }
             <<< ButtonRow() { row in
                 row.title = .accountLogout
                 row.hidden = logoutCondition()
-                }.cellSetup { cell, row in
-                    cell.tintColor = .locativeColor
-                }.onCellSelection { [weak self] cell, row in
-                    self?.logout()
+            }.cellSetup { cell, row in
+                cell.tintColor = .locativeColor
+            }.onCellSelection { [weak self] cell, row in
+                self?.logout()
         }
     }
 }

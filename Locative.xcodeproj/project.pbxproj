@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		070568071D4DDA0B005C5E9A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070568061D4DDA0B005C5E9A /* AboutViewController.swift */; };
+		070CF5DB1E21C50400CF85F1 /* NotificationName+Locative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CF5DA1E21C50400CF85F1 /* NotificationName+Locative.swift */; };
+		070CF5DD1E21C9A000CF85F1 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CF5DC1E21C9A000CF85F1 /* String+Localized.swift */; };
 		0717BDEC1E05E3E000AC9380 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717BDEB1E05E3E000AC9380 /* GeofenceManager.swift */; };
 		0717BDEE1E06228300AC9380 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0717BDED1E06228300AC9380 /* LocationManager.swift */; };
 		07425CF11E1122AB00C32BB4 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07425CF01E1122AB00C32BB4 /* Acknowledgements.plist */; };
@@ -48,7 +50,6 @@
 		2A2BF520185371B800D5DD98 /* CloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF51F185371B800D5DD98 /* CloudManager.m */; };
 		2A2BF5261853735800D5DD98 /* NSString+Hashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF5251853735800D5DD98 /* NSString+Hashes.m */; };
 		2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF5281853748F00D5DD98 /* Fencelog.m */; };
-		2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2BF52E18537ED400D5DD98 /* SignupViewController.m */; };
 		2A4805191807E3A60063BA82 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4805181807E3A60063BA82 /* libz.dylib */; };
 		2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2B2F17FD7E28002ECE72 /* MKMapView+ZoomLevel.m */; };
 		2A521A87183627C9001F3669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A521A86183627C9001F3669 /* QuartzCore.framework */; };
@@ -136,6 +137,8 @@
 /* Begin PBXFileReference section */
 		070568061D4DDA0B005C5E9A /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0705680F1D4DE388005C5E9A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		070CF5DA1E21C50400CF85F1 /* NotificationName+Locative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationName+Locative.swift"; sourceTree = "<group>"; };
+		070CF5DC1E21C9A000CF85F1 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		0717BDEB1E05E3E000AC9380 /* GeofenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
 		0717BDED1E06228300AC9380 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0734A6511DF23BAB00FD65A4 /* Model 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 11.xcdatamodel"; sourceTree = "<group>"; };
@@ -188,8 +191,6 @@
 		2A2BF5251853735800D5DD98 /* NSString+Hashes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hashes.m"; sourceTree = "<group>"; };
 		2A2BF5271853748F00D5DD98 /* Fencelog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fencelog.h; sourceTree = "<group>"; };
 		2A2BF5281853748F00D5DD98 /* Fencelog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fencelog.m; sourceTree = "<group>"; };
-		2A2BF52D18537ED400D5DD98 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
-		2A2BF52E18537ED400D5DD98 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		2A4805181807E3A60063BA82 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2A4B2B2E17FD7E28002ECE72 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		2A4B2B2F17FD7E28002ECE72 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
@@ -327,6 +328,8 @@
 				07AA1B021DB8D6040090009D /* UIView+UIViewLoading.swift */,
 				07AA1B0A1DB8D8900090009D /* UIView+AddSubview.swift */,
 				EC016D7C1DC18F9B006CB5E2 /* Bundle+Version.swift */,
+				070CF5DA1E21C50400CF85F1 /* NotificationName+Locative.swift */,
+				070CF5DC1E21C9A000CF85F1 /* String+Localized.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -518,8 +521,6 @@
 				2A8E9E0217FD5AA500F4A805 /* GeofencesViewController.m */,
 				2A8E9E2B17FD6EFE00F4A805 /* AddEditGeofenceViewController.h */,
 				2A8E9E2C17FD6EFE00F4A805 /* AddEditGeofenceViewController.m */,
-				2A2BF52D18537ED400D5DD98 /* SignupViewController.h */,
-				2A2BF52E18537ED400D5DD98 /* SignupViewController.m */,
 				EC28B7A519B72913009E5427 /* ImportViewController.h */,
 				EC28B7A619B72913009E5427 /* ImportViewController.m */,
 			);
@@ -928,6 +929,7 @@
 				07BC81EA1D48C92500286073 /* SecureCredentials.swift in Sources */,
 				0769C7341DC54EA50085D02E /* Geofence+HumanCode.swift in Sources */,
 				EC016D7D1DC18F9B006CB5E2 /* Bundle+Version.swift in Sources */,
+				070CF5DB1E21C50400CF85F1 /* NotificationName+Locative.swift in Sources */,
 				07BC81E61D48C34E00286073 /* Config.swift in Sources */,
 				0717BDEC1E05E3E000AC9380 /* GeofenceManager.swift in Sources */,
 				07E225521CA8D38C00572180 /* NSString+Paths.swift in Sources */,
@@ -943,7 +945,6 @@
 				0769C7311DC548880085D02E /* Geofence+CoreDataClass.swift in Sources */,
 				07BC82021D4D974C00286073 /* Ints.swift in Sources */,
 				079412E11DBC31FB001EA0E4 /* SettingsViewController.swift in Sources */,
-				2A2BF52F18537ED400D5DD98 /* SignupViewController.m in Sources */,
 				07BC81F71D4D913E00286073 /* AFSecurityPolicy+Locative.swift in Sources */,
 				2A4B2B3017FD7E28002ECE72 /* MKMapView+ZoomLevel.m in Sources */,
 				0746F2831CA7711E009F03D7 /* NSString+EmptyString.swift in Sources */,
@@ -962,6 +963,7 @@
 				07BC81F51D4CC29200286073 /* HttpRequestManager.swift in Sources */,
 				070568071D4DDA0B005C5E9A /* AboutViewController.swift in Sources */,
 				076879221DB767C500D33747 /* CloudConnect.swift in Sources */,
+				070CF5DD1E21C9A000CF85F1 /* String+Localized.swift in Sources */,
 				076879201DB7553500D33747 /* NotificationsEmptyView.swift in Sources */,
 				EC24859D1AF8D01400A1A041 /* UILocalNotification+Locative.m in Sources */,
 				2A2BF5291853748F00D5DD98 /* Fencelog.m in Sources */,

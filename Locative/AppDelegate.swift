@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var cloudManager: CloudManager!
     var geofenceManager: GeofenceManager!
+    let cloudConnect = CloudConnect()
     
     let reachabilityManager = AFNetworkReachabilityManager(forDomain: "my.locative.io")
     let requestManager = HttpRequestManager()
@@ -88,12 +89,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         if url.absoluteString == "locative://debug" {
             settings.toggleDebug()
+        } else if url.absoluteString.hasPrefix("locative://login") {
+            guard let token = url.absoluteString.components(separatedBy: "=").last else { return true }
+            settings.apiToken = token
+            settings.persist()
+            NotificationCenter.default.post(name: .notificationLoginDone, object: nil)
+            reloadAccountData()
         }
         if !(url as NSURL).isFileReferenceURL() { return false }
         guard url.pathExtension == "gpx" else { return false }
         SwiftyBeaver.self.debug("Opening GPX file at \(url.absoluteString)")
         importGpx(url)
         return true
+    }
+    
+    func reloadAccountData() {
+        cloudConnect.getAccountData { [weak self] account in
+            self?.settings.accountData = account
+            NotificationCenter.default.post(name: .notificationAccountLoaded, object: nil)
+        }
     }
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {

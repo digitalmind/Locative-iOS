@@ -1,3 +1,0 @@
-@interface SignupViewController : UITableViewController
-
-@end

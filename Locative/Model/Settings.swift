@@ -2,6 +2,7 @@ import Foundation
 
 private extension String {
     static let apnsToken = "apnsToken"
+    static let accountData = "accountData"
 }
 
 open class Settings: NSObject, NSCoding {
@@ -43,6 +44,26 @@ open class Settings: NSObject, NSCoding {
             }
             self.apiCredentials[cloudSession] = new
             self.setApiTokenForContainer(new)
+        }
+    }
+    
+    var accountData: CloudConnect.AccountData? {
+        get {
+            guard let accountData = defaults().object(forKey: .accountData) as? [String: String] else {
+                return nil
+            }
+            return CloudConnect.AccountData(
+                username: accountData["username"] ?? "Unknown".localized(),
+                email: accountData["email"] ?? "Unknown".localized(),
+                avatarUrl: accountData["awaterUrl"] ?? ""
+            )
+        }
+        set {
+            guard let new = newValue else {
+                return defaults().removeObject(forKey: .accountData)
+            }
+            defaults().set(new.toPlist(), forKey: .accountData)
+            defaults().synchronize()
         }
     }
     
@@ -162,6 +183,11 @@ extension Settings {
     func removeApiToken() {
         apiCredentials[cloudSession] = nil
         removeApiTokenFromContainer()
+    }
+    
+    func removeAccountData() {
+        defaults().removeObject(forKey: .accountData)
+        defaults().synchronize()
     }
     
     fileprivate func migrateApiToken() {
