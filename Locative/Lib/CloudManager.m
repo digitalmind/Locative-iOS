@@ -88,7 +88,7 @@
     [manager setSecurityPolicy:[self commonPolicy]];
     NSMutableDictionary *params = [@{@"username": credentials.username,
                              @"password": credentials.password,
-                             @"origin": [self originString]
+                             @"origin": [self.class originString]
                              } mutableCopy];
     if (credentials.apnsToken.length > 0) {
         params[@"apns"] = credentials.apnsToken;
@@ -113,7 +113,7 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setSecurityPolicy:[self commonPolicy]];
-    NSDictionary *params = @{@"origin": [self originString]};
+    NSDictionary *params = @{@"origin": [self.class originString]};
     [manager GET:[NSString stringWithFormat:@"%@/api/session/%@", kMyGeofancyBackend, sessionId] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (finish) {
             finish(nil);
@@ -130,7 +130,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager setSecurityPolicy:[self commonPolicy]];
     [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-    NSMutableDictionary *params = [@{@"origin": [self originString]} mutableCopy];
+    NSMutableDictionary *params = [@{@"origin": [self.class originString]} mutableCopy];
     if (apnsToken.length > 0) {
         params[@"apns"] = @{
                 @"token": apnsToken
@@ -166,7 +166,7 @@
                              @"httpResponseCode": StringOrEmpty(fencelog.httpResponseCode),
                              @"eventType": StringOrEmpty(fencelog.eventType),
                              @"fenceType": StringOrEmpty(fencelog.fenceType),
-                             @"origin": [self originString]
+                             @"origin": [self.class originString]
                              };
     
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST"
@@ -236,7 +236,7 @@
         return finish([NSError errorWithDomain:NSStringFromClass(self.class) code:401 userInfo:@{NSLocalizedDescriptionKey: @"Invalid session"}]);
     }
     NSDictionary *params = @{
-                             @"origin": [self originString],
+                             @"origin": [self.class originString],
                              @"locationId": geofence.customId ? geofence.customId : @"",
                              @"lon": geofence.longitude,
                              @"lat": geofence.latitude,
@@ -258,7 +258,7 @@
     }];}
 
 #pragma mark - Helper Methods
-- (NSString *)originString
++ (NSString *)originString
 {
     NSString *originString = [[UIDevice currentDevice] name];
     if (![originString isKindOfClass:NSString.class]) {

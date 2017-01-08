@@ -133,7 +133,23 @@ class SettingsViewController: FormViewController {
     }
     
     func login() {
-        safariViewController = SFSafariViewController(url: URL(string: "\(CloudConnect.cloudUrl)/mobile-login")!)
+        #if DEBUG
+            let sandbox = "true"
+        #else
+            let sandbox = "false"
+        #endif
+        guard var components = URLComponents(string: "\(CloudConnect.cloudUrl)/mobile-login") else { return assertionFailure() }
+        components.queryItems = [
+            URLQueryItem(name: "origin", value: CloudManager.originString()),
+            URLQueryItem(name: "sandbox", value: sandbox)
+        ]
+        if let apns = appDelegate.settings.apnsToken {
+            components.queryItems?.append(
+                URLQueryItem(name: "apns", value: apns)
+            )
+        }
+        safariViewController = SFSafariViewController(url: components.url!)
+        print("url: \(components.url!)")
         present(safariViewController!, animated: true)
     }
     
