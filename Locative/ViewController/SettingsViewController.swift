@@ -149,7 +149,6 @@ class SettingsViewController: FormViewController {
             )
         }
         safariViewController = SFSafariViewController(url: components.url!)
-        print("url: \(components.url!)")
         present(safariViewController!, animated: true)
     }
     
