@@ -87,15 +87,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        if url.absoluteString == "locative://debug" {
-            settings.toggleDebug()
-        } else if url.absoluteString.hasPrefix("locative://login") {
-            guard let token = url.absoluteString.components(separatedBy: "=").last else { return true }
-            settings.apiToken = token
-            settings.persist()
-            NotificationCenter.default.post(name: .notificationLoginDone, object: nil)
-            reloadAccountData()
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            return false
         }
+
+        // App Scheme URL actions
+        if components.scheme == "locative" {
+            if components.host == "debug" {
+                settings.toggleDebug()
+            } else if components.host == "login" {
+                guard let token = components.queryItems?.filter({ $0.name == "token" }).first?.value else { return true }
+                settings.apiToken = token
+                settings.persist()
+                NotificationCenter.default.post(name: .notificationLoginDone, object: nil)
+                reloadAccountData()
+            }
+        }
+        
         if !(url as NSURL).isFileReferenceURL() { return false }
         guard url.pathExtension == "gpx" else { return false }
         SwiftyBeaver.self.debug("Opening GPX file at \(url.absoluteString)")
