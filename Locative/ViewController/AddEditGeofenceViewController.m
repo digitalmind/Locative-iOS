@@ -248,7 +248,7 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
         if (_geofenceType == GeofenceTypeIBeacon) {
             return 0.0f;
         }
-    } else if (indexPath.section == 7) {
+    } else if (indexPath.section == 8) {
         if (_geofenceType == GeofenceTypeIBeacon) {
             return 0.0f;
         }
