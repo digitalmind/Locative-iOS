@@ -1,6 +1,5 @@
-# Locative for iOS
+# Locative for iOS ([Discontinued, click here to read more.](http://blog.locative.io/bye-everyone-df01871fe949))
 
-[![Join the Slack group](https://slack.locative.io/badge.svg)](https://slack.locative.io/)
 [![Twitter: @Kidmar](https://img.shields.io/badge/contact-@Kidmar-blue.svg?style=flat)](https://twitter.com/Kidmar)
 [![App Store](https://img.shields.io/badge/app%20store-%20Download-red.svg)](https://appsto.re/de/1zAoR.i)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/LocativeHQ/Locative-iOS/blob/master/LICENSE.md)
