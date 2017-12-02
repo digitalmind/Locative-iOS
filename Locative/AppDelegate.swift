@@ -14,13 +14,13 @@ private extension String {
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var cloudManager: CloudManager!
-    var geofenceManager: GeofenceManager!
+    @objc var cloudManager: CloudManager!
+    @objc var geofenceManager: GeofenceManager!
     let cloudConnect = CloudConnect()
     
     let reachabilityManager = AFNetworkReachabilityManager(forDomain: "my.locative.io")
     let requestManager = HttpRequestManager()
-    let settings = Settings().restoredSettings()
+    @objc let settings = Settings().restoredSettings()
     let coreDataStack = CoreDataStack(model: "Model")
     let harpy = Harpy.sharedInstance()
     
@@ -164,7 +164,7 @@ private extension AppDelegate {
     }
     
     func importGpx(_ url: URL, keep: Bool) {
-        SVProgressHUD.show(withMaskType: UInt(SVProgressHUDMaskTypeClear))
+        SVProgressHUD.show(with: .clear)
         if let q = url.query , q.range(of: "openSettings=true") != nil {
             // open settings
             window?.rootViewController?.tabBarController?.selectedIndex = .settingsIndex

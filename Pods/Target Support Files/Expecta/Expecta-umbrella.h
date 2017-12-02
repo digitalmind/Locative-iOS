@@ -1,10 +1,20 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
 
-#import "EXPBackwardCompatibility.h"
 #import "EXPBlockDefinedMatcher.h"
 #import "EXPDefines.h"
 #import "EXPDoubleTuple.h"
 #import "Expecta.h"
+#import "ExpectaObject.h"
 #import "ExpectaSupport.h"
 #import "EXPExpect.h"
 #import "EXPFloatTuple.h"
@@ -31,7 +41,8 @@
 #import "EXPMatchers+endWith.h"
 #import "EXPMatchers+equal.h"
 #import "EXPMatchers+haveCountOf.h"
-#import "EXPMatchers+notify.h"
+#import "EXPMatchers+match.h"
+#import "EXPMatchers+postNotification.h"
 #import "EXPMatchers+raise.h"
 #import "EXPMatchers+raiseWithReason.h"
 #import "EXPMatchers+respondTo.h"

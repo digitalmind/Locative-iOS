@@ -161,7 +161,7 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func syncMonitoredRegions() {
+    @objc func syncMonitoredRegions() {
         // stop monitoring for all regions regions
         locationManager.monitoredRegions.forEach { region in
             SwiftyBeaver.self.debug("Stopping region \(region)")
@@ -175,7 +175,7 @@ class GeofenceManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func performAfterRetrievingCurrentLocation(completion: @escaping OnLocationUpdated) {
+    @objc func performAfterRetrievingCurrentLocation(completion: @escaping OnLocationUpdated) {
         onCurrentLocation = completion
         locationManager.startUpdatingLocation()
     }

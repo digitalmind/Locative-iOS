@@ -125,7 +125,7 @@ class SettingsViewController: FormViewController {
         return button
     }
     
-    func loginUsingOnePassword(_ sender: Any?) {
+    @objc func loginUsingOnePassword(_ sender: Any?) {
         OnePasswordExtension.shared().findLogin(forURLString: "https://my.locative.io", for: self, sender: sender) { [weak self] loginDictionary, error in
             guard let credentials = loginDictionary, credentials.count > 0 else { return }
             self?.login()
@@ -231,7 +231,7 @@ class SettingsViewController: FormViewController {
         }
         
         func createGpx(inView: UIView) {
-            SVProgressHUD.show(withMaskType: UInt(SVProgressHUDMaskTypeClear))
+            SVProgressHUD.show(with: .clear)
             let root = GPXRoot(creator: gpxCreator())!
             
             DispatchQueue(label: "io.locative.iOS.gpx").async {
@@ -297,7 +297,7 @@ fileprivate extension SettingsViewController {
                     guard let selected = self?.appDelegate.settings.globalHttpMethod?.intValue else {
                         return
                     }
-                    row.value = row.options[selected]
+                    row.value = row.options?[selected]
                 }.onChange { [weak self] row in
                     self?.appDelegate.settings.globalHttpMethod =
                         NSNumber(value: row.value == "POST" ? 0 : 1)

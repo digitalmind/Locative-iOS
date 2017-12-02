@@ -5,11 +5,11 @@ private extension String {
     static let accountData = "accountData"
 }
 
-open class Settings: NSObject, NSCoding {
+class Settings: NSObject, NSCoding {
 
-    var globalUrl: URL?
+    @objc var globalUrl: URL?
     var appHasBeenStarted: NSNumber? = NSNumber(value: false as Bool)
-    var globalHttpMethod: NSNumber? = NSNumber(value: 0 as Int)
+    @objc var globalHttpMethod: NSNumber? = NSNumber(value: 0 as Int)
     var notifyOnSuccess: NSNumber? = NSNumber(value: true as Bool)
     var notifyOnFailure: NSNumber? = NSNumber(value: true as Bool)
     var soundOnNotification: NSNumber? = NSNumber(value: true as Bool)
@@ -24,7 +24,7 @@ open class Settings: NSObject, NSCoding {
     let basicAuthCredentials = SecureCredentials(service: "GlobalBasicAuth")
     let apiCredentials = SecureCredentials(service: "ApiToken")
     
-    var apiToken: String? {
+    @objc var apiToken: String? {
         get {
             self.migrateApiToken()
             if let old = old_apiToken() , old.characters.count > 0 {
@@ -76,7 +76,7 @@ open class Settings: NSObject, NSCoding {
         }
     }
     
-    var apnsToken: String? {
+   @objc var apnsToken: String? {
         get {
             return defaults().string(forKey: .apnsToken)
         }
@@ -146,7 +146,7 @@ open class Settings: NSObject, NSCoding {
 
 //MARK: - Restoration
 extension Settings {
-    func restoredSettings() -> Settings {
+    @objc public func restoredSettings() -> Settings {
         if let oldSettingsPath = NSString.oldSettingsPath(),
             let newSettingsPath = NSString.settingsPath() {
             if FileManager.default.fileExists(atPath: oldSettingsPath) {
@@ -180,7 +180,7 @@ extension Settings {
     }
     
     //MARK: - Removal
-    func removeApiToken() {
+    @objc func removeApiToken() {
         apiCredentials[cloudSession] = nil
         removeApiTokenFromContainer()
     }

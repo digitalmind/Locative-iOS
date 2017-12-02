@@ -1,61 +1,96 @@
 PODS:
-  - 1PasswordExtension (1.8.2)
-  - AFNetworking (2.6.2):
-    - AFNetworking/NSURLConnection (= 2.6.2)
-    - AFNetworking/NSURLSession (= 2.6.2)
-    - AFNetworking/Reachability (= 2.6.2)
-    - AFNetworking/Security (= 2.6.2)
-    - AFNetworking/Serialization (= 2.6.2)
-    - AFNetworking/UIKit (= 2.6.2)
-  - AFNetworking/NSURLConnection (2.6.2):
+  - 1PasswordExtension (1.8.4)
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.2):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.2)
-  - AFNetworking/Security (2.6.2)
-  - AFNetworking/Serialization (2.6.2)
-  - AFNetworking/UIKit (2.6.2):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Crashlytics (3.7.0):
+  - Alamofire (4.2.0)
+  - AsyncDisplayKit (2.2):
+    - AsyncDisplayKit/PINRemoteImage (= 2.2)
+  - AsyncDisplayKit/Core (2.2)
+  - AsyncDisplayKit/PINRemoteImage (2.2):
+    - AsyncDisplayKit/Core
+    - PINRemoteImage/iOS (= 3.0.0-beta.8)
+    - PINRemoteImage/PINCache
+  - Crashlytics (3.7.3):
     - Fabric (~> 1.6.3)
   - DZNEmptyDataSet (1.4.1)
-  - Expecta (0.3.1)
-  - Fabric (1.6.7)
-  - Harpy (3.3.1)
+  - Eureka (4.0.1)
+  - Expecta (1.0.6)
+  - Fabric (1.6.13)
+  - Harpy (3.3.10)
   - HexColors (2.3.0)
-  - INTULocationManager (3.0.1)
   - iOS-GPX-Framework (0.0.2):
     - TBXML (~> 1.5)
+  - KeychainAccess (3.1.0)
+  - NMessenger (1.0.80):
+    - AsyncDisplayKit (= 2.2)
   - ObjectiveRecord (1.5.0):
     - ObjectiveSugar
   - ObjectiveSugar (1.1.0)
-  - Specta (0.2.1)
-  - SVProgressHUD (1.0)
+  - PINCache (3.0.1-beta.4):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.4)
+    - PINCache/Core (= 3.0.1-beta.4)
+  - PINCache/Arc-exception-safe (3.0.1-beta.4):
+    - PINCache/Core
+  - PINCache/Core (3.0.1-beta.4):
+    - PINOperation (= 1.0.3)
+  - PINOperation (1.0.3)
+  - PINRemoteImage/Core (3.0.0-beta.8)
+  - PINRemoteImage/iOS (3.0.0-beta.8):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.0-beta.8):
+    - PINCache (= 3.0.1-beta.4)
+    - PINRemoteImage/Core
+  - Specta (1.0.7)
+  - SVProgressHUD (1.1.3)
+  - SwiftyBeaver (1.4.3)
   - TBXML (1.5)
   - TSMessages (0.9.13):
     - HexColors (~> 2.3.0)
+  - VTAcknowledgementsViewController (1.3)
 
 DEPENDENCIES:
   - 1PasswordExtension (~> 1.8.2)
   - AFNetworking (~> 2.6.2)
+  - Alamofire (~> 4.2.0)
   - Crashlytics (~> 3.7.0)
   - DZNEmptyDataSet (~> 1.4.1)
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `master`)
   - Expecta
   - Fabric (~> 1.6.7)
   - Harpy (~> 3.3.1)
-  - INTULocationManager (~> 3.0.1)
   - iOS-GPX-Framework (from `https://github.com/kimar/iOS-GPX-Framework`, commit `cb2b563`)
+  - KeychainAccess (~> 3)
+  - NMessenger (~> 1.0.79)
   - ObjectiveRecord (from `https://github.com/kimar/ObjectiveRecord`, commit `d1fbb19`)
   - Specta
   - SVProgressHUD (~> 1.0)
+  - SwiftyBeaver
   - TSMessages (from `https://github.com/KrauseFx/TSMessages`, commit `e63f233`)
+  - VTAcknowledgementsViewController (~> 1.2)
 
 EXTERNAL SOURCES:
+  Eureka:
+    :branch: master
+    :git: https://github.com/xmartlabs/Eureka.git
   iOS-GPX-Framework:
     :commit: cb2b563
     :git: https://github.com/kimar/iOS-GPX-Framework
@@ -67,6 +102,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/KrauseFx/TSMessages
 
 CHECKOUT OPTIONS:
+  Eureka:
+    :commit: 076eaaa27d1c90c68f01a6389cfcaa0359ea1a10
+    :git: https://github.com/xmartlabs/Eureka.git
   iOS-GPX-Framework:
     :commit: cb2b563
     :git: https://github.com/kimar/iOS-GPX-Framework
@@ -78,23 +116,32 @@ CHECKOUT OPTIONS:
     :git: https://github.com/KrauseFx/TSMessages
 
 SPEC CHECKSUMS:
-  1PasswordExtension: 303f2b7bbf6dc19ede3090bd6b5987530648d687
-  AFNetworking: 7f317038a9710cabfa43ec56396b307b45df72ab
-  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
+  1PasswordExtension: e775a29310c65851e5a6cec1afc349ab4e334e47
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AsyncDisplayKit: 1585f6cd0531ae9b30476f5912f577b73ebcb0e4
+  Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
   DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
-  Expecta: a354d4633409dd9fe8c4f5ff5130426adbe31628
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  Harpy: 1c3f286473c97db20a19dda87582331e951036bc
+  Eureka: 3311299432b1e11fa4b40796654fc759caabcd93
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
+  Fabric: 2fb5676bc811af011a04513451f463dac6803206
+  Harpy: 7cb3e32eea8a21af0e89b7f9f7bccd23f9427139
   HexColors: 6ad3947c3447a055a3aa8efa859def096351fe5f
-  INTULocationManager: c27483113e1bbc5952ead6417f9b39824a240ebb
   iOS-GPX-Framework: 7297860335a923bb5ea62b29b2691e803226da09
+  KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
+  NMessenger: ca6a89073ca40d3868cf45505f6f8318853afd40
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
-  Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
-  SVProgressHUD: 46088807596a795cbcb4affd92cf3f13b6ab3dda
+  PINCache: a89c8f609232afac77128557bd12c861844423d7
+  PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
+  PINRemoteImage: c4f9f16932840c597f32e69dd288e10e111a1929
+  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SwiftyBeaver: e10b1668e0512229c36c34769b97eed3dfae2ca3
   TBXML: 9f9dadb239f2f2af1dadb87fe43a0ce6e479379a
   TSMessages: 6e403b790139636c15ab4f51946537095e03e79c
+  VTAcknowledgementsViewController: 0bc8149be64f0d5b7f398e146353af8fde04b313
 
-PODFILE CHECKSUM: cd111b0858dc2ad639420415d8198cd8f105a0e1
+PODFILE CHECKSUM: c83605f851bb72a723e3caf49a47a07634317b79
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.3.1

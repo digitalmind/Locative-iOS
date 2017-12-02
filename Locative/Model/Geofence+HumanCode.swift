@@ -10,7 +10,7 @@ fileprivate extension TimeInterval {
 }
 
 extension Geofence {
-    public var httpPasswordSecure: String? {
+    @objc public var httpPasswordSecure: String? {
         set {
             guard let httpUser = httpUser else { return }
             guard let uuid = uuid else { return }
@@ -23,7 +23,7 @@ extension Geofence {
         }
     }
     
-    class func showMaximumGeofencesReached(alert: Bool, viewController: UIViewController) -> Bool {
+    @objc class func showMaximumGeofencesReached(alert: Bool, viewController: UIViewController) -> Bool {
         guard Geofence.all().count >= 20 else {
             return false
         }

@@ -8,8 +8,7 @@ _Ready to use “Acknowledgements”/“Licenses”/“Credits” view controlle
 [![CocoaPods documentation](https://img.shields.io/cocoapods/metrics/doc-percent/VTAcknowledgementsViewController.svg)](http://cocoadocs.org/docsets/VTAcknowledgementsViewController)
 [![MIT license](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vtourraine/VTAcknowledgementsViewController/raw/master/LICENSE)
 
-<img alt="iPhone screenshot 1" src="http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/iPhone-6s-01.png" width="300px">
-<img alt="iPhone screenshot 2" src="http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/iPhone-6s-02.png" width="300px">
+<img alt="iPhone screenshot 1" src="http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/iPhone-6s-01.png" width="300px"> <img alt="iPhone screenshot 2" src="http://vtourraine.github.io/VTAcknowledgementsViewController/screenshots/iPhone-6s-02.png" width="300px">
 
 
 ## How to Install
@@ -35,7 +34,7 @@ viewController.headerText = NSLocalizedString(@"We love open source software.", 
 
 ## Customization
 
-If your `.plist` file is named something other than `Pods-acknowledgements.plist` (_e.g._ if you’re using fancy build targets), you can initialize the view controller with a custom file name or path.
+If your `.plist` file is named something other than `Pods-acknowledgements.plist` (_e.g._ if you’re using custom build targets), you can initialize the view controller with a custom file name or path.
 
 ``` objc
 viewController = [[VTAcknowledgementsViewController alloc] initWithFileNamed:@"Pods-MyTarget-acknowledgements"];
